@@ -1,5 +1,6 @@
 # Welcome to MkDocs
 
+***THIS will be the new new voron wiki, as the old one was a bit of a pain to keep online, and would have only required more maintenance going forward
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Commands
