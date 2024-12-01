@@ -1,3 +1,9 @@
 site_name: My Docs
 theme:
   name: material
+nav:
+  - Home: index.md
+  - Voron V0: v0.md
+  - Voron Switchwire: switchwire.md
+  - Voron Trident: trident.md
+  - Voron V2.4: v2-4.md
