@@ -1,9 +1,29 @@
 site_name: My Docs
 theme:
   name: material
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 nav:
   - Home: index.md
-  - Voron V0: v0.md
-  - Voron Switchwire: switchwire.md
-  - Voron Trident: trident.md
-  - Voron V2.4: v2-4.md
+  - Voron V0: printers/v0.md
+  - Voron Switchwire: printers/switchwire.md
+  - Voron Trident: printers/trident.md
+  - Voron V2.4: printers/v2-4.md
+
+plugins:
+  - search
