@@ -1,6 +1,19 @@
-site_name: My Docs
+site_name: Voron3D Wiki
+site_url: https://voron3d.wiki
 theme:
+  favicon: assets/vdesignplainlorig.png
+  logo: assets/VoronLogo.png
   name: material
+  features:
+    - navigation.tracking
+    - content.code.copy
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.prune
+    - toc.follow
+
+
   palette:
 
     # Palette toggle for light mode
@@ -26,4 +39,16 @@ nav:
   - Voron V2.4: printers/v2-4.md
 
 plugins:
+  # - meta-descriptions
   - search
+  # - optimize
+  - tags
+  # - social
+  - glightbox
+  - privacy
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - footnotes
+  - md_in_html
