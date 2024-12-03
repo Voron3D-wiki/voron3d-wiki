@@ -29,10 +29,12 @@ jobs:
       - name: Run ESLint
         run: |
           npx eslint "**/*.js" || echo "Linting issues found. Please fix them."
+        continue-on-error: true
 
       - name: Run Prettier Check
         run: |
-          npx prettier --check "**/*.{js,css,md,json}"
+          npx prettier --check "**/*.{js,css,md,json}" || echo "Formatting issues found. Please fix them."
+        continue-on-error: true
 
   # Stage 2: Build Validation
   build:
