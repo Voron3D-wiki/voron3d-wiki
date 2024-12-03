@@ -9,7 +9,6 @@ dateCreated: 2024-09-29T19:07:00.474Z
 ---
 
 # Welcome to the Voron3D Wiki
-*<sup>Text assisted By Chat-GPT</sup>*
 
 Voron Design is a community-driven project focused on the creation of high-performance, fully customizable 3D printers. The project was founded in 2015 by a group of 3D printing enthusiasts who wanted to build printers that prioritize reliability, quality, and engineering excellence. Voron printers are designed for enthusiasts and professionals alike who are looking for a robust platform to support continuous innovation.
 
