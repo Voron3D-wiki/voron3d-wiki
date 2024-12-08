@@ -33,10 +33,27 @@ theme:
         name: Switch to light mode
 nav:
   - Home: index.md
-  - Voron V0: printers/v0.md
-  - Voron Switchwire: printers/switchwire.md
-  - Voron Trident: printers/trident.md
-  - Voron V2.4: printers/v2-4.md
+  - Printers:
+      - Voron V0: printers/v0.md
+      - Voron Switchwire: printers/switchwire.md
+      - Voron Trident: printers/trident.md
+      - Voron V2.4: printers/v2-4.md
+  - Guides:
+      - Overview: Guides.md
+  - Toolheads:
+      - Toolhead Overview: toolheads/toolhead-home.md
+      - Boards: toolheads/toolhead-board.md
+      - Hotends: toolheads/hotends.md
+
+
+  - Bed Leveling:
+      - Overview: bedleveling/bed-leveling.md
+      - Eddy Coil: bedleveling/eddy-coil.md
+      - Eddy: bedleveling/eddy.md
+  # - External Links:
+  #     - [Voron3D Official Site](https://voron3d.com/)
+  #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
+  #     - [Klipper Reddit](https://www.reddit.com/r/klippers/)
 
 plugins:
   # - meta-descriptions
