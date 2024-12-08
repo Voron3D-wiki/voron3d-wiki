@@ -39,7 +39,7 @@ nav:
       - Voron Trident: printers/trident.md
       - Voron V2.4: printers/v2-4.md
   - Guides:
-      - Overview: Guides.md
+      - Overview: guides/guides-home.md
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
       - Boards: toolheads/toolhead-board.md
