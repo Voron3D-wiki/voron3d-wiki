@@ -2,7 +2,7 @@
 title: List of Toolheadboards
 description: 
 published: true
-tags: canbus, ebb36, ebb42, sht-36
+tags: [canbus, ebb36, ebb42, sht-36]
 ---
 
 # Toolhead Boards for 3D Printers

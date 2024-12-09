@@ -42,9 +42,8 @@ nav:
       - Overview: guides/guides-home.md
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
-      - Boards: toolheads/toolhead-board.md
+      - Boards: toolheads/toolhead-boards.md
       - Hotends: toolheads/hotends.md
-
 
   - Bed Leveling:
       - Overview: bedleveling/bed-leveling.md

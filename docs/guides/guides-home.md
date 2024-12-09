@@ -2,7 +2,7 @@
 title: Guides Home
 description: Central hub for all 3D printer guides, including assembly, setup, troubleshooting, and upgrades.
 published: true
-tags: guides, assembly, firmware, troubleshooting, upgrades
+tags: [guides, assembly, firmware, troubleshooting, upgrades]
 ---
 
 <!-- # **Guides for Voron 3D Printers**

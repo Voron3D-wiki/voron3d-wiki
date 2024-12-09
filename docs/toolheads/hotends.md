@@ -1,12 +1,9 @@
-<!--
+---
 title: Hotends
 description: 
 published: true
-date: 2024-10-03T21:59:33.554Z
 tags: 
-editor: code
-dateCreated: 2024-10-03T21:59:33.554Z
--->
+---
 
 # Hotends Overview
 
