@@ -44,11 +44,20 @@ nav:
       - Toolhead Overview: toolheads/toolhead-home.md
       - Boards: toolheads/toolhead-boards.md
       - Hotends: toolheads/hotends.md
-
   - Bed Leveling:
       - Overview: bedleveling/bed-leveling.md
       - Eddy Coil: bedleveling/eddy-coil.md
       - Eddy: bedleveling/eddy.md
+  - Multi-Material units:
+      - List of MMUS: MMUs/MMU-home.md
+      - ERCF v1/v2: MMUs/ERCF.md
+      - Tradrack: MMUs/tradrack.md
+      - BoxTurtle: MMUs/BoxTurtle.md
+      - PICO-MMU: MMUs/PICO-MMU.md
+      - BTT-MMU: MMUs/BTT-MMU.md
+      - Anycubic-MMU: MMUs/Anycubic-MMU.md
+      - Pursa-MMU: MMUs/Pursa-MMU.md
+
   # - External Links:
   #     - [Voron3D Official Site](https://voron3d.com/)
   #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
