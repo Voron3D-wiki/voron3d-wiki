@@ -21,7 +21,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 ---
 
 ### 3. **Anycubic MMU**
-- **Description**: Anycubic's solution for multi-material printing, offering basic functionality for up to three filaments.
+- **Description**: Anycubic's solution for multi-material printing, originally released with the kobra 3 3dprinter, it will soon be supported by the upcoming anycubic s1 aswell.
 - [Learn More](./Anycubic-MMU.md)
 
 ---
