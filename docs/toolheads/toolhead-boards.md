@@ -11,15 +11,32 @@ Toolhead boards make 3D printing more efficient by consolidating wiring on the m
 
 ## CAN Bus Toolhead Boards
 
-![Fysetc M36 Toolhead Board Photo](path/to/fysetc-m36-photo.jpg)
+
+![MKS THR36 & THR42 Toolhead Board Photo]()
+
+### [MKS THR36 & THR42 Toolhead Board](./toolhead-board/MKS-THR.md)
+
+The MKS THR36 & THR42 series of toolhead boards are designed to work with any printer that supports CAN bus or USB communication. These boards require either 24V or 12V power to operate, which is used to power the heater. They serve as a compelling alternative to BTT and Mellow boards due to their inclusion of three independently controllable fans.
+
+---
+
 
 ### [Fysetc M36 Toolhead Board](https://voron3d.wiki/en/configuration/toolhead-board/fysetc-M36)
 
-This toolhead board is designed to simplify wiring for CoreXY printers and is fully compatible with 24V systems. It's an excellent choice for Voron builds.
+This toolhead board is desgined by fysetc to work with their voron v0 kits, it is a usable toolhead but it known to short very easily due to its tendency to connect 24v power before ground when plugged/unplugged
 
-Why it's good: Compact design, JST-XH connectors, 24V support
+TIP: Power off printer fully before unplugging toolhead board
 
-[More Info](https://voron3d.wiki/en/configuration/toolhead-board/fysetc-M36) | [Buy Now](https://www.fysetc.com)
+Pros:
+   - easy to use
+   - normally comes pre configured 
+Cons:
+   -  unreliable
+   - fragile
+   - uses JST-PH connectors
+[More Info](./toolhead-board//fysetc-M36) | [OEM LINK](https://www.fysetc.com)
+
+---
 
 ![BTT EBB36/42 Toolhead Board Photo](path/to/btt-ebb-photo.jpg)
 
@@ -31,6 +48,8 @@ Why it's good: CAN bus support, easy firmware setup, multiple sensors support
 
 [More Info](btt-ebb-toolhead.html) | [Buy Now](https://www.bigtree-tech.com)
 
+---
+
 ![Mellow fly SHT36/42 Toolhead Board Photo](path/to/Mellow-fly-SHT-photo.jpg)
 
 ### Mellow fly SHT36/42 Series Toolhead Board
@@ -40,6 +59,8 @@ The Mellow fly SHT36/42 series supports CAN bus communication and is known for e
 Why it's good: CAN bus support, easy firmware setup, multiple sensors support
 
 [More Info](Mellow fly SHT36/42-toolhead.html) | [Buy Now](https://mellow-3d.github.io/)
+
+---
 
 ![Hartk Toolboard Photo](path/to/hartk-toolboard-photo.jpg)
 
