@@ -38,8 +38,9 @@ nav:
       - Voron Switchwire: printers/switchwire.md
       - Voron Trident: printers/trident.md
       - Voron V2.4: printers/v2-4.md
-  - Guides:
-      - Overview: guides/guides-home.md
+
+  - Electronics:
+      - Motherboards / MCU: electronics/mcu.md
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
       - Boards: toolheads/toolhead-boards.md
@@ -57,7 +58,8 @@ nav:
       - BTT-MMU: MMUs/BTT-MMU.md
       - Anycubic-MMU: MMUs/Anycubic-MMU.md
       - Pursa-MMU: MMUs/Pursa-MMU.md
-
+  - Guides:
+      - Overview: guides/guides-home.md
   # - External Links:
   #     - [Voron3D Official Site](https://voron3d.com/)
   #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
