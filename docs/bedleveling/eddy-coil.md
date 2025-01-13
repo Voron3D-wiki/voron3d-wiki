@@ -33,8 +33,6 @@ The Eddy Coil is an inductive bed-leveling sensor developed by BTT. It integrate
 
 ---
 
-### **Conclusion**
-
 The Eddy Coil is a good option for users seeking an affordable, reliable sensor for bed leveling in their 3D printers. However, its setup requires careful calibration, and its "dumb" nature limits its use for those needing advanced features.
 
 ---
