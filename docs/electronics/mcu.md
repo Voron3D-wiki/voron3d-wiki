@@ -12,7 +12,8 @@ tags:
 
 ### **BTT SKR PICO**
 - **Description**: 
-- [Learn More](./ERCF.md)
+- [Voron design offical docuemntation for skr pico](https://docs.vorondesign.com/build/software/skrPico_klipper.html)
+- [The offical Big Tree Tech documentation for the skr pico](https://github.com/bigtreetech/SKR-Pico/tree/master)
 ---
 ### **BTT SKR3**
 - **Description**: 
