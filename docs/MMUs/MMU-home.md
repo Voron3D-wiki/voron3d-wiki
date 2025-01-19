@@ -37,7 +37,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - [Learn More](./BTT-MMU.md)
 
 ---
-
+![picoMMU](https://github.com/lhndo/LH-Stinger/raw/main/User_Mods/MMU/Stinger%20Pico%20MMU%20-%20@LH/Assets/lhs_pico_mmu.png?raw=true)
 ### 6. **PICO MMU**
 - **Description**: A very intereresting project by [Ihndo](https://github.com/lhndo){:target="_blank"} the creater of the [LH-Stinger](https://github.com/lhndo/LH-Stinger){:target="_blank"}
 - [Learn More](./PICO-MMU.md)

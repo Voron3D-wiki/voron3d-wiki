@@ -2,9 +2,28 @@
 title: Toolheads/Printheads
 description: Overview of Toolheads/Printheads
 published: true
-date: 2024-10-05T22:33:45.894Z
 tags: [dragon burner, stealthburner, XOL]
 ---
+# Extruder
 
+## List of Extruder
+
+### **stealthburner**
+- **Description**: 
 ![stealthburner.webp](/stealthburner.webp)
--StealthBurner
+
+---
+
+### **mini StealthBurner**
+- **Description**: 
+
+---
+
+### **Dragon Burner**
+- **Description**: 
+
+---
+### **XOL**
+- **Description**: 
+
+---
