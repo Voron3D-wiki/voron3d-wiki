@@ -38,6 +38,19 @@ Cons:
 
 ---
 
+<!-- Google AdSense Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="1140087271"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ![BTT EBB36/42 Toolhead Board Photo](path/to/btt-ebb-photo.jpg)
 
 ### BTT EBB Series Toolhead Board
@@ -61,6 +74,19 @@ Why it's good: CAN bus support, easy firmware setup, multiple sensors support
 [More Info](Mellow fly SHT36/42-toolhead.html) | [Buy Now](https://mellow-3d.github.io/)
 
 ---
+
+<!-- Google AdSense Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="1140087271"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ![Hartk Toolboard Photo](path/to/hartk-toolboard-photo.jpg)
 
@@ -95,3 +121,16 @@ This board connects via USB for printers that use USB for communication and powe
 Why it's good: Simple USB communication, plug-and-play support
 
 [More Info](usb-toolhead-board.html) | [Buy Now](https://www.example.com)
+
+<!-- Google AdSense Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="1140087271"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
