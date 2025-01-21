@@ -3,12 +3,24 @@
 ## Introduction
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
 
+<!-- Google AdSense Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="1140087271"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## List of MMU Systems
 
 ### 1. **Prusa Design MMU**
 - **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
 - [Learn More](./Prusa-MMU.md)
-
 
 ---
 
@@ -55,6 +67,20 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - **Multi-Material Capability**: Combine different material properties, e.g., flexible and rigid.
 - **Automated Filament Changes**: Simplifies filament swaps during a print.
 - **Dissolvable Supports**: Use soluble support materials for complex overhangs.
+
+<!-- Google AdSense Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="1140087271"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 
 ## Conclusion
 Multi-Material Upgrade systems enhance the functionality of FDM 3D printing, opening possibilities for more creative, functional, and visually striking models. Each system has its strengths, so choosing the right MMU depends on the printer type, user experience, and project requirements.
