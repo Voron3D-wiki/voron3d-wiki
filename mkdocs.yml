@@ -13,7 +13,6 @@ theme:
     - navigation.prune
     - toc.follow
 
-
   palette:
 
     # Palette toggle for light mode
@@ -73,6 +72,10 @@ plugins:
   # - social
   - glightbox
   - privacy
+
+google_analytics:
+  - G-VPL8R0L9Z1  # Replace with your Google Analytics Measurement ID
+  - auto          # Use 'auto' to track all subdomains, or specify your domain (e.g., "example.com")
 
 extra_files:
   - ads.txt
