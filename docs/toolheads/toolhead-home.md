@@ -9,18 +9,20 @@ tags: [dragon burner, stealthburner, XOL]
 ## List of Extruder
 
 ### **stealthburner**
-- **Description**: 
-![stealthburner.webp](/stealthburner.webp)
+- **Cooling Fans**: one 5015 blower fans
+- **Hotend Fans**: one 4010 axel fan
+- ![stealthburner.webp](/stealthburner.webp)
 
 ---
 
 ### **mini StealthBurner**
-- **Description**: 
-
+- **Cooling Fans**: two 3010 blower fans
+- **Hotend Fans**: one 3010 axel fan
 ---
 
 ### **Dragon Burner**
-- **Description**: 
+- **Cooling Fans**: two 4010 blower fans
+- **Hotend Fans**: one 3010 axel fan
 
 ---
 ### **XOL**
