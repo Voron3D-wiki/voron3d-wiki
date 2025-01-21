@@ -15,6 +15,20 @@ Voron Design is a community-driven project focused on the creation of high-perfo
 
 The Voron project revolves around open-source 3D printers that are known for their modularity, precision, and high print quality. These machines are highly customizable and can be tailored to individual needs, whether for personal, professional, or industrial use. The key feature of Voron printers is the community’s commitment to improving every aspect of the design, including mechanics, electronics, and firmware.
 
+<!-- Google AdSense Code -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="1140087271"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
 ## History and Origins
 
 Voron started in 2015 as a small project by its founder, VoronDesign, aiming to improve existing printer designs for personal use. As interest grew, so did the community around it, and by 2017, Voron had evolved into a comprehensive open-source project. Today, Voron is maintained by a passionate community of designers, engineers, and makers who contribute their expertise to continually refine the project.
