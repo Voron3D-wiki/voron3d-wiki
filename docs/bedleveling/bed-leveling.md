@@ -25,6 +25,17 @@ Mesh leveling, also known as "mesh bed leveling," is a process that creates a vi
 | Beacon3d | | | | |
 | Cartographer sensor | | | | |
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="9870151582"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Physical Sensors (Probes That Make Physical Contact with the Print Surface)
 
 | **Name of printhead** | **Image** | **Key features** | **More information** | **Source/creator link** |
@@ -40,3 +51,15 @@ Mesh leveling, also known as "mesh bed leveling," is a process that creates a vi
 |------------------------|-----------|------------------|-----------------------|--------------------------|
 | Beacon3d Poke | | | | |
 | | | | | |
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="9870151582"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

@@ -32,6 +32,17 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ---
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="9870151582"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### 3. **Anycubic MMU**
 - **Description**: Anycubic's solution for multi-material printing, originally released with the kobra 3 3dprinter, it will soon be supported by the upcoming anycubic s1 aswell.
 - [Learn More](./Anycubic-MMU.md)
@@ -47,6 +58,17 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 ### 5. **BTT MMU**
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware, at this time there is not much known.
 - [Learn More](./BTT-MMU.md)
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-8999624978372317"
+     data-ad-slot="9870151582"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ---
 <!-- ![picoMMU](https://github.com/lhndo/LH-Stinger/raw/main/User_Mods/MMU/Stinger%20Pico%20MMU%20-%20@LH/Assets/lhs_pico_mmu.png?raw=true) -->
