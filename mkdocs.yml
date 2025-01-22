@@ -76,7 +76,7 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-VPL8R0L9Z1
+    property: G-424103328
 
 extra_files:
   - ads.txt
