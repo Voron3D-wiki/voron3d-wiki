@@ -11,6 +11,12 @@ dateCreated: 2024-09-29T19:07:00.474Z
 
 Voron Design is a community-driven project focused on the creation of high-performance, fully customizable 3D printers. The project was founded in 2015 by a group of 3D printing enthusiasts who wanted to build printers that prioritize reliability, quality, and engineering excellence. Voron printers are designed for enthusiasts and professionals alike who are looking for a robust platform to support continuous innovation.
 
+
+
+## What is Voron?
+
+The Voron project revolves around open-source 3D printers that are known for their modularity, precision, and high print quality. These machines are highly customizable and can be tailored to individual needs, whether for personal, professional, or industrial use. The key feature of Voron printers is the community’s commitment to improving every aspect of the design, including mechanics, electronics, and firmware.
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
@@ -21,24 +27,6 @@ Voron Design is a community-driven project focused on the creation of high-perfo
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-## What is Voron?
-
-The Voron project revolves around open-source 3D printers that are known for their modularity, precision, and high print quality. These machines are highly customizable and can be tailored to individual needs, whether for personal, professional, or industrial use. The key feature of Voron printers is the community’s commitment to improving every aspect of the design, including mechanics, electronics, and firmware.
-
-<!-- Google AdSense Code -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="1140087271"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 
 ## History and Origins
 
@@ -53,7 +41,6 @@ Voron started in 2015 as a small project by its founder, VoronDesign, aiming to 
 - Strong, supportive community contributing regular modifications and improvements
 
 We hope this wiki will serve as a valuable resource for both new and experienced Voron users. Stay tuned for more updates!
-
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
@@ -64,3 +51,4 @@ We hope this wiki will serve as a valuable resource for both new and experienced
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
