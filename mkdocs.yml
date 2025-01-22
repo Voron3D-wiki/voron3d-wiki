@@ -4,7 +4,7 @@ theme:
   favicon: assets/vdesignplainlorig.png
   logo: assets/VoronLogo.png
   name: material
-  custom_dir: overrides
+  # custom_dir: overrides
   features:
     - navigation.tracking
     - content.code.copy
@@ -88,10 +88,10 @@ markdown_extensions:
   - markdown.extensions.extra
   - markdown.extensions.admonition
 
-# extra: #alternative analytics methode 
-#   analytics:
-#     provider: google
-#     property: G-424103328
+extra: #alternative analytics methode 
+  analytics:
+    provider: google
+    property: G-424103328
 # extra_javascript: #alternative analytics methode 
 #   - https://www.googletagmanager.com/gtag/js?id=G-VPL8R0L9Z1
 #   - analytics.js
