@@ -37,8 +37,9 @@ nav:
       - Voron Switchwire: printers/switchwire.md
       - Voron Trident: printers/trident.md
       - Voron V2.4: printers/v2-4.md
-
-  - Electronics:
+  - Software:
+      - Klipper: software/klipper.md
+  - Electronics/Control boards:
       - Motherboards / MCU: electronics/mcu.md
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
@@ -89,13 +90,13 @@ markdown_extensions:
   - markdown.extensions.admonition
 
 extra: #alternative analytics methode 
-  # consent:
-  #   title: Cookie consent
-  #   description: >- 
-  #     We use cookies to recognize your repeated visits and preferences, as well
-  #     as to measure the effectiveness of our documentation and whether users
-  #     find what they're searching for. With your consent, you're helping us to
-  #     make our documentation better.
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
   analytics:
     provider: google
     property: G-7E70MV2KN4

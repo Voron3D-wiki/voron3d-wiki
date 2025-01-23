@@ -1,3 +1,9 @@
+---
+title: Multi Material Systems
+description: Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
+published: true
+tags: [ERCF, PICO, AMSm]
+---
 # Multi-Material Upgrade Systems (MMUs)
 
 ## Introduction
