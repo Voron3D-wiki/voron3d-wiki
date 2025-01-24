@@ -44,6 +44,7 @@ nav:
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
       - Boards: toolheads/toolhead-boards.md
+      - MKS-THR: toolheads/toolheads-boards/MKS-THR.md
       - Hotends: toolheads/hotends.md
   - Bed Leveling:
       - Overview: bedleveling/bed-leveling.md
