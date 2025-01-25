@@ -12,6 +12,7 @@ theme:
     - navigation.sections
     - navigation.path
     - navigation.prune
+    - toc.integrate 
     - toc.follow
 
   palette:
@@ -41,9 +42,9 @@ nav:
       - Klipper: software/klipper.md
   - Electronics/Control boards:
       - Motherboards / MCU: electronics/mcu.md
+      - Toolhead Boards: toolheads/toolhead-boards.md
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
-      - Boards: toolheads/toolhead-boards.md
       - MKS-THR: toolheads/toolheads-boards/MKS-THR.md
       - Hotends: toolheads/hotends.md
   - Bed Leveling:
@@ -74,6 +75,8 @@ plugins:
   # - social
   - glightbox
   - privacy
+
+
 
 extra_files:
   - ads.txt
