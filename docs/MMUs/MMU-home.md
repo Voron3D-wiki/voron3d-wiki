@@ -9,18 +9,7 @@ tags: [ERCF, PICO, AMSm]
 ## Introduction
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
 
-<!-- Google AdSense Code -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="1140087271"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{{ read_file('ads/article-AD.md') }}
 
 ## List of MMU Systems
 
@@ -38,16 +27,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="9870151582"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{{ read_file('ads/article-AD.md') }}
 
 ### 3. **Anycubic MMU**
 - **Description**: Anycubic's solution for multi-material printing, originally released with the kobra 3 3dprinter, it will soon be supported by the upcoming anycubic s1 aswell.
@@ -65,16 +45,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware, at this time there is not much known.
 - [Learn More](./BTT-MMU.md)
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="9870151582"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{{ read_file('ads/article-AD.md') }}
 
 ---
 <!-- ![picoMMU](https://github.com/lhndo/LH-Stinger/raw/main/User_Mods/MMU/Stinger%20Pico%20MMU%20-%20@LH/Assets/lhs_pico_mmu.png?raw=true) -->
@@ -96,18 +67,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - **Automated Filament Changes**: Simplifies filament swaps during a print.
 - **Dissolvable Supports**: Use soluble support materials for complex overhangs.
 
-<!-- Google AdSense Code -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="1140087271"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{{ read_file('ads/article-AD.md') }}
 
 
 ## Conclusion

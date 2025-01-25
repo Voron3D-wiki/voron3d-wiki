@@ -36,18 +36,9 @@ tags: [klipper, kiauh, fluidd, mainsail]
 **[OctoPrint](https://github.com/OctoPrint/OctoPrint)**
 
 ---
-<!-- Google AdSense Code -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="1140087271"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
+{{ read_file('ads/article-AD.md') }}
+
 ---
 
 **[klipper Shake and Tune](https://github.com/Frix-x/klippain-shaketune)**
@@ -59,3 +50,5 @@ tags: [klipper, kiauh, fluidd, mainsail]
 - ![voron-v0 shake and tune](./shakeAndtune/voron-v0.2-shakeandtune-Y-min.png)
 
 ---
+
+{{ read_file('ads/footer-AD.md') }}

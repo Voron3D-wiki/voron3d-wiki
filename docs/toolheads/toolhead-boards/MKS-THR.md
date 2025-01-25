@@ -9,6 +9,8 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 2. **Access Printer's Linux Interface:**
    - Open a terminal on the printer's Linux interface.
 
+{{ read_file('ads/article-AD.md') }}
+
 3. **Run the Following Commands:**
    ```bash
    cd ~
@@ -34,15 +36,4 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
          - set usb power jumper to off
          - boot the printer
 
-<!-- Google AdSense Code -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="1140087271"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{{ read_file('ads/footer-AD.md') }}
