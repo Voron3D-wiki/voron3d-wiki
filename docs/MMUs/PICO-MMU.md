@@ -19,3 +19,5 @@ The Pico MMU is a very cost effective and compact multi material system.
 # Assembly/build
 
 # Testing/tuning
+
+{{ read_file('ads/footer-AD.md') }}
