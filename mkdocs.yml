@@ -87,7 +87,6 @@ markdown_extensions:
   - markdown.extensions.toc
   - markdown.extensions.extra
   - markdown.extensions.admonition
-  - markdown.extensions.include-markdown
 
 extra: #alternative analytics methode 
   # consent:
