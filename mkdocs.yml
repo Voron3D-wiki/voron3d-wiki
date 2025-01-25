@@ -67,7 +67,6 @@ nav:
   #     - [Klipper Reddit](https://www.reddit.com/r/klippers/)
 
 plugins:
-  - include-markdown
   # - meta-descriptions
   - search
   # - optimize
@@ -76,8 +75,6 @@ plugins:
   - glightbox
   - privacy
 
-
-
 extra_files:
   - ads.txt
 
@@ -85,6 +82,7 @@ markdown_extensions:
   - tables
   - attr_list
   - footnotes
+  - include
   - md_in_html
   - markdown.extensions.attr_list
   - markdown.extensions.toc
