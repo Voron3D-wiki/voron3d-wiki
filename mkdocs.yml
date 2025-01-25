@@ -82,7 +82,6 @@ markdown_extensions:
   - tables
   - attr_list
   - footnotes
-  - include
   - md_in_html
   - markdown.extensions.attr_list
   - markdown.extensions.toc
