@@ -26,7 +26,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ### 1. **Prusa Design MMU**
 - **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
-- [Learn More](./Prusa-MMU.md)
+- [Learn More](./Pursa-MMU.md)
 
 ---
 

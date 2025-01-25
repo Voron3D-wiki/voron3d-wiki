@@ -1,3 +1,10 @@
+---
+title: ERCF V2
+description: The Enraged Rabbit Carrot Feeder (ERCF) is a highly capable multi-material upgrade for 3D printers, particularly within the Voron ecosystem.
+published: true
+tags: [ERCF, ERCF V2]
+---
+
 **Title: Mastering the Enraged Rabbit Carrot Feeder (ERCF): Insights and Lessons Learned**
 
 *Full credit to the original source: [Reddit user](https://www.reddit.com/r/VORONDesign/comments/1gqfonx/comment/lx2rkqr/)*
