@@ -67,12 +67,12 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - **Automated Filament Changes**: Simplifies filament swaps during a print.
 - **Dissolvable Supports**: Use soluble support materials for complex overhangs.
 
-{{ read_file('ads/article-AD.md') }}
+{{ read_file('./ads/article-AD.md') }}
 
 
 ## Conclusion
 Multi-Material Upgrade systems enhance the functionality of FDM 3D printing, opening possibilities for more creative, functional, and visually striking models. Each system has its strengths, so choosing the right MMU depends on the printer type, user experience, and project requirements.
 
 
-{{ read_file('ads/footer-AD.md') }}
+{{ read_file('./ads/footer-AD.md') }}
 
