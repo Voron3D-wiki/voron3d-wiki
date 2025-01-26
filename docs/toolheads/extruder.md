@@ -13,7 +13,7 @@ tags: [Sherpa, Sherpa Mini, Sherpa Micro, Orbiter V2.5]
 
 ---
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 ---
 ### **Sherpa Micro**
@@ -27,4 +27,5 @@ tags: [Sherpa, Sherpa Mini, Sherpa Micro, Orbiter V2.5]
 ---
 
 <!-- Google AdSense Code -->
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

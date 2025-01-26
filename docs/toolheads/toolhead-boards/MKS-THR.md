@@ -9,7 +9,7 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 2. **Access Printer's Linux Interface:**
    - Open a terminal on the printer's Linux interface.
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 3. **Run the Following Commands:**
    ```bash
@@ -36,4 +36,5 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
          - set usb power jumper to off
          - boot the printer
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

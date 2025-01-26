@@ -111,4 +111,5 @@ The ERCF V2 is a highly capable multi-material system, but it requires careful s
 Users should be prepared for a learning curve and ongoing maintenance, but with persistence, the ERCF can achieve a high degree of reliability for both single and multi-material prints. Success depends on following best practices, leveraging community resources like the Happy Hare Wiki, and being ready to tinker and tweak as needed. For those willing to put in the effort, the ERCF can become a versatile and reliable addition to any Voron 3D printer setup.
 
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

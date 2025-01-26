@@ -37,7 +37,7 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 ---
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 ---
 
@@ -51,4 +51,5 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 ---
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

@@ -11,7 +11,7 @@ The **Voron Trident** is a hybrid design that combines elements from both the V1
 
 The Trident retains the enclosed frame and CoreXY motion system, offering the same high-speed performance and customization options as other Voron models. It is designed to be a robust, versatile printer, capable of producing high-quality prints consistently.
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 ## **Key Features:**
 - CoreXY motion system for speed and precision
@@ -22,4 +22,5 @@ The Trident retains the enclosed frame and CoreXY motion system, offering the sa
 ## **Applications:**
 The Voron Trident is ideal for users who need a reliable, high-performance printer with easy bed leveling and minimal maintenance. It’s popular among both hobbyists and professionals looking for a robust, versatile 3D printer.
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

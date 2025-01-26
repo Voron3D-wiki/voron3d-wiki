@@ -19,4 +19,5 @@ The Beacon 3D Probe is an advanced sensor used in 3D printers for bed leveling a
 ## Usage Tips
 
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

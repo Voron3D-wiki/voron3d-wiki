@@ -17,7 +17,7 @@ tags: [E3D, NExt G, DropEffect, REVO]
 ### **E3D REVO Hotend**
 - **Description**: E3D's latest and greatest hotend designed to work with their own nozzles that allow cold swapping nozzle.
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 
 ---
@@ -27,4 +27,5 @@ tags: [E3D, NExt G, DropEffect, REVO]
 
 ---
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

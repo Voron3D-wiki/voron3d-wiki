@@ -87,4 +87,5 @@ Fine-tune your Voron printer for peak performance. Learn how to calibrate flow r
 
 > **Note:** This page is a work in progress. New guides will be added as they become available. Stay tuned for future updates! -->
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+

@@ -9,7 +9,7 @@ tags: [ERCF, PICO, AMSm]
 ## Introduction
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 ## List of MMU Systems
 
@@ -27,7 +27,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ---
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 ### 3. **Anycubic MMU**
 - **Description**: Anycubic's solution for multi-material printing, originally released with the kobra 3 3dprinter, it will soon be supported by the upcoming anycubic s1 aswell.
@@ -45,7 +45,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware, at this time there is not much known.
 - [Learn More](./BTT-MMU.md)
 
-{{ read_file('ads/article-AD.md') }}
+{% include "ads/article-AD.md" %}
 
 ---
 <!-- ![picoMMU](https://github.com/lhndo/LH-Stinger/raw/main/User_Mods/MMU/Stinger%20Pico%20MMU%20-%20@LH/Assets/lhs_pico_mmu.png?raw=true) -->

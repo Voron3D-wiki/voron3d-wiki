@@ -8,4 +8,5 @@ tags: [BoxTurtle, ArmoredTurtle]
 # (BoxTutle)[https://github.com/ArmoredTurtle/BoxTurtle]
 
 
-{{ read_file('ads/footer-AD.md') }}
+{% include "ads/footer-AD.md" %}
+
