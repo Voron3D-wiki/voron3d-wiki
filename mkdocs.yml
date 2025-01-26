@@ -68,6 +68,7 @@ nav:
   #     - [Klipper Reddit](https://www.reddit.com/r/klippers/)
 
 plugins:
+  - include-markdown
   # - meta-descriptions
   - search
   # - optimize
