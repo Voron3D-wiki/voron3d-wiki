@@ -19,6 +19,10 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 ---
 
+{% include "ads/article-AD.md" %}
+
+---
+
 **[mainsail](https://github.com/mainsail-crew/mainsail)**
 - webbased GUI for klipper 
 

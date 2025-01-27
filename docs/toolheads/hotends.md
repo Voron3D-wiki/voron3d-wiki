@@ -19,10 +19,21 @@ tags: [E3D, NExt G, DropEffect, REVO]
 
 {% include "ads/article-AD.md" %}
 
-
 ---
 
 ### **DropEffect NExt G Fiber**
+- **Description**: Drop Effect's latest and greatest Hotend with a specific model hardend for fiber filament.
+
+---
+
+### **Phatus Dragon U/HF**
+- **Description**: Drop Effect's latest and greatest Hotend with a specific model hardend for fiber filament.
+
+{% include "ads/article-AD.md" %}
+
+---
+
+### **Phatus Rapido U/HF**
 - **Description**: Drop Effect's latest and greatest Hotend with a specific model hardend for fiber filament.
 
 ---
