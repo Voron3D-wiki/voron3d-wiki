@@ -42,10 +42,13 @@ nav:
       - Klipper: software/klipper.md
   - Electronics/Control boards:
       - Motherboards / MCU: electronics/mcu.md
-      - Toolhead Boards: toolheads/toolhead-boards.md
+  - Toolhead Boards:
+      - Toolhead Boards: toolhead-boards/toolhead-boards.md
+      - MKS-THR: toolhead-boards/MKS-THR.md
+      - FLY-SHT: toolhead-boards/FLY-SHT.md
+      - BTT-EBB: toolhead-boards/BTT-EBB.md
   - Toolheads:
       - Toolhead Overview: toolheads/toolhead-home.md
-      - MKS-THR: toolheads/toolheads-boards/MKS-THR.md
       - Hotends: toolheads/hotends.md
   - Bed Leveling:
       - Overview: bedleveling/bed-leveling.md
