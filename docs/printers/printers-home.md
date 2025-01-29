@@ -1,6 +1,6 @@
 ---
 title: Voron Printers
-description: Overview of the Voron V0
+description: Overview of Voron Printers and their derivatives
 published: true
-tags: [v0, v0.1, v0.2, v0.2 r1]
+tags: [v0, v1, v2, v2.4, switchwire, enderwire, trident]
 ---
