@@ -1,5 +1,9 @@
-#MKS THR
-
+---
+title: MKS-THR Tool Head boards
+description: Information about the MKS-THR Toolhead board
+published: true
+tags: [MKS, THR, MKS-THR, THR-36, THR-42]
+---
 (work in progress more infromation coming soon)
 
 **Configure USB-to-CAN Adapter**
@@ -8,7 +12,7 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 **Enter DFU Mode:**
    - Press and hold the **BOOT** button while plugging in the USB-C cable. This will boot the device into DFU (Device Firmware Upgrade) mode.
 
-2. **Access Printer's Linux Interface:**
+1. **Access Printer's Linux Interface:**
    - Open a terminal on the printer's Linux interface.
 
 {% include "ads/article-AD.md" %}

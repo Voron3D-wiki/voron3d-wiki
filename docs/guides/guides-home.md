@@ -6,22 +6,37 @@ tags: [guides, assembly, firmware, troubleshooting, upgrades]
 ---
 
 ## **Canbus Setup**
+
  - coming soon
+
+!!! note
+
+    If you are looking for a setup guide for the MKS-THR series of tool headboards, [click here](../toolhead-boards/MKS-THR.md)
 
 ---
 
 ## **Calibration & Tuning**
 
 ### [Calibration & Tuning]()
-Fine-tune your 3D printer for peak performance. Learn how to calibrate flow rate, extrusion width, input shapers, and more.  
 
-**Why it's useful:**  
-- Calibration guides for flow rate, e-steps, and speed tuning  
-- Input shaper tuning for Klipper  
+[Orca Slicer calibration Guide](https://github.com/SoftFever/OrcaSlicer/wiki/Calibration#max-volumetric-speed)
 
 ---
 
-> **Note:** This page is a work in progress. New guides will be added as they become available. Stay tuned for future updates! 
+## **Maintenance**
+
+ - coming soon
+
+---
+
+!!! warning 
+## **Assembly Guides**
+
+ - coming soon
+
+---
+
+    This page is a work in progress. New guides will be added as they become available. Stay tuned for future updates! 
 
 {% include "ads/footer-AD.md" %}
 

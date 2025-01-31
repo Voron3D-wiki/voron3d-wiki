@@ -1,6 +1,6 @@
 ---
-title: V0
-description: Overview of the Voron V0
+title: Beacon3d Probe
+description: Overview of the Beacon3d Probe
 published: true
 tags: [Beacon3d, Beacon Probe, Beacon Poke]
 ---
