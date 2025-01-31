@@ -20,9 +20,9 @@ Mesh leveling, also known as "mesh bed leveling," is a process that creates a vi
 
 | **Name of printhead** | **Image** | **Key features** | **More information** | **Source/creator link** |
 |------------------------|-----------|------------------|-----------------------|--------------------------|
-| [Eddy](eddy.md) | | | | |
-| [Eddy Coil](eddy-coil.md) | | | | |
-| Beacon3d | | | | |
+| [Eddy](eddy.md) | ![Eddy-USB]( ./assets/eddyUSB-min.png)| | | |
+| [Eddy Coil](eddy-coil.md) | ![Eddy-IC2]( ./assets/eddy-IC2-min.png)| | | |
+| Beacon3d |![Beacon3d]( ./assets/RevH8-min.png) | | | |
 | Cartographer sensor | | | | |
 
 {% include "ads/article-AD.md" %}
@@ -31,7 +31,7 @@ Mesh leveling, also known as "mesh bed leveling," is a process that creates a vi
 
 | **Name of printhead** | **Image** | **Key features** | **More information** | **Source/creator link** |
 |------------------------|-----------|------------------|-----------------------|--------------------------|
-| BLTouch | | | | |
+| BLTouch | ![BLtouch]( ./assets/3dTouch-min.png) | | | |
 | Beacon3d Poke | | | | |
 | Inductive Probe | | | | |
 | Klickly | | | | |
