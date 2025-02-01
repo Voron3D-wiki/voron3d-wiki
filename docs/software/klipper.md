@@ -8,9 +8,12 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 **[klipper Offical](https://github.com/Klipper3d/klipper)**
 
+- [Klipper config cheat sheet](./klipper-config-help.md)
+
 ---
 
 **[kiauh](https://github.com/dw-0/kiauh)**
+
 - tool to help with installing and updating klipper plugins and extentions
 
 ---
