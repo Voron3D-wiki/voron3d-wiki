@@ -5,7 +5,7 @@
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="7088414886"></ins>
+     data-ad-slot="1140087271"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
