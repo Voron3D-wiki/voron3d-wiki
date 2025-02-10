@@ -7,8 +7,33 @@ tags: [guides, assembly, firmware, troubleshooting, upgrades]
 
 ## **Canbus Setup**
 
- - coming soon
+ - Guide Using Katapult(previously known as CanBoot)
+ Commands that are helpful:
+'''
 
+Install katapult
+    cd ~
+    git clone https://github.com/Arksine/katapult
+
+Flash your board with Katapult
+    cd katapult
+    make menuconfig
+    make clean
+    make
+    sudo dfu-util -a 0 -D ~/katapult/out/katapult.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
+
+Get the canbus_UUID of your board
+    python3 ~/katapult/scripts/flash_can.py -i can0 -q
+
+Flash your board with klipper canbus configuration
+    cd ~/klipper
+    make menuconfig
+    python3 ~/katapult/scripts/flash_can.py -i can0 -u CANBUS_UUID -f ~/klipper/out/klipper.bin
+
+Confirm that your canbus UUID is falshed with klipper    
+    ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
+
+'''
 !!! note
 
     If you are looking for a setup guide for the MKS-THR series of tool headboards, [click here](../toolhead-boards/MKS-THR.md)
