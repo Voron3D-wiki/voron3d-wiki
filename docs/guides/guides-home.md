@@ -22,6 +22,12 @@ Flash your board with Katapult
     make
     sudo dfu-util -a 0 -D ~/katapult/out/katapult.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
 
+** turn your printer off
+
+**plug unplug usb, plug/connect canbus HIGH LOW POWER GROUND
+
+** turn your printer back on
+
 Get the canbus_UUID of your board
     python3 ~/katapult/scripts/flash_can.py -i can0 -q
 
