@@ -19,6 +19,7 @@ tags: [klipper, kiauh, fluidd, mainsail]
 ---
 
 **[moonraker](https://github.com/Arksine/moonraker)**
+- Moonraker is a Python 3 based web server that exposes APIs with which client applications may use to interact with the 3D printing firmware Klipper. Communication between the Klippy host and Moonraker is done over a Unix Domain Socket. Tornado is used to provide Moonraker's server functionality.
 
 ---
 
@@ -27,7 +28,7 @@ tags: [klipper, kiauh, fluidd, mainsail]
 ---
 
 **[mainsail](https://github.com/mainsail-crew/mainsail)**
-- webbased GUI for klipper 
+- Makes Klipper more accessible by adding a lightweight, responsive web user interface, centred around an intuitive and consistent design philosophy.
 
 ---
 
@@ -39,6 +40,7 @@ tags: [klipper, kiauh, fluidd, mainsail]
 **[klipperScreen](https://github.com/KlipperScreen/KlipperScreen)**
 - A klipper extention that assists with configure a display
 - Very helpful for using an old android phone as a klipper control panel
+- KlipperScreen is a touchscreen GUI that interfaces with Klipper via Moonraker. It allows you to switch between multiple printers and access them from a single location. Notably, it doesn't need to run on the same host as your printer; you can install it on another device and configure the IP address to connect to the printer.
 
 ---
 
@@ -58,6 +60,11 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 - Y axis Graph
 - ![voron-v0 shake and tune](./shakeAndtune/voron-v0.2-shakeandtune-Y-min.png)
+
+---
+
+**[LED Effects for Klipper](https://github.com/julianschill/klipper-led_effect/tree/master)**
+- This is the standalone repository of the Klipper LED Effects module developed by Paul McGowan with contributions from myself. It allows Klipper to run effects and animations on addressable LEDs, such as Neopixels, WS2812 or SK6812.
 
 ---
 
