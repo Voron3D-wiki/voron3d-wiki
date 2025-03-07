@@ -11,7 +11,6 @@ tags: [dragon burner, stealthburner, XOL]
 ### **stealthburner**
 - **Cooling Fans**: one 5015 blower fans
 - **Hotend Fans**: one 4010 axel fan
-- ![stealthburner.webp](/stealthburner.webp)
 
 ---
 

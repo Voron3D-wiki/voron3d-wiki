@@ -12,11 +12,13 @@ The Pico MMU is a very cost effective and compact multi material system.
 {% include "ads/article-AD.md" %}
 
 # How does it work?
+It uses a common power shaft that attaches to the stepper motor, all the filament rests on this. To activate a lane/filament the servo will spin the camshaft to a set angle where an arm with a bearing inside can push the filament into the power shaft. This esentally is now working as a single gear extruder, this is how filament is loaded and unloaded. The pico does not use its stepper motor to help the main extruder, the pico's stepper motor is only used for filament changes and while the printer is doing a print it is doing nothing and the camshaft is in neutral.
 
 ## What printers are supported
+any printer running klipper, that you can add a toolhead filament sensor too (or has one stock). You also need to have a way to control the pico which requires a stepper motor driver and a way to control the servo motor. Many people use EBB42 boards for this as it fits nicely onto the back of the pico. The only important factors when considering how you are going to control your pico is servo motor current, specifically because if you go off spec with the servo motor you are very likly to burn out the 1amp 5v rail found on the EBB series of boards
 
 ## What do I need to get started
-
+ - a stepper motor, a servo motor, some bearings, d-shaft and a 3dprinter
 {% include "ads/article-AD.md" %}
 
 # BOM
