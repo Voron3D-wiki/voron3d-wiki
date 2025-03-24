@@ -19,6 +19,8 @@ any printer running klipper, that you can add a toolhead filament sensor too (or
 
 ## What do I need to get started
  - a stepper motor, a servo motor, some bearings, d-shaft and a 3dprinter
+
+
 {% include "ads/article-AD.md" %}
 
 # BOM
@@ -45,7 +47,7 @@ any printer running klipper, that you can add a toolhead filament sensor too (or
 
 
 # Printed parts
-
+The printed parts can be found on the offical github, it is only 4 plates of parts on a 225mm^2 bed, you can make it more compact if you would like, the parts can be printed in whatever material you'd like, I have used PLA+ for all of mine
 
 The offical print files can be found on github: [Print files](https://github.com/lhndo/LH-Stinger/tree/main/User_Mods/MMU/Stinger%20Pico%20MMU%20-%20%40LH){ .md-button}
 
