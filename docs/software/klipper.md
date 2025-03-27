@@ -23,10 +23,6 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 ---
 
-{% include "ads/article-AD.md" %}
-
----
-
 **[mainsail](https://github.com/mainsail-crew/mainsail)**
 - Makes Klipper more accessible by adding a lightweight, responsive web user interface, centred around an intuitive and consistent design philosophy.
 
@@ -48,9 +44,6 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 ---
 
-{% include "ads/article-AD.md" %}
-
----
 
 **[klipper Shake and Tune](https://github.com/Frix-x/klippain-shaketune)**
 - This plugin contains a lot of features but it has quite a high learning curve and is ideal for people who want to tune their printers down to the last nanometers

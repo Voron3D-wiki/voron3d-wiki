@@ -54,12 +54,13 @@ The offical print files can be found on github: [Print files](https://github.com
 {% include "ads/article-AD.md" %}
 
 # Assembly/build
-
+At the time of writing this there is no offical assembly guide with the cad files being the only guidance.
 
 
 # Testing/tuning
 
 # Customization / modifications
+
 
 {% include "ads/footer-AD.md" %}
 
