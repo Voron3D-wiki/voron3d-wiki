@@ -9,7 +9,7 @@ tags:
 ## Introduction
 
 
-## List of MMU Systems
+## List of MCUs
 
 ### **BTT SKR PICO**
 - **Description**: 
@@ -36,6 +36,15 @@ tags:
 - **Description**: 
 <!-- - [Learn More](./.md) -->
 ---
+
+## List of Expantion board / second mcu options:
+
+### **rp2040 / Rasberry Pi Pico**
+- **Description**: 
+- [How to flash with klipper](rp2040.md)
+---
+
+
 
 <!-- Google AdSense Code -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
