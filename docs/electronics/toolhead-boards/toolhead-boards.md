@@ -14,7 +14,7 @@ Toolhead boards make 3D printing more efficient by consolidating wiring on the m
 
 ![MKS THR36 & THR42 Toolhead Board Photo]()
 
-### [MKS THR36 & THR42 Toolhead Board](../toolhead-boards/MKS-THR.md)
+### [MKS THR36 & THR42 Toolhead Board](./MKS-THR.md)
 
 The MKS THR36 & THR42 series of toolhead boards are designed to work with any printer that supports CAN bus or USB communication. These boards require either 24V or 12V power to operate, which is used to power the heater. They serve as a compelling alternative to BTT and Mellow boards due to their inclusion of three independently controllable fans.
 
@@ -46,7 +46,7 @@ Cons:
    -  unreliable
    - fragile
    - uses JST-PH connectors
-[More Info](./toolhead-board//fysetc-M36) | [OEM LINK](https://www.fysetc.com)
+[More Info](./toolhead-board/fysetc-M36) | [OEM LINK](https://www.fysetc.com)
 
 ---
 
@@ -71,7 +71,7 @@ The BTT EBB series supports CAN bus communication and is known for easy integrat
 
 Why it's good: CAN bus support, easy firmware setup, multiple sensors support
 
-[More Info](btt-ebb-toolhead.html) | [Buy Now](https://www.bigtree-tech.com)
+[More Info](./BTT-EBB.md) | [Buy Now](https://www.bigtree-tech.com)
 
 ---
 
