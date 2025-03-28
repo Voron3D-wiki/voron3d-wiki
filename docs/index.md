@@ -5,9 +5,7 @@ published: true
 tags: [Voron, Voron3d, 3dprint, 3dprinting]
 ---
 
-![Voron3D Logo](../assets/VoronLogo.png)
-
-# Welcome to the Voron3D Wiki
+# Welcome to the Voron3D Wiki  ![Voron3D Logo](../assets/VoronLogo.png){: style="width: 250px; height: auto; float: right; margin-left: 15px;"}
 
 Voron Design is a community-driven project focused on the creation of high-performance, fully customizable 3D printers. This wiki serves as a comprehensive resource for enthusiasts and professionals alike, providing detailed information on hardware, software, and modifications.
 
