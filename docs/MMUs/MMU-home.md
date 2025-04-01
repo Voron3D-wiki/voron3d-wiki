@@ -9,8 +9,6 @@ tags: [ERCF, PICO, AMSm]
 ## Introduction
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
 
-{% include "ads/article-AD.md" %}
-
 ## Filament Swapping systems (MMU2)
 
 ### 1. **Prusa Design MMU2/MMU3**
@@ -52,23 +50,17 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - [Learn More](./BoxTurtle.md)
 
 ---
-{% include "ads/article-AD.md" %}
----
 
 ### 5. **BTT MMU**
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware, at this time there is not much known.
 - [Learn More](./BTT-MMU.md)
 
-{% include "ads/article-AD.md" %}
 
 ---
+## Other Modifications
 
-
-## Key Features of MMU Systems
-- **Multi-Color Prints**: Print models with multiple colors seamlessly.
-- **Multi-Material Capability**: Combine different material properties, e.g., flexible and rigid.
-- **Automated Filament Changes**: Simplifies filament swaps during a print.
-- **Dissolvable Supports**: Use soluble support materials for complex overhangs.
+### **Blobifier**
+ - https://github.com/Dendrowen/Blobifier
 
 {% include "ads/article-AD.md" %}
 
