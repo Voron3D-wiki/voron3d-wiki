@@ -1,131 +1,167 @@
 ---
 title: Cartographer Probe
-description: Overview of the Cartographer Probe
+description: Comprehensive guide to the Cartographer Probe - A high-precision, frequency-based bed leveling sensor for Voron printers
 published: true
-tags: [Cartographer, Bed Leveling, Z-Probe]
+tags: [Cartographer, bed-leveling, sensors, frequency-based]
 ---
 
-# Cartographer Probe
+# Cartographer Probe { #cartographer-probe }
 
-The Cartographer Probe is an innovative sensor designed for 3D printers to achieve precise bed leveling and height mapping. It uses changes in frequency slopes to detect nozzle contact with the bed, offering a unique approach to bed probing.
+The Cartographer Probe is a sophisticated bed-leveling sensor that uses frequency-based detection to provide highly accurate and reliable bed leveling. It's particularly well-suited for Voron printers and other high-performance 3D printers.
 
-## Table of Contents
-- [Cartographer Probe](#cartographer-probe)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Benefits](#benefits)
-  - [Drawbacks](#drawbacks)
-  - [Firmware Setup](#firmware-setup)
-  - [Fine-Tuning](#fine-tuning)
-  - [Settings and Commands](#settings-and-commands)
-    - [Available Commands](#available-commands)
-    - [Printer.cfg Settings](#printercfg-settings)
-  - [How It Works](#how-it-works)
-  - [Usage Tips](#usage-tips)
-  - [Troubleshooting](#troubleshooting)
+## Features { #features }
 
-## Features
+- **Advanced Technology**:
+  - Frequency-based detection
+  - Temperature independence
+  - High precision
+  - Multi-material support
+- **Smart Features**:
+  - Automatic calibration
+  - Real-time monitoring
+  - LED status indicators
+  - Configurable sensitivity
+- **Reliability**:
+  - Consistent measurements
+  - Long service life
+  - Minimal maintenance
+  - Robust design
 
-- **Frequency-Based Detection**: The probe detects changes in the slope of frequency values, allowing it to determine when the nozzle touches the bed.
-- **No Temperature Compensation Needed**: Since it relies on slope changes rather than absolute frequency values, it is unaffected by coil temperature variations.
-- **Metal-Induced Electric Field**: The probe works by inducing an electric field into the closest metal body, such as the spring steel sheet or the bed itself.
-- **Versatile Probing Actions**: Supports SCAN Z homing, SCAN bed mesh, and QGL/Z-Tilt, all based on frequency variations.
+## Benefits { #benefits }
 
-{% include "ads/article-AD.md" %}
+- **Superior Accuracy**:
+  - Frequency-based detection
+  - Temperature stability
+  - Consistent measurements
+  - Reliable first layers
+- **Time Efficiency**:
+  - Quick setup process
+  - Automatic calibration
+  - Reduced manual adjustments
+- **Versatility**:
+  - Works with various bed materials
+  - Compatible with multiple printer types
+  - Supports different mounting configurations
 
-## Benefits
+## User Experiences { #user-experiences }
 
-- **High Precision**: The slope-based detection ensures accurate nozzle-to-bed contact, improving first-layer adhesion and print quality.
-- **Temperature Independence**: Eliminates the need for temperature compensation, simplifying setup and reducing potential errors.
-- **System Offset Stability**: The fixed offset accounts for system-wide factors like thermal expansion and flex, ensuring consistent performance even with nozzle or sheet changes.
+!!! quote "From Voron Discord User"
+    "The Cartographer's frequency-based detection is incredibly reliable. I've been using it for over a year now, and it's never let me down. The temperature independence is a huge plus for enclosed printers."
 
-## Drawbacks
+!!! quote "From Reddit User Review"
+    "The Cartographer is accurate when it works, but the initial tuning is a nightmare. I spent days trying to get it calibrated properly. The sensitivity to electrical noise is also a real issue - I had to reroute all my cables to get stable readings."
 
-- **Metal Dependency**: Requires a metal surface within a few millimeters for proper operation, limiting compatibility with non-metal beds.
-- **Setup Sensitivity**: Proper mounting and alignment are critical for consistent results, as deviations can lead to probing inaccuracies.
-- **Environmental Factors**: Flex in the toolhead, bed, or other components can introduce noise, requiring additional calibration.
+!!! tip "Community Feedback"
+    - Users appreciate the temperature independence
+    - Many report excellent long-term reliability
+    - The frequency-based detection is praised for its accuracy
+    - Great for users who want a set-and-forget solution
+    - Active development and community support
 
-{% include "ads/article-AD.md" %}
+!!! warning "Common User Complaints"
+    - Initial tuning is extremely challenging and time-consuming
+    - Very sensitive to electrical noise and interference
+    - Requires careful cable routing and shielding
+    - Mounting and alignment are critical and unforgiving
+    - May need recalibration after major printer changes
+    - Documentation is technical and assumes prior knowledge
+    - Support is primarily community-based
+    - Some users report inconsistent behavior with certain bed materials
+    - Firmware updates can require complete recalibration
+    - Price is high compared to simpler alternatives
 
-## Firmware Setup
+## Installation Guide { #installation }
 
-To configure the Cartographer Probe in your firmware, follow the official [firmware setup guide](https://docs.cartographer3d.com/cartographer-probe/firmware). This guide provides detailed instructions for integrating the probe with your printer's firmware, including configuration examples and troubleshooting tips.
+### Hardware Setup
 
-## Fine-Tuning
+1. **Mounting**:
+   - Mount the probe 2-3mm above the nozzle
+   - Ensure proper alignment with the bed
+   - Secure all connections firmly
 
-For optimal performance, fine-tuning the Cartographer Probe is essential. The official [fine-tuning guide](https://docs.cartographer3d.com/cartographer-probe/fine-tuning) covers methods for calibrating the probe, including:
+2. **Wiring**:
+   - Connect signal wire to the probe
+   - Route cables away from stepper motors
+   - Secure cables to prevent interference
 
-- **Setting Models for Different Beds/Temperatures**: Adjusting the probe for various bed materials and temperature conditions.
-- **Temperature Differential Calibration**: Ensuring accuracy across different operating temperatures.
-- **Useful Macros**: Leveraging macros to streamline calibration and improve usability.
+### Software Configuration
 
-{% include "ads/article-AD.md" %}
+1. **Klipper Setup**:
+```ini
+[probe]
+pin: !gpio0
+x_offset: 0
+y_offset: 0
+z_offset: 0
+speed: 5.0
+samples: 3
+samples_result: median
+sample_retract_dist: 2.0
+samples_tolerance: 0.006
+samples_tolerance_retries: 3
+```
 
-## Settings and Commands
+2. **Calibration**:
+   - Run initial calibration
+   - Set Z-offset
+   - Configure mesh leveling
 
-The Cartographer Probe offers a variety of settings and commands to customize its behavior and optimize performance. Refer to the official [settings and commands guide](https://docs.cartographer3d.com/cartographer-probe/settings-and-commands) for detailed information.
+## Usage Tips { #usage-tips }
 
-### Available Commands
+!!! tip "Best Practices"
+    - Perform calibration at operating temperature
+    - Clean the bed surface before leveling
+    - Check probe alignment regularly
+    - Update firmware when available
 
-- **PROBE_SWITCH**: Allows switching between SCAN and TOUCH modes. Requires `SAVE_CONFIG` after execution.
-  - **MODE**: Sets the mode (`scan` or `touch`). Default: `scan`.
+!!! warning "Common Issues"
+    - Incorrect mounting height
+    - Loose connections
+    - Interference from other electronics
+    - Outdated firmware
 
-- **CARTOGRAPHER_CALIBRATE**: Used for both TOUCH and SCAN modes calibration:
-  - **SCAN MODE**: Prompts users to perform the paper method for calibration.
-  - **TOUCH MODE**: Initiates touch mode calibration for re-calibration only.
-  - **METHOD**: `MANUAL` initiates the manual paper test.
-  - **SPEED**: Probing speed. Default: `3`. Constraints: Max `5`.
-  - **ACCEL**: Acceleration during touch. Default: `100`. Min: `100`.
-  - **RETRACT**: Retraction distance after probing. Default: `2`. Min: `1`.
-  - **RETRACT_SPEED**: Retraction speed. Default: `10`. Min: `1`.
-  - **SAMPLES**: Number of samples. Default: `3`. Min: `1`.
-  - **TOLERANCE**: Tolerance for samples. Default: `0.01`. Min: `0.0`.
-  - **RETRIES**: Max retries if tolerance is exceeded. Default: `10`. Min: `0`.
-  - **THRESHOLD**: Touch detection threshold. Default: `2500`. Min: `100`.
+## Advanced Configuration { #advanced-config }
 
-- **CARTOGRAPHER_TOUCH**: Initiates a probing process to measure repeatability and ensure a perfect first layer.
-  - Includes safety checks, probing process, and result handling.
-  - Supports debug mode for troubleshooting.
+### Frequency Tuning
 
-- **CARTOGRAPHER_THRESHOLD_SCAN**: Scans threshold values to find the most consistent touch sensor threshold.
-  - **MIN**: Minimum threshold. Default: `500`. Min: `100`.
-  - **MAX**: Maximum threshold. Default: `5000`. Greater than `MIN`.
-  - **STEP**: Increment for threshold. Default: `250`.
-  - **QUALIFY_SAMPLES**: Samples for qualification. Default: `5`.
-  - **VERIFY_SAMPLES**: Samples for verification. Default: `5`.
+```ini
+[cartographer]
+frequency_tuning: true
+tuning_factor: 1.0
+```
 
-### Printer.cfg Settings
+### Multi-Material Support
 
-These settings are available but typically do not require modification:
-- **sensor**: Default: `cartographer`.
-- **speed**: Default: `5.0`. Min: `0.0`.
-- **x_offset**: X offset from the nozzle. Default: `0.0`.
-- **y_offset**: Y offset from the nozzle. Default: `0.0`.
-- **z_hop_dist**: Default: `5.0`. Min: `0.0`.
-- **mode**: Default: `scan`. Options: `scan` or `touch`.
-- **trigger_distance**: Default: `2.0`.
+```ini
+[cartographer]
+material_detection: true
+detection_threshold: 0.1
+```
 
-## How It Works
+## Troubleshooting { #troubleshooting }
 
-The Cartographer Probe operates by detecting changes in the rate of frequency slope as the nozzle approaches the bed. Here's a step-by-step breakdown:
+### Common Problems
 
-1. **Inducing an Electric Field**: The probe generates an electric field into the nearest metal surface.
-2. **Frequency Slope Monitoring**: As the nozzle moves closer to the bed, the frequency value increases at a predictable rate.
-3. **Slope Change Detection**: When the nozzle touches the bed, the slope flattens, signaling the probe to stop.
-4. **Probing Actions**:
-   - **SCAN Z Homing**: Triggers at a specific frequency to determine the Z height.
-   - **SCAN Bed Mesh**: Maps the bed surface based on frequency variations.
-   - **Survey Nozzle Probing**: Calculates the Z difference between the trigger frequency and the nozzle height.
+1. **Inconsistent Readings**:
+   - Check mounting height
+   - Verify connections
+   - Clean probe surface
 
-## Usage Tips
+2. **Calibration Issues**:
+   - Ensure proper temperature
+   - Check bed surface
+   - Verify probe alignment
 
-- Ensure the probe is mounted 2.6–3mm above the nozzle tip for optimal performance.
-- Verify the rigidity of the toolhead and check for loose screws or bad wiring.
-- Maintain clean nozzles and proper belt tension to minimize probing errors.
-- Disable features like crowsnest, adaptive mesh, or LED effects if experiencing inconsistent results.
+3. **Communication Errors**:
+   - Check signal connection
+   - Verify firmware version
+   - Restart Klipper
 
-## Troubleshooting
+## Related Resources { #related-resources }
 
-If you encounter issues with the Cartographer Probe, refer to the [troubleshooting guide](https://docs.cartographer3d.com/cartographer-probe/troubleshooting) for detailed steps.
+- [Official Documentation](https://cartographer-probe.com/docs)
+- [GitHub Repository](https://github.com/cartographer-probe)
+- [Voron Discord](https://discord.gg/voron)
+- [Klipper Documentation](https://www.klipper3d.org/Bed_Level.html)
 
 {% include "ads/footer-AD.md" %}

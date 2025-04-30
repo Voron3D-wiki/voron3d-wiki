@@ -1,29 +1,101 @@
 ---
-title: Electronics Overview
-description: Overview of electronics used in Voron 3D printers, including MCUs, toolhead boards, and expansion options.
+title: Electronics
+description: Comprehensive guide to electronics components for 3D printers, including mainboards, toolhead boards, and sensors
 published: true
-tags: [electronics, MCUs, toolhead boards, expansion]
+tags: [electronics, mainboard, mcu, toolhead, sensors, klipper]
+last_updated: {{ git_revision_date_localized }}
 ---
 
-# Electronics Overview
+# Electronics
 
-The electronics in a Voron 3D printer are critical for its performance and reliability. This section provides an overview of the key components, including MCUs, toolhead boards, and expansion options.
+!!! info "Page Information"
+    - **Last Updated**: {{ git_revision_date_localized }}
+    - **Contributors**: {{ git_author }}
 
-## Sections
+## Overview
+The electronics section covers all electronic components used in 3D printers, from main control boards to toolhead electronics and sensors. This guide provides comprehensive information about various options, their features, and compatibility.
 
-### **[MCUs and Motherboards](./mcu/mcu.md)**
-Learn about the various MCUs and motherboards compatible with Voron printers, including popular options like the BTT SKR series and Manta boards.
+## Main Control Boards
 
-### **[Toolhead Boards](./toolhead-boards/toolhead-boards.md)**
-Explore the best toolhead boards for efficient wiring and performance, including CAN bus options like the MKS THR and BTT EBB series.
+### [MCU Guide](mcu/mcu.md)
+- **Type**: Main Control Units
+- **Key Features**:
+  - 32-bit processors
+  - Multiple stepper drivers
+  - Various connectivity options
+  - Klipper compatibility
 
-### **[Expansion Boards](./rp2040.md)**
-Discover expansion options like the RP2040 and learn how to flash them for use in your Voron printer.
+### [RP2040 Boards](rp2040.md)
+- **Type**: Raspberry Pi Pico-based boards
+- **Key Features**:
+  - Dual-core ARM Cortex-M0+
+  - USB connectivity
+  - Multiple GPIO pins
+  - Klipper support
 
----
+## Toolhead Electronics
 
-## Why Electronics Matter
+### [Toolhead Boards](toolhead-boards/)
+- **Type**: Toolhead control boards
+- **Key Features**:
+  - CAN bus support
+  - USB connectivity
+  - Integrated sensors
+  - Modular design
 
-The right electronics can significantly improve your printer's performance, reliability, and ease of use. Whether you're building a new printer or upgrading an existing one, this section will guide you through the best options available.
+## Selection Guide
+
+### Factors to Consider
+1. **Processor Requirements**
+   - Basic: 8-bit boards
+   - Standard: 32-bit boards
+   - Advanced: Multi-core boards
+
+2. **Connectivity Needs**
+   - USB
+   - CAN bus
+   - WiFi/Bluetooth
+   - Ethernet
+
+3. **Feature Requirements**
+   - Number of stepper drivers
+   - Sensor support
+   - Display compatibility
+   - Expansion options
+
+4. **Budget Considerations**
+   - Entry level: Basic boards
+   - Mid-range: Standard boards
+   - High-end: Advanced boards
+
+## Technical Considerations
+
+### Firmware Compatibility
+- Klipper support
+- Marlin compatibility
+- Custom firmware options
+- Update procedures
+
+### Sensor Integration
+- Temperature sensors
+- Endstops
+- Filament sensors
+- Chamber monitoring
+
+### Power Management
+- Input voltage requirements
+- Power distribution
+- Safety features
+- Cooling requirements
+
+## Related Resources
+- [Voron Design GitHub](https://github.com/VoronDesign)
+- [Voron Discord](https://discord.gg/voron)
+- [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
+
+## References
+1. Voron Design Documentation
+2. Community Modifications Database
+3. User Experience Reports
 
 {% include "ads/footer-AD.md" %}

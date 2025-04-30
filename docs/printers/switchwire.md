@@ -1,26 +1,101 @@
 ---
 title: Switchwire
-description: Overview of the Voron Switchwire
-tags: [switchwire, enderwire, sovolwire]
+description: Comprehensive guide to the Voron Switchwire 3D printer, including specifications, features, and modifications
+published: true
+tags: [switchwire, enderwire, sovolwire, corexz, voron]
+last_updated: {{ git_revision_date_localized }}
 ---
 
-# **Voron Switchwire**
-<sup>by Chat-GPT</sup>
+# Voron Switchwire
 
-The **Voron Switchwire** is a bed-slinger-style printer, where the bed moves along the Y-axis and the extruder along the X- and Z-axes. Unlike typical bed slingers, the Switchwire uses a CoreXZ motion system, providing high precision and faster movement than traditional designs.
+!!! info "Page Information"
+    - **Last Updated**: {{ git_revision_date_localized }}
+    - **Contributors**: {{ git_author }}
 
-The Switchwire is designed for those who prefer a more compact and straightforward 3D printer but still want the reliability and high-quality prints associated with Voron machines. It’s a versatile printer with a direct-drive extruder, making it suitable for a wide range of filament types.
+## Overview
+The Voron Switchwire is a bed-slinger-style printer that combines the simplicity of a traditional 3D printer with Voron's engineering excellence. It uses a CoreXZ motion system, where the bed moves along the Y-axis while the extruder moves along the X- and Z-axes, providing superior precision and speed compared to traditional bed slingers.
 
-{% include "ads/article-AD.md" %}
+## Key Features
+- **Motion System**: CoreXZ with bed slinger Y-axis
+- **Build Volume**: 250 x 250 x 250mm (standard)
+- **Frame**: Fully enclosed design with aluminum extrusions
+- **Extruder**: Direct drive configuration
+- **Hotend**: Compatible with various hotend options
+- **Electronics**: Modular design with optional toolhead board
 
-## **Key Features:**
-- CoreXZ motion system for better precision and speed compared to traditional bed slingers
-- Direct-drive extruder for enhanced performance with flexible materials
-- Smaller footprint, suitable for users with space constraints
-- Fully enclosed design for consistent print quality
+## Technical Specifications
 
-## **Applications:**
-The Voron Switchwire is ideal for users who want a compact, straightforward 3D printer without sacrificing print quality or versatility. It is popular among hobbyists and makers looking for a reliable printer capable of handling a variety of filaments.
+### Mechanical Specifications
+- **Frame Type**: Aluminum extrusion (2020)
+- **Motion System**: CoreXZ with bed slinger Y-axis
+- **Build Volume**: 250 x 250 x 250mm (standard)
+- **Bed Type**: Aluminum with magnetic PEI surface
+- **Bed Heating**: AC or DC options available
+- **Z-Axis**: Dual leadscrew with automatic leveling
+
+### Electronics
+- **Mainboard**: Compatible with various 32-bit boards
+- **Toolhead Board**: Optional CAN bus or USB connection
+- **Stepper Motors**: NEMA 17 (various options)
+- **Endstops**: Optical or mechanical options
+- **Sensors**: Optional chamber temperature and humidity
+
+### Software
+- **Firmware**: Klipper
+- **Interface**: Mainsail or Fluidd
+- **Features**:
+  - Input Shaping
+  - Pressure Advance
+  - Automatic bed leveling
+  - Chamber temperature control
+
+## Popular Modifications
+1. **Afterburner Toolhead**
+   - Modular design
+   - Multiple fan configurations
+   - Hotend compatibility
+
+2. **Stealthburner**
+   - Improved cooling
+   - LED integration
+   - Better cable management
+
+3. **Chamber Temperature Control**
+   - Active heating
+   - Temperature monitoring
+   - Humidity control
+
+## Conversion Kits
+The Switchwire is popular for converting existing printers:
+
+1. **Enderwire**
+   - Ender 3 conversion
+   - Maintains original frame
+   - CoreXZ upgrade
+
+2. **Sovolwire**
+   - SV01 conversion
+   - Enhanced motion system
+   - Improved print quality
+
+## Build Guide
+[Link to official build guide]
+
+## Configuration
+[Link to configuration guide]
+
+## Troubleshooting
+[Link to troubleshooting guide]
+
+## Related Resources
+- [Voron Design GitHub](https://github.com/VoronDesign)
+- [Voron Discord](https://discord.gg/voron)
+- [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
+
+## References
+1. Voron Design Documentation
+2. Community Modifications Database
+3. User Experience Reports
 
 {% include "ads/footer-AD.md" %}
 

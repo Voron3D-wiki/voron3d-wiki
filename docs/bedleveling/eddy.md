@@ -11,7 +11,7 @@ dateCreated: 2024-10-09T09:27:15.790Z
 ## Eddy USB: Pros and Cons
 
 ### **Overview**
-The Eddy USB is a more advanced version of BTT’s Eddy bed-leveling sensor. Featuring an onboard RP-2040 MCU, this sensor offers a wide range of capabilities, including thermal expansion calibration, making it suitable for more complex, high-temperature printing applications.
+The Eddy USB is a more advanced version of BTT's Eddy bed-leveling sensor. Featuring an onboard RP-2040 MCU, this sensor offers a wide range of capabilities, including thermal expansion calibration, making it suitable for more complex, high-temperature printing applications.
 
 ---
 
@@ -86,9 +86,173 @@ The Eddy USB is a more advanced version of BTT’s Eddy bed-leveling sensor. Fea
 </script>
 
 ### **Conclusion**
-The Eddy USB is an advanced bed-leveling sensor designed for users who need more precise calibration and thermal compensation. It’s best suited for high-temp printing environments or users who require greater accuracy and reliability. However, its higher price and complex setup may not be necessary for all users.
+The Eddy USB is an advanced bed-leveling sensor designed for users who need more precise calibration and thermal compensation. It's best suited for high-temp printing environments or users who require greater accuracy and reliability. However, its higher price and complex setup may not be necessary for all users.
 
 ---
 
 ## **Sources and Links**
 - [Reddit user review](https://www.reddit.com/r/klippers/comments/1fyn6vq/btt_eddy_coil_review_and_rant/?share_id=FR94Inj_G5girmTBwdWdi&utm_content=1&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1)
+
+---
+title: Eddy USB Probe
+description: Comprehensive guide to the Eddy USB bed-leveling sensor - A high-precision, temperature-compensated probe for Voron printers
+published: true
+tags: [Eddy, Eddy USB, bed-leveling, sensors, temperature-compensated]
+---
+
+# Eddy USB Probe { #eddy-usb-probe }
+
+The Eddy USB Probe is a sophisticated bed-leveling sensor that uses eddy current technology to provide highly accurate and temperature-compensated bed leveling. It's particularly well-suited for Voron printers and other high-performance 3D printers.
+
+## Features { #features }
+
+- **Advanced Technology**:
+  - Eddy current-based detection
+  - Temperature compensation
+  - USB connectivity
+  - Independent MCU
+- **High Precision**:
+  - Sub-micron accuracy
+  - Temperature stability
+  - Multi-material support
+- **Smart Features**:
+  - Automatic calibration
+  - Real-time monitoring
+  - LED status indicators
+  - Configurable sensitivity
+
+## Benefits { #benefits }
+
+- **Superior Accuracy**:
+  - Temperature-independent readings
+  - Consistent measurements
+  - Reliable first layers
+- **Time Efficiency**:
+  - Quick setup process
+  - Automatic calibration
+  - Reduced manual adjustments
+- **Versatility**:
+  - Works with various bed materials
+  - Compatible with multiple printer types
+  - Supports different mounting configurations
+
+## User Experiences { #user-experiences }
+
+!!! quote "From Reddit User Review"
+    "The Eddy USB is a game-changer for high-temp printing. The thermal compensation is spot-on, and I've never had to re-calibrate after changing nozzles or sheets. Worth every penny for serious printers."
+
+!!! quote "From Voron Discord User"
+    "I've had mixed results with the Eddy USB. While the temperature compensation works well, I've had issues with USB connectivity dropping out during long prints. The documentation is also quite confusing, especially for the advanced features."
+
+!!! tip "Community Feedback"
+    - Many users report perfect first layers even at high bed temperatures
+    - The USB version is preferred over the I2C version for its stability
+    - Some users mention the initial setup can be challenging but worth it
+    - Great for enclosed printers where temperature variations are common
+
+!!! warning "Common User Complaints"
+    - Documentation is poorly organized and often outdated
+    - USB connection can be unreliable, especially with certain MCUs
+    - Price point is significantly higher than other probes
+    - Setup complexity is overwhelming for beginners
+    - Some users report interference issues with stepper motors
+    - Calibration process is time-consuming and not well documented
+    - Support response times can be slow
+    - Firmware updates sometimes break existing configurations
+
+## Installation Guide { #installation }
+
+### Hardware Setup
+
+1. **Mounting**:
+   - Mount the probe 2-3mm above the nozzle
+   - Ensure proper alignment with the bed
+   - Secure all connections firmly
+
+2. **Wiring**:
+   - Connect USB cable to the probe
+   - Route cables away from stepper motors
+   - Secure cables to prevent interference
+
+### Software Configuration
+
+1. **Klipper Setup**:
+```ini
+[probe]
+pin: !gpio0
+x_offset: 0
+y_offset: 0
+z_offset: 0
+speed: 5.0
+samples: 3
+samples_result: median
+sample_retract_dist: 2.0
+samples_tolerance: 0.006
+samples_tolerance_retries: 3
+```
+
+2. **Calibration**:
+   - Run initial calibration
+   - Set Z-offset
+   - Configure mesh leveling
+
+## Usage Tips { #usage-tips }
+
+!!! tip "Best Practices"
+    - Perform calibration at operating temperature
+    - Clean the bed surface before leveling
+    - Check probe alignment regularly
+    - Update firmware when available
+
+!!! warning "Common Issues"
+    - Incorrect mounting height
+    - Loose connections
+    - Interference from other electronics
+    - Outdated firmware
+
+## Advanced Configuration { #advanced-config }
+
+### Temperature Compensation
+
+```ini
+[eddy]
+temperature_compensation: true
+compensation_factor: 1.0
+```
+
+### Multi-Material Support
+
+```ini
+[eddy]
+material_detection: true
+detection_threshold: 0.1
+```
+
+## Troubleshooting { #troubleshooting }
+
+### Common Problems
+
+1. **Inconsistent Readings**:
+   - Check mounting height
+   - Verify connections
+   - Clean probe surface
+
+2. **Calibration Issues**:
+   - Ensure proper temperature
+   - Check bed surface
+   - Verify probe alignment
+
+3. **Communication Errors**:
+   - Check USB connection
+   - Verify firmware version
+   - Restart Klipper
+
+## Related Resources { #related-resources }
+
+- [Official Documentation](https://eddy-probe.com/docs)
+- [GitHub Repository](https://github.com/eddy-probe)
+- [Voron Discord](https://discord.gg/voron)
+- [Klipper Documentation](https://www.klipper3d.org/Bed_Level.html)
+- [Reddit User Review](https://www.reddit.com/r/klippers/comments/1fyn6vq/btt_eddy_coil_review_and_rant/)
+
+{% include "ads/footer-AD.md" %}

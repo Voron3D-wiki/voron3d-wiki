@@ -14,12 +14,19 @@ theme:
     - navigation.prune
     - toc.integrate 
     - toc.follow
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    - content.code.prompt
+    - content.code.highlight_lines
+    - content.code.highlight_languages
 
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: red
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -28,9 +35,18 @@ theme:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: red
+      accent: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  icon:
+    repo: fontawesome/brands/github
+
 nav:
   - Home: index.md
   - Printers:
@@ -74,15 +90,21 @@ nav:
 plugins:
   - include-markdown
   # - meta-descriptions
-  - search
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   # - optimize
   - tags
   # - social
   - glightbox
   - privacy
-
-extra_files:
-  - ads.txt
+  - git-revision-date-localized:
+      type: datetime
+      timezone: UTC
+      locale: en
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
 
 markdown_extensions:
   - tables
@@ -90,18 +112,44 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - markdown.extensions.attr_list
-  - markdown.extensions.toc
+  - markdown.extensions.toc:
+      permalink: true
+      toc_depth: 3
   - markdown.extensions.extra
   - markdown.extensions.admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
 
-extra: #alternative analytics methode 
-  # consent:
-  #   title: Cookie consent
-  #   description: >- 
-  #     We use cookies to recognize your repeated visits and preferences, as well
-  #     as to measure the effectiveness of our documentation and whether users
-  #     find what they're searching for. With your consent, you're helping us to
-  #     make our documentation better.
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/voron3d-wiki
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/voron
   analytics:
     provider: google
     property: G-7E70MV2KN4

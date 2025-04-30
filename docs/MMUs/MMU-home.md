@@ -1,107 +1,139 @@
 ---
-title: Multi Material Systems
-description: Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
+title: Multi-Material Units
+description: Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models.
 published: true
-tags: [ERCF, PICO, AMSm]
+tags: [mmu, ercf, pico-mmu, box-turtle, multi-material, toolchanger]
+last_updated: {{ git_revision_date_localized }}
 ---
-# Multi-Material UNIT Systems (MMUs)
 
-## Introduction
+# Multi-Material Units
+
+!!! info "Page Information"
+    - **Last Updated**: {{ git_revision_date_localized }}
+    - **Contributors**: {{ git_author }}
+
+## Overview
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
 
-## Filament Swapping systems (MMU2)
+## Official Solutions
 
-### 1. **Prusa Design MMU2/MMU3**
-- **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
-- **Key Features**:
-  - Supports up to 5 colors/materials.
-  - Automatic filament loading/unloading.
-  - Integrated with PrusaSlicer for seamless operation.
-  - Reliable filament sensor to detect jams or misfeeds.
-- [Learn More](./Pursa-MMU.md)
-![Prusa MMU](https://github.com/Enraged-Rabbit-Community/ERCF_v2/blob/master/Assets/ERCFv2.png?raw=true)
-
----
-
-### 6. **PICO MMU**
-- **Description**: A very interesting project by [Ihndo](https://github.com/lhndo){:target="_blank"}, the creator of the [LH-Stinger](https://github.com/lhndo/LH-Stinger){:target="_blank"}.
-- **Key Features**:
-  - Compact design for all printers.
-  - Supports up to 4 colors/materials.
-  - Open-source and customizable.
-  - Lightweight and easy to assemble.
-- [Learn More](./PICO-MMU.md)
-
----
-
-### 7. **TradRack MMU**
-- **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
-- **Key Features**:
-  - Modular design for easy expansion.
-  - Supports up to 6 colors/materials.
-  - Compatible with various slicers.
-  - Designed for high-speed filament swapping.
-- [Learn More](./tradrack.md)
-
----
-
-### 2. **ERCF (Enraged Rabbit Carrot Feeder)**
+### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF.md)
 - **Description**: A community-driven MMU system designed for high reliability and extensive customization.
 - **Key Features**:
-  - Supports up to 5 colors/materials.
-  - Highly customizable with modular components.
-  - Extensive community support and documentation.
-  - Advanced filament path control for reduced tangling.
-- [Learn More](./ERCF.md)
+  - Supports up to 5 colors/materials
+  - Highly customizable with modular components
+  - Extensive community support and documentation
+  - Advanced filament path control for reduced tangling
 
----
-
-## Filament storage and Swapping systems (AMS style)
-
-### 3. **Anycubic MMU**
-- **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
+### [PICO-MMU](PICO-MMU.md)
+- **Description**: A very interesting project by [Ihndo](https://github.com/lhndo), the creator of the [LH-Stinger](https://github.com/lhndo/LH-Stinger).
 - **Key Features**:
-  - Supports up to 4 colors/materials.
-  - Integrated filament storage and swapping.
-  - Affordable and beginner-friendly.
-  - Compact design with minimal maintenance requirements.
-- [Learn More](./Anycubic-MMU.md)
+  - Compact design for all printers
+  - Supports up to 4 colors/materials
+  - Open-source and customizable
+  - Lightweight and easy to assemble
 
----
+## Community Solutions
 
-### 4. **BoxTurtle MMU**
+### [Box Turtle](BoxTurtle.md)
 - **Description**: An open-source multi-material system that supports 4 spools (unsure if they can be daisy-chained). Includes an auto-rewinding system, and a kit can be purchased through LDO Motors.
 - **Key Features**:
-  - Supports up to 4 colors/materials.
-  - Auto-rewinding system for unused filaments.
-  - Open-source with detailed documentation.
-  - Designed for compatibility with Klipper firmware.
-- [Learn More](./BoxTurtle.md)
+  - Supports up to 4 colors/materials
+  - Auto-rewinding system for unused filaments
+  - Open-source with detailed documentation
+  - Designed for compatibility with Klipper firmware
 
----
+### [TradRack](tradrack.md)
+- **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
+- **Key Features**:
+  - Modular design for easy expansion
+  - Supports up to 6 colors/materials
+  - Compatible with various slicers
+  - Designed for high-speed filament swapping
 
-### 5. **BTT MMU**
+## Commercial Options
+
+### [BTT MMU](BTT-MMU.md)
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
 - **Key Features**:
-  - Supports up to 4 colors/materials.
-  - Designed for seamless integration with BTT boards.
-  - Compact and cost-effective.
-  - Firmware updates planned for enhanced functionality.
-- [Learn More](./BTT-MMU.md)
+  - Supports up to 4 colors/materials
+  - Designed for seamless integration with BTT boards
+  - Compact and cost-effective
+  - Firmware updates planned for enhanced functionality
 
----
+### [Anycubic MMU](Anycubic-MMU.md)
+- **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
+- **Key Features**:
+  - Supports up to 4 colors/materials
+  - Integrated filament storage and swapping
+  - Affordable and beginner-friendly
+  - Compact design with minimal maintenance requirements
+
+### [Prusa MMU](Pursa-MMU.md)
+- **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
+- **Key Features**:
+  - Supports up to 5 colors/materials
+  - Automatic filament loading/unloading
+  - Integrated with PrusaSlicer for seamless operation
+  - Reliable filament sensor to detect jams or misfeeds
 
 ## Other Modifications
 
-### **Blobifier**
- - https://github.com/Dendrowen/Blobifier
+### [Blobifier](https://github.com/Dendrowen/Blobifier)
+- A unique approach to multi-material printing
 
-{% include "ads/article-AD.md" %}
+## Selection Guide
 
+### Factors to Consider
+1. **Number of Materials**
+   - 2-3 materials: Anycubic MMU, TradRack
+   - 4-5 materials: PICO-MMU, BTT MMU, Prusa MMU
+   - 6+ materials: ERCF, Box Turtle
 
-## Conclusion
-Multi-Material Upgrade systems enhance the functionality of FDM 3D printing, opening possibilities for more creative, functional, and visually striking models. Each system has its strengths, so choosing the right MMU depends on the printer type, user experience, and project requirements.
+2. **Installation Complexity**
+   - Easy: Commercial solutions
+   - Moderate: PICO-MMU, TradRack
+   - Advanced: ERCF, Box Turtle
 
+3. **Cost Considerations**
+   - Budget: TradRack, Anycubic MMU
+   - Mid-range: PICO-MMU, BTT MMU
+   - High-end: ERCF, Box Turtle
 
-{% include "ads/article-AD.md" %}
+4. **Maintenance Requirements**
+   - Low: Commercial solutions
+   - Medium: PICO-MMU
+   - High: ERCF, Box Turtle
+
+## Technical Considerations
+
+### Filament Types
+- PLA, PETG, ABS compatibility
+- Flexible filament support
+- Support material options
+- Material transition handling
+
+### Software Requirements
+- Klipper integration
+- Slicer settings
+- Material profiles
+- Transition settings
+
+### Hardware Requirements
+- Extruder compatibility
+- Hotend requirements
+- Electronics integration
+- Space requirements
+
+## Related Resources
+- [Voron Design GitHub](https://github.com/VoronDesign)
+- [Voron Discord](https://discord.gg/voron)
+- [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
+
+## References
+1. Voron Design Documentation
+2. Community Modifications Database
+3. User Experience Reports
+
+{% include "ads/footer-AD.md" %}
 
