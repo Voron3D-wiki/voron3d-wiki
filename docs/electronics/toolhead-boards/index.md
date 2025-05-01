@@ -15,8 +15,10 @@ Toolhead boards are specialized control units designed to manage the electronics
 | Board | Connectivity | Features | Price Range | Best For |
 |-------|--------------|----------|-------------|-----------|
 | [BTT EBB](./BTT-EBB.md) | CAN bus, USB | Integrated drivers | $$ | Most Voron builds |
-| [MKS THR](./mks-thr.md) | CAN bus | Modular design | $$ | Advanced setups |
-| [FLY SHT](./FLY-SHT.md) | CAN bus | Compact design | $$ | Lightweight builds |
+| [MKS THR](./mks-thr.md) | CAN bus, USB  | Modular design | $$ | Advanced setups |
+| [FLY SHT](./FLY-SHT.md) | CAN bus, USB  | Compact design | $$ | Lightweight builds |
+| [LDO Orbitool O2](./ldo-orbitool-o2.md) | USB | Integrated accelerometer, TMC2209 | $$ | Orbiter 2 users |
+| [LDO Orbitool 3](./ldo-orbitool-3.md) | USB | Integrated accelerometer, TMC2209 | $$ | Smart Orbiter 3 users |
 
 ## Key Features
 
