@@ -76,4 +76,15 @@ a[href*="reddit.com"]::before {
 
 .external-link-list li {
     margin-bottom: 0.5em;
+}
+
+/* Fix external link icons in footer */
+.md-footer .md-social__link svg {
+  /* Reset any transform that might be applied */
+  transform: none !important;
+}
+
+.md-footer .md-social__link::after {
+  /* Remove the external link arrow */
+  display: none !important;
 } 
