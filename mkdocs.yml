@@ -7,7 +7,6 @@ theme:
   # custom_dir: overrides
   features:
     - navigation.tracking
-    - content.code.copy
     - navigation.tabs
     - navigation.sections
     - navigation.path
@@ -15,8 +14,9 @@ theme:
     - toc.integrate 
     - toc.follow
     - content.code.annotate
-    - content.tabs.link
     - content.code.copy
+    - content.tabs.link
+    - content.code.select
     - content.code.prompt
     - content.code.highlight_lines
     - content.code.highlight_languages
@@ -53,7 +53,7 @@ extra_css:
 nav:
   - Home: index.md
   - Printers:
-      - Overview: printers/printers-home.md
+      - Overview: printers/index.md
       - Voron V0: printers/v0.md
       - Voron Switchwire: printers/switchwire.md
       - Voron Trident: printers/trident.md
@@ -63,14 +63,16 @@ nav:
       - Klipper Config Help: software/klipper-config-help.md
       - Klipper Macros: software/klipper_macros.md
   - Electronics:
-      - Overview: electronics/electronics-home.md
+      - Overview: electronics/index.md
       - Motherboards:
           - Overview: electronics/mcu/index.md
+          - General MCU Info: electronics/mcu/mcu.md
           - BTT SKR Series: electronics/mcu/btt-skr.md
           - Mellow Fly: electronics/mcu/mellow-fly.md
           - MKS: electronics/mcu/mks.md
           - Octopus: electronics/mcu/octopus.md
           - RP2040 Boards: electronics/mcu/rp2040-boards.md
+      - RP2040 Info: electronics/rp2040.md
       - Connectors: electronics/connectors.md
       - Safety: electronics/safety/index.md
       - Guides:
@@ -81,11 +83,15 @@ nav:
       - Overview: electronics/toolhead-boards/index.md
       - MKS-THR: electronics/toolhead-boards/mks-thr.md
       - FLY-SHT: electronics/toolhead-boards/fly-sht.md
+      - FLY-SB2040: electronics/toolhead-boards/FLY-SB2040.md
       - BTT-EBB: electronics/toolhead-boards/BTT-EBB.md
+      - LDO Orbitool 3: electronics/toolhead-boards/ldo-orbitool-3.md
+      - LDO Orbitool O2: electronics/toolhead-boards/ldo-orbitool-o2.md
   - Toolheads:
-      - Overview: toolheads/toolhead-home.md
+      - Overview: toolheads/index.md
       - Hotends:
-          - Overview: toolheads/hotend-home.md
+          - Overview: toolheads/hotends/index.md
+          - General Info: toolheads/hotends.md
           - DropEffect NExt G: toolheads/hotends/dropeffect-nextg.md
           - E3D Revo Voron: toolheads/hotends/e3d-revo-voron.md
           - E3D V6: toolheads/hotends/e3d-v6.md
@@ -101,7 +107,7 @@ nav:
       - Eddy Coil: bedleveling/eddy-coil.md
       - Eddy: bedleveling/eddy.md
   - Multi-Material units:
-      - List of MMUS: MMUs/MMU-home.md
+      - Overview: MMUs/index.md
       - ERCF v1/v2: MMUs/ERCF.md
       - Tradrack: MMUs/tradrack.md
       - BoxTurtle: MMUs/BoxTurtle.md
@@ -110,7 +116,7 @@ nav:
       - Anycubic-MMU: MMUs/Anycubic-MMU.md
       - Pursa-MMU: MMUs/Pursa-MMU.md
   - Guides:
-      - Overview: guides/guides-home.md
+      - Overview: guides/index.md
       - Components: guides/components.md
       - Emergency Procedures: guides/emergency.md
       - Installation: guides/installation.md
@@ -186,6 +192,10 @@ extra:
   analytics:
     provider: google
     property: G-7E70MV2KN4
+
+extra_javascript:
+  - assets/js/code-copy.js
+
 # extra_javascript: #alternative analytics methode 
 #   - https://www.googletagmanager.com/gtag/js?id=G-VPL8R0L9Z1
 #   - analytics.js
