@@ -7,9 +7,6 @@ tags: [voron, 3d printer, corexy, bedslinger]
 
 # Voron Printers
 
-!!! warning "Official Voron Printers Only"
-    Only printers designed by the Voron Design team are considered official Voron printers. Commercial printers and community derivatives are listed separately in this documentation.
-
 ## Overview
 Voron Design offers a range of high-performance 3D printers, each designed for specific use cases and requirements. This guide covers the official Voron printer models, their features, applications, and notable community derivatives.
 
@@ -78,6 +75,10 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   - Direct drive extruder
   - Fully enclosed
   - Great entry point to Voron ecosystem
+
+
+!!! warning "Official Voron Printers Only"
+    Only printers designed by the Voron Design team are considered official Voron printers. Commercial printers and community derivatives are listed separately in this documentation.
 
 ## Community Derivatives
 
