@@ -1,0 +1,51 @@
+name: Affiliate Link Check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  check-affiliate-links:
+    name: Check and Fix Affiliate Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install beautifulsoup4 requests
+
+      - name: Check and Fix Affiliate Links
+        run: |
+          python .github/scripts/check_affiliate_links.py
+
+      - name: Create Pull Request
+        if: github.event_name == 'push'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "fix: update affiliate links"
+          title: "fix: update affiliate links"
+          body: |
+            This PR updates OneTwo3D links to include the affiliate tag.
+            
+            Changes made:
+            - Added affiliate tag to OneTwo3D links
+            - Verified all links are working
+          branch: fix/affiliate-links
+          base: ${{ github.ref }} 

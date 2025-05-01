@@ -41,9 +41,8 @@ theme:
         name: Switch to light mode
 
   font:
-    text: Roboto
-    code: Roboto Mono
-    font_display: swap
+    text: false
+    code: false
 
   icon:
     repo: fontawesome/brands/github
@@ -139,10 +138,6 @@ plugins:
       type: datetime
       timezone: UTC
       locale: en
-  - minify:
-      minify_html: true
-      minify_js: true
-      minify_css: true
 
 markdown_extensions:
   - tables
