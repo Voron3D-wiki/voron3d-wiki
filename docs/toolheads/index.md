@@ -8,24 +8,25 @@ tags: [toolheads, extruders, components]
 # Toolheads
 
 ## Overview
-This section covers the mechanical components and assemblies that make up Voron printer toolheads.
+This section covers the mechanical components and assemblies that make up Voron printer toolheads, including their features, compatibility, and setup guides.
 
-## Components
+## Quick Links
 
 ### Core Components
-- [Extruders](extruders/index.md) - Direct drive and bowden extruder options
-- [Hotends](../hotends/index.md) - Compatible hotend options and guides
-- [Part Cooling](cooling/index.md) - Fan and duct configurations
+[Extruders](extruders/index.md) | [Hotends](../hotends/index.md) | [Part Cooling](cooling/index.md)
 
-### Toolhead Models
-- [Stealthburner](stealthburner/index.md) - The latest Voron toolhead
-- [Afterburner](afterburner/index.md) - Classic Voron toolhead
-- [Mini Afterburner](mini-afterburner/index.md) - Compact version
+### Assembly Guides
+[Toolhead Assembly](guides/toolheads/assembly.md) | [Extruder Setup](guides/toolheads/extruder-setup.md) | [Part Cooling Setup](guides/toolheads/cooling-setup.md)
 
-## Assembly Guides
-1. [Toolhead Assembly](guides/toolheads/assembly.md)
-2. [Extruder Setup](guides/toolheads/extruder-setup.md)
-3. [Part Cooling Setup](guides/toolheads/cooling-setup.md)
+## Popular Options
+
+| Toolhead | Features | Best For | Documentation |
+|----------|----------|----------|---------------|
+| Stealthburner | Latest design, LED support, modular | New builds | [Guide](stealthburner/index.md) |
+| Afterburner | Classic design, proven reliability | Legacy builds | [Guide](afterburner/index.md) |
+| Mini Afterburner | Compact design, reduced weight | Small printers | [Guide](mini-afterburner/index.md) |
+| XOL | Lightweight, high-speed design | Speed-focused builds | [Guide](xol/index.md) |
+| AT4 | Advanced cooling, modular design | High-performance builds | [Guide](at4/index.md) |
 
 ## References
 1. [Voron Design](https://vorondesign.com)
