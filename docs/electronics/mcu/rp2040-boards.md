@@ -3,14 +3,9 @@ title: RP2040 Boards
 description: Comprehensive guide to RP2040-based mainboards for 3D printers
 published: true
 tags: [mcu, mainboard, rp2040, klipper, marlin]
-last_updated: {{ git_revision_date_localized }}
 ---
 
 # RP2040 Boards
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
 
 ## Overview
 RP2040-based boards represent a new generation of microcontroller units for 3D printers, featuring a dual-core ARM Cortex-M0+ processor. These boards offer excellent performance and flexibility at an affordable price point.

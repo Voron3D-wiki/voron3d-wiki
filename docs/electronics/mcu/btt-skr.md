@@ -1,62 +1,55 @@
 ---
-title: Mellow Fly Boards
-description: Comprehensive guide to Mellow Fly series mainboards for 3D printers
+title: BTT SKR Series
+description: Detailed information about BigTreeTech SKR series mainboards
 published: true
-tags: [mcu, mainboard, mellow, fly, klipper, marlin]
-last_updated: {{ git_revision_date_localized }}
+tags: [mcu, mainboard, btt, skr, klipper, marlin]
 ---
 
-# Mellow Fly Boards
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
+# BTT SKR Series
 
 ## Overview
-Mellow Fly boards represent a series of high-quality mainboards designed for 3D printers, offering excellent performance and reliability. These boards are particularly known for their robust design and comprehensive feature sets.
+The BigTreeTech (BTT) SKR series represents a popular line of 32-bit mainboards designed for 3D printers. These boards offer a good balance of features, performance, and price, making them suitable for various printer configurations.
 
 ## Available Models
 
-### Fly-Gemini V2
+### SKR Mini E3 V3
+- **Processor**: STM32G0B1
+- **Stepper Drivers**: 4x TMC2209
+- **Connectivity**: USB, UART
+- **Price Range**: $
+- **Best For**: Entry-level printers, Ender 3 upgrades
+
+### SKR Pro V1.2
 - **Processor**: STM32F407
 - **Stepper Drivers**: 6x (configurable)
 - **Connectivity**: USB, UART, CAN
 - **Price Range**: $$
-- **Best For**: Mid-range printers, reliable builds
+- **Best For**: Mid-range printers, multi-extruder setups
 
-### Fly-Gemini V3
+### SKR 2
 - **Processor**: STM32F407
-- **Stepper Drivers**: 6x (configurable)
-- **Connectivity**: USB, UART, CAN, WiFi
-- **Price Range**: $$$
-- **Best For**: Advanced printers, wireless setups
-
-### Fly-Super8
-- **Processor**: STM32F407
-- **Stepper Drivers**: 8x (configurable)
-- **Connectivity**: USB, UART, CAN, Ethernet
-- **Price Range**: $$$$
-- **Best For**: High-end printers, complex setups
-
-### Fly-Pi
-- **Processor**: STM32F407
-- **Stepper Drivers**: 4x (configurable)
+- **Stepper Drivers**: 5x (configurable)
 - **Connectivity**: USB, UART
 - **Price Range**: $$
+- **Best For**: Standard printers, dual Z-axis setups
+
+### SKR Pico
+- **Processor**: RP2040
+- **Stepper Drivers**: 4x (configurable)
+- **Connectivity**: USB, GPIO
+- **Price Range**: $
 - **Best For**: Entry-level printers, compact builds
 
 ## Key Features
 
 ### Hardware Features
-- High-performance STM32 processors
+- 32-bit processors (except SKR Pico)
 - Multiple stepper driver support
 - Various connectivity options
-- CAN bus support
-- WiFi capability (V3 model)
-- Ethernet capability (Super8)
+- Expandable through expansion boards
 - Multiple fan outputs
-- Advanced sensor support
-- Extensive GPIO options
+- Heated bed control
+- Endstop inputs
 
 ### Software Support
 - Klipper firmware support
@@ -84,10 +77,8 @@ Mellow Fly boards represent a series of high-quality mainboards designed for 3D 
 ### Expansion Options
 - CAN bus expansion
 - WiFi connectivity
-- Ethernet integration
 - Additional stepper drivers
-- Advanced sensor integration
-- Display integration
+- Sensor integration
 
 ### Community Mods
 - Custom cooling solutions
@@ -98,11 +89,10 @@ Mellow Fly boards represent a series of high-quality mainboards designed for 3D 
 ## Troubleshooting
 
 ### Common Issues
-1. Stepper motor configuration
+1. Stepper motor issues
 2. USB connectivity problems
 3. Firmware flashing errors
 4. Power supply issues
-5. CAN bus communication
 
 ### Solutions
 - [Troubleshooting Guide](./guides/troubleshooting.md)
@@ -110,12 +100,12 @@ Mellow Fly boards represent a series of high-quality mainboards designed for 3D 
 - [Community Support](./guides/community-support.md)
 
 ## Related Resources
-- [Mellow Official Documentation](https://github.com/mellow-3d)
+- [BTT Official Documentation](https://github.com/bigtreetech)
 - [Voron Design GitHub](https://github.com/VoronDesign)
 - [Voron Discord](https://discord.gg/voron)
 
 ## References
-1. Mellow Official Documentation
+1. BTT Official Documentation
 2. Community Modifications Database
 3. User Experience Reports
 

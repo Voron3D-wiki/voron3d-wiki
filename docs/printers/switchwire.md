@@ -1,16 +1,12 @@
 ---
-title: Switchwire
+title: Voron Switchwire
 description: Comprehensive guide to the Voron Switchwire 3D printer, including specifications, features, and modifications
 published: true
-tags: [switchwire, enderwire, sovolwire, corexz, voron]
+tags: [voron, switchwire, 3d printer, bedslinger]
 last_updated: {{ git_revision_date_localized }}
 ---
 
 # Voron Switchwire
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
 
 ## Overview
 The Voron Switchwire is a bed-slinger-style printer that combines the simplicity of a traditional 3D printer with Voron's engineering excellence. It uses a CoreXZ motion system, where the bed moves along the Y-axis while the extruder moves along the X- and Z-axes, providing superior precision and speed compared to traditional bed slingers.

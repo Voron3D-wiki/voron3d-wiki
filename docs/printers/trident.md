@@ -1,16 +1,11 @@
 ---
-title: Trident
-description: Comprehensive guide to the Voron Trident 3D printer, including specifications, features, and modifications
+title: Voron Trident
+description: Comprehensive guide to the Voron Trident 3D printer
 published: true
-tags: [trident, corexy, voron, fixed-bed]
-last_updated: {{ git_revision_date_localized }}
+tags: [voron, trident, 3d printer, corexy]
 ---
 
 # Voron Trident
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
 
 ## Overview
 The Voron Trident is a hybrid design that combines the best features of the V1 and V2 models. It features a fixed bed with a moving gantry, utilizing three independent leadscrews for automatic bed leveling. This design provides exceptional precision and ease of use while maintaining the high-speed performance of the CoreXY motion system.

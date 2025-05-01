@@ -1,15 +1,32 @@
 ---
-title: List of Extruders
-description: Comprehensive guide to 3D printer extruders, including their features, specifications, and use cases
+title: Extruders
+description: Comprehensive guide to extruders for Voron 3D printers
 published: true
-tags: [Sherpa, Sherpa Mini, Sherpa Micro, Orbiter V2.5, BMG, Titan, Hemera, Clockwork]
+tags: [extruders, 3d printing]
 ---
+
 # Extruders
 
 ## Introduction
 Extruders are critical components in 3D printers that control the flow of filament into the hotend. They come in various designs, each with unique features and capabilities. This guide covers popular extruder options and their characteristics.
 
 ## Types of Extruders
+
+### **Bondtech LGX** 
+- **Description**: Bondtech's high-performance extruder with large gears for superior filament control
+- **Key Features**:
+  - Dual drive system with large gears (Large Gears eXtruder)
+  - 5:1 gear ratio for exceptional torque
+  - Excellent for flexible materials
+  - Lightweight design (106g)
+- **Best For**: 
+  - Flexible filaments
+  - High-speed printing
+  - Direct drive setups
+- **Purchase Options**:
+  - [OneTwo3D - Bondtech LGX Large Gears Extruder](https://www.onetwo3d.co.uk/product/bondtech-lgx-large-gears-extruder/?wpam_id=9) ← *Affiliate link*
+
+---
 
 ### **Sherpa Mini**
 - **Description**: A compact, lightweight direct drive extruder designed for high-performance printing
@@ -138,6 +155,6 @@ Here are some helpful resources related to extruders:
 - [Extruder Force Testing by Annex Engineering](https://github.com/Annex-Engineering/Annex-Engineering.github.io/blob/master/extruder_force.md) - Detailed information on extruder force testing and performance.
 - [Extruder Calibration Guide](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html) - Comprehensive guide to extruder calibration and tuning.
 
-<!-- Google AdSense Code -->
+{% include "ads/affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
 

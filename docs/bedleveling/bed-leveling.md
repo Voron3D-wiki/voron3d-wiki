@@ -3,9 +3,7 @@ title: Bed Leveling
 description: Comprehensive guide to bed leveling methods and sensors for Voron 3D printers
 published: true
 tags: [bed-leveling, sensors, probes, mesh-leveling, auto-z]
-date: 2024-10-11T21:53:57.545Z
-editor: ckeditor
-dateCreated: 2024-10-09T09:22:42.067Z
+date: 2024-03-11
 ---
 
 # Bed Leveling { #bed-leveling }
@@ -89,15 +87,4 @@ Auto Z-offset systems automatically calibrate the distance between the nozzle an
 - [Voron Discord](https://discord.gg/voron)
 - [GitHub Discussions](https://github.com/VoronDesign/VoronUsers/discussions)
 
-{% include "ads/article-AD.md" %}
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="9870151582"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% include "_templates/ads.html" %}

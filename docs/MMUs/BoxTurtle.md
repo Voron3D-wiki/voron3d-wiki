@@ -1,11 +1,11 @@
 ---
-title: BoxTurtle
-description: Modular compact automated filament changer for klipper 3d printers
+title: BoxTurtle MMU
+description: Comprehensive guide to the BoxTurtle Multi-Material Unit
 published: true
-tags: [BoxTurtle, ArmoredTurtle]
+tags: [BoxTurtle, MMU, Multi-Material]
 ---
 
-# (BoxTutle)[https://github.com/ArmoredTurtle/BoxTurtle]
+# BoxTurtle MMU
 
 ## Offical kit (authorized resellers)
 
@@ -25,13 +25,13 @@ Lab4450.com resells the AFC-Lite MCU
 [3DO](https://3do.dk/3d-printer/2946-ldo-boxturtle-afc-kit-til-klipper-printere-forudbestilling.html)
 
 UK:
-OneTwo3D.co.uk
+[OneTwo3D.co.uk - LDO Box Turtle Enclosure Kit](https://www.onetwo3d.co.uk/product/ldo-box-turtle-enclosure-kit?wpam_id=9) ← *Affiliate link*
 Desktop Machine Shop
 Viperworx
 
 AU:
 DREMC
 
-
+{% include "ads/affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
 

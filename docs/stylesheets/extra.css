@@ -1,0 +1,79 @@
+/* External Link Design Language */
+
+/* Base styles for all external links */
+a[href^="http"] {
+    position: relative;
+    padding-right: 1.2em;
+}
+
+a[href^="http"]::after {
+    content: "↗";
+    position: absolute;
+    right: 0;
+    font-size: 0.9em;
+    line-height: 1;
+}
+
+/* Manufacturer Links */
+a[href*="github.com"]::before,
+a[href*="voron3d.com"]::before,
+a[href*="bigtreetech.com"]::before,
+a[href*="e3d-online.com"]::before,
+a[href*="phaetus.com"]::before {
+    content: "🏭 ";
+    margin-right: 0.2em;
+}
+
+/* Third-party Resource Links */
+a[href*="all3dp.com"]::before,
+a[href*="hackaday.com"]::before,
+a[href*="reddit.com"]::before {
+    content: "📚 ";
+    margin-right: 0.2em;
+}
+
+/* Link Categories */
+.manufacturer-link {
+    color: #2196F3;
+    border-bottom: 1px dotted #2196F3;
+}
+
+.resource-link {
+    color: #4CAF50;
+    border-bottom: 1px dotted #4CAF50;
+}
+
+/* Hover Effects */
+.manufacturer-link:hover {
+    background-color: rgba(33, 150, 243, 0.1);
+}
+
+.resource-link:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Link Descriptions */
+.link-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+}
+
+/* Link Container */
+.external-link-container {
+    margin: 1em 0;
+    padding: 1em;
+    border-left: 4px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+/* Link Lists */
+.external-link-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.external-link-list li {
+    margin-bottom: 0.5em;
+} 

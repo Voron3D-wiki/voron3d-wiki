@@ -49,7 +49,7 @@ This wiki is designed to be a one-stop resource for all things Voron. Below are 
 
 ### Guides { #guides }
 
-- [Build Guides](guides/guides-home.md) - Coming soon
+- [Build Guides](guides/guides-home.md) - Step-by-step instructions for building and configuring your Voron printer
 
 ---
 
@@ -63,16 +63,7 @@ We hope this wiki serves as a valuable resource for your 3D printing journey. St
     Join our [Discord community](https://discord.gg/voron) for real-time support and discussions.
 
 !!! note "Contributing"
-    This wiki is open source! Feel free to contribute by submitting pull requests on our [GitHub repository](https://github.com/yourusername/voron3d-wiki).
+    This wiki is open source! Feel free to contribute by submitting pull requests on our [GitHub repository](https://github.com/VoronDesign/VoronUsers).
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="9870151582"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% include "_templates/ads.html" %}
 

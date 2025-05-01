@@ -43,32 +43,62 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+    font_display: swap
 
   icon:
     repo: fontawesome/brands/github
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Home: index.md
   - Printers:
+      - Overview: printers/printers-home.md
       - Voron V0: printers/v0.md
       - Voron Switchwire: printers/switchwire.md
       - Voron Trident: printers/trident.md
       - Voron V2.4: printers/v2-4.md
   - Software:
       - Klipper: software/klipper.md
-  - Electronics/Control boards:
-      - Electronics: electronics/electronics-home.md
-      - Motherboards: electronics/mcu/mcu.md
+      - Klipper Config Help: software/klipper-config-help.md
+      - Klipper Macros: software/klipper_macros.md
+  - Electronics:
+      - Overview: electronics/electronics-home.md
+      - Motherboards:
+          - Overview: electronics/mcu/index.md
+          - BTT SKR Series: electronics/mcu/btt-skr.md
+          - Mellow Fly: electronics/mcu/mellow-fly.md
+          - MKS: electronics/mcu/mks.md
+          - Octopus: electronics/mcu/octopus.md
+          - RP2040 Boards: electronics/mcu/rp2040-boards.md
+      - Connectors: electronics/connectors.md
+      - Safety: electronics/safety/index.md
+      - Guides:
+          - CANbus Setup: electronics/guides/canbus-setup.md
+          - Pin Mapping: electronics/guides/pin-mapping.md
+          - Troubleshooting: electronics/guides/troubleshooting.md
   - Toolhead Boards:
-      - Toolhead Boards: electronics/toolhead-boards/toolhead-boards.md
-      - MKS-THR: electronics/toolhead-boards/MKS-THR.md
-      - FLY-SHT: electronics/toolhead-boards/FLY-SHT.md
+      - Overview: electronics/toolhead-boards/index.md
+      - MKS-THR: electronics/toolhead-boards/mks-thr.md
+      - FLY-SHT: electronics/toolhead-boards/fly-sht.md
       - BTT-EBB: electronics/toolhead-boards/BTT-EBB.md
   - Toolheads:
-      - Toolhead Overview: toolheads/toolhead-home.md
-      - Hotends: toolheads/hotends.md
+      - Overview: toolheads/toolhead-home.md
+      - Hotends:
+          - Overview: toolheads/hotend-home.md
+          - DropEffect NExt G: toolheads/hotends/dropeffect-nextg.md
+          - E3D Revo Voron: toolheads/hotends/e3d-revo-voron.md
+          - E3D V6: toolheads/hotends/e3d-v6.md
+          - Phaetus Dragon: toolheads/hotends/phaetus-dragon.md
+          - Phaetus Rapido: toolheads/hotends/phaetus-rapido.md
+      - Extruders: toolheads/extruder.md
+  - Filament:
+      - Filament Guide: filament/filament-guide.md
   - Bed Leveling:
       - Overview: bedleveling/bed-leveling.md
+      - Beacon: bedleveling/beacon.md
+      - Cartographer: bedleveling/cartographer.md
       - Eddy Coil: bedleveling/eddy-coil.md
       - Eddy: bedleveling/eddy.md
   - Multi-Material units:
@@ -82,6 +112,14 @@ nav:
       - Pursa-MMU: MMUs/Pursa-MMU.md
   - Guides:
       - Overview: guides/guides-home.md
+      - Components: guides/components.md
+      - Emergency Procedures: guides/emergency.md
+      - Installation: guides/installation.md
+      - Power Supplies: guides/power-supplies.md
+      - Safety: guides/safety.md
+      - Specifications: guides/specifications.md
+      - Standards: guides/standards.md
+      - Wiring: guides/wiring.md
   # - External Links:
   #     - [Voron3D Official Site](https://voron3d.com/)
   #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
@@ -129,8 +167,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.details
   - pymdownx.critic
   - pymdownx.caret

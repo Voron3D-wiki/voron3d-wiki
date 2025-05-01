@@ -3,14 +3,9 @@ title: Main Control Units
 description: Comprehensive guide to Main Control Units (MCUs) for 3D printers, including features, specifications, and compatibility
 published: true
 tags: [mcu, mainboard, klipper, marlin, electronics]
-last_updated: {{ git_revision_date_localized }}
 ---
 
 # Main Control Units
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
 
 ## Overview
 Main Control Units (MCUs) are the brains of 3D printers, responsible for processing commands, controlling motors, and managing various peripherals. This guide provides a quick comparison of different MCU options and links to detailed information pages.

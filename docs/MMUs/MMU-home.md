@@ -1,16 +1,11 @@
 ---
-title: Multi-Material Units
-description: Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models.
+title: Multi-Material Units (MMUs)
+description: Comprehensive guide to Multi-Material Units for 3D printers
 published: true
-tags: [mmu, ercf, pico-mmu, box-turtle, multi-material, toolchanger]
-last_updated: {{ git_revision_date_localized }}
+tags: [mmu, multi-material, boxturtle, ercf, enraged rabbit]
 ---
 
-# Multi-Material Units
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
+# Multi-Material Units (MMUs)
 
 ## Overview
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.

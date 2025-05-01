@@ -1,53 +1,42 @@
 ---
-title: MKS Boards
-description: Comprehensive guide to MKS series mainboards for 3D printers
+title: Octopus Series
+description: Comprehensive guide to BigTreeTech Octopus series control boards
 published: true
-tags: [mcu, mainboard, mks, klipper, marlin]
-last_updated: {{ git_revision_date_localized }}
+tags: [electronics, mcu, btt, octopus, klipper]
 ---
 
-# MKS Boards
-
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
+# Octopus Series
 
 ## Overview
-MKS (Makerbase) boards are known for their reliability and feature-rich design. These boards typically use LPC1768/LPC1769 processors and offer a good balance of features for mid-range 3D printers.
+The Octopus series represents BigTreeTech's high-end mainboard offerings, designed for advanced 3D printers requiring extensive features and capabilities. These boards are particularly well-suited for complex printer configurations and professional applications.
 
 ## Available Models
 
-### MKS Gen L
-- **Processor**: LPC1768
-- **Stepper Drivers**: 5x (configurable)
-- **Connectivity**: USB
-- **Price Range**: $$
-- **Best For**: Standard printers, reliable builds
-
-### MKS Robin
-- **Processor**: STM32F103
-- **Stepper Drivers**: 4x (configurable)
-- **Connectivity**: USB, TFT
-- **Price Range**: $$
-- **Best For**: Entry to mid-range printers
-
-### MKS THR
-- **Processor**: LPC1769
-- **Stepper Drivers**: 6x (configurable)
-- **Connectivity**: USB, Ethernet
+### Octopus V1.1
+- **Processor**: STM32F446
+- **Stepper Drivers**: 8x (configurable)
+- **Connectivity**: USB, UART, CAN
 - **Price Range**: $$$
-- **Best For**: Advanced printers, network integration
+- **Best For**: High-end printers, multi-extruder setups
+
+### Octopus Pro
+- **Processor**: STM32H743
+- **Stepper Drivers**: 8x (configurable)
+- **Connectivity**: USB, UART, CAN, Ethernet
+- **Price Range**: $$$$
+- **Best For**: Professional printers, complex setups
 
 ## Key Features
 
 ### Hardware Features
-- LPC1768/LPC1769 processors
-- Multiple stepper driver support
-- USB/Ethernet connectivity
-- TFT display support
+- High-performance STM32 processors
+- 8 stepper driver support
+- Multiple connectivity options
+- CAN bus support
+- Ethernet capability (Pro model)
 - Multiple fan outputs
-- Heated bed control
-- Endstop inputs
+- Advanced sensor support
+- Extensive GPIO options
 
 ### Software Support
 - Klipper firmware support
@@ -73,10 +62,11 @@ MKS (Makerbase) boards are known for their reliability and feature-rich design. 
 ## Common Modifications
 
 ### Expansion Options
-- TFT display integration
+- CAN bus expansion
 - Ethernet connectivity
 - Additional stepper drivers
-- Sensor integration
+- Advanced sensor integration
+- Display integration
 
 ### Community Mods
 - Custom cooling solutions
@@ -87,10 +77,11 @@ MKS (Makerbase) boards are known for their reliability and feature-rich design. 
 ## Troubleshooting
 
 ### Common Issues
-1. Stepper motor issues
+1. Stepper motor configuration
 2. USB connectivity problems
 3. Firmware flashing errors
 4. Power supply issues
+5. CAN bus communication
 
 ### Solutions
 - [Troubleshooting Guide](./guides/troubleshooting.md)
@@ -98,12 +89,12 @@ MKS (Makerbase) boards are known for their reliability and feature-rich design. 
 - [Community Support](./guides/community-support.md)
 
 ## Related Resources
-- [MKS Official Documentation](https://github.com/makerbase-mks)
+- [BTT Official Documentation](https://github.com/bigtreetech)
 - [Voron Design GitHub](https://github.com/VoronDesign)
 - [Voron Discord](https://discord.gg/voron)
 
 ## References
-1. MKS Official Documentation
+1. BTT Official Documentation
 2. Community Modifications Database
 3. User Experience Reports
 

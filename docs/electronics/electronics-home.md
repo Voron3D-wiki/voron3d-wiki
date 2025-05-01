@@ -1,92 +1,51 @@
 ---
 title: Electronics
-description: Comprehensive guide to electronics components for 3D printers, including mainboards, toolhead boards, and sensors
+description: Comprehensive guide to electronics components and systems for Voron 3D printers
 published: true
-tags: [electronics, mainboard, mcu, toolhead, sensors, klipper]
-last_updated: {{ git_revision_date_localized }}
+tags: [electronics, components, wiring, power]
 ---
 
 # Electronics
 
-!!! info "Page Information"
-    - **Last Updated**: {{ git_revision_date_localized }}
-    - **Contributors**: {{ git_author }}
-
 ## Overview
-The electronics section covers all electronic components used in 3D printers, from main control boards to toolhead electronics and sensors. This guide provides comprehensive information about various options, their features, and compatibility.
+This section covers all aspects of electronics for Voron 3D printers, from main control units to wiring and power systems.
 
-## Main Control Boards
+## Quick Links
 
-### [MCU Guide](mcu/mcu.md)
-- **Type**: Main Control Units
-- **Key Features**:
-  - 32-bit processors
-  - Multiple stepper drivers
-  - Various connectivity options
-  - Klipper compatibility
+### Main Components
+- [Main Control Units](./mcu/index.md) - MCU boards and controllers
+- [Toolhead Boards](./toolhead-boards/index.md) - Toolhead-specific electronics
+- [Connectors](./connectors.md) - Wiring and connection components
 
-### [RP2040 Boards](rp2040.md)
-- **Type**: Raspberry Pi Pico-based boards
-- **Key Features**:
-  - Dual-core ARM Cortex-M0+
-  - USB connectivity
-  - Multiple GPIO pins
-  - Klipper support
+### Power Systems
+- [Power Supplies](./power-supplies/index.md)
+- [Wiring Guide](./wiring/index.md)
+- [Safety Guidelines](./safety/index.md)
 
-## Toolhead Electronics
+### Additional Resources
+- [Troubleshooting Guide](./troubleshooting/index.md)
+- [Upgrade Paths](./upgrades/index.md)
+- [Community Modifications](./mods/index.md)
 
-### [Toolhead Boards](toolhead-boards/)
-- **Type**: Toolhead control boards
-- **Key Features**:
-  - CAN bus support
-  - USB connectivity
-  - Integrated sensors
-  - Modular design
+## Key Topics
 
-## Selection Guide
+### Main Control Units
+- 32-bit controllers
+- Stepper drivers
+- Firmware options
+- Configuration guides
 
-### Factors to Consider
-1. **Processor Requirements**
-   - Basic: 8-bit boards
-   - Standard: 32-bit boards
-   - Advanced: Multi-core boards
-
-2. **Connectivity Needs**
-   - USB
-   - CAN bus
-   - WiFi/Bluetooth
-   - Ethernet
-
-3. **Feature Requirements**
-   - Number of stepper drivers
-   - Sensor support
-   - Display compatibility
-   - Expansion options
-
-4. **Budget Considerations**
-   - Entry level: Basic boards
-   - Mid-range: Standard boards
-   - High-end: Advanced boards
-
-## Technical Considerations
-
-### Firmware Compatibility
-- Klipper support
-- Marlin compatibility
-- Custom firmware options
-- Update procedures
-
-### Sensor Integration
-- Temperature sensors
-- Endstops
-- Filament sensors
-- Chamber monitoring
+### Toolhead Electronics
+- Hotend control
+- Extruder drivers
+- Sensor integration
+- Custom modifications
 
 ### Power Management
-- Input voltage requirements
+- Power supply selection
+- Wiring diagrams
+- Safety considerations
 - Power distribution
-- Safety features
-- Cooling requirements
 
 ## Related Resources
 - [Voron Design GitHub](https://github.com/VoronDesign)
