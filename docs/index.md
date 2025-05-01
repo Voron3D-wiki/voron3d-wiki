@@ -60,10 +60,10 @@ Voron printers are known for their modularity, precision, and high print quality
 We hope this wiki serves as a valuable resource for your 3D printing journey. Stay tuned for updates and new content!
 
 !!! tip "Need Help?"
-    Join our [Discord community](https://discord.gg/voron) for real-time support and discussions.
+    Join the [Discord community](https://discord.gg/voron) for real-time support and discussions.
 
 !!! note "Contributing"
-    This wiki is open source! Feel free to contribute by submitting pull requests on our [GitHub repository](https://github.com/VoronDesign/VoronUsers).
+    This wiki is open source! Feel free to contribute by submitting pull requests through the [GitHub repository](https://github.com/VoronDesign/VoronUsers).
 
 {% include "_templates/ads.html" %}
 

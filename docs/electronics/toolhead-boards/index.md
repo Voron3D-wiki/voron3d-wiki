@@ -14,9 +14,9 @@ Toolhead boards are specialized control units designed to manage the electronics
 
 | Board | Connectivity | Features | Price Range | Best For |
 |-------|--------------|----------|-------------|-----------|
-| [BTT EBB](./btt-ebb.md) | CAN bus, USB | Integrated drivers | $$ | Most Voron builds |
+| [BTT EBB](./BTT-EBB.md) | CAN bus, USB | Integrated drivers | $$ | Most Voron builds |
 | [MKS THR](./mks-thr.md) | CAN bus | Modular design | $$ | Advanced setups |
-| [FLY SHT](./fly-sht.md) | CAN bus | Compact design | $$ | Lightweight builds |
+| [FLY SHT](./FLY-SHT.md) | CAN bus | Compact design | $$ | Lightweight builds |
 
 ## Key Features
 
