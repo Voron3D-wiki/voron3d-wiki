@@ -34,7 +34,7 @@ This wiki is designed to be a one-stop resource for all things Voron. Below are 
 ### Electronics { #electronics }
 
 - [MCUs and Motherboards](electronics/mcu/mcu.md) - Learn about the various MCUs and motherboards compatible with Voron printers
-- [Toolhead Boards](electronics/toolhead-boards/toolhead-boards.md) - Explore the best toolhead boards for efficient wiring and performance
+- [Toolhead Boards](printhead/toolhead-boards/toolhead-boards.md) - Explore the best toolhead boards for efficient wiring and performance
 - [Expansion Boards](electronics/rp2040.md) - Discover options for expansion boards like the RP2040 and how to flash them
 
 ### Software { #software }
@@ -43,7 +43,7 @@ This wiki is designed to be a one-stop resource for all things Voron. Below are 
 
 ### Modifications { #modifications }
 
-- [Toolheads](toolheads/toolhead-home.md) - Information on hotends and toolhead modifications
+- [Toolheads](printhead/toolhead-home.md) - Information on hotends and toolhead modifications
 - [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling techniques and tools
 - [Multi-Material Units](MMUs/MMU-home.md) - Explore MMU systems for multi-material printing
 

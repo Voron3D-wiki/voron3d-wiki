@@ -26,9 +26,10 @@ a[href*="phaetus.com"]::after {
 
 
 a[href*="github.com"]::after {
-    content: "GitHub";
+    content: " GitHub";
     margin-right: 0.2em;
-    font-size: 0.8em;
+    font-size: 0.6em;
+    opacity: 0.8;
 }
 
 /* Third-party Resource Links */
@@ -40,6 +41,25 @@ a[href*="reddit.com"]::after {
     font-size: 0.8em;
 }
 
+.bom-toggle {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .bom-toggle:hover {
+    background-color: #0056b3;
+  }
+  
+  .bom-content {
+    padding-top: 10px;
+  }
+  
 
 /* Third-party Resource Links */
 a[href*="onetwo3d.com"]::after,

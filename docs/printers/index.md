@@ -12,8 +12,8 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ## Official Models
 
-### [Voron V0](v0.md)
-![Voron V0](https://raw.githubusercontent.com/VoronDesign/Voron-0/V0.2/Documentation/Images/V0_Complete.jpg)
+### [Voron V0](./v0/v0.md)
+![Voron V0](./v0/voron%20v0%20(1).jpg)
 
 - **Type**: Compact CoreXY
 - **Build Volume**: 120mm³

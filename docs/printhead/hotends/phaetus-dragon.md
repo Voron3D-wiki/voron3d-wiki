@@ -69,7 +69,7 @@ These commands will automatically measure and apply appropriate Kp, Ki, and Kd v
 
 ### Regular Schedule
 
-```text
+```notes
 Weekly:
 - Clean nozzle and check for clogs
 - Inspect heat break and filament path
