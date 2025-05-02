@@ -5,31 +5,48 @@ a[href^="http"] {
     position: relative;
     padding-right: 1.2em;
 }
-
+/* 
 a[href^="http"]::after {
     content: "↗";
     position: absolute;
     right: 0;
     font-size: 0.9em;
     line-height: 1;
-}
+} */
 
 /* Manufacturer Links */
-a[href*="github.com"]::before,
-a[href*="voron3d.com"]::before,
-a[href*="bigtreetech.com"]::before,
-a[href*="e3d-online.com"]::before,
-a[href*="phaetus.com"]::before {
-    content: "🏭 ";
+a[href*="voron3d.com"]::after,
+a[href*="bigtreetech.com"]::after,
+a[href*="e3d-online.com"]::after,
+a[href*="phaetus.com"]::after {
+    content: "OEM";
     margin-right: 0.2em;
+    font-size: 0.8em;
+}
+
+
+a[href*="github.com"]::after {
+    content: "GitHub";
+    margin-right: 0.2em;
+    font-size: 0.8em;
 }
 
 /* Third-party Resource Links */
-a[href*="all3dp.com"]::before,
-a[href*="hackaday.com"]::before,
-a[href*="reddit.com"]::before {
-    content: "📚 ";
+a[href*="all3dp.com"]::after,
+a[href*="hackaday.com"]::after,
+a[href*="reddit.com"]::after {
+    content: "external link";
     margin-right: 0.2em;
+    font-size: 0.8em;
+}
+
+
+/* Third-party Resource Links */
+a[href*="onetwo3d.com"]::after,
+a[href*="aliexpress.com"]::after {
+    content: "Affiliate Link";
+    margin-right: 0.2em;
+    font-size: 0.8em;
 }
 
 /* Link Categories */
