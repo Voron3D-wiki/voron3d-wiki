@@ -184,7 +184,7 @@ a[href*="aliexpress.com"]::after {
 
 /* Copy button icon */
 .md-clipboard::before {
-    content: "📋" !important;
+    content: "Copy" !important;
 }
 
 /* Command text */
