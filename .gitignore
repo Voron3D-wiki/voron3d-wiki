@@ -1,9 +1,37 @@
+# Build artifacts
 .cache/
 .site/
+
+# IDE and editor files
 .codegpt
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Build output (but keep build configuration files)
+site/**
+!site/config/
+!site/package.json
+!site/package-lock.json
+!site/mkdocs.yml
+!site/assets/images/
+!site/assets/fonts/
+!site/assets/icons/
+
 site/404.html
 site/ads.txt
 site/analytics.js
+
 site/index.html
 site/sitemap.xml
 site/sitemap.xml.gz

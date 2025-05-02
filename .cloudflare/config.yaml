@@ -1,6 +1,0 @@
-name: voron3d-wiki
-build:
-  command: pip install -r requirements.txt && mkdocs build
-  output: site
-  environment:
-    PYTHON_VERSION: "3.11" 

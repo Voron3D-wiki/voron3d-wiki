@@ -186,9 +186,15 @@ extra:
     provider: mike
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername/voron3d-wiki
+      link: https://github.com/voron3d-wiki
     - icon: fontawesome/brands/discord
       link: https://discord.gg/voron
+    # - icon: fontawesome/brands/shopping-cart
+    #   link: affiliates/aliexpress_template.md
+    #   name: AliExpress
+  footer:
+    - text: Policies
+      link: policies.md
   analytics:
     provider: google
     property: G-7E70MV2KN4
