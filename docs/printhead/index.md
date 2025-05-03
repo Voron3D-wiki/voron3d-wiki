@@ -13,7 +13,7 @@ This section covers the mechanical components and assemblies that make up Voron 
 ## Quick Links
 
 ### Core Components
-[Extruders](extruders/index.md) | [Hotends](../hotends/index.md) | [Part Cooling](cooling/index.md)
+[Extruders](extruders/index.md) | [Hotends](../hotends/index.md) | [Part Cooling Fans](../electronics/fans/index.md) | [Toolheads]
 
 ### Assembly Guides
 [Toolhead Assembly](guides/printhead/assembly.md) | [Extruder Setup](guides/printhead/extruder-setup.md) | [Part Cooling Setup](guides/printhead/cooling-setup.md)

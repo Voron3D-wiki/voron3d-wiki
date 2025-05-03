@@ -37,7 +37,7 @@ This page documents legacy Voron printer models that are no longer in active dev
   * More build options
 
 ## Support Status
-
+<!-- 
 ### Parts Availability
 | Part | Status | Alternative |
 |------|--------|-------------|
@@ -46,7 +46,7 @@ This page documents legacy Voron printer models that are no longer in active dev
 | Electronics | Limited | Modern equivalents |
 | Printed Parts | Community | Updated designs |
 
-### Documentation
+### Documentation -->
 ```text title="Available Resources"
 - Original build guides
 - Community modifications
