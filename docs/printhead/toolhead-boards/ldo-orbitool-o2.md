@@ -52,11 +52,6 @@ The LDO Orbitool O2 Toolboard Kit is a specialized control board designed specif
 3. Configure firmware
 4. Test functionality
 
-### Configuration
-- [Installation Guide](../../guides/installation.md)
-- [Wiring Guide](../../guides/wiring.md)
-- [Component Specifications](../../guides/specifications.md)
-
 ## Troubleshooting
 
 ### Common Issues
@@ -65,10 +60,6 @@ The LDO Orbitool O2 Toolboard Kit is a specialized control board designed specif
 3. Firmware configuration
 4. Sensor calibration
 
-### Solutions
-- [Safety Guidelines](../../guides/safety.md)
-- [Emergency Procedures](../../guides/emergency.md)
-- [Power Supply Guide](../../guides/power-supplies.md)
 
 ## Related Resources
 - [LDO Motors Official Documentation](https://www.ldomotors.com)
@@ -79,5 +70,8 @@ The LDO Orbitool O2 Toolboard Kit is a specialized control board designed specif
 1. LDO Motors Documentation
 2. Community Modifications Database
 3. User Experience Reports
+
+## Purchase Links:
+- [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-orbitool-o2-toolboard-kit/?wpam_id=9) 
 
 {% include "ads/footer-AD.md" %} 

@@ -9,7 +9,7 @@ tags: [Voron, Voron3D, 3dprint, 3dprinting]
 
 ![Voron3D Logo](../assets/VoronLogo.png){ width="250" align="right" }
 
-Voron Design is a community-driven project focused on the creation of high-performance, fully customizable 3D printers. This wiki serves as a comprehensive resource for enthusiasts and professionals alike, providing detailed information on hardware, software, and modifications.
+This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers. Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and their unique features.
 
 ## What is Voron? { #what-is-voron }
 
@@ -43,13 +43,9 @@ This wiki is designed to be a one-stop resource for all things Voron. Below are 
 
 ### Modifications { #modifications }
 
-- [Toolheads](printhead/toolhead-home.md) - Information on hotends and toolhead modifications
+- [Toolheads](printhead/index.md) - Information on hotends and toolhead modifications
 - [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling techniques and tools
-- [Multi-Material Units](MMUs/MMU-home.md) - Explore MMU systems for multi-material printing
-
-### Guides { #guides }
-
-- [Build Guides](guides/guides-home.md) - Step-by-step instructions for building and configuring your Voron printer
+- [Multi-Material Units](MMUs/index.md) - Explore MMU systems for multi-material printing
 
 ---
 

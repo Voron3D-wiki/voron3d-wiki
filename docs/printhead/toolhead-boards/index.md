@@ -39,8 +39,8 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 
 | Model                             | Description             | Photo      | Purchase Link |
 | --------------------------------- | ----------------------- | -------------- | ----- |
-| [LDO Orbitool-02](ldo-orbitool-O2.md) | Orbitool-02 board | *(Photo here)* |   |
-| [LDO Orbitool-3](ldo-orbitool-3.md) | Designed for Orbiter 3 extruder and hotend assembly | *(Photo here)* |   |
+| [LDO Orbitool-02](ldo-orbitool-O2.md) | Orbitool-02 board | *(Photo here)* |[onetwo3d](https://www.onetwo3d.co.uk/product/ldo-orbitool-o2-toolboard-kit/?wpam_id=9)   |
+| [LDO Orbitool-3](ldo-orbitool-3.md) | Designed for Orbiter 3 extruder and hotend assembly | *(Photo here)* | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0?wpam_id=9)  |
 
 ### Acessories
 
