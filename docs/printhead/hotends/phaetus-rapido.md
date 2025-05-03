@@ -159,6 +159,10 @@ Heat Breaks:
 3. Temperature sensors
 4. Nozzle materials
 
+### Purchase links:
+- [Rapido V2 *trianglelabs* ](https://s.click.aliexpress.com/e/_oEt9BS5)
+- [Rapido V2 *mellowfly* ](https://s.click.aliexpress.com/e/_ok1vsBx)
+
 ## References
 1. [Manufacturer Documentation](https://www.phaetus.com/rapido)
 2. [Voron Documentation](https://docs.vorondesign.com)
