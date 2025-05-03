@@ -60,12 +60,14 @@ a[href*="reddit.com"]::after {
   }
   
 
-/* Third-party Resource Links */
+  /* Affiliate Link */
 a[href*="onetwo3d.com"]::after,
 a[href*="aliexpress.com"]::after {
-    content: "Affiliate Link";
+    content: " Affiliate Link";
     margin-right: 0.2em;
     font-size: 0.8em;
+    opacity: 0.8;
+
 }
 
 /* Link Categories */

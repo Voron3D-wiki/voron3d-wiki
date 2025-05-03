@@ -46,6 +46,10 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Acceleration      | 10000mm/s²                                                                                               |
 | Key Features      | Fixed bed for stability, CoreXY, three-point Z leveling, excellent print quality, simplified maintenance |
 
+
+{% include "ads/article-AD.md" %}
+
+
 ### [Voron Switchwire](switchwire.md)
 
 
@@ -86,6 +90,10 @@ These are community-created projects using Voron design principles. They are not
 | Travel Speed      | 300mm/s                                                                                       |
 | Acceleration      | 5000mm/s²                                                                                     |
 | Key Features      | Compact design, CoreXY motion, direct drive extruder, fully enclosed, commercial availability |
+
+
+{% include "ads/article-AD.md" %}
+
 
 ### [Enderwire](https://github.com/RobotRogue/Enderwire_Docs)
 

@@ -5,7 +5,7 @@ published: true
 tags: [Voron, Voron3D, 3dprint, 3dprinting]
 ---
 
-# Welcome to the Voron3D Wiki { .md-header }
+# Welcome to the Voron3D Wiki
 
 ![Voron3D Logo](../assets/VoronLogo.png){ width="250" align="right" }
 
@@ -15,43 +15,46 @@ This wiki is not affiliated with the offical voron design team, we are simply a 
 
 The Voron project revolves around open-source 3D printers that are known for their modularity, precision, and high print quality. These machines are highly customizable and can be tailored to individual needs, whether for personal, professional, or industrial use. The key feature of Voron printers is the community's commitment to improving every aspect of the design, including mechanics, electronics, and firmware.
 
-## Why Choose Voron? { #why-choose-voron }
 
-- **Precision Engineering**: Designed for speed and accuracy with CoreXY and CoreXZ motion systems.
-- **Customizability**: Fully modular designs allow for endless upgrades and modifications.
-- **Community Support**: A strong, active community constantly innovating and sharing ideas.
-- **High-Quality Components**: Built to last with premium materials and robust designs.
+### [Printers](printers/index.md) { #printers }
 
-## Explore the Wiki { #explore-the-wiki }
+- [Voron V0](printers/v0/v0.md) - Learn about the compact and customizable Voron V0
+- [Voron Trident](printers/trident.md) - Discover the Voron Trident, with its modular design and advanced features
+- [Voron V2.4](printers/v2-4.md) - Learn about the latest and most advanced Voron V2.4
+- [Voron Switchwire](printers/switchwire.md) - Explore the Voron Switchwire
 
-This wiki is designed to be a one-stop resource for all things Voron. Below are some key sections to help you get started:
 
-### Printers { #printers }
-
-- [Voron V0](printers/v0.md) - Learn about the compact and customizable Voron V0
-- [Other Models](printers/v2-4.md) - Explore other Voron models like Switchwire, Trident, and V2.4
-
-### Electronics { #electronics }
+### [Electronics](electronics/index.md) { #electronics }
 
 - [MCUs and Motherboards](electronics/mcu/mcu.md) - Learn about the various MCUs and motherboards compatible with Voron printers
 - [Toolhead Boards](printhead/toolhead-boards/toolhead-boards.md) - Explore the best toolhead boards for efficient wiring and performance
-- [Expansion Boards](electronics/rp2040.md) - Discover options for expansion boards like the RP2040 and how to flash them
+- [FANS](electronics/fans/fans.md) - Understand the importance of fans and how to choose the right ones
+<!-- - [Expansion Boards](electronics/expansion-boards/expansion-boards.md) - Learn about expansion boards and how to flash them -->
+
 
 ### Software { #software }
 
 - [Klipper](software/klipper.md) - Guides and tools for configuring and optimizing Klipper firmware
+- [klipper macros](software/klipper-macros.md) - Macros for automating common 3D printing tasks
+- [klipper config tips](software/klipper-config-help.md) - Tips and tricks for optimizing Klipper configuration
+<!-- - [Cura](software/cura.md) - Guides for using Cura software for 3D printing
+- [PrusaSlicer](software/prusa-slicer.md) - Learn about the PrusaSlicer slicer software
+- [MatterHackers](software/matterhackers.md) - Guides for using MatterHackers software for 3D printing
+- [Slic3r](software/slic3r.md) - Learn about the Slic3r slicer software -->
 
-### Modifications { #modifications }
 
-- [Toolheads](printhead/index.md) - Information on hotends and toolhead modifications
-- [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling techniques and tools
-- [Multi-Material Units](MMUs/index.md) - Explore MMU systems for multi-material printing
+### [PrintHead stuff](printhead/index.md) { #Printhead-stuff }
+
+- [hotends](hotends/index.md) - Information on hotends 
+- [extruders](extruders/index.md) - Learn about the different types of extruders available
+- [toolhead-boards](printhead/toolhead-boards/index.md) - Learn about the best toolhead boards for efficient wiring and performance
+<!-- - [Nozzle](nozzle.md) - Information on nozzle types and their specifications -->
+
+### [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling techniques and tools
+
+### [Multi-Material Units](MMUs/index.md) - Explore MMU systems for multi-material printing
 
 ---
-
-## About Voron { #about-voron }
-
-Voron printers are known for their modularity, precision, and high print quality. They are fully customizable and designed for continuous innovation. Whether you're building your first Voron or upgrading an existing one, this wiki is here to guide you.
 
 We hope this wiki serves as a valuable resource for your 3D printing journey. Stay tuned for updates and new content!
 

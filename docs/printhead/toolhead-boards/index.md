@@ -34,6 +34,7 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 | --------------------------------- | ----------------------- | -------------- | --- |
 | [Mellow Fly SB2040](FLY-SB2040.md) | StealthBurner optimized | *(Photo here)* | |
 
+{% include "ads/article-AD.md" %}
 
 ### other Boards
 
@@ -61,6 +62,8 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 | **Wiring Preferences**   | Choose connector and cable style |
 
 ## Tips and Guides
+
+{% include "ads/article-AD.md" %}
 
 ### [BigTreeTech EBB toolhead board Firmware Flashing Guilde](BTT-EBB-CONFIG.md)
 

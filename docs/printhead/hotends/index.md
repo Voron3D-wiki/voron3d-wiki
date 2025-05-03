@@ -47,4 +47,6 @@ This section covers various hotends that are compatible with Voron printers, inc
 1. [Voron Hardware Guide](https://docs.vorondesign.com/hardware.html)
 2. [Community Support](https://discord.gg/voron)
 
+{% include "affiliate-disclosure.md" %}
+
 {% include "ads/footer-AD.md" %}
