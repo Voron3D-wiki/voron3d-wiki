@@ -25,8 +25,8 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: red
-      accent: deep orange
+      primary: orange
+      accent: light orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -119,14 +119,6 @@ nav:
       - Pursa-MMU: MMUs/Pursa-MMU.md
   - Guides:
       - Overview: guides/index.md
-      - Components: guides/components.md
-      - Emergency Procedures: guides/emergency.md
-      - Installation: guides/installation.md
-      - Power Supplies: guides/power-supplies.md
-      - Safety: guides/safety.md
-      - Specifications: guides/specifications.md
-      - Standards: guides/standards.md
-      - Wiring: guides/wiring.md
   # - External Links:
   #     - [Voron3D Official Site](https://voron3d.com/)
   #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
