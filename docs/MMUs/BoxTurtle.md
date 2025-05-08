@@ -28,12 +28,22 @@ Lab4450.com resells the AFC-Lite MCU
 
 UK:
 [OneTwo3D.co.uk - LDO Box Turtle Enclosure Kit (also ships to europe)](https://www.onetwo3d.co.uk/product/ldo-box-turtle-enclosure-kit?wpam_id=9) ← *Affiliate link*
+[OneTwo3d LDO BoxTurtle V1.0](https://www.onetwo3d.co.uk/product/ldo-boxturtle-v1-0-automated-filament-changer/?wpam_id=9)
 Desktop Machine Shop
 Viperworx
 
 AU:
 DREMC
 
+--------------------------------------------------------------------------------------
+
+## Aliexpress purchasing options
+* [formbot on aliexpress](https://s.click.aliexpress.com/e/_on7c7WX)
+* [Trianglelab  on aliexpress](https://s.click.aliexpress.com/e/_ol7kwyJ)
+* [Seleadlab  on aliexpress](https://s.click.aliexpress.com/e/_okz8n5H)
+
+
 {% include "ads/affiliate-disclosure.md" %}
+
 {% include "ads/footer-AD.md" %}
 
