@@ -66,7 +66,6 @@ nav:
       - Overview: electronics/index.md
       - Motherboards:
           - Overview: electronics/mcu/index.md
-          - General MCU Info: electronics/mcu/mcu.md
           - BTT SKR Series: electronics/mcu/btt-skr.md
           - Mellow Fly: electronics/mcu/mellow-fly.md
           - MKS: electronics/mcu/mks.md
@@ -75,11 +74,6 @@ nav:
       - RP2040 Info: electronics/rp2040.md
       - Connectors: electronics/connectors.md
       - Safety: electronics/safety/index.md
-      - Guides:
-          - CANbus Setup: electronics/guides/canbus-setup.md
-          - Pin Mapping: electronics/guides/pin-mapping.md
-          - Troubleshooting: electronics/guides/troubleshooting.md
-
   - Printhead:
     - Overview: printhead/index.md
     - Hotends:
