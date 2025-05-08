@@ -13,7 +13,8 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ## Official Models
 
-### [Voron V0](./v0/v0.md) 
+### [Voron V0.2r1](./v0/v0.md) 
+
 <img src="./v0/voron%20v0%20(1).jpg" alt="" width="500"> 
 
 | **Specification** | **Details**                                                                                                |
@@ -24,16 +25,18 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Acceleration      | 20000mm/s²                                                                                                 |
 | Key Features      | Small footprint, high-speed printing, CoreXY motion, fully enclosed, ideal for small parts and prototyping |
 
+
 ### [Voron V2.4](v2-4.md)
 
 
 | **Specification** | **Details**                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------ |
 | Type              | Flagship CoreXY with flying gantry                                                         |
-| Build Volume      | 250mm³, 300mm³, 350mm³                                                                     |
+| Build Volume      | 250mm³, 300mm³*, 350mm³*                                                                     |
 | Travel Speed      | 500mm/s                                                                                    |
 | Acceleration      | 10000mm/s²                                                                                 |
 | Key Features      | Flying gantry, CoreXY motion, advanced customization, input shaping ready, top performance |
+
 
 ### [Voron Trident](trident.md)
 
@@ -41,13 +44,11 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | **Specification** | **Details**                                                                                              |
 | ----------------- | -------------------------------------------------------------------------------------------------------- |
 | Type              | Fixed gantry CoreXY                                                                                      |
-| Build Volume      | 250mm³, 300mm³, 350mm³                                                                                   |
+| Build Volume      | 250mm³, 300mm³*, 350mm³*                                                                                   |
 | Travel Speed      | 500mm/s                                                                                                  |
 | Acceleration      | 10000mm/s²                                                                                               |
 | Key Features      | Fixed bed for stability, CoreXY, three-point Z leveling, excellent print quality, simplified maintenance |
 
-
-{% include "ads/article-AD.md" %}
 
 
 ### [Voron Switchwire](switchwire.md)
@@ -61,38 +62,10 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Acceleration      | 10000mm/s²                                                                                     |
 | Key Features      | CoreXZ motion, compact design, direct drive extruder, fully enclosed, great Voron entry point |
 
-!!! warning "Official Voron Printers Only"
-Only printers designed by the Voron Design team are considered official Voron printers. Commercial printers and community derivatives are listed separately in this documentation.
-
-## Community Derivatives
-
-!!! note "Community Projects"
-These are community-created projects using Voron design principles. They are not official Voron printers but are supported by their respective communities.
-
-### [Sovol SV08](https://github.com/Sovol3d/SV08)
-
-
-| **Specification** | **Details**                                                                 |
-| ----------------- | --------------------------------------------------------------------------- |
-| Type              | CoreXY                                                                      |
-| Build Volume      | 300x300x350mm                                                               |
-| Travel Speed      | 400mm/s                                                                     |
-| Acceleration      | 8000mm/s²                                                                   |
-| Key Features      | Based on Voron V2.4, CoreXY motion, fully enclosed, commercial availability |
-
-### [Sovol ZERO](https://github.com/Sovol3d/SOVOL-ZERO)
-
-
-| **Specification** | **Details**                                                                                   |
-| ----------------- | --------------------------------------------------------------------------------------------- |
-| Type              | CoreXY                                                                                        |
-| Build Volume      | 120mm³                                                                                        |
-| Travel Speed      | 300mm/s                                                                                       |
-| Acceleration      | 5000mm/s²                                                                                     |
-| Key Features      | Compact design, CoreXY motion, direct drive extruder, fully enclosed, commercial availability |
-
 
 {% include "ads/article-AD.md" %}
+
+## Community Derivatives
 
 
 ### [Enderwire](https://github.com/RobotRogue/Enderwire_Docs)
@@ -106,6 +79,62 @@ These are community-created projects using Voron design principles. They are not
 | Acceleration      | 3000mm/s²                                                                                           |
 | Key Features      | Ender 3 conversion, CoreXZ motion, fully enclosed, cost-effective upgrade, active community support |
 
+### [Micron (plus)](micron.md)
+
+### [Salad Fork(s)](saladfork.md)
+
+### [Doron Velta]()
+
+
+## Commercial Derivatives
+
+
+### [Sovol SV08](https://github.com/Sovol3d/SV08)
+
+
+| **Specification** | **Details**                                                                 |
+| ----------------- | --------------------------------------------------------------------------- |
+| Type              | CoreXY                                                                      |
+| Build Volume      | 300x300x350mm                                                               |
+| Travel Speed      | 400mm/s                                                                     |
+| Acceleration      | 8000mm/s²                                                                   |
+| Key Features      | Based on Voron V2.4, CoreXY motion, fully enclosed, commercial availability |
+
+
+### [Sovol ZERO](https://github.com/Sovol3d/SOVOL-ZERO)
+
+
+| **Specification** | **Details**                                                                                   |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| Type              | CoreXY                                                                                        |
+| Build Volume      | 120mm³                                                                                        |
+| Travel Speed      | 300mm/s                                                                                       |
+| Acceleration      | 5000mm/s²                                                                                     |
+| Key Features      | Compact design, CoreXY motion, direct drive extruder, fully enclosed, commercial availability |
+
+
+### [Troodon 2.0]
+
+[Formbot Kit](https://s.click.aliexpress.com/e/_oBLBktv)
+
+![Troodon 2.0 Photo](./Troodon.jpg)
+
+
+| **Specification** | **Details**                                                                                   |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| Type              | CoreXY flying gantry                                                                          |
+| Build Volume      | 250mm, 300mm, 350mm                                                                           |
+| Travel Speed      | 500mm/s                                                                                       |
+| Acceleration      | 15000mm/s²                                                                                    |
+| Key Features      | pre built voron v2.4 modification                                                             |
+
+{% include "ads/article-AD.md" %}
+
+
+
+## Voron Legacy Printers
+
+
 ### [Voron Legacy](legacy.md)
 
 
@@ -117,7 +146,8 @@ These are community-created projects using Voron design principles. They are not
 | Acceleration      | 3000mm/s²                                                                        |
 | Key Features      | Original Voron design, CoreXY motion, community support, historical significance |
 
-### [Voron V1.8](v1-8.md)
+
+### [Voron V1.8](https://docs.vorondesign.com/build/mechanical/#v1)
 
 
 | **Specification** | **Details**                                                              |
@@ -128,7 +158,11 @@ These are community-created projects using Voron design principles. They are not
 | Acceleration      | 3000mm/s²                                                                |
 | Key Features      | Improved V1 design, CoreXY motion, community support, proven reliability |
 
-### [Voron V1.6](v1-6.md)
+
+{% include "ads/article-AD.md" %}
+
+
+### [Voron V1.6](https://docs.vorondesign.com/build/mechanical/#v1)
 
 
 | **Specification** | **Details**                                                             |
@@ -145,6 +179,8 @@ These are community-created projects using Voron design principles. They are not
 * [Voron Discord](https://discord.gg/voron)
 * [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
 * [Voron Community Forums](https://forum.vorondesign.com)
+
+{% include "ads/article-AD.md" %}
 
 ## References
 
