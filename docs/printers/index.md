@@ -80,13 +80,19 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Key Features      | Ender 3 conversion, CoreXZ motion, fully enclosed, cost-effective upgrade, active community support |
 
 ### [Micron (plus)](micron.md)
+
+
 {% include "ads/soon.md" %}
 
 
 ### [Salad Fork(s)](saladfork.md)
+
+
 {% include "ads/soon.md" %}
 
 ### [Doron Velta]()
+
+
 {% include "ads/soon.md" %}
 
 
