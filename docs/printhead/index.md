@@ -8,7 +8,7 @@ tags: [toolheads, Printheads, extruders, components]
 # Printheads
 
 ## Overview
-This section covers the mechanical components and assemblies that make up Voron printer toolheads, including their features, compatibility, and setup More Infos.
+This section covers the mechanical components and assemblies that make up Voron printer toolheads, including their features, compatibility, and setup guides. Choose the right toolhead for your specific needs and printing requirements.
 
 ## Quick Links
 
