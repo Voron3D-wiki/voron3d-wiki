@@ -84,7 +84,6 @@ nav:
     - Overview: printhead/index.md
     - Hotends:
         - Overview: printhead/hotends/index.md
-        - General Info: printhead/hotends.md
         - DropEffect NExt G: printhead/hotends/dropeffect-nextg.md
         - E3D Revo Voron: printhead/hotends/e3d-revo-voron.md
         - E3D V6: printhead/hotends/e3d-v6.md
