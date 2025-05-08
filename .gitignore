@@ -1,9 +1,39 @@
+# Build artifacts
 .cache/
 .site/
+
+# IDE and editor files
 .codegpt
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+.cursor
+
+# Build output (but keep build configuration files)
+site/**
+!site/config/
+!site/package.json
+!site/package-lock.json
+!site/mkdocs.yml
+!site/assets/images/
+!site/assets/fonts/
+!site/assets/icons/
+
 site/404.html
 site/ads.txt
 site/analytics.js
+
 site/index.html
 site/sitemap.xml
 site/sitemap.xml.gz
@@ -121,12 +151,12 @@ site/printers/v2-4/index.html
 site/search/search_index.json
 site/software/klipper/index.html
 site/software/klipper_macros/index.html
-site/toolheads/MKS-THR-36-42-conf.png
-site/toolheads/MKS-UTC-conf.png
-site/toolheads/extruder/index.html
-site/toolheads/hotends/index.html
-site/toolheads/toolhead-boards/index.html
-site/toolheads/toolhead-boards/BTT-EBB/index.html
-site/toolheads/toolhead-boards/FLY-SHT/index.html
-site/toolheads/toolhead-boards/MKS-THR/index.html
-site/toolheads/toolhead-home/index.html
+site/printhead/MKS-THR-36-42-conf.png
+site/printhead/MKS-UTC-conf.png
+site/printhead/extruder/index.html
+site/printhead/hotends/index.html
+site/printhead/toolhead-boards/index.html
+site/printhead/toolhead-boards/BTT-EBB/index.html
+site/printhead/toolhead-boards/FLY-SHT/index.html
+site/printhead/toolhead-boards/MKS-THR/index.html
+site/printhead/toolhead-home/index.html

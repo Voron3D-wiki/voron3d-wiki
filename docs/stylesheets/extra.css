@@ -5,31 +5,69 @@ a[href^="http"] {
     position: relative;
     padding-right: 1.2em;
 }
-
+/* 
 a[href^="http"]::after {
     content: "↗";
     position: absolute;
     right: 0;
     font-size: 0.9em;
     line-height: 1;
-}
+} */
 
 /* Manufacturer Links */
-a[href*="github.com"]::before,
-a[href*="voron3d.com"]::before,
-a[href*="bigtreetech.com"]::before,
-a[href*="e3d-online.com"]::before,
-a[href*="phaetus.com"]::before {
-    content: "🏭 ";
+a[href*="voron3d.com"]::after,
+a[href*="bigtreetech.com"]::after,
+a[href*="e3d-online.com"]::after,
+a[href*="phaetus.com"]::after {
+    content: "OEM";
     margin-right: 0.2em;
+    font-size: 0.8em;
+}
+
+
+a[href*="github.com"]::after {
+    content: " GitHub";
+    margin-right: 0.2em;
+    font-size: 0.6em;
+    opacity: 0.8;
 }
 
 /* Third-party Resource Links */
-a[href*="all3dp.com"]::before,
-a[href*="hackaday.com"]::before,
-a[href*="reddit.com"]::before {
-    content: "📚 ";
+a[href*="discord.com"]::after,
+a[href*="reddit.com"]::after {
+    content: "Social Link";
     margin-right: 0.2em;
+    font-size: 0.8em;
+}
+
+.bom-toggle {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .bom-toggle:hover {
+    background-color: #0056b3;
+  }
+  
+  .bom-content {
+    padding-top: 10px;
+  }
+  
+
+  /* Affiliate Link */
+a[href*="onetwo3d.com"]::after,
+a[href*="aliexpress.com"]::after {
+    content: " Affiliate Link";
+    margin-right: 0.2em;
+    font-size: 0.8em;
+    opacity: 0.8;
+
 }
 
 /* Link Categories */
@@ -167,7 +205,7 @@ a[href*="reddit.com"]::before {
 
 /* Copy button icon */
 .md-clipboard::before {
-    content: "📋" !important;
+    content: "Copy" !important;
 }
 
 /* Command text */
