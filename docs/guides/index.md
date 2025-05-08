@@ -75,13 +75,13 @@ Confirm that your canbus UUID is falshed with klipper
 ---
 
 !!! warning 
+    This page is a work in progress. New guides will be added as they become available. Stay tuned for future updates! 
+
+
+
 ## **Assembly Guides**
 
  - coming soon
-
----
-
-    This page is a work in progress. New guides will be added as they become available. Stay tuned for future updates! 
 
 {% include "ads/footer-AD.md" %}
 

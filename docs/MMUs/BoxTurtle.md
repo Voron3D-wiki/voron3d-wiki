@@ -7,6 +7,8 @@ tags: [BoxTurtle, MMU, Multi-Material]
 
 # BoxTurtle MMU
 
+
+
 ## Offical kit (authorized resellers)
 
 US:
@@ -25,7 +27,7 @@ Lab4450.com resells the AFC-Lite MCU
 [3DO](https://3do.dk/3d-printer/2946-ldo-boxturtle-afc-kit-til-klipper-printere-forudbestilling.html)
 
 UK:
-[OneTwo3D.co.uk - LDO Box Turtle Enclosure Kit](https://www.onetwo3d.co.uk/product/ldo-box-turtle-enclosure-kit?wpam_id=9) ← *Affiliate link*
+[OneTwo3D.co.uk - LDO Box Turtle Enclosure Kit (also ships to europe)](https://www.onetwo3d.co.uk/product/ldo-box-turtle-enclosure-kit?wpam_id=9) ← *Affiliate link*
 Desktop Machine Shop
 Viperworx
 
