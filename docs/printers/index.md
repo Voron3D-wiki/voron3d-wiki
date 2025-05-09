@@ -11,6 +11,8 @@ tags: [voron, 3d printer, corexy, bedslinger]
 
 Voron Design offers a range of high-performance 3D printers, each designed for specific use cases and requirements. This guide covers the official Voron printer models, their features, applications, and notable community derivatives.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Official Models
 
 ### [Voron V0.2r1](./v0/v0.md) 
@@ -63,13 +65,28 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Key Features      | CoreXZ motion, compact design, direct drive extruder, fully enclosed, great Voron entry point |
 
 
-{% include "ads/article-AD.md" %}
+<!-- {% include "ads/article-AD.md" %} -->
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## Community Derivatives
 
 
 ### [Enderwire](https://github.com/RobotRogue/Enderwire_Docs)
 
+ <img src="./enderwire-siboor.jpg" alt="" width="250" align="right" padding=64px>  
+
+| **Specification** | **Details**                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| Type              | CoreXZ Conversion                                                                                   |
+| Build Volume      | 235mm³                                                                                              |  
+| Travel Speed      | 200mm/s                                                                                             |  
+| Acceleration      | 3000mm/s²                                                                                           |  
+| Key Features      | Ender 3 conversion, CoreXZ motion, fully enclosed, cost-effective upgrade, active community support |  
+| Purchuse Linsk    | [Siboor Enderwire kit](https://s.click.aliexpress.com/e/_opZaYvv)                                   |
+
+### [Micron (plus)](micron.md)
 
 | **Specification** | **Details**                                                                                         |
 | ----------------- | --------------------------------------------------------------------------------------------------- |
@@ -78,8 +95,6 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Travel Speed      | 200mm/s                                                                                             |
 | Acceleration      | 3000mm/s²                                                                                           |
 | Key Features      | Ender 3 conversion, CoreXZ motion, fully enclosed, cost-effective upgrade, active community support |
-
-### [Micron (plus)](micron.md)
 
 
 {% include "ads/soon.md" %}
@@ -143,6 +158,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 {% include "ads/article-AD.md" %}
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Voron Legacy Printers
 
@@ -185,6 +201,9 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 | Acceleration      | 3000mm/s²                                                               |
 | Key Features      | Classic Voron design, CoreXY motion, community support, well-documented |
 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Related Resources
 
 * [Voron Design GitHub](https://github.com/VoronDesign)
@@ -192,7 +211,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 * [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
 * [Voron Community Forums](https://forum.vorondesign.com)
 
-{% include "ads/article-AD.md" %}
+<!-- {% include "ads/article-AD.md" %} -->
 
 ## References
 
