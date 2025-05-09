@@ -15,64 +15,64 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 ### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF.md)
 - **Description**: A community-driven MMU system designed for high reliability and extensive customization.
 - **Key Features**:
-  - Supports up to 5 colors/materials
-  - Highly customizable with modular components
-  - Extensive community support and documentation
-  - Advanced filament path control for reduced tangling
+    - Supports up to 5 colors/materials
+    - Highly customizable with modular components
+    - Extensive community support and documentation
+    - Advanced filament path control for reduced tangling
 
 ### [PICO-MMU](PICO-MMU.md)
 - **Description**: A very interesting project by [Ihndo](https://github.com/lhndo), the creator of the [LH-Stinger](https://github.com/lhndo/LH-Stinger).
 - **Key Features**:
-  - Compact design for all printers
-  - Supports up to 4 colors/materials
-  - Open-source and customizable
-  - Lightweight and easy to assemble
+    - Compact design for all printers
+    - Supports up to 4 colors/materials
+    - Open-source and customizable
+    - Lightweight and easy to assemble
 
 ## Community Solutions
 
 ### [Box Turtle](BoxTurtle.md)
 - **Description**: An open-source multi-material system that supports 4 spools (unsure if they can be daisy-chained). Includes an auto-rewinding system, and a kit can be purchased through LDO Motors.
 - **Key Features**:
-  - Supports up to 4 colors/materials
-  - Auto-rewinding system for unused filaments
-  - Open-source with detailed documentation
-  - Designed for compatibility with Klipper firmware
+    - Supports up to 4 colors/materials
+    - Auto-rewinding system for unused filaments
+    - Open-source with detailed documentation
+    - Designed for compatibility with Klipper firmware
 
 ### [TradRack](tradrack.md)
 - **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
 - **Key Features**:
-  - Modular design for easy expansion
-  - Supports up to 6 colors/materials
-  - Compatible with various slicers
-  - Designed for high-speed filament swapping
+    - Modular design for easy expansion
+    - Supports up to 6 colors/materials
+    - Compatible with various slicers
+    - Designed for high-speed filament swapping
 
 ## Commercial Options
 
 ### [BTT MMU](BTT-MMU.md)
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
 - **Key Features**:
-  - Supports up to 4 colors/materials
-  - Designed for seamless integration with BTT boards
-  - Compact and cost-effective
-  - Firmware updates planned for enhanced functionality
+    - Supports up to 4 colors/materials
+    - Designed for seamless integration with BTT boards
+    - Compact and cost-effective
+    - Firmware updates planned for enhanced functionality
 
 ### [Anycubic MMU](Anycubic-MMU.md)
 - **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
 - **Key Features**:
-  - Supports up to 4 colors/materials
-  - Integrated filament storage and swapping
-  - Affordable and beginner-friendly
-  - Compact design with minimal maintenance requirements
+    - Supports up to 4 colors/materials
+    - Integrated filament storage and swapping
+    - Affordable and beginner-friendly
+    - Compact design with minimal maintenance requirements
 
 ### [Prusa MMU](Pursa-MMU.md)
 - **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
 - **Key Features**:
-  - Supports up to 5 colors/materials
-  - Automatic filament loading/unloading
-  - Integrated with PrusaSlicer for seamless operation
-  - Reliable filament sensor to detect jams or misfeeds
+    - Supports up to 5 colors/materials
+    - Automatic filament loading/unloading
+    - Integrated with PrusaSlicer for seamless operation
+    - Reliable filament sensor to detect jams or misfeeds
 
-## Other Modifications
+## Other Relevant Modifications
 
 ### [Blobifier](https://github.com/Dendrowen/Blobifier)
 - A unique approach to multi-material printing
@@ -102,12 +102,6 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ## Technical Considerations
 
-### Filament Types
-- PLA, PETG, ABS compatibility
-- Flexible filament support
-- Support material options
-- Material transition handling
-
 ### Software Requirements
 - Klipper integration
 - Slicer settings
@@ -131,4 +125,3 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 3. User Experience Reports
 
 {% include "ads/footer-AD.md" %}
-
