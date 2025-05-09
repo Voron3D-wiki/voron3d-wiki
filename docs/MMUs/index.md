@@ -13,7 +13,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 ### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF.md)
 - **Description**: A community-driven MMU system designed for high reliability and extensive customization.
 - **Key Features**:
-    - Supports up to 5 colors/materials
+    - Supports up to 12 colors/materials
     - Highly customizable with modular components
     - Extensive community support and documentation
     - Advanced filament path control for reduced tangling
@@ -26,19 +26,20 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Open-source and customizable
     - Lightweight and easy to assemble
 
-### [Box Turtle](BoxTurtle.md)
+### [BoxTurtle](BoxTurtle.md)
 - **Description**: An open-source multi-material system that supports 4 spools (unsure if they can be daisy-chained). Includes an auto-rewinding system, and a kit can be purchased through LDO Motors.
 - **Key Features**:
-    - Supports up to 4 colors/materials
+    - Supports up to 4 colors/materials (per boxturtle)
     - Auto-rewinding system for unused filaments
     - Open-source with detailed documentation
     - Designed for compatibility with Klipper firmware
+    - heated enclsure optional
 
 ### [TradRack](tradrack.md)
 - **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
 - **Key Features**:
     - Modular design for easy expansion
-    - Supports up to 6 colors/materials
+    - Supports up to 14 colors/materials
     - Compatible with various slicers
     - Designed for high-speed filament swapping
 
@@ -46,27 +47,19 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ### BTT MMU
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
-- **Key Features**:
-    - Supports up to 4 colors/materials
-    - Designed for seamless integration with BTT boards
-    - Compact and cost-effective
-    - Firmware updates planned for enhanced functionality
+- **Key Features**: 
+    - Seems like a AMS style system with space for 4 spoos
 
 ### Anycubic MMU
 - **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
 - **Key Features**:
     - Supports up to 4 colors/materials
-    - Integrated filament storage and swapping
-    - Affordable and beginner-friendly
-    - Compact design with minimal maintenance requirements
 
 ### Prusa MMU
 - **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
 - **Key Features**:
-    - Supports up to 5 colors/materials
     - Automatic filament loading/unloading
     - Integrated with PrusaSlicer for seamless operation
-    - Reliable filament sensor to detect jams or misfeeds
 
 ### BambuLabs AMS
 

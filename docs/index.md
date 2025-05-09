@@ -59,10 +59,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 We hope this wiki serves as a valuable resource for your 3D printing journey. Stay tuned for updates and new content!
 
 !!! tip "Need Help?"
-    Join the [Discord community](https://discord.gg/voron) for real-time support and discussions.
-
-!!! note "Contributing"
-    This wiki is open source! Feel free to contribute by submitting pull requests through the [GitHub repository](https://github.com/VoronDesign/VoronUsers).
+    Join the Offical voron [Discord ](https://discord.gg/voron) for real-time support and discussions.
 
 {% include "_templates/ads.html" %}
 
