@@ -54,7 +54,7 @@ A* lchemy3D.de has a BOM in a box kit
 
 * [formbot on aliexpress](https://s.click.aliexpress.com/e/_on7c7WX)
 
-* [Trianglelab  on aliexpress](https://s.click.aliexpress.com/e/_ol7kwyJ) ![photo](./boxturtle-trianglelabs.jpg)
+* [Trianglelab  on aliexpress](https://s.click.aliexpress.com/e/_ol7kwyJ) ![photo](./boxturtle-trianglelabs.jpg){ align="right" }
 
 
 * [Seleadlab  on aliexpress](https://s.click.aliexpress.com/e/_okz8n5H)

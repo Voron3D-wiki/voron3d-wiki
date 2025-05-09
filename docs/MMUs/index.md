@@ -10,8 +10,6 @@ tags: [mmu, multi-material, boxturtle, ercf, enraged rabbit]
 ## Overview
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
 
-## Official Solutions
-
 ### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF.md)
 - **Description**: A community-driven MMU system designed for high reliability and extensive customization.
 - **Key Features**:
@@ -27,8 +25,6 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Supports up to 4 colors/materials
     - Open-source and customizable
     - Lightweight and easy to assemble
-
-## Community Solutions
 
 ### [Box Turtle](BoxTurtle.md)
 - **Description**: An open-source multi-material system that supports 4 spools (unsure if they can be daisy-chained). Includes an auto-rewinding system, and a kit can be purchased through LDO Motors.
@@ -48,7 +44,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ## Commercial Options
 
-### [BTT MMU](BTT-MMU.md)
+### BTT MMU
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
 - **Key Features**:
     - Supports up to 4 colors/materials
@@ -56,7 +52,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Compact and cost-effective
     - Firmware updates planned for enhanced functionality
 
-### [Anycubic MMU](Anycubic-MMU.md)
+### Anycubic MMU
 - **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
 - **Key Features**:
     - Supports up to 4 colors/materials
@@ -64,13 +60,19 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Affordable and beginner-friendly
     - Compact design with minimal maintenance requirements
 
-### [Prusa MMU](Pursa-MMU.md)
+### Prusa MMU
 - **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
 - **Key Features**:
     - Supports up to 5 colors/materials
     - Automatic filament loading/unloading
     - Integrated with PrusaSlicer for seamless operation
     - Reliable filament sensor to detect jams or misfeeds
+
+### BambuLabs AMS
+
+### BambuLabs AMS Lite
+
+### BambuLabs AMS 2
 
 ## Other Relevant Modifications
 
