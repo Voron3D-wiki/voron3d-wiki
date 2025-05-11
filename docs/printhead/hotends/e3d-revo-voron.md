@@ -130,5 +130,5 @@ The Revo Voron uses E3D's RapidChange Revo nozzle system, which includes multipl
 - [OneTwo3D - E3D Revo Voron](https://www.onetwo3d.co.uk/product/e3d-revo-voron/?wpam_id=9) ← *Affiliate link*
 - [OneTwo3D - Revo Nozzles](https://www.onetwo3d.co.uk/product/e3d-revo-nozzles/?wpam_id=9) ← *Affiliate link*
 
-{% include "ads/affiliate-disclosure.md" %}
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %} 

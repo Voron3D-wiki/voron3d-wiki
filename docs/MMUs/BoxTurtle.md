@@ -36,7 +36,7 @@ A* lchemy3D.de has a BOM in a box kit
 * [3DO](https://3do.dk/3d-printer/2946-ldo-boxturtle-afc-kit-til-klipper-printere-forudbestilling.html)
 
 ### UK:
-* [OneTwo3D.co.uk - LDO Box Turtle Enclosure Kit (also ships to europe)](https://www.onetwo3d.co.uk/product/ldo-box-turtle-enclosure-kit?wpam_id=9) ← *Affiliate link*
+* [OneTwo3D.co.uk - LDO Box Turtle Enclosure Kit (also ships to europe)](https://www.onetwo3d.co.uk/product/ldo-box-turtle-enclosure-kit?wpam_id=9)
 
 * [OneTwo3d LDO BoxTurtle V1.0](https://www.onetwo3d.co.uk/product/ldo-boxturtle-v1-0-automated-filament-changer/?wpam_id=9)
 
@@ -60,7 +60,6 @@ A* lchemy3D.de has a BOM in a box kit
 * [Seleadlab  on aliexpress](https://s.click.aliexpress.com/e/_okz8n5H)
 
 
-{% include "ads/affiliate-disclosure.md" %}
-
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
 

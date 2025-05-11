@@ -195,6 +195,6 @@ Here are some helpful resources related to extruders:
 - [Extruder Force Testing by Annex Engineering](https://github.com/Annex-Engineering/Annex-Engineering.github.io/blob/master/extruder_force.md) - Detailed information on extruder force testing and performance.
 - [Extruder Calibration Guide](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html) - Comprehensive guide to extruder calibration and tuning.
 
-{% include "ads/affiliate-disclosure.md" %}
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
 
