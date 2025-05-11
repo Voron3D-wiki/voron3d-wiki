@@ -56,8 +56,8 @@ nav:
       - Overview: printers/index.md
       - Voron V0: printers/v0/v0.md
       - Voron Switchwire: printers/switchwire.md
-      - Voron Trident: printers/trident.md
-      - Voron V2.4: printers/v2-4.md
+      - Voron Trident: printers/trident/trident.md
+      - Voron V2.4: printers/2.4/v2-4.md
   - Software:
       - Klipper: software/klipper.md
       - Klipper Config Help: software/klipper-config-help.md

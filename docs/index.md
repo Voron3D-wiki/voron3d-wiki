@@ -19,16 +19,16 @@ The Voron project revolves around open-source 3D printers that are known for the
 ### [Printers](printers/index.md) { #printers }
 
 - [Voron V0](printers/v0/v0.md) - Learn about the compact and customizable Voron V0
-- [Voron Trident](printers/trident.md) - Discover the Voron Trident, with its modular design and advanced features
-- [Voron V2.4](printers/v2-4.md) - Learn about the latest and most advanced Voron V2.4
+- [Voron Trident](printers/trident/trident.md) - Discover the Voron Trident, with its modular design and advanced features
+- [Voron V2.4](printers/2.4/v2-4.md) - Learn about the latest and most advanced Voron V2.4
 - [Voron Switchwire](printers/switchwire.md) - Explore the Voron Switchwire
 
 
 ### [Electronics](electronics/index.md) { #electronics }
 
-- [MCUs and Motherboards](electronics/mcu/mcu.md) - Learn about the various MCUs and motherboards compatible with Voron printers
-- [Toolhead Boards](printhead/toolhead-boards/toolhead-boards.md) - Explore the best toolhead boards for efficient wiring and performance
-- [FANS](electronics/fans/fans.md) - Understand the importance of fans and how to choose the right ones
+- [MCUs and Motherboards](electronics/mcu/index.md) - Learn about the various MCUs and motherboards compatible with Voron printers
+- [Toolhead Boards](printhead/toolhead-boards/index.md) - Explore the best toolhead boards for efficient wiring and performance
+- [FANS](electronics/fans/index.md) - Understand the importance of fans and how to choose the right ones
 <!-- - [Expansion Boards](electronics/expansion-boards/expansion-boards.md) - Learn about expansion boards and how to flash them -->
 
 
@@ -45,8 +45,8 @@ The Voron project revolves around open-source 3D printers that are known for the
 
 ### [PrintHead stuff](printhead/index.md) { #Printhead-stuff }
 
-- [hotends](hotends/index.md) - Information on hotends 
-- [extruders](extruders/index.md) - Learn about the different types of extruders available
+- [hotends](printhead/hotends/index.md) - Information on hotends 
+- [extruders](printhead/extruders/index.md) - Learn about the different types of extruders available
 - [toolhead-boards](printhead/toolhead-boards/index.md) - Learn about the best toolhead boards for efficient wiring and performance
 <!-- - [Nozzle](nozzle.md) - Information on nozzle types and their specifications -->
 

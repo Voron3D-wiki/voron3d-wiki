@@ -10,13 +10,15 @@ tags: [stealthburner, toolheads, components]
 ## Overview
 The Stealthburner is the latest toolhead design for Voron printers, offering improved cooling, modularity, and ease of assembly.
 
-## Features
+{% include "ads/soon.md" %}
+
+<!-- ## Features
 - Improved part cooling
 - LED integration
 - Modular design
 - Easy assembly
-- Better cable management
-
+- Better cable management -->
+<!-- 
 ## Components
 1. [Main Body](body.md)
 2. [Part Cooling](cooling.md)
@@ -37,4 +39,4 @@ The Stealthburner is the latest toolhead design for Voron printers, offering imp
 ## References
 1. [Voron Design](https://vorondesign.com)
 2. [GitHub Repository](https://github.com/VoronDesign/Voron-Stealthburner)
-3. [Community Support](https://discord.gg/voron) 
+3. [Community Support](https://discord.gg/voron)  -->

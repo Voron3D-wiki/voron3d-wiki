@@ -100,18 +100,18 @@ Electrical safety is paramount when working with 3D printers. This guide covers 
 - Understand electrical burn treatment
 - Have emergency procedures posted
 
-## Resources
+<!-- ## Resources
 
 - [Voron Safety Guidelines](../guides/safety.md)
 - [Electrical Standards and Codes](../guides/standards.md)
 - [Component Specifications](../guides/specifications.md)
-- [Emergency Procedures](../guides/emergency.md)
+- [Emergency Procedures](../guides/emergency.md) -->
 
-## Additional Information
+<!-- ## Additional Information
 
 For more detailed information about specific components and safety considerations, please refer to the following sections:
 
 - [Power Supplies](../guides/power-supplies.md)
 - [Wiring Guidelines](../guides/wiring.md)
 - [Component Selection](../guides/components.md)
-- [Installation Procedures](../guides/installation.md) 
+- [Installation Procedures](../guides/installation.md)  -->

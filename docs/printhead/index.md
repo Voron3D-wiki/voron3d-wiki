@@ -17,13 +17,16 @@ This section covers the mechanical components and assemblies that make up Voron 
 
 ## Popular Options
 
-| Toolhead | Features | Best For | Documentation |
+| Toolhead | Pros | Cons | Documentation |
 |----------|----------|----------|---------------|
 | Stealthburner | Latest design, LED support, modular | New builds | [More Info](stealthburner/index.md) |
-| Afterburner | Classic design, proven reliability | Legacy builds | [More Info](afterburner/index.md) |
-| Mini Afterburner | Compact design, reduced weight | Small printers | [More Info](mini-afterburner/index.md) |
-| XOL | Lightweight, high-speed design | Speed-focused builds | [More Info](xol/index.md) |
-| AT4 | Advanced cooling, modular design | High-performance builds | [More Info](at4/index.md) |
+| Mini Stealthburner | Latest Offical voron design for the Voron V0 printer, designed specifically to fit inside the v0 and its small frame, <br> This toolhead is also used on many other salad fork printers, LED support, modular | printed parts available | **coming soon** |
+| Afterburner | Classic design, proven reliability | Legacy builds | **coming soon** |
+| Mini Afterburner | Compact design, reduced weight | Small printers | **coming soon** |
+| XOL | Lightweight, high-speed design <br> Speed-focused builds | Has had multiple revision and changes such as the Mantis XOL, XOL2 etc, | **coming soon** |
+| AT4 | Advanced cooling, modular design | Limited hotend support as it has tight clearance in between the fans and the hotend | **coming soon** |
+| Dragon Burner | | | **coming soon** |
+
 
 ## References
 1. [Voron Design](https://vorondesign.com)
