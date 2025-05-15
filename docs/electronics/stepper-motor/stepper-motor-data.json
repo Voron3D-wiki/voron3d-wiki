@@ -1,0 +1,73 @@
+[
+    {
+      "brand": "FYSETC",
+      "model": "35HSH7402-24B-400A",
+      "nema": 14,
+      "body_length_mm": 51,
+      "step_angle_deg": 1.8,
+      "rated_current_a": 1.5,
+      "torque_nmm": 42,
+      "inductance_mh": 5.5,
+      "resistance_ohms": 2.8,
+      "rotor_inertia_gcm2": 48,
+      "motor_type": "V0.1 AB",
+      "price": null
+    },
+    {
+      "brand": "FYSETC",
+      "model": "42HSC1404B-200N8",
+      "nema": 14,
+      "body_length_mm": 34.5,
+      "step_angle_deg": 1.8,
+      "rated_current_a": 0.4,
+      "torque_nmm": 32,
+      "inductance_mh": 38,
+      "resistance_ohms": 29,
+      "rotor_inertia_gcm2": 40,
+      "motor_type": "V0.1 Z",
+      "price": null
+    },
+    {
+      "brand": "FYSETC",
+      "model": "G36HSY4407-6D-550",
+      "nema": 14,
+      "body_length_mm": 20.5,
+      "step_angle_deg": 1.8,
+      "rated_current_a": 0.5,
+      "torque_nmm": 12,
+      "inductance_mh": 10,
+      "resistance_ohms": 13,
+      "rotor_inertia_gcm2": 15,
+      "motor_type": "V0.1 Extruder",
+      "price": null
+    },
+    {
+      "brand": "FYSETC",
+      "model": "MSM-30010-R0005",
+      "nema": 17,
+      "body_length_mm": 20,
+      "step_angle_deg": 1.8,
+      "rated_current_a": 1,
+      "torque_nmm": 14,
+      "inductance_mh": 3.6,
+      "resistance_ohms": 4.1,
+      "rotor_inertia_gcm2": null,
+      "motor_type": "V2.4 Extruder",
+      "price": null
+    },
+    {
+      "brand": "FYSETC",
+      "model": "TB-3544",
+      "nema": 17,
+      "body_length_mm": 39,
+      "step_angle_deg": 1.8,
+      "rated_current_a": 1.5,
+      "torque_nmm": 50,
+      "inductance_mh": 3.8,
+      "resistance_ohms": 1.8,
+      "rotor_inertia_gcm2": 55,
+      "motor_type": "V2.4 ABZ",
+      "price": null
+    }
+  ]
+  
