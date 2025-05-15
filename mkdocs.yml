@@ -164,6 +164,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.blocks.caption
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.arithmatex:

@@ -3,7 +3,6 @@ title: Voron Switchwire
 description: Comprehensive guide to the Voron Switchwire 3D printer, including specifications, features, and modifications
 published: true
 tags: [voron, switchwire, 3d printer, bedslinger]
-last_updated: {{ git_revision_date_localized }}
 ---
 
 # Voron Switchwire
