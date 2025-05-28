@@ -35,7 +35,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 ### Software { #software }
 
 - [Klipper](software/klipper.md) - Guides and tools for configuring and optimizing Klipper firmware
-- [klipper macros](software/klipper-macros.md) - Macros for automating common 3D printing tasks
+<!-- - [klipper macros](software/klipper-macros.md) - Macros for automating common 3D printing tasks -->
 - [klipper config tips](software/klipper-config-help.md) - Tips and tricks for optimizing Klipper configuration
 <!-- - [Cura](software/cura.md) - Guides for using Cura software for 3D printing
 - [PrusaSlicer](software/prusa-slicer.md) - Learn about the PrusaSlicer slicer software
@@ -50,7 +50,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 - [toolhead-boards](printhead/toolhead-boards/index.md) - Learn about the best toolhead boards for efficient wiring and performance
 <!-- - [Nozzle](nozzle.md) - Information on nozzle types and their specifications -->
 
-### [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling techniques and tools
+### [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling tools and probes
 
 ### [Multi-Material Units](MMUs/index.md) - Explore MMU systems for multi-material printing
 
@@ -59,7 +59,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 We hope this wiki serves as a valuable resource for your 3D printing journey. Stay tuned for updates and new content!
 
 !!! tip "Need Help?"
-    Join the Offical voron [Discord ](https://discord.gg/voron) for real-time support and discussions.
+    Join the Offical voron [Discord](https://discord.gg/voron) for real-time support and discussions.
 
 {% include "_templates/ads.html" %}
 
