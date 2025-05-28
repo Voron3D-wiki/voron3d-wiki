@@ -35,6 +35,15 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Designed for compatibility with Klipper firmware
     - heated enclsure optional
 
+### Happy Turtle Lettuce Feeder
+- **Description**: "HTLF is a lane-based filament changer for Klipper designed by ArmoredTurtle. It uses a camshaft to engage the selected lane, effectively making the requested lane a direct drive extruder (no slip to contend with). The “stock build” is for a four color system, though CAD is provided should you choose to expand it further." From Robert_Klotz
+- **Key Features**:
+    - Supports up to 4 colors/materials (per boxturtle)
+    - Open-source
+    - Works with AFC klipper Add On
+    - Lower cost than BoxTrutle
+- [TriagnelLabs kit](https://s.click.aliexpress.com/e/_onfSHaw)
+- [Seleadlab  kit](https://s.click.aliexpress.com/e/_oCy7tdC)
 ### [TradRack](tradrack.md)
 - **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
 - **Key Features**:
@@ -76,24 +85,24 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ### Factors to Consider
 1. **Number of Materials**
-   - 2-3 materials: Anycubic MMU, TradRack
-   - 4-5 materials: PICO-MMU, BTT MMU, Prusa MMU
-   - 6+ materials: ERCF, Box Turtle
+      - 3-4 materials: Anycubic MMU, PICO-MMU, Box Turtle, BTT MMU
+      - 5-8 materials: Prusa MMU
+      - 9+ materials: ERCF, TradRack
 
 2. **Installation Complexity**
-   - Easy: Commercial solutions
-   - Moderate: PICO-MMU, TradRack
-   - Advanced: ERCF, Box Turtle
+      - Easy: Commercial solutions
+      - Moderate: PICO-MMU, TradRack
+      - Advanced: ERCF, Box Turtle
 
 3. **Cost Considerations**
-   - Budget: TradRack, Anycubic MMU
-   - Mid-range: PICO-MMU, BTT MMU
-   - High-end: ERCF, Box Turtle
+      - Budget: TradRack, Anycubic MMU
+      - Mid-range: PICO-MMU, BTT MMU
+      - High-end: ERCF, Box Turtle
 
 4. **Maintenance Requirements**
-   - Low: Commercial solutions
-   - Medium: PICO-MMU
-   - High: ERCF, Box Turtle
+      - Low: Commercial solutions
+      - Medium: PICO-MMU
+      - High: ERCF, Box Turtle
 
 ## Technical Considerations
 
@@ -119,4 +128,5 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 2. Community Modifications Database
 3. User Experience Reports
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

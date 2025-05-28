@@ -7,7 +7,14 @@ tags: [voron, switchwire, 3d printer, bedslinger]
 
 # Voron Switchwire
 
-## Overview
+Official Voron Design link: [https://vorondesign.com/switchwire](https://vorondesign.com/switchwire)
+
+Below is a generic image of what a Voron Switchwire can look like. Like all Voron 3D printers, the Switchwire can be highly customized to create whatever type of printer you would like.
+
+<!-- Add a representative image here if available -->
+
+## What is a Switchwire
+
 The Voron Switchwire is a bed-slinger-style printer that combines the simplicity of a traditional 3D printer with Voron's engineering excellence. It uses a CoreXZ motion system, where the bed moves along the Y-axis while the extruder moves along the X- and Z-axes, providing superior precision and speed compared to traditional bed slingers.
 
 ## Key Features
@@ -17,6 +24,8 @@ The Voron Switchwire is a bed-slinger-style printer that combines the simplicity
 - **Extruder**: Direct drive configuration
 - **Hotend**: Compatible with various hotend options
 - **Electronics**: Modular design with optional toolhead board
+
+{% include "ads/article-AD.md" %}
 
 ## Technical Specifications
 
@@ -44,7 +53,13 @@ The Voron Switchwire is a bed-slinger-style printer that combines the simplicity
   - Automatic bed leveling
   - Chamber temperature control
 
-## Popular Modifications
+## BOM
+
+??? info "Official Voron Switchwire Bill of Materials"
+     <!-- Include or link to the Switchwire BOM here when available -->
+     Coming soon
+
+## Popular Modifications / Add-ons
 1. **Afterburner Toolhead**
    - Modular design
    - Multiple fan configurations
@@ -82,6 +97,8 @@ The Switchwire is popular for converting existing printers:
 ## Troubleshooting
 [Link to troubleshooting guide]
 
+{% include "ads/article-AD.md" %}
+
 ## Related Resources
 - [Voron Design GitHub](https://github.com/VoronDesign)
 - [Voron Discord](https://discord.gg/voron)
@@ -92,5 +109,6 @@ The Switchwire is popular for converting existing printers:
 2. Community Modifications Database
 3. User Experience Reports
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
 
