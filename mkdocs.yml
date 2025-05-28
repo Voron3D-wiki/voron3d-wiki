@@ -193,7 +193,7 @@ extra:
 extra_javascript:
   - assets/js/code-copy.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - docs/javascripts/tablesort.js
+  - javascripts/tablesort.js
   # - main.py
 
 # extra_javascript: #alternative analytics methode 
