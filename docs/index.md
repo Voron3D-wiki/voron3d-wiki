@@ -18,10 +18,41 @@ The Voron project revolves around open-source 3D printers that are known for the
 
 ### [Printers](printers/index.md) { #printers }
 
-- [Voron V0](printers/v0/v0.md) - Learn about the compact and customizable Voron V0
-- [Voron Trident](printers/trident/trident.md) - Discover the Voron Trident, with its modular design and advanced features
-- [Voron V2.4](printers/2.4/v2-4.md) - Learn about the latest and most advanced Voron V2.4
-- [Voron Switchwire](printers/switchwire.md) - Explore the Voron Switchwire
+<div class="grid cards" markdown>
+
+-   :material-cube-outline:{ .lg .middle } __Voron V0__
+
+    ---
+
+    Learn about the compact and customizable Voron V0.
+
+    [:octicons-arrow-right-24: Learn more](printers/v0/v0.md){ .md-button }
+
+-   :material-cube-scan:{ .lg .middle } __Voron Trident__
+
+    ---
+
+    Discover the Voron Trident, with its modular design and advanced features.
+
+    [:octicons-arrow-right-24: Learn more](printers/trident/trident.md){ .md-button }
+
+-   :material-cube:{ .lg .middle } __Voron V2.4__
+
+    ---
+
+    Learn about the latest and most advanced Voron V2.4.
+
+    [:octicons-arrow-right-24: Learn more](printers/2.4/v2-4.md){ .md-button }
+
+-   :material-robot-outline:{ .lg .middle } __Voron Switchwire__
+
+    ---
+
+    Explore the Voron Switchwire.
+
+    [:octicons-arrow-right-24: Learn more](printers/switchwire.md){ .md-button }
+
+</div>
 
 
 ### [Electronics](electronics/index.md) { #electronics }
