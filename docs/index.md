@@ -9,7 +9,7 @@ tags: [Voron, Voron3D, 3dprint, 3dprinting]
 
 ![Voron3D Logo](../assets/VoronLogo.png){ width="250" align="right" }
 
-This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers. Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and their unique features.
+This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers. Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and other 3D printing-related topics. We aim to make a useful resource for finding interesting modifications and share knowledge about the latest developments in the field.
 
 ## What is Voron? { #what-is-voron }
 

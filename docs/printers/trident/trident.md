@@ -30,7 +30,7 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 
 - [Funssor CNC Quad XY AWD kit](https://s.click.aliexpress.com/e/_oD6olYW)
 - [Creativity 3d CNC AWD kit for Trident or v2.4](https://s.click.aliexpress.com/e/_oD0Tqhk)
-  - [Funssor CNC 4AWD mod kit for v2.4 and trident](https://s.click.aliexpress.com/e/_opuQneE)
+- [Funssor CNC 4AWD mod kit for v2.4 and trident](https://s.click.aliexpress.com/e/_opuQneE)
 - [Funssor Ultra light X Carriage](https://s.click.aliexpress.com/e/_oCGfyiI)
 
 ## Voron Trident Kits
@@ -38,8 +38,10 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 
 - [Siboor CNC 4AWD June 2024 kit](https://s.click.aliexpress.com/e/_onVW5Gm)
 
+## Printed Parts
+<!-- List printed parts used in the Trident build process -->
+
 - [Printed Parts kit](https://s.click.aliexpress.com/e/_oBi0i0S)
-- 
 
 ## Modifications / Add-ons
 <!-- List and describe popular mods, toolheads, and add-ons for the Trident -->
