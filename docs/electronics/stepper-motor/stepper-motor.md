@@ -35,6 +35,62 @@ I took some time to copy the Excel sheet from the YouTube video and convert it i
 
 {% include "../stepper-motor/stepper-motor-database.md" %}
 
+### Stepper Motor Purchase link from onetwo3d
+
+[LDO Stepper Motor (42STH40-1684AC)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-1684ac/?wpam_id=9)
+
+[Kraken LDO-42STH60-3004AHR(S37)](https://www.onetwo3d.co.uk/product/kraken-ldo-42sth60-3004ahs37/?wpam_id=9)
+
+[LDO Stepper Motor (42STH20-1004ASH)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth20-1004as/?wpam_id=9)
+
+[LDO Stepper Motor (42STH40-2004MAH)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-2004mah/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2004AC)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2004ac/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2504AC)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ac/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2504AHS46)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ahs46/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2504AHS55)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ahs55/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2804AC Super Power)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ac-super-power-stepper-motor/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2804AC-R Round Shaft)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ac-r-super-power-stepper-motor-round-shaft/?wpam_id=9)
+
+[LDO Stepper Motor (35STH52-2004AHS35)](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2804AH High Temp)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-super-power-stepper-motor-high-temperature/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2804AH-S55 High Temp)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s55-super-power-stepper-motor-high-temperature/?wpam_id=9)
+
+[LDO Stepper Motor (42STH48-2804AH-S80)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s80-super-power-stepper-motor/?wpam_id=9)
+
+[LDO Stepper Motor (42STH25-1004CL200ET)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth25-1004cl200et/?wpam_id=9)
+
+[LDO Stepper Motor (25STH52-2004)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-25sth52-2004/?wpam_id=9)
+
+
+**Kits**
+
+[Box Turtle AFC Mini DC Motor Kit (LDO)](https://www.onetwo3d.co.uk/product/box-turtle-afc-mini-dc-motor-kit-ldo/?wpam_id=9)
+
+[Box Turtle AFC Stepper Kit (LDO)](https://www.onetwo3d.co.uk/product/box-turtle-afc-stepper-kit-ldo/?wpam_id=9)
+
+
+**Pancake Motors**
+
+[LDO Pancake Motor (36STH20-1004AHG8T)](https://www.onetwo3d.co.uk/product/ldo-36sth20-1004ahg8t-stepper/?wpam_id=9)
+
+[LDO Pancake Motor (36STH20-1004AHG)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-36sth20-1004ahg/?wpam_id=9)
+
+
+**NEMA 14**
+
+[LDO Stepper Motor (35STH52-1504AH)](https://www.onetwo3d.co.uk/product/ldo-35sth52-1504ah-stepper-motor/?wpam_id=9)
+
+[LDO Stepper Motor (35STH52-2004AHS35)](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9)
+
+
 ## References
 1. [Voron Design](https://vorondesign.com)
 2. [Community Support](https://discord.gg/voron)
