@@ -46,6 +46,9 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 ## Modifications / Add-ons
 <!-- List and describe popular mods, toolheads, and add-ons for the Trident -->
 
+- [EZbreak (doomcube for trident)](https://github.com/FrankenVoron/Trident-EZBake)
+- [Click-Clacky](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
+
 {% include "ads/article-AD.md" %}
 
 ## Related Resources
