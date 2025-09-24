@@ -24,11 +24,13 @@ I found this YouTube video to be massively helpful in understanding stepper moto
 
 [eddietheengineer](https://github.com/eddietheengineer/documentation/tree/master/stepper_motor/data)
 
-I took some time to copy the Excel sheet from the YouTube video and convert it into a Google Sheet to make it easier to access for those without Excel. I would still recommend using the Excel version if you have access, as it runs much faster, but this Google Sheet is a great resource for anyone who doesn't have access to Excel.
+I recently got a message from DevMiner the creator of the stepper motor simulator below, it is a very nice tool that performs all the calculations of the excel document and has a very detailed stepper motor database.
 
-[Google Sheet](https://docs.google.com/spreadsheets/d/1q8qH3D2qX-Fo8E_yL4lQjdTUrwfc8yJ4L7kgfzeGnso/edit?gid=1539141720#gid=1539141720)
+<a href="https://stepper-sim.devminer.xyz/" target="_blank" rel="noopener" class="md-button">
+  Stepper Simulator Website
+</a>
 
-??? info "Spreadsheet Help"
+??? info "Configuration Help"
     If you find the Google Sheet confusing or hard to understand, please watch the video linked above for a clear explanation of how to use the spreadsheet to find the right stepper motor for your printer.
 
 ## Stepper Motor Database
