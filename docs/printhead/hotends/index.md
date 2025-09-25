@@ -21,6 +21,10 @@ This section covers various hotends that are compatible with Voron printers, inc
 | E3D | [Revo Voron](e3d-revo-voron.md) | Quick-swap nozzle system | *(Photo here)* | [Buy Revo Voron ](https://e3d-online.com/revo) |
 | E3D | [V6](e3d-v6.md)                 | Classic reliable hotend  | ![*V6 photo here*](photo-v6.jpg) | [Buy V6 ](https://s.click.aliexpress.com/e/_omkZXJR)           |
 |dropEffect| [NextG](dropeffect-nextg.md) | High-flow hotend for fast printing | *(Photo here)* | [Buy NextG](https://www.dropeffect.com/nextg) |
+|Mellow Fly|[Heatcore 4]()| High-flow hotend using v6 nozzles and with an optional pressure sensing module|!(![photo of heatcore 4](heatcore4.jpg))|[Buy Heatcore 4](https://s.click.aliexpress.com/e/_c3IvQDsR)|
+|Mellow Fly|[Goliath]()| Mellow fly's highest flowing hotend, designed for no compromizes and fast printing|!(![photo](goliath.jpg))|[Buy](https://s.click.aliexpress.com/e/_c3IvQDsR)|
+|Triangle Labs | CHC XL hotend | Triangle lab's highest flow hotend, with a claimed flow rate over 100 m/s^3 | *(![alt text](chcXL.png))* [Buy](https://s.click.aliexpress.com/e/_c4CCiavl) |
+
 
 ## Selection Guide
 
