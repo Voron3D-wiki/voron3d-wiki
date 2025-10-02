@@ -21,6 +21,10 @@ This section covers various hotends that are compatible with Voron printers, inc
 | E3D | [Revo Voron](e3d-revo-voron.md) | Quick-swap nozzle system | *(Photo here)* | [Buy Revo Voron ](https://e3d-online.com/revo) |
 | E3D | [V6](e3d-v6.md)                 | Classic reliable hotend  | ![*V6 photo here*](photo-v6.jpg) | [Buy V6 ](https://s.click.aliexpress.com/e/_omkZXJR)           |
 |dropEffect| [NextG](dropeffect-nextg.md) | High-flow hotend for fast printing | *(Photo here)* | [Buy NextG](https://www.dropeffect.com/nextg) |
+|Mellow Fly|[Heatcore 4]()| High-flow hotend using v6 nozzles and with an optional pressure sensing module|!(![photo of heatcore 4](heatcore4.jpg))|[Buy Heatcore 4](https://s.click.aliexpress.com/e/_c3IvQDsR)|
+|Mellow Fly|[Goliath]()| Mellow fly's highest flowing hotend, designed for no compromizes and fast printing|!(![photo](goliath.jpg))|[Buy](https://s.click.aliexpress.com/e/_c3IvQDsR)|
+|Triangle Labs | CHC XL hotend | Triangle lab's highest flow hotend, with a claimed flow rate over 100 m/s^3 | *(![alt text](chcXL.png))* [Buy](https://s.click.aliexpress.com/e/_c4CCiavl) |
+
 
 ## Selection Guide
 
@@ -28,19 +32,10 @@ This section covers various hotends that are compatible with Voron printers, inc
 
 | Consideration          | Details                                        |
 | ---------------------- | ---------------------------------------------- |
-| Print Speed            | Choose based on desired print speed            |
-| Material Compatibility | Ensure support for intended filaments          |
+| Print Speed (flow rate) | Choose based on desired print speed, it doesn't matter fast your motion system is if you can't melt enough plastic            |
+| Material Compatibility (abrasive materials) | Ensure support for intended filaments, if you plan on printing carbon fiber or glass fiber filaments a wear resistance hotend is reconemnd           |
 | Cooling Performance    | Check heatsink and fan capabilities            |
-| Maintenance Needs      | Consider ease of cleaning and part replacement |
-
-### Installation
-
-| Step                      | Details                                 |
-| ------------------------- | --------------------------------------- |
-| Manufacturer Instructions | Follow official installation steps      |
-| Toolhead Compatibility    | Confirm fit with your specific toolhead |
-| Thermistor Type           | Verify sensor compatibility and configuration |
-| Temperature Testing       | *recommended* PID tuning for optimal performance |
+| Maintenance Needs      | Consider ease of cleaning and part replacement, pay attention to what type of heate carterage it uses, and what thermistor it uses, this might not be important now but when you want cheap easily available replacement parts, you will be thankful |
 
 ## References
 

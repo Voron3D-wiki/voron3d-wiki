@@ -1,8 +1,5 @@
 ---
 title: Klipper Software
-description: a simple overview of klipper and tools that add to klipper
-published: true
-date: 2024-10-05T22:33:45.894Z
 tags: [klipper, kiauh, fluidd, mainsail]
 ---
 
@@ -54,12 +51,19 @@ tags: [klipper, kiauh, fluidd, mainsail]
 - Y axis Graph
 - ![voron-v0 shake and tune](./shakeAndtune/voron-v0.2-shakeandtune-Y-min.png)
 
+**[ResHelper](https://github.com/lhndo/ResHelper)**
+- An alternative to klipper shake and tune (that can also be using alongside shake and tune) is ResHelper by lhndo
+- uses stock klipper inputshaper code but automatically generates the graph for you, and gives you the ability to increase the freaquency if you want.
+
 ---
 
 **[LED Effects for Klipper](https://github.com/julianschill/klipper-led_effect/tree/master)**
 - This is the standalone repository of the Klipper LED Effects module developed by Paul McGowan with contributions from myself. It allows Klipper to run effects and animations on addressable LEDs, such as Neopixels, WS2812 or SK6812.
 
 ---
+
+
+
 
 {% include "ads/footer-AD.md" %}
 
