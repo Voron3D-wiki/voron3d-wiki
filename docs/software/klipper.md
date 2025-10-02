@@ -1,8 +1,5 @@
 ---
 title: Klipper Software
-description: a simple overview of klipper and tools that add to klipper
-published: true
-date: 2024-10-05T22:33:45.894Z
 tags: [klipper, kiauh, fluidd, mainsail]
 ---
 
