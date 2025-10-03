@@ -203,12 +203,12 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-### [Micron (plus)](salad-forks/micron.md)
+### [Micron (plus)](Printers-for-ants/micron.md)
 
 <div class="grid" markdown>
 <div style="order: 2;">
-
-<img src="./salad-forks/micron+180.jpg" alt="Micron Plus" align="right" style="max-width: 300px; border-radius: 10px;" />
+<!-- 
+<img src="./Printers-for-ants/micron+180.jpg" alt="Micron Plus" align="right" style="max-width: 300px; border-radius: 10px;" /> -->
 
 </div>
 <div style="order: 1;">
@@ -241,12 +241,80 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
+### [Salad Fork](https://github.com/PrintersForAnts/Salad_Fork)
+
+<div class="grid" markdown>
+<div style="order: 1;">
+
+<!-- image here -->
+
+</div>
+<div style="order: 2;">
+
+<table>
+  <tr>
+    <th>Specification</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>CoreXY</td>
+  </tr>
+  <tr>
+    <td>Build Volume</td>
+    <td>120mm^3, 150mm^3, 180mm^3</td>
+  </tr>
+  <tr>
+    <td>Key Features</td>
+    <td>take a voron trident, swap the 2020 extrusions for 1515 exrusions minify everything and you've got a salad fork</td>
+  </tr>
+</table>
+
+</div>
+</div>
+
+---
+
+### [Tri Zero / T-Zero / Tri zero plus](https://github.com/zruncho3d/tri-zero/tree/main)
+
+<div class="grid" markdown>
+<div style="order: 1;">
+
+<!-- image here -->
+
+</div>
+<div style="order: 2;">
+
+<table>
+  <tr>
+    <th>Specification</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>CoreXY</td>
+  </tr>
+  <tr>
+    <td>Build Volume</td>
+    <td>300x300x350mm</td>
+  </tr>
+  <tr>
+    <td>Key Features</td>
+    <td>Based on Voron V0, CoreXY motion, but with Automatic Bed Leveling</td>
+  </tr>
+</table>
+
+</div>
+</div>
+
+---
+
 ### [Sovol SV08](https://github.com/Sovol3d/SV08)
 
 <div class="grid" markdown>
 <div style="order: 1;">
 
-<img src="./commercial/sovol-sv08.jpg" alt="Sovol SV08" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+<!-- image would go here -->
 
 </div>
 <div style="order: 2;">
@@ -267,6 +335,40 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   <tr>
     <td>Key Features</td>
     <td>Based on Voron V2.4, CoreXY motion, fully enclosed, commercial availability</td>
+  </tr>
+</table>
+
+</div>
+</div>
+
+---
+
+### [Sovol Zero](https://github.com/Sovol3d/SV08)
+
+<div class="grid" markdown>
+<div style="order: 1;">
+
+<!-- image would go here -->
+
+</div>
+<div style="order: 2;">
+
+<table>
+  <tr>
+    <th>Specification</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>CoreXY</td>
+  </tr>
+  <tr>
+    <td>Build Volume</td>
+    <td>150mm^3</td>
+  </tr>
+  <tr>
+    <td>Key Features</td>
+    <td>Based on Voron V0, CoreXY motion, fully enclosed, commercial availability</td>
   </tr>
 </table>
 
