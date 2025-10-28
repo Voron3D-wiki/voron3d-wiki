@@ -61,6 +61,8 @@ a[href*="reddit.com"]::after {
   
 
   /* Affiliate Link */
+a[href*="amzn.to"]::after,
+a[href*="amazon.com"]::after,
 a[href*="onetwo3d.co.uk"]::after,
 a[href*="aliexpress.com"]::after {
     content: " Affiliate Link";

@@ -6,9 +6,33 @@ tags: [mmu, multi-material, boxturtle, ercf, enraged rabbit]
 ---
 
 # Multi-Material Units (MMUs)
-
-## Overview
 Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple filaments in a single print. These systems enable multi-color, multi-material printing and provide flexibility for complex models. Below is a list of popular MMU systems with links, images, and brief descriptions.
+
+## Toolchanger / Multiple toolhead
+
+### [Tap Changer](https://github.com/viesturz/tapchanger)
+- **Key Features**:
+    - Z probing with standard voron tap
+    - low cost toolchanging system
+    - [fysetc kit](https://s.click.aliexpress.com/e/_c3qAcfTH)
+
+### [Stealth Changer](https://github.com/DraftShift/StealthChanger)
+- **Key Features**:
+    - Unlike the name suggests it supports more then just stealthburners
+    - [Fysetc CNC x carrage for StealthChanger](https://s.click.aliexpress.com/e/_c4ClOx7H)
+
+### [MadMax](https://github.com/zruncho3d/madmax/tree/main)
+
+## Commercial Options
+
+### e3d
+
+### Prusa XL
+
+### Snap Maker u1
+
+
+## Filament Feeders / filament Multiplexers
 
 ### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF.md)
 - **Description**: A community-driven MMU system designed for high reliability and extensive customization.
@@ -25,6 +49,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Supports up to 4 colors/materials
     - Open-source and customizable
     - Lightweight and easy to assemble
+    - no kits avaliable
 
 ### [BoxTurtle](BoxTurtle.md)
 - **Description**: An open-source multi-material system that supports 4 spools (unsure if they can be daisy-chained). Includes an auto-rewinding system, and a kit can be purchased through LDO Motors.
@@ -34,6 +59,10 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Open-source with detailed documentation
     - Designed for compatibility with Klipper firmware
     - heated enclsure optional
+    - [TriangelLabs kit](https://s.click.aliexpress.com/e/_c4SETbL9)
+    - [Formbot kit](https://s.click.aliexpress.com/e/_c2vSlE0F)
+    - [Seleadlab kit](https://s.click.aliexpress.com/e/_c311Qr7d)
+
 
 ### Happy Turtle Lettuce Feeder
 - **Description**: "HTLF is a lane-based filament changer for Klipper designed by ArmoredTurtle. It uses a camshaft to engage the selected lane, effectively making the requested lane a direct drive extruder (no slip to contend with). The “stock build” is for a four color system, though CAD is provided should you choose to expand it further." From Robert_Klotz
@@ -44,6 +73,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Lower cost than BoxTrutle
 - [TriagnelLabs kit](https://s.click.aliexpress.com/e/_onfSHaw)
 - [Seleadlab  kit](https://s.click.aliexpress.com/e/_oCy7tdC)
+
 ### [TradRack](tradrack.md)
 - **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
 - **Key Features**:
@@ -80,6 +110,9 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ### [Blobifier](https://github.com/Dendrowen/Blobifier)
 - A unique approach to multi-material printing
+
+### [Filametrix](https://github.com/sorted01/Filametrix)
+- A stealth burner toolhead modified to include a filament cutter
 
 ## Selection Guide
 

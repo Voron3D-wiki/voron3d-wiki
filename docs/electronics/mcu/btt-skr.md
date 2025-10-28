@@ -18,6 +18,7 @@ The BigTreeTech (BTT) SKR series represents a popular line of 32-bit mainboards 
 - **Connectivity**: USB, UART
 - **Price Range**: $
 - **Best For**: Entry-level printers, Ender 3 upgrades
+- **Buy**: [Amazon ](https://amzn.to/47q6csL)
 
 ### SKR Pro V1.2
 - **Processor**: STM32F407
@@ -25,13 +26,15 @@ The BigTreeTech (BTT) SKR series represents a popular line of 32-bit mainboards 
 - **Connectivity**: USB, UART, CAN
 - **Price Range**: $$
 - **Best For**: Mid-range printers, multi-extruder setups
+- **Buy**: [Amazon ](https://amzn.to/4nxDDQn)
 
-### SKR 2
+### SKR 3
 - **Processor**: STM32F407
 - **Stepper Drivers**: 5x (configurable)
 - **Connectivity**: USB, UART
 - **Price Range**: $$
 - **Best For**: Standard printers, dual Z-axis setups
+- **Buy**: [Amazon ](https://amzn.to/3JaLCEW)
 
 ### SKR Pico
 - **Processor**: RP2040
@@ -39,6 +42,7 @@ The BigTreeTech (BTT) SKR series represents a popular line of 32-bit mainboards 
 - **Connectivity**: USB, GPIO
 - **Price Range**: $
 - **Best For**: Entry-level printers, compact builds
+- **Buy**: [amazon ](https://amzn.to/4311sbM)
 
 ## Key Features
 
