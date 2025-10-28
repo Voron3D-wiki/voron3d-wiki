@@ -15,7 +15,7 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 
 ## Quick Comparison Table
 
-| MCU Series | Processor | Stepper Drivers | Connectivity | Price Range | Best For |
+| MCU Series | Processor | Stepper Drivers | Connectivity | Price Range | Best For | 
 |------------|-----------|-----------------|--------------|-------------|-----------|
 | [BTT SKR Series](./skr-series.md) | STM32/RP2040 | 4-6 | USB, UART | $ | Entry to Mid-range |
 | [RP2040 Boards](./rp2040-boards.md) | Dual-core ARM | 4-6 | USB, GPIO | $ | Entry Level |

@@ -13,18 +13,20 @@ The Octopus series represents BigTreeTech's high-end mainboard offerings, design
 ## Available Models
 
 ### Octopus V1.1
-- **Processor**: STM32F446
+- **Processor**: STM32F446 (there are different vesrion, the wiki will be updated soon)
 - **Stepper Drivers**: 8x (configurable)
 - **Connectivity**: USB, UART, CAN
 - **Price Range**: $$$
 - **Best For**: High-end printers, multi-extruder setups
+- **Buy**: [Amazon ](https://amzn.to/4olfQ7y)
 
-### Octopus Pro
+### Octopus Pro V1.1
 - **Processor**: STM32H743
 - **Stepper Drivers**: 8x (configurable)
 - **Connectivity**: USB, UART, CAN, Ethernet
 - **Price Range**: $$$$
 - **Best For**: Professional printers, complex setups
+- **Buy**: [Amazon ](https://amzn.to/4oKrtEF)
 
 ## Key Features
 

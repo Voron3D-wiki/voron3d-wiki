@@ -20,7 +20,7 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 
 |brand|rpm|bearing|voltage|link|
 |-----|---|-------|-------|----|
-|Gdstime|up to 85000|dual ball bearing  or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_omTPrYh) |
+|Gdstime|up to 85000|dual ball bearing  or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_omTPrYh) [Purchase from Amazon.com](https://amzn.to/48WNaNj)|
 
 ###4020 Blower
 
@@ -34,6 +34,10 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 |-----|---|-------|-------|----|
 |Gdstime|up to 12000|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCTN6iZ) |
 
+###3010 Blower Fan
+|brand|rpm|bearing|voltage|link|
+|-----|---|-------|-------|----|
+|Gdstime|coming soon|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Amazon ](https://amzn.to/4oi2Pvi) |
 
 ## References
 1. [Voron Design](https://vorondesign.com)
