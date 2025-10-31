@@ -71,9 +71,12 @@ nav:
           - MKS: electronics/mcu/mks.md
           - Octopus: electronics/mcu/octopus.md
           - RP2040 Boards: electronics/mcu/rp2040-boards.md
+      # - Stepper Drivers: electronics/stepper_drivers/index.md
       - RP2040 Info: electronics/rp2040.md
       - Connectors: electronics/connectors.md
       - Stepper Motors: electronics/stepper-motor/stepper-motor.md
+      - Fans: electronics/fans/index.md
+      - Power Supplies: electronics/power-supplies/index.md
       - Safety: electronics/safety/index.md
   - Printhead:
     - Overview: printhead/index.md
@@ -130,10 +133,10 @@ plugins:
   # - social
   - glightbox
   - privacy
-  - git-revision-date-localized:
-      type: datetime
-      timezone: UTC
-      locale: en
+  # - git-revision-date-localized:
+  #     type: datetime
+  #     timezone: UTC
+  #     locale: en
   # - path_to_plugin_file: plugins/bomplugin.py
 markdown_extensions:
   - tables
