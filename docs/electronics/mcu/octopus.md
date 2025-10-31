@@ -18,7 +18,7 @@ The Octopus series represents BigTreeTech's high-end mainboard offerings, design
 - **Connectivity**: USB, UART, CAN
 - **Price Range**: $$$
 - **Best For**: High-end printers, multi-extruder setups
-- **Buy**: [Amazon ](https://amzn.to/4olfQ7y)
+- **Buy**: [Amazon ](https://amzn.to/4olfQ7y) [Biqu Offical Store](https://www.awin1.com/cread.php?awinmid=95665&awinaffid=2636972&campaign=blog&ued=https%3A%2F%2Fbiqu.equipment%2Fcollections%2Fcontrol-board%2Fproducts%2Fbigtreetech-octopus-v1-1)
 
 ### Octopus Pro V1.1
 - **Processor**: STM32H743
@@ -26,7 +26,7 @@ The Octopus series represents BigTreeTech's high-end mainboard offerings, design
 - **Connectivity**: USB, UART, CAN, Ethernet
 - **Price Range**: $$$$
 - **Best For**: Professional printers, complex setups
-- **Buy**: [Amazon ](https://amzn.to/4oKrtEF)
+- **Buy**: [Amazon ](https://amzn.to/4oKrtEF) [Biqu Offical Store](https://www.awin1.com/cread.php?awinmid=95665&awinaffid=2636972&campaign=blog&ued=https%3A%2F%2Fbiqu.equipment%2Fproducts%2Fbigtreetech-octopus-pro-v1-0-chip-f446)
 
 ## Key Features
 
@@ -56,39 +56,10 @@ The Octopus series represents BigTreeTech's high-end mainboard offerings, design
 4. Connect heaters and fans
 5. Flash firmware
 
-### Configuration
-- [Klipper Configuration Guide](./guides/klipper-config.md)
-- [Marlin Configuration Guide](./guides/marlin-config.md)
-- [Pin Mapping Reference](./guides/pin-mapping.md)
-
-## Common Modifications
-
-### Expansion Options
-- CAN bus expansion
-- Ethernet connectivity
-- Additional stepper drivers
-- Advanced sensor integration
-- Display integration
-
 ### Community Mods
 - Custom cooling solutions
-- Power supply modifications
 - Additional connectivity options
-- Custom firmware features
 
-## Troubleshooting
-
-### Common Issues
-1. Stepper motor configuration
-2. USB connectivity problems
-3. Firmware flashing errors
-4. Power supply issues
-5. CAN bus communication
-
-### Solutions
-- [Troubleshooting Guide](./guides/troubleshooting.md)
-- [FAQ Section](./guides/faq.md)
-- [Community Support](./guides/community-support.md)
 
 ## Related Resources
 - [BTT Official Documentation](https://github.com/bigtreetech)
