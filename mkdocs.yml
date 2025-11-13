@@ -9,7 +9,6 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
-    - navigation.path
     - navigation.prune
     - toc.integrate 
     - toc.follow
@@ -119,6 +118,9 @@ nav:
   #     - [Klipper Reddit](https://www.reddit.com/r/klippers/)
 
 plugins:
+  - mkdocs-breadcrumbs-plugin:
+      separator: " / "
+      use_page_titles: true # Use page titles instead of paths in breadcrumbs
   - include-markdown
   # - meta-descriptions
   - search:
