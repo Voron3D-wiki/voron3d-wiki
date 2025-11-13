@@ -17,7 +17,7 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 
 | Model                                   | Description          | Photo      | Purchase Link |
 | --------------------------------------- | -------------------- | -------------- | ------------ |
-| [BTT EBB36](btt-ebb36.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp) |
+| [BTT EBB36](btt-ebb36.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
 | [Mellow Fly SHT36](FLY-SHT.md) | Compact version      | *(Photo here)* | [aliexpress ](https://s.click.aliexpress.com/e/_on6cQcV)|
 | [NiteHawk 36 RevC Toolboard Kit](mellow-fly-sht36.md) | USB connection      | *(Photo here)* | |
 
@@ -25,7 +25,7 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 
 | Model                               | Description            | Photo      | Purchase Link |
 | ----------------------------------- | ---------------------- | -------------- | --- |
-| [BTT EBB42](btt-ebb42.md)           | Full-featured option   | *(Photo here)* |[aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp)|
+| [BTT EBB42](btt-ebb42.md)           | Full-featured option   | *(Photo here)* |[aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
 | [Mellow Fly SHT42](FLY-SHT.md) | High performance board | *(Photo here)* | |
 
 ### StealthBurner-Specific Boards
