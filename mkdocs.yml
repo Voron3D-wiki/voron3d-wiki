@@ -9,7 +9,8 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
-    - navigation.prune
+    # - navigation.prune
+    - navigation.path
     - toc.integrate 
     - toc.follow
     - content.code.annotate
@@ -51,7 +52,7 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Printers:
+  - Printers: 
       - Overview: printers/index.md
       - Voron V0: printers/v0/v0.md
       - Voron Switchwire: printers/switchwire.md
@@ -119,8 +120,28 @@ nav:
 
 plugins:
   - mkdocs-breadcrumbs-plugin:
-      separator: " / "
-      use_page_titles: true # Use page titles instead of paths in breadcrumbs
+      delimiter: " / "  # separator between sections
+      # log_level: "INFO" #DEBUG", "", "WARNING", "ERROR", "CRITICAL"
+      exclude_paths:
+        - "assets"
+        - "javascripts"
+        - "mkdocs"
+        - "ads"
+        - "_templates"
+        - "stylesheets"
+        - "docs"
+        - "overrides"
+        - "site"
+        - "docs/javascripts/**"
+        - "overrides"
+        - "vscode"
+        - "pytest_cache"
+        - ".github"
+      additional_index_folders:
+        - temp_dir
+      # generate_home_index: false
+      use_page_titles: true # use page title instead of path in breadcrumbs
+      home_text: "Home"
   - include-markdown
   # - meta-descriptions
   - search:
