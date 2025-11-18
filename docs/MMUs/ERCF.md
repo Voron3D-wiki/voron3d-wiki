@@ -40,8 +40,6 @@ When this journey began, the two main MMU options were the ERCF V2 and Tradrack.
 
 3. **Upgrade the Servo**: The stock MG90 servo may be underpowered. Upgrading to a Savox SH 0255 MG ensures better control and eliminates filament slipping.
 
-![ERCF FULL CAD render](https://github.com/Enraged-Rabbit-Community/ERCF_v2/blob/master/Assets/Full_CAD.jpg?raw=true)
-
 4. **Filament Buffer Alternatives**: Traditional slot-based buffers increase friction and cause tangles. Replace them with a filamentalist passive rewinder for smoother filament movement and reduced extrusion issues.
 
 5. **Shorten Bowden Paths**: Reduce friction and improve load/unload times by using a top-panel Bowden entry system to shorten the path from the ERCF to the toolhead.
