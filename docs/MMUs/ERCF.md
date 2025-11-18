@@ -11,7 +11,6 @@ tags: [ERCF, ERCF V2]
 *Links: [OFFICAL GITHUB](https://github.com/Enraged-Rabbit-Community/ERCF_v2/tree/master)*
 
 ---
-![ERCF v2 Design](https://github.com/Enraged-Rabbit-Community/ERCF_v2/blob/master/Assets/ERCFv2.png?raw=true)
 **Introduction**
 
 The Enraged Rabbit Carrot Feeder (ERCF) is a highly capable multi-material upgrade for 3D printers, particularly within the Voron ecosystem. Over a six-month period, a dedicated user shared their experience with the ERCF V2, offering valuable insights and lessons for those considering or already using this multi-material unit (MMU). This article focuses solely on the ERCF, while other MMU alternatives, such as the Tradrack, will be covered in a separate article.
