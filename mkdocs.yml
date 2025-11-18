@@ -10,7 +10,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     # - navigation.prune
-    - navigation.path
+    # - navigation.paths
     - toc.integrate 
     - toc.follow
     - content.code.annotate
