@@ -1,6 +1,6 @@
 # Build artifacts
-.cache/
-.site/
+# .cache/
+# .site/
 
 # IDE and editor files
 .codegpt
