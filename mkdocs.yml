@@ -154,7 +154,7 @@ plugins:
   - table-reader
   # - social
   - glightbox
-  - privacy
+  # - privacy
   - git-revision-date-localized:
       type: datetime
       timezone: UTC
