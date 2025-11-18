@@ -1,16 +1,14 @@
 site_name: Voron3D Wiki
 site_url: https://voron3d.wiki
+
 theme:
   favicon: assets/vdesignplainlorig.png
   logo: assets/VoronLogo.png
   name: material
-  # custom_dir: overrides
   features:
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
-    # - navigation.prune
-    # - navigation.paths
     - toc.integrate 
     - toc.follow
     - content.code.annotate
@@ -20,9 +18,7 @@ theme:
     - content.code.prompt
     - content.code.highlight_lines
     - content.code.highlight_languages
-
   palette:
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: orange
@@ -30,8 +26,6 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: red
@@ -39,11 +33,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
   font:
     text: false
     code: false
-
   icon:
     repo: fontawesome/brands/github
 
@@ -76,24 +68,24 @@ nav:
       - Stepper Motors: electronics/stepper-motor/stepper-motor.md
       - Safety: electronics/safety/index.md
   - Printhead:
-    - overview: printhead/index.md
-    - Hotends:
-        - overview: printhead/hotends/index.md
-        - DropEffect NExt G: printhead/hotends/dropeffect-nextg/index.md
-        - E3D Revo Voron: printhead/hotends/e3d-revo-voron/index.md
-        - E3D V6: printhead/hotends/e3d-v6/index.md
-        - Phaetus Dragon: printhead/hotends/phaetus-dragon/index.md
-        - Phaetus Rapido: printhead/hotends/phaetus-rapido/index.md
-    - Extruders: 
-        - overview: printhead/extruders/index.md
-    - Toolhead Boards:
-      - overview: printhead/toolhead-boards/index.md
-      - MKS-THR: printhead/toolhead-boards/mks-thr/index.md
-      - FLY-SHT: printhead/toolhead-boards/fly-sht/index.md
-      - FLY-SB2040: printhead/toolhead-boards/FLY-SB2040/index.md
-      - BTT-EBB: printhead/toolhead-boards/BTT-EBB/index.md
-      - LDO Orbitool 3: printhead/toolhead-boards/ldo-orbitool-3/index.md
-      - LDO Orbitool O2: printhead/toolhead-boards/ldo-orbitool-o2/index.md
+      - overview: printhead/index.md
+      - Hotends:
+          - overview: printhead/hotends/index.md
+          - DropEffect NExt G: printhead/hotends/dropeffect-nextg/index.md
+          - E3D Revo Voron: printhead/hotends/e3d-revo-voron/index.md
+          - E3D V6: printhead/hotends/e3d-v6/index.md
+          - Phaetus Dragon: printhead/hotends/phaetus-dragon/index.md
+          - Phaetus Rapido: printhead/hotends/phaetus-rapido/index.md
+      - Extruders: 
+          - overview: printhead/extruders/index.md
+      - Toolhead Boards:
+          - overview: printhead/toolhead-boards/index.md
+          - MKS-THR: printhead/toolhead-boards/mks-thr/index.md
+          - FLY-SHT: printhead/toolhead-boards/fly-sht/index.md
+          - FLY-SB2040: printhead/toolhead-boards/FLY-SB2040/index.md
+          - BTT-EBB: printhead/toolhead-boards/BTT-EBB/index.md
+          - LDO Orbitool 3: printhead/toolhead-boards/ldo-orbitool-3/index.md
+          - LDO Orbitool O2: printhead/toolhead-boards/ldo-orbitool-o2/index.md
   - Filament:
       - Filament Guide: filament/filament-guide.md
   - Bed Leveling:
@@ -113,15 +105,10 @@ nav:
       - Pursa-MMU: MMUs/Pursa-MMU/index.md
   - Guides:
       - overview: guides/index.md
-  # - External Links:
-  #     - [Voron3D Official Site](https://voron3d.com/)
-  #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
-  #     - [Klipper Reddit](https://www.reddit.com/r/klippers/)
 
 plugins:
   - mkdocs-breadcrumbs-plugin:
-      delimiter: " / "  # separator between sections
-      # log_level: "INFO" #DEBUG", "", "WARNING", "ERROR", "CRITICAL"
+      delimiter: " / "
       additional_index_folders:
         - temp_dir
       use_page_titles: false
@@ -143,23 +130,17 @@ plugins:
         - "vscode"
         - "pytest_cache"
         - ".github"
-
   - include-markdown
-  # - meta-descriptions
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  # - optimize
   - tags
   - macros
   - table-reader
-  # - social
   - glightbox
-  # - privacy
   - git-revision-date-localized:
       type: datetime
       timezone: UTC
       locale: en
-  # - path_to_plugin_file: plugins/bomplugin.py
 markdown_extensions:
   - tables
   - attr_list
@@ -197,6 +178,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+# removed analytics provider block (caused affiliate URL rewriting)
 extra:
   version:
     provider: mike
@@ -205,22 +187,13 @@ extra:
       link: https://github.com/voron3d-wiki
     - icon: fontawesome/brands/discord
       link: https://discord.gg/voron
-    # - icon: fontawesome/brands/shopping-cart
-    #   link: affiliates/aliexpress_template.md
-    #   name: AliExpress
   footer:
     - text: Policies
       link: policies.md
-  analytics:
-    provider: google
-    property: G-7E70MV2KN4
 
 extra_javascript:
+  - https://www.googletagmanager.com/gtag/js?id=G-7E70MV2KN4
   - assets/js/code-copy.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
-  # - main.py
-
-# extra_javascript: #alternative analytics methode 
-#   - https://www.googletagmanager.com/gtag/js?id=G-VPL8R0L9Z1
-#   - analytics.js
+  - javascripts/analytics.js
