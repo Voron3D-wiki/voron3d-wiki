@@ -38,8 +38,8 @@ jobs:
       - name: Extract added/removed links
         id: parse
         run: |
-          chmod +x .github/scripts/extract-links.sh
-          .github/scripts/extract-links.sh diff.txt
+          chmod +x .github/scripts/extract-link.sh
+          .github/scripts/extract-link.sh diff.txt
 
       # ------------------------------------------------------
       # 3) Export script outputs
