@@ -113,3 +113,12 @@ jobs:
               repo: context.repo.repo,
               body
             });
+      # ------------------------------------------------------
+      # 6) Auto-approve PRs from trusted contributor (amovfc)
+      # ------------------------------------------------------
+      - name: Auto-approve PRs from amovfc
+        if: github.event.pull_request.user.login == 'amovfc'
+        uses: hmarr/auto-approve-action@v3
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+
