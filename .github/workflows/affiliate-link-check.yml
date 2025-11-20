@@ -1,15 +1,12 @@
 name: Affiliate Link Check
 
 on:
-  pull_request_target:
-    branches:
-      - main
-      - master
-
   push:
     branches:
       - main
-      - master
+  pull_request_target:
+    branches:
+      - main
 
 jobs:
   check-affiliate-links:
@@ -17,12 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      # ------------------------------------------------------
+      # 1) Safe checkout (use base branch to avoid read-only token issues)
+      # ------------------------------------------------------
+      - name: Checkout base branch safely
+        uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 0
 
       # ------------------------------------------------------
-      # 1) Generate diff
+      # 2) Generate diff for Markdown files
       # ------------------------------------------------------
       - name: Generate diff for Markdown files
         id: diff
@@ -33,7 +35,7 @@ jobs:
           cat diff.txt
 
       # ------------------------------------------------------
-      # 2) Extract URLs using helper script
+      # 3) Extract URLs using helper script
       # ------------------------------------------------------
       - name: Extract added/removed links
         id: parse
@@ -42,7 +44,7 @@ jobs:
           .github/scripts/extract-link.sh diff.txt
 
       # ------------------------------------------------------
-      # 3) Export script outputs
+      # 4) Export script outputs
       # ------------------------------------------------------
       - name: Export Diff Outputs
         id: outputs
@@ -54,7 +56,7 @@ jobs:
           REMOVED: ${{ steps.parse.outputs.REMOVED }}
 
       # ------------------------------------------------------
-      # 4) Fail the check if any links changed
+      # 5) Fail the check if any links changed
       # ------------------------------------------------------
       - name: Fail if any external links changed
         if: steps.outputs.outputs.added != '' || steps.outputs.outputs.removed != ''
@@ -63,7 +65,7 @@ jobs:
           exit 1
 
       # ------------------------------------------------------
-      # 5) Comment on PR with a clean report
+      # 6) Comment on PR with a clean report
       # ------------------------------------------------------
       - name: Comment on PR about link changes
         if: steps.outputs.outputs.added != '' || steps.outputs.outputs.removed != ''
@@ -72,33 +74,26 @@ jobs:
           script: |
             const added = `${{ steps.outputs.outputs.added }}`.trim().split(/\s+/).filter(Boolean);
             const removed = `${{ steps.outputs.outputs.removed }}`.trim().split(/\s+/).filter(Boolean);
-
-            // Identify modified links (present in both added & removed sets)
             const modified = added.filter(a => removed.includes(a));
 
-            // Build comment
             let body = "## 🔍 External Link Changes Detected\n";
             body += "These changes must be reviewed **by the project owner** before merging.\n\n";
 
-            // Modified links table
             if (modified.length > 0) {
               body += "### 🟡 Modified Links (Changed)\n";
               body += "| Old | New |\n|-----|-----|\n";
-
               modified.forEach(link => {
-                body += `| ${link} | ${link} |\n`; // Same string, but indicates it changed in diff
+                body += `| ${link} | ${link} |\n`;
               });
               body += "\n";
             }
 
-            // Added links
             if (added.length > 0) {
               body += "### 🔵 Added Links\n";
               added.forEach(url => body += `- ${url}\n`);
               body += "\n";
             }
 
-            // Removed links
             if (removed.length > 0) {
               body += "### 🔴 Removed Links\n";
               removed.forEach(url => body += `- ${url}\n`);
@@ -113,12 +108,12 @@ jobs:
               repo: context.repo.repo,
               body
             });
+
       # ------------------------------------------------------
-      # 6) Auto-approve PRs from trusted contributor (amovfc)
+      # 7) Auto-approve PRs from trusted contributor (amovfc)
       # ------------------------------------------------------
       - name: Auto-approve PRs from amovfc
         if: github.event.pull_request.user.login == 'amovfc'
         uses: hmarr/auto-approve-action@v3
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
-
