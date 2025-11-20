@@ -108,12 +108,21 @@ jobs:
               repo: context.repo.repo,
               body
             });
-
       # ------------------------------------------------------
       # 7) Auto-approve PRs from trusted contributor (amovfc)
+      #     using your GitHub App token
       # ------------------------------------------------------
+      - name: Generate GitHub App token
+        id: app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          installation_id: ${{ secrets.APP_INSTALLATION_ID }}
+
       - name: Auto-approve PRs from amovfc
         if: github.event.pull_request.user.login == 'amovfc'
         uses: hmarr/auto-approve-action@v3
         with:
-          github-token: ${{ secrets.BOT_TOKEN }}
+          github-token: ${{ steps.app-token.outputs.token }}
+
