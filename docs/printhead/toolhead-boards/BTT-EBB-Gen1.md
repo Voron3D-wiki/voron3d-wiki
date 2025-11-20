@@ -200,10 +200,8 @@ Replace the UUID with yours.
 
 # References
 
-- BTT EBB GitHub Repository  
-  https://github.com/bigtreetech/EBB
+-[BTT EBB GitHub Repository]( https://github.com/bigtreetech/EBB)
 
-- Voron CANbus Hardware Guide  
-  https://docs.vorondesign.com/hardware.html
+- [Voron CANbus Hardware Guide]( https://docs.vorondesign.com/hardware.html)
 
 {% include "ads/footer-AD.md" %}
