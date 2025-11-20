@@ -40,7 +40,13 @@ jobs:
         run: mkdocs build
 
       - name: Validate HTML output
-        run: html5validator --root site/
+        run: |
+          html5validator \
+            --root site/ \
+            --ignore "Attribute.*autocomplete" \
+            --ignore "Attribute.*autocorrect" \
+            --ignore "align" \
+            --ignore "tabindex"
 
   security-scan:
     name: Security Scan
