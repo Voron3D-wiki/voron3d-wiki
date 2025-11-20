@@ -15,7 +15,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ## Official Models
 
-### [Voron V0.2r1](./v0/v0.md)
+### [Voron V0.2r1](./v0/index.md)
 
 <div class="grid" markdown>
 <div style="order: 1;">
@@ -53,7 +53,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-### [Voron V2.4](./2.4/v2-4.md)
+### [Voron V2.4](./2.4/index.md)
 
 <div class="grid" markdown>
 <div style="order: 2;">
@@ -91,7 +91,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-### [Voron Trident](./trident/trident.md)
+### [Voron Trident](./trident/index.md)
 
 <div class="grid" markdown>
 <div style="order: 1;">
