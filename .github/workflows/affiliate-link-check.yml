@@ -14,18 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ------------------------------------------------------
-      # 1) Safe checkout (use base branch to avoid read-only token issues)
-      # ------------------------------------------------------
-      - name: Checkout base branch safely
+      # 1) Safe checkout for both PRs and push events
+      - name: Checkout code safely
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.ref || github.ref }}
           fetch-depth: 0
 
-      # ------------------------------------------------------
-      # 2) Generate diff for Markdown files
-      # ------------------------------------------------------
+      # 2) Generate diff
       - name: Generate diff for Markdown files
         id: diff
         run: |
@@ -34,20 +30,16 @@ jobs:
           echo "Diff created:"
           cat diff.txt
 
-      # ------------------------------------------------------
-      # 3) Extract URLs using helper script
-      # ------------------------------------------------------
+      # 3) Extract URLs
       - name: Extract added/removed links
         id: parse
         run: |
           chmod +x .github/scripts/extract-link.sh
           .github/scripts/extract-link.sh diff.txt
 
-      # ------------------------------------------------------
-      # 4) Export script outputs
-      # ------------------------------------------------------
+      # 4) Export outputs
       - name: Export Diff Outputs
-        id: outputs
+        id: diff_outputs
         run: |
           echo "added=${ADDED}" >> $GITHUB_OUTPUT
           echo "removed=${REMOVED}" >> $GITHUB_OUTPUT
@@ -55,32 +47,28 @@ jobs:
           ADDED: ${{ steps.parse.outputs.ADDED }}
           REMOVED: ${{ steps.parse.outputs.REMOVED }}
 
-      # ------------------------------------------------------
-      # 5) Fail the check if any links changed
-      # ------------------------------------------------------
+      # 5) Fail if links changed
       - name: Fail if any external links changed
-        if: steps.outputs.outputs.added != '' || steps.outputs.outputs.removed != ''
+        if: ${{ steps.diff_outputs.outputs.added != '' || steps.diff_outputs.outputs.removed != '' }}
         run: |
           echo "❌ External link changes detected. Review required."
           exit 1
 
-      # ------------------------------------------------------
-      # 6) Comment on PR with a clean report
-      # ------------------------------------------------------
-      - name: Comment on PR about link changes
-        if: steps.outputs.outputs.added != '' || steps.outputs.outputs.removed != ''
+      # 6) Comment on PR
+      - name: Comment with link change report
+        if: ${{ steps.diff_outputs.outputs.added != '' || steps.diff_outputs.outputs.removed != '' }}
         uses: actions/github-script@v7
         with:
           script: |
-            const added = `${{ steps.outputs.outputs.added }}`.trim().split(/\s+/).filter(Boolean);
-            const removed = `${{ steps.outputs.outputs.removed }}`.trim().split(/\s+/).filter(Boolean);
+            const added = `${{ steps.diff_outputs.outputs.added }}`.trim().split(/\s+/).filter(Boolean);
+            const removed = `${{ steps.diff_outputs.outputs.removed }}`.trim().split(/\s+/).filter(Boolean);
             const modified = added.filter(a => removed.includes(a));
 
             let body = "## 🔍 External Link Changes Detected\n";
             body += "These changes must be reviewed **by the project owner** before merging.\n\n";
 
             if (modified.length > 0) {
-              body += "### 🟡 Modified Links (Changed)\n";
+              body += "### 🟡 Modified Links\n";
               body += "| Old | New |\n|-----|-----|\n";
               modified.forEach(link => {
                 body += `| ${link} | ${link} |\n`;
@@ -108,10 +96,8 @@ jobs:
               repo: context.repo.repo,
               body
             });
-      # ------------------------------------------------------
-      # 7) Auto-approve PRs from trusted contributor (amovfc)
-      #     using your GitHub App token
-      # ------------------------------------------------------
+
+      # 7) Auto-approve PRs from amovfc using GitHub App
       - name: Generate GitHub App token
         id: app-token
         uses: tibdex/github-app-token@v2
@@ -121,8 +107,7 @@ jobs:
           installation_id: ${{ secrets.APP_INSTALLATION_ID }}
 
       - name: Auto-approve PRs from amovfc
-        if: github.event.pull_request.user.login == 'amovfc'
+        if: ${{ github.event.pull_request.user.login == 'amovfc' }}
         uses: hmarr/auto-approve-action@v3
         with:
           github-token: ${{ steps.app-token.outputs.token }}
-
