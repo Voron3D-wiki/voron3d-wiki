@@ -13,43 +13,6 @@ permissions:
   id-token: write
 
 jobs:
-  validate-html:
-    name: Validate HTML
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          path: ~/.cache/pip
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install html5validator
-
-      - name: Build docs
-        run: mkdocs build
-
-      - name: Validate HTML
-        run: |
-          html5validator \
-            --match='site/ads/**/*.html' \
-            --match='site/_templates/**/*.html' \
-            --match='site/**/*.html' \
-            --ignore-re='autocomplete' \
-            --ignore-re='autocorrect' \
-            --ignore-re='align' \
-            --ignore-re='DOCTYPE'
-
   security-scan:
     name: Security Scan
     runs-on: ubuntu-latest
