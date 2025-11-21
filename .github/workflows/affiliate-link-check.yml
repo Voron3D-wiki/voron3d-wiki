@@ -1,51 +1,140 @@
 name: Affiliate Link Check
 
 on:
-  pull_request:
-    branches:
-      - main
-      - master
   push:
     branches:
       - main
-      - master
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+  pull_request_target:
+    branches:
+      - main
 
 jobs:
   check-affiliate-links:
-    name: Check and Fix Affiliate Links
+    name: Check External Link Changes
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      # 1) Safe checkout for both PRs and push events
+      - name: Checkout code safely
+        uses: actions/checkout@v4
         with:
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.ref || github.ref }}
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: Install dependencies
+      # 2) Generate diff
+      - name: Generate diff for Markdown files
+        id: diff
         run: |
-          pip install -r requirements.txt
-          pip install beautifulsoup4 requests
+          git fetch origin ${{ github.base_ref }}
+          git diff origin/${{ github.base_ref }}...HEAD -- '*.md' '*.markdown' > diff.txt
+          echo "Diff created:"
+          cat diff.txt
 
-      - name: Check and Fix Affiliate Links
+      # 3) Extract URLs
+      - name: Extract added/removed links
+        id: parse
         run: |
-          python .github/scripts/check_affiliate_links.py
+          chmod +x .github/scripts/extract-link.sh
+          .github/scripts/extract-link.sh diff.txt
 
-      - name: Create Pull Request
-        if: github.event_name == 'push'
-        uses: peter-evans/create-pull-request@v5
+      # 4) Export outputs
+      - name: Export Diff Outputs
+        id: diff_outputs
+        run: |
+          echo "added=${ADDED}" >> $GITHUB_OUTPUT
+          echo "removed=${REMOVED}" >> $GITHUB_OUTPUT
+        env:
+          ADDED: ${{ steps.parse.outputs.ADDED }}
+          REMOVED: ${{ steps.parse.outputs.REMOVED }}
+
+      # 5) Fail if links changed
+      - name: Fail if any external links changed
+        if: ${{ steps.diff_outputs.outputs.added != '' || steps.diff_outputs.outputs.removed != '' }}
+        run: |
+          echo "❌ External link changes detected. Review required."
+          exit 1
+
+      # 6) Comment on PR
+      - name: Comment with link change report
+        if: ${{ steps.diff_outputs.outputs.added != '' || steps.diff_outputs.outputs.removed != '' }}
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "fix: update affiliate links"
-          title: "fix: update affiliate links"
-          body: |
-            This PR updates OneTwo3D links to include the affiliate tag.
-            
-            Changes made:
-            - Added affiliate tag to OneTwo3D links
-            - Verified all links are working
-          branch: fix/affiliate-links
-          base: ${{ github.ref }} 
+          script: |
+            const added = `${{ steps.diff_outputs.outputs.added }}`.trim().split(/\s+/).filter(Boolean);
+            const removed = `${{ steps.diff_outputs.outputs.removed }}`.trim().split(/\s+/).filter(Boolean);
+            const modified = added.filter(a => removed.includes(a));
+
+            let body = "## 🔍 External Link Changes Detected\n";
+            body += "These changes must be reviewed **by the project owner** before merging.\n\n";
+
+            if (modified.length > 0) {
+              body += "### 🟡 Modified Links\n";
+              body += "| Old | New |\n|-----|-----|\n";
+              modified.forEach(link => {
+                body += `| ${link} | ${link} |\n`;
+              });
+              body += "\n";
+            }
+
+            if (added.length > 0) {
+              body += "### 🔵 Added Links\n";
+              added.forEach(url => body += `- ${url}\n`);
+              body += "\n";
+            }
+
+            if (removed.length > 0) {
+              body += "### 🔴 Removed Links\n";
+              removed.forEach(url => body += `- ${url}\n`);
+              body += "\n";
+            }
+
+            body += "⛔ **The workflow has blocked merging until this change is approved.**";
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
+
+      # 7) Auto-approve PRs from amovfc using GitHub App
+      - name: Generate GitHub App token
+        id: app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          installation_id: ${{ secrets.APP_INSTALLATION_ID }}
+
+      - name: DEBUG — Print token length
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "❌ TOKEN IS EMPTY"
+          else
+            echo "✔ Token generated"
+            echo "Token length: ${#TOKEN}"
+          fi
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Debug GitHub App Token
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "❌ TOKEN IS EMPTY"
+          else
+            echo "✔ Token generated successfully"
+            echo "Token length: ${#TOKEN}"
+          fi
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+
+
+      - name: Auto-approve PRs from amovfc
+        if: ${{ github.event.pull_request.user.login == 'amovfc' }}
+        uses: hmarr/auto-approve-action@v3
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
