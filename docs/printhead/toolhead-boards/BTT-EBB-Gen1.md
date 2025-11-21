@@ -64,115 +64,271 @@ Both boards share the same firmware process, identical Klipper configuration str
 
 ---
 
-# 🔌 USB-to-CAN Adapter Setup
+# 🛠️ BTT-EBB Tool Head Boards Configuration Guide
 
-If you are using a **USB-to-CAN adapter** (BTT U2C, FLY UTOC, homemade adapter, etc):
+## General Installation Steps
 
-## 1. Enter DFU Mode
+Follow these steps to physically install the board and prepare for the firmware flashing. 
 
-Hold **BOOT** → connect USB-C → release BOOT.
+[Image of BTT EBB board mounted to toolhead with key components labeled for wiring]
 
-## 2. SSH into your printer
 
-```bash
+1.  **Mount** the **EBB board** securely to your toolhead.
+2.  **Connect** essential components: **heater**, **thermistor**, **fans**, **LEDs**, and the **extruder motor**.
+3.  **Wire** the **CAN Bus** connection: **CAN\_H**, **CAN\_L**, and the **+24V** power supply.
+4.  **Flash firmware** using the instructions in the section below.
+5.  **Add Klipper configuration** using the UUID found in the next step.
+6.  **Reboot** the printer and **verify the CAN UUID**.
+
+---
+
+## ⚡ Firmware Flashing Procedures
+
+This guide covers two distinct flashing processes: the USB-to-CAN Adapter and the Tool Head Board (EBB).
+
+### 🔌 USB-to-CAN Adapter Setup
+
+If you are using a **USB-to-CAN adapter** (BTT U2C, FLY UTOC, homemade adapter, etc.), follow these steps.
+
+#### 1. Enter DFU Mode
+
+The Adapter must be put into **DFU (Device Firmware Upgrade) mode** before flashing.
+
+* Hold the **BOOT** button.
+* Connect the **USB-C** cable to the host computer.
+* Release the **BOOT** button.
+
+#### 2. SSH into your Printer Host
+
+Access the Linux interface (e.g., Raspberry Pi):
+
+
+
+```bash title="SSH Command"
 ssh pi@<printer-ip>
 ```
 
 
-## 3. Build & Flash Firmware
 
-```bash
+3. Build & Flash Adapter Firmware
+Run these commands to configure, build, and flash the adapter firmware from the Klipper source directory.
+
+```bash title="SSH Command"
 cd ~/klipper
 make clean
 make menuconfig
 ```
 
-### Recommended menuconfig options
 
-- Microcontroller: Generic USB-to-CAN bridge
-- Bootloader: 16 KiB DFU
-- Communication: CAN bus
 
-Build:
+??? success "Recommended menuconfig Options"
 
-```bash
+        Select the following options inside the make menuconfig interface: * Microcontroller: Generic USB-to-CAN bridge * Bootloader: 16 KiB DFU * Communication: CAN bus
+
+
+
+```bash title="SSH Command"
+# Build the firmware
 make
-```
-
-Flash:
-
-```bash
+# Flash to the device (Replace [YOUR_DEVICE_ID] with the actual ID)
 make flash FLASH_DEVICE=/dev/serial/by-id/[YOUR_DEVICE_ID]
 ```
 
-Replace [YOUR_DEVICE_ID] with your actual serial device ID.
 
 {% include "ads/article-AD.md" %}
 
----
 
-# Flashing Firmware — EBB36 / EBB42
+💡 Flashing Firmware — EBB36 / EBB42
+This procedure builds the Klipper firmware for the Tool Head Board.
 
-## 1. Configure Firmware
+1. Configure EBB Firmware
+Run these commands in your printer host's terminal:
 
-```bash
+
+```bash title="SSH Command"
 cd ~/klipper
 make clean
 make menuconfig
 ```
 
-### Recommended settings for the board
+??? success "Recommended menuconfig Options" 
 
-- Microcontroller: STM32G0B1
-- Bootloader: 8 KiB (or None depending on revision)
-- Communication: CAN bus
-- CAN speed: 500000
-- Default CAN pins: PB8 / PB9
+      Select the following options inside the make menuconfig interface: * Microcontroller: STM32G0B1 * Bootloader: 8 KiB (or None, depending on board revision) * Communication: CAN bus * CAN speed: 500000 * Default CAN pins: PB8 / PB9
 
-## 2. Build Firmware
 
-```bash
+```bash title="SSH Command"
 make
 ```
 
-Output file:
+??? info "Output File Location" 
 
-klipper/out/klipper.uf2
+      The firmware file will be generated here: klipper/out/klipper.uf2
 
-## 3. Flash UF2 File to the Board
 
-1. Power off the printer
-2. Set USB-power jumper to ON
-3. Hold BOOT
-4. Plug into your PC with USB-C
-5. A storage device will appear
-6. Copy klipper.uf2 onto it
-7. Wait for auto-disconnect
-8. Unplug USB
-9. Set USB-power jumper back to OFF
-10. Power on the printer
+3. Flash UF2 File to the Board
+  This requires temporarily connecting the EBB board to a PC via USB-C.
+
+  Power off the printer completely.
+
+  Set the USB-power jumper on the EBB board to ON.
+
+  Hold BOOT button.
+
+  Plug the EBB board into your PC with a USB-C cable.
+
+  A storage device (like a flash drive) will appear on your computer.
+
+  Copy the klipper.uf2 file onto this storage device.
+
+  Wait for the storage device to auto-disconnect (disappear).
+
+  Unplug the USB-C cable.
+
+  Set the USB-power jumper back to OFF.
+
+  Power on the printer.
+
+That revised text is significantly more complete and includes the critical steps for installation, USB-to-CAN setup, EBB flashing, and Klipper configuration.
+
+I will reformat this new, complete text using a Tabbed Interface for the two different flashing procedures (Adapter vs. EBB) and Admonitions for important notes, making it highly structured and easier to follow for an MkDocs Material site. I'll also add an image tag for the wiring and UUID steps for better understanding.
+
+Markdown
+
+# 🛠️ BTT-EBB Tool Head Boards Configuration Guide
+
+## General Installation Steps
+
+Follow these steps to physically install the board and prepare for the firmware flashing. 
+
+[Image of BTT EBB board mounted to toolhead with key components labeled for wiring]
+
+
+1.  **Mount** the **EBB board** securely to your toolhead.
+2.  **Connect** essential components: **heater**, **thermistor**, **fans**, **LEDs**, and the **extruder motor**.
+3.  **Wire** the **CAN Bus** connection: **CAN\_H**, **CAN\_L**, and the **+24V** power supply.
+4.  **Flash firmware** using the instructions in the section below.
+5.  **Add Klipper configuration** using the UUID found in the next step.
+6.  **Reboot** the printer and **verify the CAN UUID**.
 
 ---
 
-# Finding CAN UUID
+## ⚡ Firmware Flashing Procedures
 
-Run:
+This guide covers two distinct flashing processes: the USB-to-CAN Adapter and the Tool Head Board (EBB).
 
-```bash
+<div class="mkdocs-tabs">
+    <input type="radio" id="tab-1" name="tab-group" checked>
+    <label for="tab-1">USB-to-CAN Adapter Setup</label>
+    <div class="mkdocs-content">
+
+### 🔌 USB-to-CAN Adapter Setup
+
+If you are using a **USB-to-CAN adapter** (BTT U2C, FLY UTOC, homemade adapter, etc.), follow these steps.
+
+#### 1. Enter DFU Mode
+
+The Adapter must be put into **DFU (Device Firmware Upgrade) mode** before flashing.
+
+* Hold the **BOOT** button.
+* Connect the **USB-C** cable to the host computer.
+* Release the **BOOT** button.
+
+#### 2. SSH into your Printer Host
+
+Access the Linux interface (e.g., Raspberry Pi):
+
+```bash title="SSH Command"
+ssh pi@<printer-ip>
+3. Build & Flash Adapter Firmware
+Run these commands to configure, build, and flash the adapter firmware from the Klipper source directory.
+```
+
+```bash title="SSH Command"
+cd ~/klipper
+make clean
+make menuconfi
+```
+
+??? success "Recommended menuconfig Options" 
+    Select the following options inside the make menuconfig interface: * Microcontroller: Generic USB-to-CAN bridge * Bootloader: 16 KiB DFU * Communication: CAN bus
+
+```bash title="SSH Command"
+# Build the firmware
+make
+
+# Flash to the device (Replace [YOUR_DEVICE_ID] with the actual ID)
+make flash FLASH_DEVICE=/dev/serial/by-id/[YOUR_DEVICE_ID]
+```
+
+{% include "ads/article-AD.md" %}
+
+💡 Flashing Firmware — EBB36 / EBB42
+This procedure builds the Klipper firmware for the Tool Head Board.
+
+1. Configure EBB Firmware
+Run these commands in your printer host's terminal:
+
+```bash title="SSH Command"
+cd ~/klipper
+make clean
+make menuconfig
+```
+
+??? success "Recommended menuconfig Options" 
+    Select the following options inside the make menuconfig interface: * Microcontroller: STM32G0B1 * Bootloader: 8 KiB (or None, depending on board revision) * Communication: CAN bus * CAN speed: 500000 * Default CAN pins: PB8 / PB9
+
+2. Build Firmware
+Bash
+```bash title="SSH Command"
+make
+```
+
+??? info "Output File Location" 
+
+       The firmware file will be generated here: klipper/out/klipper.uf2
+
+1. Flash UF2 File to the Board
+This requires temporarily connecting the EBB board to a PC via USB-C.
+
+Power off the printer completely.
+
+Set the USB-power jumper on the EBB board to ON.
+
+Hold BOOT button.
+
+Plug the EBB board into your PC with a USB-C cable.
+
+A storage device (like a flash drive) will appear on your computer.
+
+Copy the klipper.uf2 file onto this storage device.
+
+Wait for the storage device to auto-disconnect (disappear).
+
+Unplug the USB-C cable.
+
+Set the USB-power jumper back to OFF.
+
+Power on the printer.
+
+🔍 Finding the CAN UUID
+After successfully flashing the EBB board, you must find its unique CAN UUID for the Klipper configuration.
+
+Run this command in your SSH session:
+
+```bash title="SSH Command"
+
 ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 ```
 
-You will see an output similar to:
+You will see an output similar to this:
 
 Found canbus_uuid=3f4b1c2a7d83
+Copy this value into your Klipper configuration file.
 
-Copy this value into your Klipper config.
+⚙️ Klipper Configuration Example
+Create or edit your Klipper config file (printer.cfg or an included file) to add the MCU and extruder settings, replacing the placeholder UUID with the one you found.
 
----
-
-# Klipper Configuration Example
-
-```ini
+```bash title="SSH Command"
 [mcu ebb]
 canbus_uuid: 3f4b1c2a7d83
 
@@ -193,10 +349,9 @@ sensor_type: ATC Semitec 104GT-2
 min_extrude_temp: 170
 control: pid
 ```
+!!!+ warning "Important" 
 
-Replace the UUID with yours.
-
----
+       Remember to replace the canbus_uuid with your board's actual UUID and verify all pin names against your specific EBB revision and wiring.
 
 # References
 

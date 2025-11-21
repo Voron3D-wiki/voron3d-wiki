@@ -17,8 +17,8 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 
 | Model                                   | Description          | Photo      | Purchase Link |
 | --------------------------------------- | -------------------- | -------------- | ------------ |
-| [BTT EBB36 Gen 1](BTT-EBB-Gen1.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
-| [BTT EBB36 Gen 2](BTT-EBB-Gen2.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
+| [BTT EBB36 Gen 1](./BTT-EBB-Gen1.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
+| [BTT EBB36 Gen 2](./BTT-EBB-Gen2/index.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
 | [Mellow Fly SHT36](FLY-SHT.md) | Compact version      | *(Photo here)* | [aliexpress ](https://s.click.aliexpress.com/e/_on6cQcV)|
 | [NiteHawk 36 RevC Toolboard Kit](mellow-fly-sht36.md) | USB connection      | *(Photo here)* | |
 

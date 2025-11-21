@@ -330,11 +330,15 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
   <tr>
     <td>Build Volume</td>
-    <td>300x300x350mm</td>
+    <td>350x350x345mm</td>
   </tr>
   <tr>
     <td>Key Features</td>
     <td>Based on Voron V2.4, CoreXY motion, fully enclosed, commercial availability</td>
+  </tr>
+  <tr>
+    <td>Purchase Link</td>
+    <td><a href="https://amzn.to/4rf9B6Q">Amazon</a></td>
   </tr>
 </table>
 
@@ -369,6 +373,10 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   <tr>
     <td>Key Features</td>
     <td>Based on Voron V0, CoreXY motion, fully enclosed, commercial availability</td>
+  </tr>
+    <tr>
+    <td>Purchase Link</td>
+    <td><a href="https://amzn.to/4phsZyc">Amazon</a></td>
   </tr>
 </table>
 
