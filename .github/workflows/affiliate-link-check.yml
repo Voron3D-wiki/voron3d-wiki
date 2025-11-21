@@ -106,6 +106,17 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
           installation_id: ${{ secrets.APP_INSTALLATION_ID }}
 
+      - name: DEBUG — Print token length
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "❌ TOKEN IS EMPTY"
+          else
+            echo "✔ Token generated"
+            echo "Token length: ${#TOKEN}"
+          fi
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+
       - name: Debug GitHub App Token
         run: |
           if [ -z "${TOKEN}" ]; then
