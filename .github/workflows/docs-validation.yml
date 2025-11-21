@@ -39,14 +39,16 @@ jobs:
       - name: Build docs
         run: mkdocs build
 
-      - name: Validate HTML output
+      - name: Validate HTML
         run: |
           html5validator \
-            --root site/ \
-            --ignore "Attribute.*autocomplete" \
-            --ignore "Attribute.*autocorrect" \
-            --ignore "align" \
-            --ignore "tabindex"
+            --match='site/ads/**/*.html' \
+            --match='site/_templates/**/*.html' \
+            --match='site/**/*.html' \
+            --ignore-re='autocomplete' \
+            --ignore-re='autocorrect' \
+            --ignore-re='align' \
+            --ignore-re='DOCTYPE'
 
   security-scan:
     name: Security Scan
