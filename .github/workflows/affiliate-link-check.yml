@@ -106,6 +106,18 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
           installation_id: ${{ secrets.APP_INSTALLATION_ID }}
 
+      - name: Debug GitHub App Token
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "❌ TOKEN IS EMPTY"
+          else
+            echo "✔ Token generated successfully"
+            echo "Token length: ${#TOKEN}"
+          fi
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+
+
       - name: Auto-approve PRs from amovfc
         if: ${{ github.event.pull_request.user.login == 'amovfc' }}
         uses: hmarr/auto-approve-action@v3
