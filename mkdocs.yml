@@ -62,7 +62,6 @@ nav:
           - Mellow Fly: electronics/mcu/mellow-fly.md
           - MKS: electronics/mcu/mks.md
           - Octopus: electronics/mcu/octopus.md
-          - RP2040 Boards: electronics/mcu/rp2040-boards.md
       - RP2040 Info: electronics/rp2040.md
       - Connectors: electronics/connectors.md
       - Stepper Motors: electronics/stepper-motor/stepper-motor.md
