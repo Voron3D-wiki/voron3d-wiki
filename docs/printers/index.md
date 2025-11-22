@@ -15,7 +15,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ## Official Models
 
-### [Voron V0.2r1](./v0/v0.md)
+### [Voron V0.2r1](./v0/index.md)
 
 <div class="grid" markdown>
 <div style="order: 1;">
@@ -53,7 +53,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-### [Voron V2.4](./2.4/v2-4.md)
+### [Voron V2.4](./2.4/index.md)
 
 <div class="grid" markdown>
 <div style="order: 2;">
@@ -91,7 +91,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-### [Voron Trident](./trident/trident.md)
+### [Voron Trident](./trident/index.md)
 
 <div class="grid" markdown>
 <div style="order: 1;">
@@ -330,11 +330,15 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
   <tr>
     <td>Build Volume</td>
-    <td>300x300x350mm</td>
+    <td>350x350x345mm</td>
   </tr>
   <tr>
     <td>Key Features</td>
     <td>Based on Voron V2.4, CoreXY motion, fully enclosed, commercial availability</td>
+  </tr>
+  <tr>
+    <td>Purchase Link</td>
+    <td><a href="https://amzn.to/4rf9B6Q">Amazon</a></td>
   </tr>
 </table>
 
@@ -369,6 +373,10 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   <tr>
     <td>Key Features</td>
     <td>Based on Voron V0, CoreXY motion, fully enclosed, commercial availability</td>
+  </tr>
+    <tr>
+    <td>Purchase Link</td>
+    <td><a href="https://amzn.to/4phsZyc">Amazon</a></td>
   </tr>
 </table>
 

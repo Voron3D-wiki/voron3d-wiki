@@ -1,16 +1,14 @@
 site_name: Voron3D Wiki
 site_url: https://voron3d.wiki
+
 theme:
   favicon: assets/vdesignplainlorig.png
   logo: assets/VoronLogo.png
   name: material
-  # custom_dir: overrides
   features:
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
-    - navigation.path
-    - navigation.prune
     - toc.integrate 
     - toc.follow
     - content.code.annotate
@@ -20,9 +18,7 @@ theme:
     - content.code.prompt
     - content.code.highlight_lines
     - content.code.highlight_languages
-
   palette:
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: orange
@@ -30,8 +26,6 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: red
@@ -39,11 +33,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
   font:
     text: false
     code: false
-
   icon:
     repo: fontawesome/brands/github
 
@@ -52,92 +44,102 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Printers:
-      - Overview: printers/index.md
-      - Voron V0: printers/v0/v0.md
+  - Printers: 
+      - overview: printers/index.md
+      - Voron V0: printers/v0/index.md
       - Voron Switchwire: printers/switchwire.md
-      - Voron Trident: printers/trident/trident.md
-      - Voron V2.4: printers/2.4/v2-4.md
+      - Voron Trident: printers/trident/index.md
+      - Voron V2.4: printers/2.4/index.md
   - Software:
       - Klipper: software/klipper.md
       - Klipper Config Help: software/klipper-config-help.md
       - Klipper Macros: software/klipper_macros.md
   - Electronics:
-      - Overview: electronics/index.md
+      - overview: electronics/index.md
       - Motherboards:
-          - Overview: electronics/mcu/index.md
+          - overview: electronics/mcu/index.md
           - BTT SKR Series: electronics/mcu/btt-skr.md
           - Mellow Fly: electronics/mcu/mellow-fly.md
           - MKS: electronics/mcu/mks.md
           - Octopus: electronics/mcu/octopus.md
-          - RP2040 Boards: electronics/mcu/rp2040-boards.md
-      # - Stepper Drivers: electronics/stepper_drivers/index.md
       - RP2040 Info: electronics/rp2040.md
       - Connectors: electronics/connectors.md
       - Stepper Motors: electronics/stepper-motor/stepper-motor.md
-      - Fans: electronics/fans/index.md
-      - Power Supplies: electronics/power-supplies/index.md
       - Safety: electronics/safety/index.md
   - Printhead:
-    - Overview: printhead/index.md
-    - Hotends:
-        - Overview: printhead/hotends/index.md
-        - DropEffect NExt G: printhead/hotends/dropeffect-nextg.md
-        - E3D Revo Voron: printhead/hotends/e3d-revo-voron.md
-        - E3D V6: printhead/hotends/e3d-v6.md
-        - Phaetus Dragon: printhead/hotends/phaetus-dragon.md
-        - Phaetus Rapido: printhead/hotends/phaetus-rapido.md
-    - Extruders: 
-        - Overview: printhead/extruders/index.md
-    - Toolhead Boards:
-      - Overview: printhead/toolhead-boards/index.md
-      - MKS-THR: printhead/toolhead-boards/mks-thr.md
-      - FLY-SHT: printhead/toolhead-boards/fly-sht.md
-      - FLY-SB2040: printhead/toolhead-boards/FLY-SB2040.md
-      - BTT-EBB: printhead/toolhead-boards/BTT-EBB.md
-      - LDO Orbitool 3: printhead/toolhead-boards/ldo-orbitool-3.md
-      - LDO Orbitool O2: printhead/toolhead-boards/ldo-orbitool-o2.md
+      - overview: printhead/index.md
+      - Hotends:
+          - overview: printhead/hotends/index.md
+          - DropEffect NExt G: printhead/hotends/dropeffect-nextg/index.md
+          - E3D Revo Voron: printhead/hotends/e3d-revo-voron/index.md
+          - E3D V6: printhead/hotends/e3d-v6/index.md
+          - Phaetus Dragon: printhead/hotends/phaetus-dragon/index.md
+          - Phaetus Rapido: printhead/hotends/phaetus-rapido/index.md
+      - Extruders: 
+          - overview: printhead/extruders/index.md
+      - Toolhead Boards:
+          - overview: printhead/toolhead-boards/index.md
+          - MKS-THR: printhead/toolhead-boards/mks-thr/index.md
+          - FLY-SHT: printhead/toolhead-boards/fly-sht/index.md
+          - FLY-SB2040: printhead/toolhead-boards/FLY-SB2040/index.md
+          - BTT-EBB: printhead/toolhead-boards/BTT-EBB/index.md
+          - LDO Orbitool 3: printhead/toolhead-boards/ldo-orbitool-3/index.md
+          - LDO Orbitool O2: printhead/toolhead-boards/ldo-orbitool-o2/index.md
   - Filament:
       - Filament Guide: filament/filament-guide.md
   - Bed Leveling:
-      - Overview: bedleveling/bed-leveling.md
+      - overview: bedleveling/bed-leveling.md
       - Beacon: bedleveling/beacon.md
       - Cartographer: bedleveling/cartographer.md
       - Eddy Coil: bedleveling/eddy-coil.md
       - Eddy: bedleveling/eddy.md
   - Multi-Material units:
-      - Overview: MMUs/index.md
+      - overview: MMUs/index.md
       - ERCF v1/v2: MMUs/ERCF.md
       - Tradrack: MMUs/tradrack.md
-      - BoxTurtle: MMUs/BoxTurtle.md
-      - PICO-MMU: MMUs/PICO-MMU.md
-      - BTT-MMU: MMUs/BTT-MMU.md
-      - Anycubic-MMU: MMUs/Anycubic-MMU.md
-      - Pursa-MMU: MMUs/Pursa-MMU.md
+      - BoxTurtle: MMUs/BoxTurtle/index.md
+      - PICO-MMU: MMUs/PICO-MMU/index.md
+      - BTT-MMU: MMUs/BTT-MMU/index.md
+      - Anycubic-MMU: MMUs/Anycubic-MMU/index.md
+      - Pursa-MMU: MMUs/Pursa-MMU/index.md
   - Guides:
-      - Overview: guides/index.md
-  # - External Links:
-  #     - [Voron3D Official Site](https://voron3d.com/)
-  #     - [Klipper GitHub](https://github.com/Klipper3d/klipper)
-  #     - [Klipper Reddit](https://www.reddit.com/r/klippers/)
+      - overview: guides/index.md
 
 plugins:
+  - mkdocs-breadcrumbs-plugin:
+      delimiter: " / "
+      additional_index_folders:
+        - temp_dir
+      use_page_titles: false
+      generate_home_index: false
+      include_current_page: true
+      home_text: "Home"
+      exclude_paths:
+        - "assets"
+        - "javascripts"
+        - "mkdocs"
+        - "ads"
+        - "_templates"
+        - "stylesheets"
+        - "docs"
+        - "overrides"
+        - "site"
+        - "docs/javascripts/**"
+        - "overrides"
+        - "vscode"
+        - "pytest_cache"
+        - ".github"
   - include-markdown
-  # - meta-descriptions
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  # - optimize
   - tags
   - macros
   - table-reader
-  # - social
   - glightbox
-  - privacy
-  # - git-revision-date-localized:
-  #     type: datetime
-  #     timezone: UTC
-  #     locale: en
-  # - path_to_plugin_file: plugins/bomplugin.py
+  - git-revision-date-localized:
+      type: datetime
+      timezone: UTC
+      locale: en
 markdown_extensions:
   - tables
   - attr_list
@@ -154,10 +156,10 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+      # custom_fences:
+      #   - name: mermaid
+      #     class: mermaid
+      #     format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
@@ -170,11 +172,13 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.blocks.caption
+
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.arithmatex:
       generic: true
 
+# removed analytics provider block (caused affiliate URL rewriting)
 extra:
   version:
     provider: mike
@@ -183,23 +187,16 @@ extra:
       link: https://github.com/voron3d-wiki
     - icon: fontawesome/brands/discord
       link: https://discord.gg/voron
-    # - icon: fontawesome/brands/shopping-cart
-    #   link: affiliates/aliexpress_template.md
-    #   name: AliExpress
   footer:
     - text: Policies
       link: policies.md
-  analytics:
-    provider: google
-    property: G-7E70MV2KN4
 
 extra_javascript:
+  - https://www.googletagmanager.com/gtag/js?id=G-7E70MV2KN4
   - assets/js/code-copy.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
+  - javascripts/analytics.js
+  - javascripts/block-affiliate-tracking.js
   - javascripts/external-links.js
-  # - main.py
 
-# extra_javascript: #alternative analytics methode 
-#   - https://www.googletagmanager.com/gtag/js?id=G-VPL8R0L9Z1
-#   - analytics.js

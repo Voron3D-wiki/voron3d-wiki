@@ -11,7 +11,7 @@ Official Voron Design link: [https://vorondesign.com/voron0](https://vorondesign
 
 Below is a generic image of what a Voron V0 can look like. Like all Voron 3D printers, the V0 can be highly customized to create whatever type of printer you would like.
 
-![Voron V0 Example](https://i.redd.it/po0y0d65hzqa1.png)
+![Voron V0 Example](./v0-formbot-photo.jpg)
 
 ## What is a V0
 

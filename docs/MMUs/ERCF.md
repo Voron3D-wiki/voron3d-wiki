@@ -11,7 +11,6 @@ tags: [ERCF, ERCF V2]
 *Links: [OFFICAL GITHUB](https://github.com/Enraged-Rabbit-Community/ERCF_v2/tree/master)*
 
 ---
-![ERCF v2 Design](https://github.com/Enraged-Rabbit-Community/ERCF_v2/blob/master/Assets/ERCFv2.png?raw=true)
 **Introduction**
 
 The Enraged Rabbit Carrot Feeder (ERCF) is a highly capable multi-material upgrade for 3D printers, particularly within the Voron ecosystem. Over a six-month period, a dedicated user shared their experience with the ERCF V2, offering valuable insights and lessons for those considering or already using this multi-material unit (MMU). This article focuses solely on the ERCF, while other MMU alternatives, such as the Tradrack, will be covered in a separate article.
@@ -39,8 +38,6 @@ When this journey began, the two main MMU options were the ERCF V2 and Tradrack.
 2. **Toolhead Entry Sensors**: Add extruder entry and toolhead entry sensors. These sensors detect when filament clears the extruder and precisely home the filament into the hotend, reducing errors during filament swaps.
 
 3. **Upgrade the Servo**: The stock MG90 servo may be underpowered. Upgrading to a Savox SH 0255 MG ensures better control and eliminates filament slipping.
-
-![ERCF FULL CAD render](https://github.com/Enraged-Rabbit-Community/ERCF_v2/blob/master/Assets/Full_CAD.jpg?raw=true)
 
 4. **Filament Buffer Alternatives**: Traditional slot-based buffers increase friction and cause tangles. Replace them with a filamentalist passive rewinder for smoother filament movement and reduced extrusion issues.
 

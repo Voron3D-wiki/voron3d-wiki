@@ -59,10 +59,11 @@ a[href*="reddit.com"]::after {
     padding-top: 10px;
   }
   
-
   /* Affiliate Link */
 a[href*="awin1.com"]::after,
 a[href*="amzn.to"]::after,
+a[href*="tidd.ly"]::after,
+a[href*="awin1.com"]::after,
 a[href*="amazon.com"]::after,
 a[href*="onetwo3d.co.uk"]::after,
 a[href*="aliexpress.com"]::after {
