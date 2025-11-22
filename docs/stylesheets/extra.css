@@ -60,6 +60,7 @@ a[href*="reddit.com"]::after {
   }
   
   /* Affiliate Link */
+a[href*="awin1.com"]::after,
 a[href*="amzn.to"]::after,
 a[href*="tidd.ly"]::after,
 a[href*="awin1.com"]::after,

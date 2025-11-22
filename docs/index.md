@@ -26,7 +26,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 
     Learn about the compact and customizable Voron V0.
 
-    [:octicons-arrow-right-24: Learn more](printers/v0/v0.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](printers/v0/index.md){ .md-button }
 
 -   :material-cube-scan:{ .lg .middle } __Voron Trident__
 
@@ -34,7 +34,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 
     Discover the Voron Trident, with its modular design and advanced features.
 
-    [:octicons-arrow-right-24: Learn more](printers/trident/trident.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](printers/trident/index.md){ .md-button }
 
 -   :material-cube:{ .lg .middle } __Voron V2.4__
 
@@ -42,7 +42,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 
     Learn about the latest and most advanced Voron V2.4.
 
-    [:octicons-arrow-right-24: Learn more](printers/2.4/v2-4.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](printers/2.4/index.md){ .md-button }
 
 -   :material-robot-outline:{ .lg .middle } __Voron Switchwire__
 
@@ -54,6 +54,8 @@ The Voron project revolves around open-source 3D printers that are known for the
 
 </div>
 
+!!! tip "Recently added!"
+    We are happy to announce we have just added the big tree tech EBB gen 2 series of board to the website, we hope to make it a useful tool for the community.
 
 ### [Electronics](electronics/index.md) { #electronics }
 
@@ -63,23 +65,11 @@ The Voron project revolves around open-source 3D printers that are known for the
 <!-- - [Expansion Boards](electronics/expansion-boards/expansion-boards.md) - Learn about expansion boards and how to flash them -->
 
 
-### Software { #software }
-
-- [Klipper](software/klipper.md) - Guides and tools for configuring and optimizing Klipper firmware
-<!-- - [klipper macros](software/klipper-macros.md) - Macros for automating common 3D printing tasks -->
-- [klipper config tips](software/klipper-config-help.md) - Tips and tricks for optimizing Klipper configuration
-<!-- - [Cura](software/cura.md) - Guides for using Cura software for 3D printing
-- [PrusaSlicer](software/prusa-slicer.md) - Learn about the PrusaSlicer slicer software
-- [MatterHackers](software/matterhackers.md) - Guides for using MatterHackers software for 3D printing
-- [Slic3r](software/slic3r.md) - Learn about the Slic3r slicer software -->
-
-
 ### [PrintHead stuff](printhead/index.md) { #Printhead-stuff }
 
 - [hotends](printhead/hotends/index.md) - Information on hotends 
 - [extruders](printhead/extruders/index.md) - Learn about the different types of extruders available
 - [toolhead-boards](printhead/toolhead-boards/index.md) - Learn about the best toolhead boards for efficient wiring and performance
-<!-- - [Nozzle](nozzle.md) - Information on nozzle types and their specifications -->
 
 ### [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling tools and probes
 
@@ -92,5 +82,5 @@ We hope this wiki serves as a valuable resource for your 3D printing journey. St
 !!! tip "Need Help?"
     Join the Offical voron [Discord](https://discord.gg/voron) for real-time support and discussions.
 
-{% include "_templates/ads.html" %}
+{% include "ads/footer-AD.md" %}
 
