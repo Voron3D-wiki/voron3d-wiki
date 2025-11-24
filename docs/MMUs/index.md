@@ -23,11 +23,13 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ### [MadMax](https://github.com/zruncho3d/madmax/tree/main)
 
-## Commercial Options
+## Commercial Toolchanger Options
 
 ### e3d
 
 ### Prusa XL
+
+### Prusa Core One (+ / L) INDEX
 
 ### Snap Maker u1
 
@@ -84,7 +86,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ## Commercial Options
 
-### BTT MMU
+### BTT ViViD
 - **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
 - **Key Features**: 
     - Seems like a AMS style system with space for 4 spoos
