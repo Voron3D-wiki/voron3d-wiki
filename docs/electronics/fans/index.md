@@ -35,6 +35,9 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 ###3510
 
 ###4010 
+[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/WIKI3D)
+
+[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/WIKI3D)
 
 [BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/WIKI3D)
 
