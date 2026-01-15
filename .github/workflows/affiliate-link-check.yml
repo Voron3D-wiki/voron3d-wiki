@@ -5,13 +5,9 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened]
 
+# Single permissions block (your old file had two)
 permissions:
   contents: write
-  pull-requests: write
-  issues: write
-
-permissions:
-  contents: read
   pull-requests: write
   issues: write
 
@@ -94,16 +90,24 @@ jobs:
           chmod +x .github/scripts/extract-link.sh
           .github/scripts/extract-link.sh diff.txt
 
+      - name: Debug extracted links (policy)
+        run: |
+          echo "ADDED:"
+          printf '%s\n' "${{ steps.parse.outputs.ADDED }}"
+          echo ""
+          echo "REMOVED:"
+          printf '%s\n' "${{ steps.parse.outputs.REMOVED }}"
+
       - name: Fail if external links changed (policy)
         if: ${{ steps.parse.outputs.ADDED != '' || steps.parse.outputs.REMOVED != '' }}
         run: |
           echo "❌ External link changes detected. Review required."
           echo ""
           echo "Added:"
-          echo "${{ steps.parse.outputs.ADDED }}"
+          printf '%s\n' "${{ steps.parse.outputs.ADDED }}"
           echo ""
           echo "Removed:"
-          echo "${{ steps.parse.outputs.REMOVED }}"
+          printf '%s\n' "${{ steps.parse.outputs.REMOVED }}"
           exit 1
 
       - name: Comment with link change report
