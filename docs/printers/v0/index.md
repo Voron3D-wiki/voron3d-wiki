@@ -64,6 +64,7 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | Formbot Kit    | Voron V0 kit from Formbot | [Buy](https://s.click.aliexpress.com/e/_oCFz74T) |
 | Siboor Kit     | Voron V0 kit from Siboor  | [Buy](https://s.click.aliexpress.com/e/_oFWpi3H) |
 | Fysetc - France Store | Voron V0 kit from Fysetc France | [Buy](https://s.click.aliexpress.com/e/_opnBDl9) |
+| LDO KIT  | Voron V0 kit from LDO motors seen by many as the highest quality and ore polished kit |[Buy](https://west3d.com/products/ldo-voron-v0-2-s1-complete-kit-voron-v0-2) |
 
 ![formbot photo](./formbot-v0.jpg)
 
