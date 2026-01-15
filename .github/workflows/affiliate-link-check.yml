@@ -55,7 +55,7 @@ jobs:
       - name: Autofix West3D + OneTwo3D affiliate links (changed files only)
         if: ${{ hashFiles('changed_md.txt') != '' }}
         run: |
-          python3 .github/scripts/affiliate_links.py fix --files changed_md.txt
+          python3 .github/scripts/affiliate_link.py fix --files changed_md.txt
 
       # Push autofix only for same-repo PRs (forks can't be pushed to)
       - name: Commit and push affiliate fixes (same-repo PRs only)
@@ -83,7 +83,7 @@ jobs:
         run: |
           # Writes ADDED/REMOVED to GITHUB_OUTPUT inside the script.
           # Don't fail here; we gate explicitly below.
-          python3 .github/scripts/affiliate_links.py check --diff diff.txt || true
+          python3 .github/scripts/affiliate_link.py check --diff diff.txt || true
 
       # Decide whether to block merge:
       # - If no external link changes (excluding West3D/OneTwo3D): allow
