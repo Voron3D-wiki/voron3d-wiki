@@ -37,7 +37,7 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 <!-- List available kits and vendors for the Trident -->
 
 - [Siboor CNC 4AWD June 2024 kit](https://s.click.aliexpress.com/e/_onVW5Gm)
-- [LDO trident kit sold by west3d](https://west3d.com/products/ldo-trident-kit)
+- [LDO trident kit sold by west3d](https://west3d.com/products/ldo-trident-kit/WIKI3D)
 
 ## Printed Parts
 <!-- List printed parts used in the Trident build process -->
