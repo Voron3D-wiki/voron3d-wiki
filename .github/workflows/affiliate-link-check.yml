@@ -1,97 +1,141 @@
-name: Affiliate Link Check
+name: Affiliate Links (Autofix + Owner Approval for External Links)
 
 on:
-  pull_request:
-    branches:
-      - main
+  pull_request_target:
+    branches: [main]
     types: [opened, synchronize, reopened]
 
-  # Optional: keep this ONLY if you really need elevated perms on PRs from forks
-  # (Be careful: pull_request_target runs in the context of the base repo)
-  pull_request_target:
-    branches:
-      - main
-
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   issues: write
 
 jobs:
-  check-affiliate-links:
-    name: Check External Link Changes
+  affiliate:
+    # avoid infinite loop when workflow pushes a commit
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Checkout safely for both PR types
-      - name: Checkout code safely
+      - name: Generate GitHub App token
+        id: app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      # Checkout the PR HEAD so we can commit fixes back to the PR branch
+      - name: Checkout PR head
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.ref || github.ref }}
+          token: ${{ steps.app-token.outputs.token }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      # 2) Generate diff for markdown files (base -> head)
-      - name: Generate diff for Markdown files
-        id: diff
+      - name: Configure git identity
         run: |
-          BASE_REF="${{ github.base_ref }}"
-          if [ -z "$BASE_REF" ]; then
-            # Fallback for safety (shouldn't happen for PR events)
-            BASE_REF="main"
+          git config user.name "affiliate-autofix[bot]"
+          git config user.email "affiliate-autofix[bot]@users.noreply.github.com"
+
+      # Fetch base so we can diff against it
+      - name: Fetch base branch
+        run: |
+          git fetch origin "${{ github.event.pull_request.base.ref }}" --depth=1
+
+      # Collect changed markdown files into changed_md.txt
+      - name: Collect changed markdown files
+        run: |
+          BASE="origin/${{ github.event.pull_request.base.ref }}"
+          git diff --name-only "$BASE"...HEAD -- '*.md' '*.markdown' > changed_md.txt || true
+          echo "Changed markdown files:"
+          cat changed_md.txt || true
+
+      # Run autofix only on changed files
+      - name: Autofix West3D + OneTwo3D affiliate links (changed files only)
+        if: ${{ hashFiles('changed_md.txt') != '' }}
+        run: |
+          python3 .github/scripts/affiliate_links.py fix --files changed_md.txt
+
+      # Push autofix only for same-repo PRs (forks can't be pushed to)
+      - name: Commit and push affiliate fixes (same-repo PRs only)
+        if: ${{ hashFiles('changed_md.txt') != '' && github.event.pull_request.head.repo.full_name == github.repository }}
+        run: |
+          if git diff --quiet; then
+            echo "No autofix changes to commit."
+            exit 0
           fi
+          git add -A
+          git commit -m "chore: auto-add affiliate tags"
+          git push
 
-          git fetch origin "$BASE_REF"
-          git diff "origin/$BASE_REF"...HEAD -- '*.md' '*.markdown' > diff.txt
-
-          echo "Diff created:"
+      # Generate diff for markdown files (base -> head)
+      - name: Generate diff for markdown files
+        run: |
+          BASE="origin/${{ github.event.pull_request.base.ref }}"
+          git diff "$BASE"...HEAD -- '*.md' '*.markdown' > diff.txt || true
+          echo "Diff lines:"
           wc -l diff.txt || true
 
-      # 3) Extract + normalize links (West3D /3DWIKI + OneTwo3D wpam_id=9 ignored)
-      - name: Extract added/removed links
-        id: parse
+      # Detect non-West3D / non-OneTwo3D external link changes
+      - name: Detect non-affiliate external link changes
+        id: links
         run: |
-          chmod +x .github/scripts/extract-link.sh
-          .github/scripts/extract-link.sh diff.txt
+          # Writes ADDED/REMOVED to GITHUB_OUTPUT inside the script.
+          # Don't fail here; we gate explicitly below.
+          python3 .github/scripts/affiliate_links.py check --diff diff.txt || true
 
-      # 4) Fail if any external links changed (true adds/removes only)
-      - name: Fail if any external links changed
-        if: ${{ steps.parse.outputs.ADDED != '' || steps.parse.outputs.REMOVED != '' }}
+      # Decide whether to block merge:
+      # - If no external link changes (excluding West3D/OneTwo3D): allow
+      # - If there are changes and PR author is repo owner: allow
+      # - Else: block + comment
+      - name: Gate on external link changes
+        id: gate
         run: |
-          echo "❌ External link changes detected. Review required."
-          echo ""
-          echo "Added:"
-          echo "${{ steps.parse.outputs.ADDED }}"
-          echo ""
-          echo "Removed:"
-          echo "${{ steps.parse.outputs.REMOVED }}"
-          exit 1
+          ADDED="${{ steps.links.outputs.ADDED }}"
+          REMOVED="${{ steps.links.outputs.REMOVED }}"
 
-      # 5) Comment on PR when link changes exist
-      - name: Comment with link change report
-        if: ${{ steps.parse.outputs.ADDED != '' || steps.parse.outputs.REMOVED != '' }}
+          if [ -z "$ADDED" ] && [ -z "$REMOVED" ]; then
+            echo "No non-affiliate external link changes."
+            exit 0
+          fi
+
+          echo "Non-affiliate external link changes detected."
+
+          # Allow if you authored the PR (assumes you are repo owner)
+          if [ "${{ github.event.pull_request.user.login }}" = "${{ github.repository_owner }}" ]; then
+            echo "PR authored by repo owner; allowing."
+            exit 0
+          fi
+
+          echo "BLOCK=true" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Comment with external link change report
+        if: ${{ steps.gate.outputs.BLOCK == 'true' }}
         uses: actions/github-script@v7
         with:
+          github-token: ${{ steps.app-token.outputs.token }}
           script: |
-            const addedRaw = `${{ steps.parse.outputs.ADDED }}`.trim();
-            const removedRaw = `${{ steps.parse.outputs.REMOVED }}`.trim();
-
+            const addedRaw = `${{ steps.links.outputs.ADDED }}`.trim();
+            const removedRaw = `${{ steps.links.outputs.REMOVED }}`.trim();
             const added = addedRaw ? addedRaw.split(/\s+/).filter(Boolean) : [];
             const removed = removedRaw ? removedRaw.split(/\s+/).filter(Boolean) : [];
 
-            let body = "## 🔍 External Link Changes Detected\n";
-            body += "These changes must be reviewed **by the project owner** before merging.\n\n";
+            const owner = context.repo.owner;
+            const author = context.payload.pull_request.user.login;
 
-            if (added.length > 0) {
-              body += "### 🔵 Added Links\n";
-              body += added.map(u => `- ${u}`).join("\n") + "\n\n";
+            let body = `## 🔒 External Link Changes Require Approval\n`;
+            body += `This PR modifies **external links** (excluding West3D / OneTwo3D).\n\n`;
+            body += `**PR author:** @${author}\n`;
+            body += `**Approval required from:** @${owner}\n\n`;
+
+            if (added.length) {
+              body += "### 🔵 Added Links\n" + added.map(u => `- ${u}`).join("\n") + "\n\n";
             }
-
-            if (removed.length > 0) {
-              body += "### 🔴 Removed Links\n";
-              body += removed.map(u => `- ${u}`).join("\n") + "\n\n";
+            if (removed.length) {
+              body += "### 🔴 Removed Links\n" + removed.map(u => `- ${u}`).join("\n") + "\n\n";
             }
-
-            body += "⛔ **This workflow blocks merging until reviewed.**";
 
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -100,19 +144,8 @@ jobs:
               body
             });
 
-      # 6) Optional: Auto-approve your own PRs using GitHub App
-      # (Only makes sense if branch protection requires approval even for you)
-      - name: Generate GitHub App token
-        id: app-token
-        if: ${{ github.event.pull_request.user.login == 'amovfc' }}
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation_id: ${{ secrets.APP_INSTALLATION_ID }}
-
-      - name: Auto-approve PRs from amovfc
-        if: ${{ github.event.pull_request.user.login == 'amovfc' }}
-        uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ steps.app-token.outputs.token }}
+      - name: Block merge until approved
+        if: ${{ steps.gate.outputs.BLOCK == 'true' }}
+        run: |
+          echo "❌ External link changes detected — owner approval required."
+          exit 1

@@ -13,11 +13,8 @@ ONETWO3D_PARAM_VALUE = "9"
 WEST3D_DOMAIN = "west3d.com"
 WEST3D_AFFIL_PREFIX = "/3DWIKI"
 
-# Match markdown inline links: [text](https://example.com)
 MD_LINK_RE = re.compile(r'(\]\()(\s*)(https?://[^\s)]+)(\s*)(\))')
-# Match markdown autolinks: <https://example.com>
 MD_AUTOLINK_RE = re.compile(r'(<)(https?://[^ >]+)(>)')
-# Match HTML href (single/double quotes, optional spaces): href="https://..." or href='https://...'
 HTML_HREF_RE = re.compile(r'(\bhref\s*=\s*["\'])(https?://[^"\']+)(["\'])', re.IGNORECASE)
 
 
@@ -27,28 +24,20 @@ def host_matches(netloc: str, domain: str) -> bool:
     return host == domain or host.endswith("." + domain)
 
 
-def ensure_query_param(url: str, key: str, value: str) -> str:
-    """
-    Ensure a query parameter exists (preserving ordering + duplicates).
-    If key=value already exists, returns url unchanged.
-    """
-    p = urlparse(url)
-    qsl = parse_qsl(p.query, keep_blank_values=True)
-
-    for k, v in qsl:
-        if k == key and v == value:
-            return url
-
-    qsl.append((key, value))
-    new_query = urlencode(qsl)
-    return urlunparse((p.scheme, p.netloc, p.path, p.params, new_query, p.fragment))
-
-
 def ensure_onetwo3d_affiliate(url: str) -> str:
     p = urlparse(url)
     if not host_matches(p.netloc, ONETWO3D_DOMAIN):
         return url
-    return ensure_query_param(url, ONETWO3D_PARAM_KEY, ONETWO3D_PARAM_VALUE)
+
+    qsl = parse_qsl(p.query, keep_blank_values=True)
+
+    for k, v in qsl:
+        if k == ONETWO3D_PARAM_KEY and v == ONETWO3D_PARAM_VALUE:
+            return url
+
+    qsl.append((ONETWO3D_PARAM_KEY, ONETWO3D_PARAM_VALUE))
+    new_query = urlencode(qsl)
+    return urlunparse((p.scheme, p.netloc, p.path, p.params, new_query, p.fragment))
 
 
 def ensure_west3d_affiliate(url: str) -> str:
@@ -65,10 +54,9 @@ def ensure_west3d_affiliate(url: str) -> str:
 
 
 def fix_url(url: str) -> str:
-    # Apply domain rules
-    url = ensure_west3d_affiliate(url)
-    url = ensure_onetwo3d_affiliate(url)
-    return url
+    url2 = ensure_west3d_affiliate(url)
+    url3 = ensure_onetwo3d_affiliate(url2)
+    return url3
 
 
 def process_text(content: str) -> str:
@@ -113,16 +101,11 @@ def load_files_from_list(file_list_path: Path) -> list[Path]:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Check/fix affiliate links inside markdown and inline HTML.")
+    ap = argparse.ArgumentParser()
     ap.add_argument(
         "--files",
-        help="Path to a newline-separated file list (relative to repo root). "
+        help="Path to a newline-separated file list of markdown files (relative to repo root). "
              "If omitted, scans docs/ for *.md and *.markdown.",
-    )
-    ap.add_argument(
-        "--check",
-        action="store_true",
-        help="Check mode: do not modify files; exit 1 if any fixes would be made.",
     )
     args = ap.parse_args()
 
@@ -133,31 +116,11 @@ def main() -> None:
         root = Path(DOCS_DIR)
         files = list(root.rglob("*.md")) + list(root.rglob("*.markdown"))
 
-    would_change: list[str] = []
     changed = 0
-
     for f in files:
-        if not (f.exists() and f.is_file()):
-            continue
-
-        original = f.read_text(encoding="utf-8")
-        updated = process_text(original)
-
-        if updated != original:
-            if args.check:
-                would_change.append(str(f))
-            else:
-                f.write_text(updated, encoding="utf-8")
+        if f.exists() and f.is_file():
+            if process_file(f):
                 changed += 1
-
-    if args.check:
-        if would_change:
-            print("❌ Affiliate links missing tags/prefixes detected in:")
-            for p in would_change:
-                print(f" - {p}")
-            raise SystemExit(1)
-        print("✅ Affiliate link check passed (no changes needed).")
-        return
 
     print(f"Affiliate fix complete. Files modified: {changed}")
 
