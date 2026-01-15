@@ -63,6 +63,7 @@ nav:
           - MKS: electronics/mcu/mks.md
           - Octopus: electronics/mcu/octopus.md
       - RP2040 Info: electronics/rp2040.md
+      - Fans: electronics/fans/index.md
       - Connectors: electronics/connectors.md
       - Stepper Motors: electronics/stepper-motor/stepper-motor.md
       - Safety: electronics/safety/index.md
