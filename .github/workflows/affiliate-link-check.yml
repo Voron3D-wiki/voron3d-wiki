@@ -1,11 +1,10 @@
-name: Affiliate Links (Autofix + Policy)
+name: Affiliate Links (Autofix + Owner Approval for External Links)
 
 on:
   pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened]
 
-# Single permissions block (your old file had two)
 permissions:
   contents: write
   pull-requests: write
@@ -44,28 +43,23 @@ jobs:
         run: |
           git fetch origin "${{ github.event.pull_request.base.ref }}" --depth=1
 
-      # Get list of changed markdown files only
+      # Collect changed markdown files into changed_md.txt
       - name: Collect changed markdown files
-        id: changed
         run: |
           BASE="origin/${{ github.event.pull_request.base.ref }}"
           git diff --name-only "$BASE"...HEAD -- '*.md' '*.markdown' > changed_md.txt || true
           echo "Changed markdown files:"
           cat changed_md.txt || true
 
-          # multiline output for later steps
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          cat changed_md.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      # Run autofix only on changed files (not the whole docs tree)
-      - name: Autofix affiliate links in changed files
-        if: ${{ steps.changed.outputs.files != '' }}
+      # Run autofix only on changed files
+      - name: Autofix West3D + OneTwo3D affiliate links (changed files only)
+        if: ${{ hashFiles('changed_md.txt') != '' }}
         run: |
-          python3 .github/scripts/affiliate_fix.py --files changed_md.txt
+          python3 .github/scripts/affiliate_links.py fix --files changed_md.txt
 
-      - name: Commit and push affiliate fixes (if any)
-        if: ${{ steps.changed.outputs.files != '' }}
+      # Push autofix only for same-repo PRs (forks can't be pushed to)
+      - name: Commit and push affiliate fixes (same-repo PRs only)
+        if: ${{ hashFiles('changed_md.txt') != '' && github.event.pull_request.head.repo.full_name == github.repository }}
         run: |
           if git diff --quiet; then
             echo "No autofix changes to commit."
@@ -75,54 +69,66 @@ jobs:
           git commit -m "chore: auto-add affiliate tags"
           git push
 
-      # Now do the "external link policy" check using only the PR diff
-      - name: Generate diff for markdown files (base -> head)
-        id: diff
+      # Generate diff for markdown files (base -> head)
+      - name: Generate diff for markdown files
         run: |
           BASE="origin/${{ github.event.pull_request.base.ref }}"
           git diff "$BASE"...HEAD -- '*.md' '*.markdown' > diff.txt || true
           echo "Diff lines:"
           wc -l diff.txt || true
 
-      - name: Extract added/removed external links (policy)
-        id: parse
+      # Detect non-West3D / non-OneTwo3D external link changes
+      - name: Detect non-affiliate external link changes
+        id: links
         run: |
-          chmod +x .github/scripts/extract-link.sh
-          .github/scripts/extract-link.sh diff.txt
+          # Writes ADDED/REMOVED to GITHUB_OUTPUT inside the script.
+          # Don't fail here; we gate explicitly below.
+          python3 .github/scripts/affiliate_links.py check --diff diff.txt || true
 
-      - name: Debug extracted links (policy)
+      # Decide whether to block merge:
+      # - If no external link changes (excluding West3D/OneTwo3D): allow
+      # - If there are changes and PR author is repo owner: allow
+      # - Else: block + comment
+      - name: Gate on external link changes
+        id: gate
         run: |
-          echo "ADDED:"
-          printf '%s\n' "${{ steps.parse.outputs.ADDED }}"
-          echo ""
-          echo "REMOVED:"
-          printf '%s\n' "${{ steps.parse.outputs.REMOVED }}"
+          ADDED="${{ steps.links.outputs.ADDED }}"
+          REMOVED="${{ steps.links.outputs.REMOVED }}"
 
-      - name: Fail if external links changed (policy)
-        if: ${{ steps.parse.outputs.ADDED != '' || steps.parse.outputs.REMOVED != '' }}
-        run: |
-          echo "❌ External link changes detected. Review required."
-          echo ""
-          echo "Added:"
-          printf '%s\n' "${{ steps.parse.outputs.ADDED }}"
-          echo ""
-          echo "Removed:"
-          printf '%s\n' "${{ steps.parse.outputs.REMOVED }}"
-          exit 1
+          if [ -z "$ADDED" ] && [ -z "$REMOVED" ]; then
+            echo "No non-affiliate external link changes."
+            exit 0
+          fi
 
-      - name: Comment with link change report
-        if: ${{ steps.parse.outputs.ADDED != '' || steps.parse.outputs.REMOVED != '' }}
+          echo "Non-affiliate external link changes detected."
+
+          # Allow if you authored the PR (assumes you are repo owner)
+          if [ "${{ github.event.pull_request.user.login }}" = "${{ github.repository_owner }}" ]; then
+            echo "PR authored by repo owner; allowing."
+            exit 0
+          fi
+
+          echo "BLOCK=true" >> $GITHUB_OUTPUT
+          exit 0
+
+      - name: Comment with external link change report
+        if: ${{ steps.gate.outputs.BLOCK == 'true' }}
         uses: actions/github-script@v7
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
-            const addedRaw = `${{ steps.parse.outputs.ADDED }}`.trim();
-            const removedRaw = `${{ steps.parse.outputs.REMOVED }}`.trim();
+            const addedRaw = `${{ steps.links.outputs.ADDED }}`.trim();
+            const removedRaw = `${{ steps.links.outputs.REMOVED }}`.trim();
             const added = addedRaw ? addedRaw.split(/\s+/).filter(Boolean) : [];
             const removed = removedRaw ? removedRaw.split(/\s+/).filter(Boolean) : [];
 
-            let body = "## 🔍 External Link Changes Detected\n";
-            body += "These changes must be reviewed **by the project owner** before merging.\n\n";
+            const owner = context.repo.owner;
+            const author = context.payload.pull_request.user.login;
+
+            let body = `## 🔒 External Link Changes Require Approval\n`;
+            body += `This PR modifies **external links** (excluding West3D / OneTwo3D).\n\n`;
+            body += `**PR author:** @${author}\n`;
+            body += `**Approval required from:** @${owner}\n\n`;
 
             if (added.length) {
               body += "### 🔵 Added Links\n" + added.map(u => `- ${u}`).join("\n") + "\n\n";
@@ -131,11 +137,15 @@ jobs:
               body += "### 🔴 Removed Links\n" + removed.map(u => `- ${u}`).join("\n") + "\n\n";
             }
 
-            body += "⛔ **This workflow blocks merging until reviewed.**";
-
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body
             });
+
+      - name: Block merge until approved
+        if: ${{ steps.gate.outputs.BLOCK == 'true' }}
+        run: |
+          echo "❌ External link changes detected — owner approval required."
+          exit 1
