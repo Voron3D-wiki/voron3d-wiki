@@ -1,4 +1,4 @@
-name: Affiliate Links (Autofix + Owner Approval for External Links)
+name: Affiliate Links + Protected High-Level Changes
 
 on:
   pull_request_target:
@@ -11,8 +11,7 @@ permissions:
   issues: write
 
 jobs:
-  affiliate:
-    # avoid infinite loop when workflow pushes a commit
+  guard:
     if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
 
@@ -24,7 +23,6 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      # Checkout the PR HEAD so we can commit fixes back to the PR branch
       - name: Checkout PR head
         uses: actions/checkout@v4
         with:
@@ -38,12 +36,73 @@ jobs:
           git config user.name "affiliate-autofix[bot]"
           git config user.email "affiliate-autofix[bot]@users.noreply.github.com"
 
-      # Fetch base so we can diff against it
       - name: Fetch base branch
         run: |
           git fetch origin "${{ github.event.pull_request.base.ref }}" --depth=1
 
-      # Collect changed markdown files into changed_md.txt
+      # --- Load allowlist from BASE .github/CODEOWNERS (trusted source) ---
+      - name: Load CODEOWNERS allowlist from base branch
+        id: codeowners
+        run: |
+          set -euo pipefail
+          BASE_REF="origin/${{ github.event.pull_request.base.ref }}"
+
+          if git show "$BASE_REF:.github/CODEOWNERS" > /tmp/CODEOWNERS 2>/dev/null; then
+            :
+          else
+            echo "No .github/CODEOWNERS found on base branch; allowlist empty."
+            : > /tmp/CODEOWNERS
+          fi
+
+          # Expect CODEOWNERS contains only lines like: @username
+          # - ignore comments/blank lines
+          # - strip leading '@'
+          # - take first token per line
+          ALLOW_USERS=$(grep -vE '^\s*#' /tmp/CODEOWNERS \
+            | awk 'NF{print $1}' \
+            | sed 's/^@//' \
+            | sort -u \
+            | tr '\n' ' ' \
+            | sed 's/[[:space:]]*$//')
+
+          echo "Allowlist from base CODEOWNERS: $ALLOW_USERS"
+          echo "users=$ALLOW_USERS" >> $GITHUB_OUTPUT
+
+      - name: Detect CODEOWNERS modifications
+        id: codeowners_changed
+        run: |
+          set -euo pipefail
+          BASE="origin/${{ github.event.pull_request.base.ref }}"
+          CHANGED=$(git diff --name-only "$BASE"...HEAD -- .github/CODEOWNERS || true)
+          if [ -n "$CHANGED" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Protect CODEOWNERS itself:
+      # Allow if PR author is already in BASE CODEOWNERS allowlist (or repo owner).
+      - name: Block unauthorized CODEOWNERS changes
+        if: ${{ steps.codeowners_changed.outputs.changed == 'true' }}
+        run: |
+          set -euo pipefail
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          ALLOW_USERS="${{ steps.codeowners.outputs.users }}"
+
+          if [ "$PR_AUTHOR" = "${{ github.repository_owner }}" ]; then
+            echo "Repo owner editing CODEOWNERS; allowed."
+            exit 0
+          fi
+
+          if echo " $ALLOW_USERS " | grep -q " $PR_AUTHOR "; then
+            echo "Existing CODEOWNER editing CODEOWNERS; allowed."
+            exit 0
+          fi
+
+          echo "❌ .github/CODEOWNERS is protected. Only existing CODEOWNERS (or repo owner) may change it."
+          exit 1
+
+      # --- Collect changed markdown files ---
       - name: Collect changed markdown files
         run: |
           BASE="origin/${{ github.event.pull_request.base.ref }}"
@@ -51,13 +110,11 @@ jobs:
           echo "Changed markdown files:"
           cat changed_md.txt || true
 
-      # Run autofix only on changed files
       - name: Autofix West3D + OneTwo3D affiliate links (changed files only)
         if: ${{ hashFiles('changed_md.txt') != '' }}
         run: |
           python3 .github/scripts/affiliate_links.py fix --files changed_md.txt
 
-      # Push autofix only for same-repo PRs (forks can't be pushed to)
       - name: Commit and push affiliate fixes (same-repo PRs only)
         if: ${{ hashFiles('changed_md.txt') != '' && github.event.pull_request.head.repo.full_name == github.repository }}
         run: |
@@ -69,73 +126,119 @@ jobs:
           git commit -m "chore: auto-add affiliate tags"
           git push
 
-      # Generate diff for markdown files (base -> head)
+      # --- High-level change detection (workflows, scripts, etc.) ---
+      - name: Detect high-level file changes
+        id: highlevel
+        run: |
+          set -euo pipefail
+          BASE="origin/${{ github.event.pull_request.base.ref }}"
+
+          # Tune these patterns to your taste:
+          # - workflows
+          # - github actions scripts
+          # - CODEOWNERS already handled separately
+          git diff --name-only "$BASE"...HEAD \
+            -- '.github/workflows/**' \
+               '.github/actions/**' \
+               '.github/scripts/**' \
+            > highlevel.txt || true
+
+          echo "High-level changed files:"
+          cat highlevel.txt || true
+
+          if [ -s highlevel.txt ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          cat highlevel.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # --- External link change detection (non West3D/OneTwo3D) ---
       - name: Generate diff for markdown files
         run: |
           BASE="origin/${{ github.event.pull_request.base.ref }}"
           git diff "$BASE"...HEAD -- '*.md' '*.markdown' > diff.txt || true
-          echo "Diff lines:"
-          wc -l diff.txt || true
 
-      # Detect non-West3D / non-OneTwo3D external link changes
       - name: Detect non-affiliate external link changes
         id: links
         run: |
-          # Writes ADDED/REMOVED to GITHUB_OUTPUT inside the script.
-          # Don't fail here; we gate explicitly below.
           python3 .github/scripts/affiliate_links.py check --diff diff.txt || true
 
-      # Decide whether to block merge:
-      # - If no external link changes (excluding West3D/OneTwo3D): allow
-      # - If there are changes and PR author is repo owner: allow
-      # - Else: block + comment
-      - name: Gate on external link changes
+      # --- Gate: allow if PR author is in BASE CODEOWNERS, else block when needed ---
+      - name: Gate changes (CODEOWNERS bypass)
         id: gate
         run: |
+          set -euo pipefail
+
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          ALLOW_USERS="${{ steps.codeowners.outputs.users }}"
+
           ADDED="${{ steps.links.outputs.ADDED }}"
           REMOVED="${{ steps.links.outputs.REMOVED }}"
+          HIGHLEVEL_CHANGED="${{ steps.highlevel.outputs.changed }}"
 
-          if [ -z "$ADDED" ] && [ -z "$REMOVED" ]; then
-            echo "No non-affiliate external link changes."
+          NEEDS_REVIEW=false
+
+          if [ -n "$ADDED" ] || [ -n "$REMOVED" ]; then
+            NEEDS_REVIEW=true
+          fi
+
+          if [ "$HIGHLEVEL_CHANGED" = "true" ]; then
+            NEEDS_REVIEW=true
+          fi
+
+          if [ "$NEEDS_REVIEW" = "false" ]; then
+            echo "No gated changes detected."
             exit 0
           fi
 
-          echo "Non-affiliate external link changes detected."
-
-          # Allow if you authored the PR (assumes you are repo owner)
-          if [ "${{ github.event.pull_request.user.login }}" = "${{ github.repository_owner }}" ]; then
-            echo "PR authored by repo owner; allowing."
+          # Allow if author is in trusted allowlist
+          if echo " $ALLOW_USERS " | grep -q " $PR_AUTHOR "; then
+            echo "PR authored by CODEOWNER; allowing gated changes."
             exit 0
           fi
 
           echo "BLOCK=true" >> $GITHUB_OUTPUT
           exit 0
 
-      - name: Comment with external link change report
+      - name: Comment with report (approval required)
         if: ${{ steps.gate.outputs.BLOCK == 'true' }}
         uses: actions/github-script@v7
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
+            const owner = context.repo.owner;
+            const author = context.payload.pull_request.user.login;
+
             const addedRaw = `${{ steps.links.outputs.ADDED }}`.trim();
             const removedRaw = `${{ steps.links.outputs.REMOVED }}`.trim();
             const added = addedRaw ? addedRaw.split(/\s+/).filter(Boolean) : [];
             const removed = removedRaw ? removedRaw.split(/\s+/).filter(Boolean) : [];
 
-            const owner = context.repo.owner;
-            const author = context.payload.pull_request.user.login;
+            const highlevelChanged = `${{ steps.highlevel.outputs.changed }}` === "true";
+            const highlevelFilesRaw = `${{ steps.highlevel.outputs.files }}`.trim();
+            const highlevelFiles = highlevelFilesRaw ? highlevelFilesRaw.split(/\s+/).filter(Boolean) : [];
 
-            let body = `## 🔒 External Link Changes Require Approval\n`;
-            body += `This PR modifies **external links** (excluding West3D / OneTwo3D).\n\n`;
+            let body = `## 🔒 Approval Required\n`;
+            body += `This PR includes changes that require approval by a user listed in \`.github/CODEOWNERS\`.\n\n`;
             body += `**PR author:** @${author}\n`;
-            body += `**Approval required from:** @${owner}\n\n`;
+            body += `**Approvers:** users listed in \`.github/CODEOWNERS\` (base branch)\n\n`;
 
-            if (added.length) {
-              body += "### 🔵 Added Links\n" + added.map(u => `- ${u}`).join("\n") + "\n\n";
+            if (highlevelChanged) {
+              body += `### 🛠 High-level files changed\n`;
+              body += highlevelFiles.length ? highlevelFiles.map(f => `- ${f}`).join("\n") + "\n\n" : "\n";
             }
-            if (removed.length) {
-              body += "### 🔴 Removed Links\n" + removed.map(u => `- ${u}`).join("\n") + "\n\n";
+
+            if (added.length || removed.length) {
+              body += `### 🔗 External link changes (excluding West3D / OneTwo3D)\n\n`;
+              if (added.length) body += "**Added:**\n" + added.map(u => `- ${u}`).join("\n") + "\n\n";
+              if (removed.length) body += "**Removed:**\n" + removed.map(u => `- ${u}`).join("\n") + "\n\n";
             }
+
+            body += `Once approved by a CODEOWNER, it can be merged.\n`;
 
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -147,5 +250,5 @@ jobs:
       - name: Block merge until approved
         if: ${{ steps.gate.outputs.BLOCK == 'true' }}
         run: |
-          echo "❌ External link changes detected — owner approval required."
+          echo "❌ Gated changes detected — approval required by CODEOWNERS."
           exit 1
