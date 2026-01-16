@@ -1,1 +1,2 @@
-docs/printers/v0/index.md
+docs/electronics/mcu/index.md
+docs/printers/trident/index.md
