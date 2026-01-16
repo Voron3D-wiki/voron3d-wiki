@@ -12,26 +12,12 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 
 ## Quick Comparison Table
 
-| MCU Series | Processor | Stepper Drivers | Connectivity | Price Range | Best For | 
-|------------|-----------|-----------------|--------------|-------------|-----------|
-| [BTT SKR Series](./skr-series.md) | STM32/RP2040 | 4-6 | USB, UART | $ | Entry to Mid-range |
-| [MKS Boards](./mks.md) | LPC1768/1769 | 4-6 | USB/Ethernet | $$ | Mid-range |
-| [Octopus Series](./octopus-series.md) | STM32 | 8 | Multiple | $$$ | High-end |
-| [Mellow Fly Boards](./mellow-fly-boards.md) | STM32F407 | 4-8 | Multiple | $$-$$$$ | Mid to High-end |
-
-## Quick Links
-
-### Popular Series
-- [BTT SKR Series](./skr-series.md) - Versatile 32-bit boards
-- [MKS Boards](./mks.md) - Reliable LPC-based boards
-- [Octopus Series](./octopus-series.md) - High-end 8-driver boards
-- [Mellow Fly Boards](./mellow-fly-boards.md) - High-quality STM32 boards
-
-### Selection Guides
-- [Processor Selection](./guides/processor-selection.md)
-- [Stepper Driver Guide](./guides/stepper-drivers.md)
-- [Connectivity Options](./guides/connectivity.md)
-- [Budget Considerations](./guides/budget-guide.md)
+| MCU Series | Processor | Stepper Drivers | Connectivity | Price Range | Best For | Purchase |
+|------------|-----------|-----------------|--------------|-------------|-----------|----|
+| [BTT SKR Series](./skr-series.md) | STM32/RP2040 | 4-6 | USB, UART | $ | Entry to Mid-range | [  Biqu Offical Store](https://tidd.ly/3K362Qt) |
+| [MKS Boards](./mks.md) | LPC1768/1769 | 4-6 | USB/Ethernet | $$ | Mid-range | [Amazon link](https://amzn.to/3Nl80wZ) |
+| [Octopus Series](./octopus-series.md) | STM32 | 8 | Multiple | $$$ | High-end | [Biqu Offical link](https://tidd.ly/3ZfbL9P) |
+| [Mellow Fly Boards](./mellow-fly-boards.md) | STM32F407 | 4-8 | Multiple | $$-$$$$ | Mid to High-end | |
 
 ## Key Features Comparison
 
@@ -52,6 +38,7 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 ## Selection Guide
 
 ### Factors to Consider
+
 1. **Processor Requirements**
    - Basic: 8-bit boards
    - Standard: 32-bit boards
@@ -67,38 +54,15 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
    - CAN bus
    - WiFi/Bluetooth
    - Ethernet
+   - heater ports
+   - thermister pins
+   - fan pins
+   - endstops
 
 4. **Budget Considerations**
    - Entry level: Basic boards
    - Mid-range: Standard boards
    - High-end: Advanced boards
-
-## Technical Specifications
-
-### Processor Types
-- **8-bit**
-  - ATmega2560
-  - ATmega1280
-  - Limited features
-
-- **32-bit**
-  - STM32F4
-  - STM32H7
-  - LPC1768/1769
-  - Advanced features
-
-### Memory Requirements
-- Flash memory
-- RAM
-- EEPROM
-- External storage
-
-### Interface Options
-- USB
-- UART
-- SPI
-- I2C
-- CAN bus
 
 ## Firmware Compatibility
 
@@ -107,6 +71,7 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 - Feature support
 - Update procedures
 - Custom macros
+- requires SOC or aditional board to host
 
 ### Marlin
 - Version compatibility

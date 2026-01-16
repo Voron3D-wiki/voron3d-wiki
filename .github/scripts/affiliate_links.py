@@ -13,7 +13,7 @@ ONETWO3D_PARAM_KEY = "wpam_id"
 ONETWO3D_PARAM_VALUE = "9"
 
 WEST3D_DOMAIN = "west3d.com"
-WEST3D_AFFIL_PREFIX = "/3DWIKI"
+WEST3D_AFFIL_TAG = "/3DWIKI"
 
 # --- Matching links in markdown / html-in-markdown ---
 MD_LINK_RE = re.compile(r'(\]\()(\s*)(https?://[^\s)]+)(\s*)(\))')
@@ -61,10 +61,10 @@ def ensure_west3d_affiliate(url: str) -> str:
         return url
 
     path = p.path or "/"
-    if path.startswith(WEST3D_AFFIL_PREFIX + "/") or path == WEST3D_AFFIL_PREFIX:
+    if path.endswith(WEST3D_AFFIL_TAG) or path == WEST3D_AFFIL_TAG: #this checks if the affilate link is already there
         return url
 
-    new_path = WEST3D_AFFIL_PREFIX + "/" + path.lstrip("/")
+    new_path = path.lstrip("/") + WEST3D_AFFIL_TAG #this needs to be changed aas it is putting the affilate before the path
     return urlunparse((p.scheme, p.netloc, new_path, p.params, p.query, p.fragment))
 
 
