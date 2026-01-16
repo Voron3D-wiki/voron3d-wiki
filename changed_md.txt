@@ -1,2 +1,1 @@
-docs/electronics/mcu/index.md
-docs/printers/trident/index.md
+docs/electronics/mcu/btt-skr.md
