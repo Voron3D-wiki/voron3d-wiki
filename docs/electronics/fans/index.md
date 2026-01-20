@@ -73,7 +73,9 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 
 |brand|rpm|bearing|voltage|link|
 |-----|---|-------|-------|----|
-|Gdstime|up to 65000|Dual ball bearing  or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCkKDFr) [Purchase From West3d](https://west3d.com/products/gdstime-dc-24v-40x40x20-centrifugal-blower-fan-gdb3020-dual-ball-bearing-6500rpm-1-5w-07a-xh2-54/3DWIKI?pr_prod_strat=e5_desc&pr_rec_id=01116381e&pr_rec_pid=7119844278440&pr_ref_pid=7449572278484&pr_seq=uniform)|
+|Gdstime|up to 65000|Dual ball bearing  or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCkKDFr) [Purchase From West3d](https://west3d.com/products/gdstime-dc-24v-40x40x20-centrifugal-blower-fan-gdb3020-dual-ball-bearing-6500rpm-1-5w-07a-xh2-54/3DWIKI?pr_prod_strat=e5_desc&pr_rec_id=01116381e&pr_rec_pid=7119844278440&pr_ref_pid=7449572278484&pr_seq=uniform/3DWIKI)|
+|BERSERKER |up to 85000|Dual ball bearing| 24v| [Purchase From West3d](https://west3d.com/products/berserker-vindr-ulta-performance-5015-blower-fan-24v-5015b-24v-a-50x15mm?_pos=1&_sid=fec60f4ba&_ss=r/3DWIKI)|
+
 
 ###4010 Blower
 
