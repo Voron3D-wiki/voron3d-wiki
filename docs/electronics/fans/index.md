@@ -21,27 +21,27 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 ###2510
 [GDStime Sleeve bearing 12v Amazon ](https://amzn.to/48S0OkD)
     
-[BERSERKER VINDR Ultra-Performance 2510 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-2510-axial-fan-24v-2510a-24v-a-25x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 2510 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-2510-axial-fan-24v-2510a-24v-a-25x10mm/3DWIKI)
 
 ###3007 [GDStime Sleeve Bearing 12v Amazon ](https://amzn.to/3L8p34l)
 
 ###3010 
 [GDStime Sleeve Bearing 12v Amazon ](https://amzn.to/3X0LpY0)
 
-[GDStime Ball Bearing 12000RPM 1010 axial 24v](https://west3d.com/products/gdstime-dc-24v-30x30x10-axial-fan-24v-gda30105f-dual-ball-bearing-1200rpm-1w-06a-xh2-54/WIKI3D)
+[GDStime Ball Bearing 12000RPM 1010 axial 24v](https://west3d.com/products/gdstime-dc-24v-30x30x10-axial-fan-24v-gda30105f-dual-ball-bearing-1200rpm-1w-06a-xh2-54/3DWIKI)
 
-[BERSERKER VINDR Ultra-Performance 3010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-3010-axial-fan-24v-3010a-24v-a-30x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 3010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-3010-axial-fan-24v-3010a-24v-a-30x10mm/3DWIKI)
 
 ###3510
 
 ###4010 
-[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/3DWIKI)
 
-[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/WIKI3D)
+[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/3DWIKI)
 
-[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/3DWIKI)
 
-[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/WIKI3D)
+[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/3DWIKI)
 
 ###5010 
 [GDStime 12v Amazon ](https://amzn.to/4nnYsxp)
