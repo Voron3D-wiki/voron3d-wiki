@@ -1,1 +1,2 @@
+docs/electronics/fans/index.md
 docs/electronics/mcu/btt-skr.md
