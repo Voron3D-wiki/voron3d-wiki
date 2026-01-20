@@ -21,27 +21,27 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 ###2510
 [GDStime Sleeve bearing 12v Amazon ](https://amzn.to/48S0OkD)
     
-[BERSERKER VINDR Ultra-Performance 2510 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-2510-axial-fan-24v-2510a-24v-a-25x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 2510 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-2510-axial-fan-24v-2510a-24v-a-25x10mm/3DWIKI)
 
 ###3007 [GDStime Sleeve Bearing 12v Amazon ](https://amzn.to/3L8p34l)
 
 ###3010 
 [GDStime Sleeve Bearing 12v Amazon ](https://amzn.to/3X0LpY0)
 
-[GDStime Ball Bearing 12000RPM 1010 axial 24v](https://west3d.com/products/gdstime-dc-24v-30x30x10-axial-fan-24v-gda30105f-dual-ball-bearing-1200rpm-1w-06a-xh2-54/WIKI3D)
+[GDStime Ball Bearing 12000RPM 1010 axial 24v](https://west3d.com/products/gdstime-dc-24v-30x30x10-axial-fan-24v-gda30105f-dual-ball-bearing-1200rpm-1w-06a-xh2-54/3DWIKI)
 
-[BERSERKER VINDR Ultra-Performance 3010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-3010-axial-fan-24v-3010a-24v-a-30x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 3010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-3010-axial-fan-24v-3010a-24v-a-30x10mm/3DWIKI)
 
 ###3510
 
 ###4010 
-[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/3DWIKI)
 
-[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/WIKI3D)
+[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/3DWIKI)
 
-[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/WIKI3D)
+[BERSERKER VINDR Ultra-Performance 4010 Axial 24V](https://west3d.com/products/berserker-vindr-ultra-performance-4010-axial-fan-24v-4010a-24v-a-40x10mm/3DWIKI)
 
-[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/WIKI3D)
+[GDSTIME DC 24V 40x40x10 Axial Fan](https://west3d.com/products/gdstime-dc-24v-40x40x10-axial-fan-gda4010-9-blades-dual-ball-bearing-7500rpm-9w-04a-xh2-54/3DWIKI)
 
 ###5010 
 [GDStime 12v Amazon ](https://amzn.to/4nnYsxp)
@@ -73,18 +73,18 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 
 |brand|rpm|bearing|voltage|link|
 |-----|---|-------|-------|----|
-|Gdstime|up to 65000|Dual ball bearing  or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCkKDFr) [Purchase From West3d](https://west3d.com/products/gdstime-dc-24v-40x40x20-centrifugal-blower-fan-gdb3020-dual-ball-bearing-6500rpm-1-5w-07a-xh2-54?pr_prod_strat=e5_desc&pr_rec_id=01116381e&pr_rec_pid=7119844278440&pr_ref_pid=7449572278484&pr_seq=uniform)|
+|Gdstime|up to 65000|Dual ball bearing  or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCkKDFr) [Purchase From West3d](https://west3d.com/products/gdstime-dc-24v-40x40x20-centrifugal-blower-fan-gdb3020-dual-ball-bearing-6500rpm-1-5w-07a-xh2-54/3DWIKI?pr_prod_strat=e5_desc&pr_rec_id=01116381e&pr_rec_pid=7119844278440&pr_ref_pid=7449572278484&pr_seq=uniform)|
 
 ###4010 Blower
 
 |brand|rpm|bearing|voltage|link|
 |-----|---|-------|-------|----|
-|Gdstime|up to 12000|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCTN6iZ) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-40x40x10-centrifugal-blower-fan-gdb4010-dual-ball-bearing-9500rpm-08a-xh2-54?_pos=9&_sid=446ce40d7&_ss=r) |
+|Gdstime|up to 12000|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCTN6iZ) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-40x40x10-centrifugal-blower-fan-gdb4010-dual-ball-bearing-9500rpm-08a-xh2-54/3DWIKI?_pos=9&_sid=446ce40d7&_ss=r) |
 
 ###3010 Blower Fan
 |brand|rpm|bearing|voltage|link|
 |-----|---|-------|-------|----|
-|Gdstime|coming soon|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Amazon ](https://amzn.to/4oi2Pvi) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-30x30x10-centrifugal-blower-fan-gdb3010-dual-ball-bearing-9500rpm-1w-05a-xh2-54) |
+|Gdstime|coming soon|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Amazon ](https://amzn.to/4oi2Pvi) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-30x30x10-centrifugal-blower-fan-gdb3010-dual-ball-bearing-9500rpm-1w-05a-xh2-54/3DWIKI) |
 
 ## References
 1. [Voron Design](https://vorondesign.com)
