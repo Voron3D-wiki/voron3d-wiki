@@ -79,7 +79,7 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 
 |brand|rpm|bearing|voltage|link|
 |-----|---|-------|-------|----|
-|Gdstime|up to 12000|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCTN6iZ) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-40x40x10-centrifugal-blower-fan-gdb4010-dual-ball-bearing-9500rpm-08a-xh2-54/3DWIKI?_pos=9&_sid=446ce40d7&_ss=r) |
+|Gdstime|up to 12000|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Aliexpress ](https://s.click.aliexpress.com/e/_oCTN6iZ) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-40x40x10-centrifugal-blower-fan-gdb4010-dual-ball-bearing-9500rpm-08a-xh2-54/3DWIKI?_pos=9&_sid=446ce40d7&_ss=r/3DWIKI) |
 
 ###3010 Blower Fan
 |brand|rpm|bearing|voltage|link|
