@@ -13,32 +13,47 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
 ## Common Filament Types
 
 ### PLA (Polylactic Acid)
+
 - **Properties**:
   - Biodegradable
   - Easy to print
   - Low warping
   - Limited heat resistance
+
 - **Printing Temperature**: 190-220°C
+
 - **Bed Temperature**: 50-60°C or room temperature
+
 - **Best For**: 
   - Beginners
   - Decorative items
   - Low-stress parts
+
 - **Purchase Options**:
-  - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9) ← *Affiliate link*
+  - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [Amazon PLA Filament Section](https://amzn.to/4jOjKnI)
 
 ### PETG (Polyethylene Terephthalate Glycol)
+
 - **Properties**:
   - Good strength
   - Chemical resistance
   - Moderate heat resistance
   - Low warping
 - **Printing Temperature**: 230-250°C
+
 - **Bed Temperature**: 70-80°C
+
 - **Best For**: 
   - Functional parts
   - Outdoor use
   - Food-safe applications (with proper treatment)
+
+- **Purchase Options**:
+  - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [Amazon PLA Filament Section](https://amzn.to/49Ik0jy)
 
 ### ABS (Acrylonitrile Butadiene Styrene)
 - **Properties**:
@@ -53,6 +68,11 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
   - Automotive applications
   - Heat-resistant items
 
+- **Purchase Options**:
+  - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [Amazon PLA Filament Section](https://amzn.to/4r5yjpA)
+
 ### TPU (Thermoplastic Polyurethane)
 - **Properties**:
   - Flexible
@@ -66,7 +86,12 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
   - Vibration dampening
   - Protective cases
 
-## Printing Recommendations
+- **Purchase Options**:
+  - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [Amazon PLA Filament Section](https://amzn.to/4raBso5)
+
+## Recommendations
 
 ### Storage
 - Store filament in airtight containers with desiccant

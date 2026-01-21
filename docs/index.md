@@ -64,6 +64,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 - [MCUs and Motherboards](electronics/mcu/index.md) - Learn about the various MCUs and motherboards compatible with Voron printers
 - [Toolhead Boards](printhead/toolhead-boards/index.md) - Explore the best toolhead boards for efficient wiring and performance
 - [FANS](electronics/fans/index.md) - Understand the importance of fans and how to choose the right ones
+- [Stepper Motor](electroniics/stepper-motor/stepper-motor.md)
 <!-- - [Expansion Boards](electronics/expansion-boards/expansion-boards.md) - Learn about expansion boards and how to flash them -->
 
 
