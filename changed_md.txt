@@ -1,2 +1,10 @@
+docs/affiliate-disclosure.md
+docs/bedleveling/bed-leveling.md
+docs/bedleveling/index.md
 docs/electronics/fans/index.md
 docs/electronics/mcu/btt-skr.md
+docs/electronics/mcu/index.md
+docs/electronics/mcu/octopus.md
+docs/electronics/stepper-motor/stepper-motor.md
+docs/filament/filament-guide.md
+docs/index.md
