@@ -8,7 +8,7 @@ tags: [Stepper motor, stepper ,]
 # Stepper Motors
 
 ## Overview
-This section covers stepper motor options for Voron printers.
+This section covers stepper motor options for 3D printers.
 
 ## What Does NEMA Mean?
 
@@ -37,46 +37,38 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 
 {% include "../stepper-motor/stepper-motor-database.md" %}
 
-### Stepper Motor Purchase link from onetwo3d
 
-[LDO Stepper Motor (42STH40-1684AC)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-1684ac/?wpam_id=9)
-
-[Kraken LDO-42STH60-3004AHR(S37)](https://www.onetwo3d.co.uk/product/kraken-ldo-42sth60-3004ahs37/?wpam_id=9)
-
-[LDO Stepper Motor (42STH20-1004ASH)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth20-1004as/?wpam_id=9)
-
-[LDO Stepper Motor (42STH40-2004MAH)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-2004mah/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2004AC)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2004ac/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2504AC)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ac/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2504AHS46)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ahs46/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2504AHS55)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ahs55/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2804AC Super Power)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ac-super-power-stepper-motor/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2804AC-R Round Shaft)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ac-r-super-power-stepper-motor-round-shaft/?wpam_id=9)
-
-[LDO Stepper Motor (35STH52-2004AHS35)](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2804AH High Temp)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-super-power-stepper-motor-high-temperature/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2804AH-S55 High Temp)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s55-super-power-stepper-motor-high-temperature/?wpam_id=9)
-
-[LDO Stepper Motor (42STH48-2804AH-S80)](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s80-super-power-stepper-motor/?wpam_id=9)
-
-[LDO Stepper Motor (42STH25-1004CL200ET)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth25-1004cl200et/?wpam_id=9)
-
-[LDO Stepper Motor (25STH52-2004)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-25sth52-2004/?wpam_id=9)
-
+### Stepper Motor Purchase links
+|model name and brand|Buy|
+|LDO Stepper Motor (42STH40-1684AC) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-1684ac/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-ldo-42sth40-1684ac-nema17-motor/3DWIKI?_pos=1&_sid=308201ddc&_ss=r/3DWIKI)|
+|Kraken LDO-42STH60-3004AHR(S37)| [onetwo3d](https://www.onetwo3d.co.uk/product/kraken-ldo-42sth60-3004ahs37/?wpam_id=9) [ West3d](https://west3d.com/products/kraken-motors-from-devil-design-ldo-42sth60-3004ah-s37-and-s55-extreme-stepper-motor/3DWIKI?_pos=1&_sid=6495a3f48&_ss=r/3DWIKI) |
+|LDO Stepper Motor (42STH20-1004ASH)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth20-1004as/?wpam_id=9) [ West3d](https://west3d.com/products/nema-17-42mm-motor-high-temp-ldo-42sth20-1004ash-vrn-voron-edition/3DWIKI?_pos=1&_sid=69b5409d1&_ss=r/3DWIKI) |
+|LDO Stepper Motor (42STH40-2004MAH)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-2004mah/?wpam_id=9) [ West3d](https://west3d.com/products/ldo-motors-42sth48-2004mah-nema-17-stepper-motor-high-temperature/3DWIKI?_pos=1&_sid=b4eceeaf9&_ss=r) |
+|LDO Stepper Motor (42STH48-2004AC)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2004ac/?wpam_id=9) |
+|LDO Stepper Motor (42STH48-2504AC)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ac/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-42sth48-2504ah-nema-17-stepper-motor/3DWIKI?_pos=2&_sid=c8ee0bcbb&_ss=r)|
+|LDO Stepper Motor (42STH48-2504AH(S37))| [West3d](https://west3d.com/products/ldo-motors-42sth48-2504ahs37-nema-17-stepper-motor-high-performance-high-temperature-37mm-output-shaft/3DWIKI?_pos=1&_sid=c8ee0bcbb&_ss=r) |
+|LDO Stepper Motor (42STH48-2504AHS46)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ahs46/?wpam_id=9)  |
+|LDO Stepper Motor (42STH48-2504AH(S45R))| [ West3d](https://west3d.com/products/ldo-motors-42sth48-2504ahs45r-nema-17-stepper-motor-high-performance-high-temperature-37mm-output-shaft-copy/3DWIKI?_pos=5&_sid=dbac4cb18&_ss=r) |
+|LDO Stepper Motor (42STH48-2504AHS55)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth48-2504ahs55/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-42sth48-2504ah-s55-super-power-high-temp-nema-17-stepper-motor-high-performance-high-temperature-55mm-shaft/3DWIKI?_pos=8&_sid=dbac4cb18&_ss=r)|
+|LDO Stepper Motor (42STH48-2804AC Super Power)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ac-super-power-stepper-motor/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-42sth48-2804ah-super-speedy-super-power-high-temp-nema-17-stepper-motor-high-performance-high-temperature/3DWIKI?variant=44350724145364)|
+|LDO Stepper Motor (42STH48-2804AC-R Round Shaft)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ac-r-super-power-stepper-motor-round-shaft/?wpam_id=9)  |
+|LDO Stepper Motor (35STH52-2004AHS35)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9)  |
+|LDO Stepper Motor (42STH48-2804AH High Temp)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-super-power-stepper-motor-high-temperature/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-42sth48-2804ah-super-speedy-super-power-high-temp-nema-17-stepper-motor-high-performance-high-temperature/3DWIKI?variant=44350724145364)|
+|LDO Stepper Motor (42STH48-2804AH-S55 High Temp)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s55-super-power-stepper-motor-high-temperature/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-42sth48-2804ah-super-speedy-super-power-high-temp-nema-17-stepper-motor-high-performance-high-temperature/3DWIKI?variant=44350724145364)|
+|LDO Stepper Motor (42STH48-2804AH-S80)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s80-super-power-stepper-motor/?wpam_id=9) |
+|LDO Stepper Motor (42STH25-1004CL200ET)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth25-1004cl200et/?wpam_id=9)  |
 
 **Kits**
 
-[Box Turtle AFC Mini DC Motor Kit (LDO)](https://www.onetwo3d.co.uk/product/box-turtle-afc-mini-dc-motor-kit-ldo/?wpam_id=9)
+[Box Turtle AFC Mini DC Motor Kit (LDO) onetwo3d](https://www.onetwo3d.co.uk/product/box-turtle-afc-mini-dc-motor-kit-ldo/?wpam_id=9)
 
-[Box Turtle AFC Stepper Kit (LDO)](https://www.onetwo3d.co.uk/product/box-turtle-afc-stepper-kit-ldo/?wpam_id=9)
+[Box Turtle AFC Stepper Kit (LDO) onetwo3d](https://www.onetwo3d.co.uk/product/box-turtle-afc-stepper-kit-ldo/?wpam_id=9)
+
+West3d:
+- [Voron 2.4 Motor Kit by LDO Motors (Clockwork 2 updated) - V2.4](https://west3d.com/products/voron-2-4-motor-kit-by-ldo-motors/3DWIKI?_pos=8&_sid=71a5ca88d&_ss=r)
+- [Voron V0.1 / V0.2 Motor Kit by LDO Motors](https://west3d.com/products/voron-v0-1-motor-kit-by-ldo-motors/3DWIKI?_pos=9&_sid=71a5ca88d&_ss=r)
+- [Positron Motor Kit by LDO Motors](https://west3d.com/products/positron-motor-kit-by-ldo-motors/3DWIKI?_pos=23&_sid=71a5ca88d&_ss=r)
+- [MicronPlus 3D Printer Motor Kit by LDO Motors](https://west3d.com/products/micron-3d-printer-motor-kit-by-ldo-motors/3DWIKI?_pos=22&_sid=71a5ca88d&_ss=r)
 
 
 **Pancake Motors**

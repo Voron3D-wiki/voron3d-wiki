@@ -89,4 +89,5 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 2. Community Modifications Database
 3. User Experience Reports
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

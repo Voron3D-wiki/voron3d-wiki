@@ -205,32 +205,36 @@ jobs:
           echo "BLOCK=true" >> $GITHUB_OUTPUT
           exit 0
 
-      - name: Comment with report (approval required) #this needs to either be removed or have a auto approval for codeowners' PRs so I can get my PRs through
+      - name: Comment with report (approval required)
         if: ${{ steps.gate.outputs.BLOCK == 'true' }}
         uses: actions/github-script@v7
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          ADDED: ${{ steps.links.outputs.ADDED }}
+          REMOVED: ${{ steps.links.outputs.REMOVED }}
+          HIGHLEVEL_CHANGED: ${{ steps.highlevel.outputs.changed }}
+          HIGHLEVEL_FILES: ${{ steps.highlevel.outputs.files }}
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
-            const owner = context.repo.owner;
-            const author = context.payload.pull_request.user.login;
+            const author = process.env.PR_AUTHOR;
 
-            const addedRaw = `${{ steps.links.outputs.ADDED }}`.trim();
-            const removedRaw = `${{ steps.links.outputs.REMOVED }}`.trim();
+            const addedRaw = (process.env.ADDED || "").trim();
+            const removedRaw = (process.env.REMOVED || "").trim();
             const added = addedRaw ? addedRaw.split(/\s+/).filter(Boolean) : [];
             const removed = removedRaw ? removedRaw.split(/\s+/).filter(Boolean) : [];
 
-            const highlevelChanged = `${{ steps.highlevel.outputs.changed }}` === "true";
-            const highlevelFilesRaw = `${{ steps.highlevel.outputs.files }}`.trim();
+            const highlevelChanged = (process.env.HIGHLEVEL_CHANGED || "") === "true";
+            const highlevelFilesRaw = (process.env.HIGHLEVEL_FILES || "").trim();
             const highlevelFiles = highlevelFilesRaw ? highlevelFilesRaw.split(/\s+/).filter(Boolean) : [];
 
             let body = `## 🔒 Approval Required\n`;
             body += `This PR includes changes that require approval by a user listed in \`.github/CODEOWNERS\`.\n\n`;
-            body += `**PR author:** @${author}\n`;
-            body += `**Approvers:** users listed in \`.github/CODEOWNERS\` (base branch)\n\n`;
+            body += `**PR author:** @${author}\n\n`;
 
             if (highlevelChanged) {
               body += `### 🛠 High-level files changed\n`;
-              body += highlevelFiles.length ? highlevelFiles.map(f => `- ${f}`).join("\n") + "\n\n" : "\n";
+              body += (highlevelFiles.length ? highlevelFiles.map(f => `- ${f}`).join("\n") : "- (unknown)") + "\n\n";
             }
 
             if (added.length || removed.length) {
@@ -241,11 +245,9 @@ jobs:
 
             body += `Once approved by a CODEOWNER, it can be merged.\n`;
 
-       
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
             });
-
-              #    await github.rest.issues.createComment({
-              # issue_number: context.issue.number,
-              # owner: context.repo.owner,
-              # repo: context.repo.repo,
-              # body

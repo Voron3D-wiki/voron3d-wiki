@@ -54,19 +54,26 @@ def ensure_onetwo3d_affiliate(url: str) -> str:
         return url
     return ensure_query_param(url, ONETWO3D_PARAM_KEY, ONETWO3D_PARAM_VALUE)
 
-
 def ensure_west3d_affiliate(url: str) -> str:
     p = urlparse(url)
     if not host_matches(p.netloc, WEST3D_DOMAIN):
         return url
 
+    tag = WEST3D_AFFIL_TAG.strip("/")  # "3DWIKI"
+
     path = p.path or "/"
-    if path.endswith(WEST3D_AFFIL_TAG) or path == WEST3D_AFFIL_TAG: #this checks if the affilate link is already there
+
+    # Normalize for comparison: ignore a trailing slash
+    norm_path = path.rstrip("/") if path != "/" else path
+
+    # Already tagged?
+    if norm_path.endswith("/" + tag) or norm_path == "/" + tag:
         return url
 
-    new_path = path.lstrip("/") + WEST3D_AFFIL_TAG #this needs to be changed aas it is putting the affilate before the path
-    return urlunparse((p.scheme, p.netloc, new_path, p.params, p.query, p.fragment))
+    # Append tag as final path segment
+    new_path = norm_path.rstrip("/") + "/" + tag
 
+    return urlunparse((p.scheme, p.netloc, new_path, p.params, p.query, p.fragment))
 
 def fix_url(url: str) -> str:
     url = ensure_west3d_affiliate(url)
