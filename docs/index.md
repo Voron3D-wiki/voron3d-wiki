@@ -9,7 +9,9 @@ tags: [Voron, Voron3D, 3dprint, 3dprinting]
 
 ![Voron3D Logo](../assets/VoronLogo.png){ width="250" align="right" }
 
-This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers. Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and other 3D printing-related topics. We aim to make a useful resource for finding interesting modifications and share knowledge about the latest developments in the field.
+Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and other 3D printing-related topics. We aim to make a useful resource for finding interesting modifications and share knowledge about the latest developments in the field.
+
+This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers.
 
 ## What is Voron? { #what-is-voron }
 
@@ -79,8 +81,9 @@ The Voron project revolves around open-source 3D printers that are known for the
 
 We hope this wiki serves as a valuable resource for your 3D printing journey. Stay tuned for updates and new content!
 
+
+
 !!! tip "Need Help?"
     Join the Offical voron [Discord](https://discord.gg/voron) for real-time support and discussions.
 
 {% include "ads/footer-AD.md" %}
-

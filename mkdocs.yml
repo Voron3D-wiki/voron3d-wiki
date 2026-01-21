@@ -71,25 +71,26 @@ nav:
       - overview: printhead/index.md
       - Hotends:
           - overview: printhead/hotends/index.md
-          - DropEffect NExt G: printhead/hotends/dropeffect-nextg/index.md
-          - E3D Revo Voron: printhead/hotends/e3d-revo-voron/index.md
+          # - DropEffect NExt G: printhead/hotends/dropeffect-nextg/index.md
+          - E3D Revo Voron: printhead/hotends/e3d-revo/index.md
           - E3D V6: printhead/hotends/e3d-v6/index.md
-          - Phaetus Dragon: printhead/hotends/phaetus-dragon/index.md
-          - Phaetus Rapido: printhead/hotends/phaetus-rapido/index.md
+          - Phaetus Dragon: printhead/hotends/phaetus-dragon.md
+          - Phaetus Rapido: printhead/hotends/phaetus-rapido.md
       - Extruders: 
           - overview: printhead/extruders/index.md
       - Toolhead Boards:
           - overview: printhead/toolhead-boards/index.md
-          - MKS-THR: printhead/toolhead-boards/mks-thr/index.md
-          - FLY-SHT: printhead/toolhead-boards/fly-sht/index.md
-          - FLY-SB2040: printhead/toolhead-boards/FLY-SB2040/index.md
-          - BTT-EBB: printhead/toolhead-boards/BTT-EBB/index.md
-          - LDO Orbitool 3: printhead/toolhead-boards/ldo-orbitool-3/index.md
-          - LDO Orbitool O2: printhead/toolhead-boards/ldo-orbitool-o2/index.md
+          - MKS-THR: printhead/toolhead-boards/mks-thr.md
+          - FLY-SHT: printhead/toolhead-boards/FLY-SHT.md
+          - FLY-SB2040: printhead/toolhead-boards/FLY-SB2040md
+          - BTT-EBB-Gen1: printhead/toolhead-boards/BTT-EBB-Gen1.md
+          - BTT-EBB-Gen2: printhead/toolhead-boards/BTT-EBB-Gen2/index.md
+          - LDO Orbitool 3: printhead/toolhead-boards/ldo-orbitool-3.md
+          - LDO Orbitool O2: printhead/toolhead-boards/ldo-orbitool-o2.md
   - Filament:
       - Filament Guide: filament/filament-guide.md
   - Bed Leveling:
-      - overview: bedleveling/bed-leveling.md
+      - overview: bedleveling/index.md
       - Beacon: bedleveling/beacon.md
       - Cartographer: bedleveling/cartographer.md
       - Eddy Coil: bedleveling/eddy-coil.md
@@ -100,9 +101,9 @@ nav:
       - Tradrack: MMUs/tradrack.md
       - BoxTurtle: MMUs/BoxTurtle/index.md
       - PICO-MMU: MMUs/PICO-MMU/index.md
-      - BTT-MMU: MMUs/BTT-MMU/index.md
+      - BTT-MMU: MMUs/BTT-MMU.md
       - Anycubic-MMU: MMUs/Anycubic-MMU/index.md
-      - Pursa-MMU: MMUs/Pursa-MMU/index.md
+      - Pursa-MMU: MMUs/Pursa-MMU.md
   - Guides:
       - overview: guides/index.md
 

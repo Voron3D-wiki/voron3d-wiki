@@ -88,6 +88,6 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 |-----|---|-------|-------|----|
 |Gdstime|coming soon|Dual Ball Bearing or Hydraulic Bearing| 24v, 12v, 5v|[Purchase from Amazon ](https://amzn.to/4oi2Pvi) [Purchase from West3d](https://west3d.com/products/gdstime-dc-24v-30x30x10-centrifugal-blower-fan-gdb3010-dual-ball-bearing-9500rpm-1w-05a-xh2-54/3DWIKI) |
 
-## References
-1. [Voron Design](https://vorondesign.com)
-2. [Community Support](https://discord.gg/voron) 
+
+
+{% include "affiliate-disclosure.md" %}

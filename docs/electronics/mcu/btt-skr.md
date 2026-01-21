@@ -113,4 +113,6 @@ The BigTreeTech (BTT) SKR series represents a popular line of 32-bit mainboards 
 2. Community Modifications Database
 3. User Experience Reports
 
+
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %} 
