@@ -25,7 +25,7 @@ Extruders are critical components in 3D printers that control the flow of filame
   - Direct drive setups
 - **Purchase Options**:
   - [Bondtech LGX Large Gears Extruder sold by OneTwo3D (UK)](https://www.onetwo3d.co.uk/product/bondtech-lgx-large-gears-extruder/?wpam_id=9)
-  - [Bondtech LGX Large Gears eXtruder sold by West3d (USA)](https://west3d.com/products/bondtech-lgx-large-gears-extruder?_pos=3&_sid=2240a843f&_ss=r)
+  - [Bondtech LGX Large Gears eXtruder sold by West3d (USA)](https://west3d.com/products/bondtech-lgx-large-gears-extruder?_pos=3&_sid=2240a843f&_ss=r&dt_id=2902688%3Bap%3A1878203)
 
 ---
 
@@ -43,8 +43,8 @@ Extruders are critical components in 3D printers that control the flow of filame
 - **Purchase Options**: 
   - [Mellow fly non printed parts kit sold on aliexpress](https://s.click.aliexpress.com/e/_c4qYMhLZ)
   - [injection printed kit by trianglelabs sold by aliexpress](https://s.click.aliexpress.com/e/_c4snkVz9)
-  - [Bondtech offical kit sold by West3d (USA)](https://west3d.com/products/oem-all-metal-ridga-v2-set-by-bondtech?_pos=5&_sid=18c1e55c2&_ss=r)
-  - [Bondtech OEoffical Set sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/)
+  - [Bondtech offical kit sold by West3d (USA)](https://west3d.com/products/oem-all-metal-ridga-v2-set-by-bondtech?_pos=5&_sid=18c1e55c2&_ss=r&dt_id=2902688%3Bap%3A1878203)
+  - [Bondtech OEoffical Set sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/?wpam_id=9)
 
 {% include "ads/article-AD.md" %}
 
@@ -62,7 +62,7 @@ Extruders are critical components in 3D printers that control the flow of filame
   - High-speed printing
   - Small form factor printers
 - **Purchase Options**: 
-  - [Bondtech Sherpa All Metal RIDGA V2 Set sold by West3d](https://west3d.com/products/oem-sherpa-all-metal-ridga-v2-set-by-bondtech?_pos=1&_sid=6cc0a7967&_ss=r)
+  - [Bondtech Sherpa All Metal RIDGA V2 Set sold by West3d](https://west3d.com/products/oem-sherpa-all-metal-ridga-v2-set-by-bondtech?_pos=1&_sid=6cc0a7967&_ss=r&dt_id=2902688%3Bap%3A1878203)
 
 ---
 
@@ -78,9 +78,9 @@ Extruders are critical components in 3D printers that control the flow of filame
   - Direct drive setups
   - Reliable performance
 - **Purchase Options**: 
-  - [LDO Orbiter 2.5 sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5/)
-  - [Upgrade Kit sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5-upgrade-kit/) (for upgrading existing Orbiter v2.0)
-  - [LDO Orbiter 2.5](https://west3d.com/products/ldo-orbiter-extruder-v2-5-orbiter-v2-5-and-v2-0-to-v2-5-upgrade-kit?_pos=2&_sid=cdb313d66&_ss=r)
+  - [LDO Orbiter 2.5 sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5/?wpam_id=9)
+  - [Upgrade Kit sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5-upgrade-kit/?wpam_id=9) (for upgrading existing Orbiter v2.0)
+  - [LDO Orbiter 2.5](https://west3d.com/products/ldo-orbiter-extruder-v2-5-orbiter-v2-5-and-v2-0-to-v2-5-upgrade-kit?_pos=2&_sid=cdb313d66&_ss=r&dt_id=2902688%3Bap%3A1878203)
 
 
 ---
@@ -110,8 +110,8 @@ Extruders are critical components in 3D printers that control the flow of filame
   - Smart printer setups
   - Direct drive configurations
 - **Purchase Options**:
-  - [Purchase from Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0/)
-  - [Purchase From West3d (USA)](https://west3d.com/products/smart-orbiter-v3-0-by-ldo-motors-all-in-one-extruder?srsltid=AfmBOordDj7Zy8UHMrfVXYuLR0onOiQcrCkumf8SSrKm9UeQmoO_23Q9)
+  - [Purchase from Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0/?wpam_id=9)
+  - [Purchase From West3d (USA)](https://west3d.com/products/smart-orbiter-v3-0-by-ldo-motors-all-in-one-extruder?srsltid=AfmBOordDj7Zy8UHMrfVXYuLR0onOiQcrCkumf8SSrKm9UeQmoO_23Q9&dt_id=2902688%3Bap%3A1878203)
 
 ---
 
