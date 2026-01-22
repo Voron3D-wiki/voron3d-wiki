@@ -39,14 +39,14 @@ Extruders are critical components in 3D printers that control the flow of filame
   - High-speed printing
   - Direct drive setups
   - Printers where weight is a concern
-- **Note**: Available with [Bondtech OEM Set](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/) ← *Affiliate link* for enhanced reliability and filament grip
+- **Note**: Available with [Bondtech OEM Set](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/?wpam_id=9) ← *Affiliate link* for enhanced reliability and filament grip
 
 ---
 
 ### **Bondtech OEM Set for Sherpa Mini**
 - **Description**: Official Bondtech upgrade kit for the Sherpa Mini extruder
 - **Purchase Options**:
-  - [OneTwo3D - Bondtech OEM Set for Sherpa Mini](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/) ← *Affiliate link*
+  - [OneTwo3D - Bondtech OEM Set for Sherpa Mini](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/?wpam_id=9) ← *Affiliate link*
 
 ---
 
@@ -80,8 +80,8 @@ Extruders are critical components in 3D printers that control the flow of filame
   - Direct drive setups
   - Reliable performance
 - **Purchase Options**: 
-  - [LDO Orbiter 2.5](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5/) ← *Affiliate link*
-  - [LDO Orbiter 2.5 Upgrade Kit](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5-upgrade-kit/) ← *Affiliate link* (for upgrading existing Orbiter v2.0)
+  - [LDO Orbiter 2.5](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5/?wpam_id=9) ← *Affiliate link*
+  - [LDO Orbiter 2.5 Upgrade Kit](https://www.onetwo3d.co.uk/product/ldo-orbiter-2-5-upgrade-kit/?wpam_id=9) ← *Affiliate link* (for upgrading existing Orbiter v2.0)
 
 ---
 
@@ -110,7 +110,7 @@ Extruders are critical components in 3D printers that control the flow of filame
   - Smart printer setups
   - Direct drive configurations
 - **Purchase Options**:
-  - [LDO Smart Orbiter 3.0](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0/) ← *Affiliate link*
+  - [LDO Smart Orbiter 3.0](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0/?wpam_id=9) ← *Affiliate link*
 
 ---
 
