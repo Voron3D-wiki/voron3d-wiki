@@ -92,7 +92,6 @@ def ensure_onetwo3d_affiliate(url: str) -> str:
         return url
     return ensure_query_param(url, ONETWO3D_PARAM_KEY, ONETWO3D_PARAM_VALUE)
 
-
 def ensure_west3d_affiliate(url: str) -> str:
     p = urlparse(url)
     if not host_matches(p.netloc, WEST3D_DOMAIN):
@@ -110,6 +109,7 @@ def ensure_west3d_affiliate(url: str) -> str:
 
     return cleaned
 
+    return urlunparse((p.scheme, p.netloc, new_path, p.params, p.query, p.fragment))
 
 def fix_url(url: str) -> str:
     url = ensure_west3d_affiliate(url)
