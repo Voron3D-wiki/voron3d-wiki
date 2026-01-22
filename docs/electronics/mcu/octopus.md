@@ -26,7 +26,18 @@ The Octopus series represents BigTreeTech's high-end mainboard offerings, design
 - **Connectivity**: USB, UART, CAN, Ethernet
 - **Price Range**: $$$$
 - **Best For**: Professional printers, complex setups
-- **Buy**: [Amazon ](https://amzn.to/4oKrtEF) [Biqu Offical Store](https://www.awin1.com/cread.php?awinmid=95665&awinaffid=2636972&campaign=blog&ued=https%3A%2F%2Fbiqu.equipment%2Fproducts%2Fbigtreetech-octopus-pro-v1-0-chip-f446)
+- **Buy**: 
+    - [Amazon ](https://amzn.to/4oKrtEF) 
+    - [Biqu Offical Store](https://www.awin1.com/cread.php?awinmid=95665&awinaffid=2636972&campaign=blog&ued=https%3A%2F%2Fbiqu.equipment%2Fproducts%2Fbigtreetech-octopus-pro-v1-0-chip-f446)
+
+### Octopus MAX EZ
+- **Processor**: 32-bit 550 MHz ARM Cortex-M7 series STM32H723ZET6 
+- **Stepper Drivers**: 10 EZ driver slots
+- **Connectivity**: USB, UART, CAN, SD card
+- **Price Range**: $$$$
+- **Best For**: Professional printers, complex setups
+- **Buy**: 
+[ West3d](https://collabs.shop/mebpr2)
 
 ## Key Features
 
