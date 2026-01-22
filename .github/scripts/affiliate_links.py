@@ -13,7 +13,16 @@ ONETWO3D_PARAM_KEY = "wpam_id"
 ONETWO3D_PARAM_VALUE = "9"
 
 WEST3D_DOMAIN = "west3d.com"
-WEST3D_AFFIL_TAG = "/3DWIKI"
+WEST3D_PARAM_KEY = "dt_id"
+WEST3D_PARAM_VALUE = "2902688;ap:1878203"
+
+# Anything even vaguely resembling 3DWIKI gets destroyed (case-insensitive)
+NUKE_PATTERNS = [
+    r"3d[\-_]?wiki",
+    r"wiki[\-_]?3d",
+]
+
+NUKE_RE = re.compile("|".join(NUKE_PATTERNS), re.IGNORECASE)
 
 # --- Matching links in markdown / html-in-markdown ---
 MD_LINK_RE = re.compile(r'(\]\()(\s*)(https?://[^\s)]+)(\s*)(\))')
@@ -31,49 +40,76 @@ def host_matches(netloc: str, domain: str) -> bool:
 
 
 # ============================
-# Autofix: add affiliate tags
+# URL helpers
 # ============================
+def nuke_3dwiki_everywhere(p) -> tuple[str, str, str]:
+    """
+    Remove all 3DWIKI/wiki3d variants from:
+    - path
+    - query values
+    - fragment
+    """
+    # Path
+    clean_path = NUKE_RE.sub("", p.path or "/")
+
+    # Query (remove from values, keep keys)
+    qsl = parse_qsl(p.query, keep_blank_values=True)
+    clean_qsl = []
+    for k, v in qsl:
+        clean_v = NUKE_RE.sub("", v)
+        if clean_v.strip():
+            clean_qsl.append((k, clean_v))
+    clean_query = urlencode(clean_qsl, doseq=True)
+
+    # Fragment
+    clean_fragment = NUKE_RE.sub("", p.fragment or "")
+
+    # Normalize slashes after nuking
+    clean_path = re.sub(r"/{2,}", "/", clean_path)
+    if not clean_path.startswith("/"):
+        clean_path = "/" + clean_path
+
+    return clean_path, clean_query, clean_fragment
+
+
 def ensure_query_param(url: str, key: str, value: str) -> str:
-    """
-    Ensure key=value exists in query string. Preserves ordering + duplicates.
-    """
     p = urlparse(url)
     qsl = parse_qsl(p.query, keep_blank_values=True)
 
-    if any(k == key and v == value for k, v in qsl):
-        return url
+    new_qsl = [(k, v) for k, v in qsl if k != key]
+    new_qsl.append((key, value))
 
-    qsl.append((key, value))
-    new_query = urlencode(qsl, doseq=True)
+    new_query = urlencode(new_qsl, doseq=True)
     return urlunparse((p.scheme, p.netloc, p.path, p.params, new_query, p.fragment))
 
 
+# ============================
+# Autofix: affiliate handling
+# ============================
 def ensure_onetwo3d_affiliate(url: str) -> str:
     p = urlparse(url)
     if not host_matches(p.netloc, ONETWO3D_DOMAIN):
         return url
     return ensure_query_param(url, ONETWO3D_PARAM_KEY, ONETWO3D_PARAM_VALUE)
 
+
 def ensure_west3d_affiliate(url: str) -> str:
     p = urlparse(url)
     if not host_matches(p.netloc, WEST3D_DOMAIN):
         return url
 
-    tag = WEST3D_AFFIL_TAG.strip("/")  # "3DWIKI"
+    # 1) TOTAL 3DWIKI NUKING
+    clean_path, clean_query, clean_fragment = nuke_3dwiki_everywhere(p)
 
-    path = p.path or "/"
+    cleaned = urlunparse(
+        (p.scheme, p.netloc, clean_path, p.params, clean_query, clean_fragment)
+    )
 
-    # Normalize for comparison: ignore a trailing slash
-    norm_path = path.rstrip("/") if path != "/" else path
+    # 2) Enforce correct Collabs param
+    cleaned = ensure_query_param(cleaned, WEST3D_PARAM_KEY, WEST3D_PARAM_VALUE)
 
-    # Already tagged?
-    if norm_path.endswith("/" + tag) or norm_path == "/" + tag:
-        return url
+    return cleaned
 
-    # Append tag as final path segment
-    new_path = norm_path.rstrip("/") + "/" + tag
-
-    return urlunparse((p.scheme, p.netloc, new_path, p.params, p.query, p.fragment))
 
 def fix_url(url: str) -> str:
     url = ensure_west3d_affiliate(url)
@@ -83,16 +119,13 @@ def fix_url(url: str) -> str:
 
 def process_text_fix(content: str) -> str:
     def repl_md(m: re.Match) -> str:
-        fixed = fix_url(m.group(3))
-        return f"{m.group(1)}{m.group(2)}{fixed}{m.group(4)}{m.group(5)}"
+        return f"{m.group(1)}{m.group(2)}{fix_url(m.group(3))}{m.group(4)}{m.group(5)}"
 
     def repl_auto(m: re.Match) -> str:
-        fixed = fix_url(m.group(2))
-        return f"{m.group(1)}{fixed}{m.group(3)}"
+        return f"{m.group(1)}{fix_url(m.group(2))}{m.group(3)}"
 
     def repl_html(m: re.Match) -> str:
-        fixed = fix_url(m.group(2))
-        return f"{m.group(1)}{fixed}{m.group(3)}"
+        return f"{m.group(1)}{fix_url(m.group(2))}{m.group(3)}"
 
     content = MD_LINK_RE.sub(repl_md, content)
     content = MD_AUTOLINK_RE.sub(repl_auto, content)
@@ -132,7 +165,6 @@ def run_fix(files: list[Path]) -> int:
 # Check: detect external link changes excluding West3D/OneTwo3D
 # ==========================================================
 def normalize_url_for_compare(raw: str) -> str:
-    # diffs often contain &amp;
     return raw.replace("&amp;", "&")
 
 
@@ -143,16 +175,14 @@ def extract_non_affiliate_external_link_changes(diff_text: str) -> tuple[list[st
     for line in diff_text.splitlines():
         if not line:
             continue
-
-        # skip file headers
         if line.startswith("+++ ") or line.startswith("--- "):
             continue
 
-        target_set = None
+        target = None
         if line.startswith("+") and not line.startswith("+++"):
-            target_set = added
+            target = added
         elif line.startswith("-") and not line.startswith("---"):
-            target_set = removed
+            target = removed
         else:
             continue
 
@@ -160,38 +190,33 @@ def extract_non_affiliate_external_link_changes(diff_text: str) -> tuple[list[st
             url = normalize_url_for_compare(m.group(0))
             p = urlparse(url)
 
-            # only consider http(s)
             if p.scheme not in ("http", "https"):
                 continue
 
-            # ignore West3D + OneTwo3D completely
             if host_matches(p.netloc, WEST3D_DOMAIN) or host_matches(p.netloc, ONETWO3D_DOMAIN):
                 continue
 
-            target_set.add(url)
+            target.add(url)
 
-    # net-out: if same URL appears both added and removed, it's not a net change
-    net_added = sorted(added - removed)
-    net_removed = sorted(removed - added)
-    return net_added, net_removed
+    return sorted(added - removed), sorted(removed - added)
 
 
 def write_github_outputs(added: Iterable[str], removed: Iterable[str]) -> None:
     out_path = os.environ.get("GITHUB_OUTPUT")
-    payload = []
-    payload.append("ADDED<<EOF")
-    payload.extend(added)
-    payload.append("EOF")
-    payload.append("REMOVED<<EOF")
-    payload.extend(removed)
-    payload.append("EOF")
+    payload = [
+        "ADDED<<EOF",
+        *added,
+        "EOF",
+        "REMOVED<<EOF",
+        *removed,
+        "EOF",
+    ]
     text = "\n".join(payload) + "\n"
 
     if out_path:
         with open(out_path, "a", encoding="utf-8") as f:
             f.write(text)
     else:
-        # local debug
         print(text, end="")
 
 
@@ -213,24 +238,20 @@ def run_check(diff_file: Path) -> int:
     return 0
 
 
-# =====
-# CLI
-# =====
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Single-file affiliate autofix + external link change checker.")
+    ap = argparse.ArgumentParser(description="Affiliate autofix + external link guard.")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    ap_fix = sub.add_parser("fix", help="Add missing affiliate tags/prefixes in markdown/html.")
-    ap_fix.add_argument("--files", required=True, help="Path to newline-separated list of changed markdown files.")
+    ap_fix = sub.add_parser("fix")
+    ap_fix.add_argument("--files", required=True)
 
-    ap_check = sub.add_parser("check", help="Check for external link changes (excluding West3D/OneTwo3D) from a diff.")
-    ap_check.add_argument("--diff", required=True, help="Path to diff file (e.g., diff.txt).")
+    ap_check = sub.add_parser("check")
+    ap_check.add_argument("--diff", required=True)
 
     args = ap.parse_args()
 
     if args.cmd == "fix":
-        fl = Path(args.files)
-        files = load_files_from_list(fl) if fl.exists() else []
+        files = load_files_from_list(Path(args.files))
         raise SystemExit(run_fix(files))
 
     if args.cmd == "check":
