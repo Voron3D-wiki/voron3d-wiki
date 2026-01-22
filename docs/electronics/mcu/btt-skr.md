@@ -18,7 +18,7 @@ The BigTreeTech (BTT) SKR series represents a popular line of 32-bit mainboards 
 - **Connectivity**: USB, UART
 - **Price Range**: $
 - **Best For**: Entry-level printers, Ender 3 upgrades
-- **Buy**: [Amazon ](https://amzn.to/47q6csL), [  Biqu Offical Store](https://tidd.ly/3K362Qt) [  West3d](https://west3d.com/products/btt-skr-mini-e3-v3-controller-board-3d-printer-control-system/3DWIKI)
+- **Buy**: [Amazon ](https://amzn.to/47q6csL), [  Biqu Offical Store](https://tidd.ly/3K362Qt) [  West3d](https://west3d.com/products/btt-skr-mini-e3-v3-controller-board-3d-printer-control-system)
 
 ### SKR Pro V1.2
 - **Processor**: STM32F407
