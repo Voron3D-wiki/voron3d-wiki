@@ -103,12 +103,17 @@ jobs:
           exit 1
 
       # --- Collect changed markdown files ---
-      - name: Collect changed markdown files
+      # - name: Collect changed markdown files
+      #   run: |
+      #     BASE="origin/${{ github.event.pull_request.base.ref }}"
+      #     git diff --name-only "$BASE"...HEAD -- '*.md' '*.markdown' > changed_md.txt || true
+      #     echo "Changed markdown files:"
+      #     cat changed_md.txt || true
+
+      - name: Collect ALL markdown files (one-time cleanup)
         run: |
-          BASE="origin/${{ github.event.pull_request.base.ref }}"
-          git diff --name-only "$BASE"...HEAD -- '*.md' '*.markdown' > changed_md.txt || true
-          echo "Changed markdown files:"
-          cat changed_md.txt || true
+          find docs -type f \( -name "*.md" -o -name "*.markdown" \) > changed_md.txt
+
 
       - name: Autofix West3D + OneTwo3D affiliate links (changed files only)
         if: ${{ hashFiles('changed_md.txt') != '' }}
