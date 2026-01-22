@@ -31,7 +31,7 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
 
 - **Purchase Options**:
   - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
-  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/?dt_id=2902688%3Bap%3A1878203)
   - [Amazon PLA Filament Section](https://amzn.to/4jOjKnI)
 
 ### PETG (Polyethylene Terephthalate Glycol)
@@ -52,7 +52,7 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
 
 - **Purchase Options**:
   - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
-  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/?dt_id=2902688%3Bap%3A1878203)
   - [Amazon PLA Filament Section](https://amzn.to/49Ik0jy)
 
 ### ABS (Acrylonitrile Butadiene Styrene)
@@ -70,7 +70,7 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
 
 - **Purchase Options**:
   - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
-  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/?dt_id=2902688%3Bap%3A1878203)
   - [Amazon PLA Filament Section](https://amzn.to/4r5yjpA)
 
 ### TPU (Thermoplastic Polyurethane)
@@ -88,7 +88,7 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
 
 - **Purchase Options**:
   - [OneTwo3D Filament Selection](https://www.onetwo3d.co.uk/product-category/filament/?wpam_id=9)
-  - [West3d Filament Selection](https://west3d.com/collections/filament/3DWIKI)
+  - [West3d Filament Selection](https://west3d.com/collections/filament/?dt_id=2902688%3Bap%3A1878203)
   - [Amazon PLA Filament Section](https://amzn.to/4raBso5)
 
 ## Recommendations
