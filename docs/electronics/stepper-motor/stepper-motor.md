@@ -38,9 +38,11 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 {% include "../stepper-motor/stepper-motor-database.md" %}
 
 
-### Stepper Motor Purchase links
-|model name and brand|Buy|
-|LDO Stepper Motor (42STH40-1684AC) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-1684ac/?wpam_id=9)  [ West3d](https://west3d.com/products/ldo-motors-ldo-42sth40-1684ac-nema17-motor/?_pos=1&_sid=308201ddc&_ss=r%2F&dt_id=2902688%3Bap%3A1878203)|
+### Nema 17 Stepper Motor Purchase links
+
+| Model Name and Brand | Buy |
+|---|---|
+| LDO Stepper Motor (42STH40-1684AC) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-1684ac/?wpam_id=9) \| [ West3d](https://west3d.com/products/ldo-motors-ldo-42sth40-1684ac-nema17-motor/?_pos=1&_sid=308201ddc&_ss=r%2F&dt_id=2902688%3Bap%3A1878203) |
 |Kraken LDO-42STH60-3004AHR(S37)| [onetwo3d](https://www.onetwo3d.co.uk/product/kraken-ldo-42sth60-3004ahs37/?wpam_id=9) [ West3d](https://west3d.com/products/kraken-motors-from-devil-design-ldo-42sth60-3004ah-s37-and-s55-extreme-stepper-motor/?_pos=1&_sid=6495a3f48&_ss=r%2F&dt_id=2902688%3Bap%3A1878203) |
 |LDO Stepper Motor (42STH20-1004ASH)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth20-1004as/?wpam_id=9) [ West3d](https://west3d.com/products/nema-17-42mm-motor-high-temp-ldo-42sth20-1004ash-vrn-voron-edition/?_pos=1&_sid=69b5409d1&_ss=r%2F&dt_id=2902688%3Bap%3A1878203) |
 |LDO Stepper Motor (42STH40-2004MAH)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth40-2004mah/?wpam_id=9) [ West3d](https://west3d.com/products/ldo-motors-42sth48-2004mah-nema-17-stepper-motor-high-temperature/?_pos=1&_sid=b4eceeaf9&_ss=r&dt_id=2902688%3Bap%3A1878203) |
@@ -58,31 +60,32 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 |LDO Stepper Motor (42STH48-2804AH-S80)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-42sth48-2804ah-s80-super-power-stepper-motor/?wpam_id=9) |
 |LDO Stepper Motor (42STH25-1004CL200ET)| [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-42sth25-1004cl200et/?wpam_id=9)  |
 
-**Kits**
+### Kits
 
-[Box Turtle AFC Mini DC Motor Kit (LDO) onetwo3d](https://www.onetwo3d.co.uk/product/box-turtle-afc-mini-dc-motor-kit-ldo/?wpam_id=9)
-
-[Box Turtle AFC Stepper Kit (LDO) onetwo3d](https://www.onetwo3d.co.uk/product/box-turtle-afc-stepper-kit-ldo/?wpam_id=9)
-
-West3d:
-- [Voron 2.4 Motor Kit by LDO Motors (Clockwork 2 updated) - V2.4](https://west3d.com/products/voron-2-4-motor-kit-by-ldo-motors/?_pos=8&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203)
-- [Voron V0.1 / V0.2 Motor Kit by LDO Motors](https://west3d.com/products/voron-v0-1-motor-kit-by-ldo-motors/?_pos=9&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203)
-- [Positron Motor Kit by LDO Motors](https://west3d.com/products/positron-motor-kit-by-ldo-motors/?_pos=23&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203)
-- [MicronPlus 3D Printer Motor Kit by LDO Motors](https://west3d.com/products/micron-3d-printer-motor-kit-by-ldo-motors/?_pos=22&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203)
-
-
-**Pancake Motors**
-
-[LDO Pancake Motor (36STH20-1004AHG8T)](https://www.onetwo3d.co.uk/product/ldo-36sth20-1004ahg8t-stepper/?wpam_id=9)
-
-[LDO Pancake Motor (36STH20-1004AHG)](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-36sth20-1004ahg/?wpam_id=9)
+| Product Name | Vendor |
+|---|---|
+| Box Turtle AFC Mini DC Motor Kit (LDO) | [onetwo3d](https://www.onetwo3d.co.uk/product/box-turtle-afc-mini-dc-motor-kit-ldo/?wpam_id=9) |
+| Box Turtle AFC Stepper Kit (LDO) | [onetwo3d](https://www.onetwo3d.co.uk/product/box-turtle-afc-stepper-kit-ldo/?wpam_id=9) |
+| Voron 2.4 Motor Kit by LDO Motors (Clockwork 2 updated) - V2.4 | [West3d](https://west3d.com/products/voron-2-4-motor-kit-by-ldo-motors/?_pos=8&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203) |
+| Voron V0.1 / V0.2 Motor Kit by LDO Motors | [West3d](https://west3d.com/products/voron-v0-1-motor-kit-by-ldo-motors/?_pos=9&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203) |
+| Positron Motor Kit by LDO Motors | [West3d](https://west3d.com/products/positron-motor-kit-by-ldo-motors/?_pos=23&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203) |
+| MicronPlus 3D Printer Motor Kit by LDO Motors | [West3d](https://west3d.com/products/micron-3d-printer-motor-kit-by-ldo-motors/?_pos=22&_sid=71a5ca88d&_ss=r&dt_id=2902688%3Bap%3A1878203) |
 
 
-**NEMA 14**
+### Pancake Motors
 
-[LDO Stepper Motor (35STH52-1504AH)](https://www.onetwo3d.co.uk/product/ldo-35sth52-1504ah-stepper-motor/?wpam_id=9)
+| Model Name and Brand | Buy |
+|---|---|
+| LDO Pancake Motor (36STH20-1004AHG8T) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-36sth20-1004ahg8t-stepper/?wpam_id=9) |
+| LDO Pancake Motor (36STH20-1004AHG) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-stepper-motor-36sth20-1004ahg/?wpam_id=9) |
 
-[LDO Stepper Motor (35STH52-2004AHS35)](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9)
+
+### NEMA 14
+
+| Model Name and Brand | Buy |
+|---|---|
+| LDO Stepper Motor (35STH52-1504AH) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-1504ah-stepper-motor/?wpam_id=9) |
+| LDO Stepper Motor (35STH52-2004AHS35) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9) |
 
 
 ## References

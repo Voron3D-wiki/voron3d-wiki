@@ -26,7 +26,7 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 |------|----------|----------|-----------|
 | 8-bit | ATmega2560 | Basic features | Legacy systems |
 | 32-bit | STM32F4/H7 | Advanced features | Modern printers |
-| Multi-core | RP2040 | Parallel processing | Complex setups |
+| Multi-core | RP2040 | Parallel processing | *depends on use case |
 
 ### Connectivity Options
 | Type | Speed | Use Cases | Compatibility |
