@@ -70,7 +70,8 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 
 ### Formbot Voron v0 kit review
 
-??? note 
+??? note
+
   We are working on the assumption that all voron v0 kits will have all the parts exept the printed components that are needed to assemble a voron v0, The pros and cons are specifically pointing out things that kits do better or worse than the stock voron v0 bom
 
 | Pros | Cons |

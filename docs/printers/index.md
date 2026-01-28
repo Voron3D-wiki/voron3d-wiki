@@ -163,261 +163,289 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-## Community Derivatives
+## NonVoron Printers
 
-### [Enderwire](https://github.com/RobotRogue/Enderwire_Docs)
+??? What we mean by NonVoron
 
-<div class="grid" markdown>
-<div style="order: 1;">
-
-<img src="./enderwire.png" alt="Enderwire" align="left" style="max-width: 300px; border-radius: 10px;" />
-
-</div>
-<div style="order: 2;">
-
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>CoreXZ Conversion</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>235mm³ (220mm*)</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Ender 3 conversion, CoreXZ motion, fully enclosed, cost-effective upgrade, active community support</td>
-  </tr>
-  <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://s.click.aliexpress.com/e/_opZaYvv">Siboor Enderwire kit</a></td>
-  </tr>
-</table>
-
-</div>
-</div>
+  This is not a statment of opinion or a comment about the quality of anything, this is simple to differentiate between printers that are from the Voron Design team who released the v2.4, v0 etc. There are other printers out there designed by different poeple and we wanted to make sure we could show those off aswell.
 
 ---
 
-### [Micron (plus)](Printers-for-ants/micron.md)
+=== Micron (Plus)
 
-<div class="grid" markdown>
-<div style="order: 2;">
-<!-- 
-<img src="./Printers-for-ants/micron+180.jpg" alt="Micron Plus" align="right" style="max-width: 300px; border-radius: 10px;" /> -->
+    <div class="grid cards" markdown>
+      <div style="order: 1;" align="left">
 
-</div>
-<div style="order: 1;">
+      **Specifications**
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>CoreXZ Conversion</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>185mm³</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>A smaller Voron 2.4, using 1515 aluminum extrusions, with a flying gantry, fully enclosed</td>
-  </tr>
-  <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://s.click.aliexpress.com/e/_oFJRybd">Formbot Micron Plus kit</a></td>
-  </tr>
-</table>
+      | Specification | Details |
+      |---|---|
+      | Type | CoreXY |
+      | Build Volume | 185mm³ |
 
-</div>
-</div>
+      </div>
+      <div style="order: 2;" align="left">
+
+      **Features**
+
+      - A smaller Voron 2.4
+      - Uses 1515 aluminum extrusions
+      - Flying gantry
+      - Fully enclosed
+
+      **Links**
+
+      [Formbot Micron Plus kit](https://s.click.aliexpress.com/e/_oFJRybd)  
+      [Documentation](Printers-for-ants/micron.md)
+      </div>
+    </div>
 
 ---
 
-### [Salad Fork](https://github.com/PrintersForAnts/Salad_Fork)
+=== "Tri Zero"
 
-<div class="grid" markdown>
-<div style="order: 1;">
+    <div class="grid" markdown>
+      <div style="order: 1;" align="left">
 
-<!-- image here -->
+      **Specifications**
 
-</div>
-<div style="order: 2;">
+      | Specification | Details |
+      |---|---|
+      | Type | CoreXY |
+      | Build Volume | 120x120x120 |
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>120mm^3, 150mm^3, 180mm^3</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>take a voron trident, swap the 2020 extrusions for 1515 exrusions minify everything and you've got a salad fork</td>
-  </tr>
-</table>
+      **Features**
 
-</div>
-</div>
+      - Based on Voron V0
+      - CoreXY motion
+      - 3 point bed tramming
+      - Enhanced functionality over original V0
 
----
+      </div>
 
-### [Tri Zero / T-Zero / Tri zero plus](https://github.com/zruncho3d/tri-zero/tree/main)
+      <div style="order: 2;" align="left">
 
-<div class="grid" markdown>
-<div style="order: 1;">
+      **Description**
 
-<!-- image here -->
+      An enhanced variant of the Voron V0 design featuring CoreXY motion with automatic bed tramming capabilities.
 
-</div>
-<div style="order: 2;">
+      **Links**
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>300x300x350mm</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Based on Voron V0, CoreXY motion, but with Automatic Bed Leveling</td>
-  </tr>
-</table>
+      [GitHub](https://github.com/zruncho3d/tri-zero/tree/main)
 
-</div>
-</div>
+      </div>
+    </div>
 
----
+=== "Tri Zero Plus"
 
-### [Sovol SV08](https://github.com/Sovol3d/SV08)
+    <div class="grid" markdown>
+      <div style="order: 1;" align="left">
 
-<div class="grid" markdown>
-<div style="order: 1;">
+      **Specifications**
 
-<!-- image would go here -->
+      | Specification | Details |
+      |---|---|
+      | Type | Core XY |
+      | Build Volume | 180x180x180 |
 
-</div>
-<div style="order: 2;">
+      **Features**
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>350x350x345mm</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Based on Voron V2.4, CoreXY motion, fully enclosed, commercial availability</td>
-  </tr>
-  <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://amzn.to/4rf9B6Q">Amazon</a></td>
-  </tr>
-</table>
+      Enhanced variant of the Tri Zero design with additional improvements. Details coming soon.
 
-</div>
-</div>
+      </div>
+
+      <div style="order: 2;" align="left">
+
+      **Description**
+
+      An upgraded version of the Tri Zero with enhanced functionality and features.
+
+      **Links**
+
+      [GitHub](https://github.com/zruncho3d/tri-zero/tree/main)
+
+      </div>
+    </div>
 
 ---
 
-### [Sovol Zero](https://github.com/Sovol3d/SV08)
+=== "Salad Fork"
 
-<div class="grid" markdown>
-<div style="order: 1;">
+    <div class="grid cards" markdown>
+      <div style="order: 1;" align="left">
+      ### Specifications
 
-<!-- image would go here -->
+      | Specification | Details |
+      |---|---|
+      | Type | CoreXY |
+      | Build Volume | 120mm³, 150mm³, 180mm³ |
 
-</div>
-<div style="order: 2;">
+      ### Features
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>150mm^3</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Based on Voron V0, CoreXY motion, fully enclosed, commercial availability</td>
-  </tr>
-    <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://amzn.to/4phsZyc">Amazon</a></td>
-  </tr>
-</table>
+      - 3-point bed tilt
+      - Supports multiple probes
+      - Supports multiple toolheads
 
-</div>
-</div>
+      </div>
+
+      <div style="order: 2;" align="left">
+
+      **Description**
+
+      Take a Voron Trident, swap 2020 extrusions for 1515 extrusions for a minified design, creating a compact CoreXY printer with excellent print quality.
+
+      **Links**
+
+      [GitHub](https://github.com/PrintersForAnts/Salad_Fork)
+      </div>
+    </div>
 
 ---
 
-### [Voron Legacy](./legacy/legacy.md)
+=== "Enderwire"
 
-<div class="grid" markdown>
-<div style="order: 1;">
+    <div class="grid cards" markdown>
 
-<img src="./legacy/legacy.jpg" alt="Voron Legacy" style="width: 100%; max-width: 300px; border-radius: 10px;" />
+      <div style="order: 1;" align="left">
 
-</div>
-<div style="order: 2;">
+      <img src="./enderwire.png" alt="Enderwire" style="max-width: 300px; border-radius: 10px;" />
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Legacy CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>250mm³</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Original Voron design, CoreXY motion, community support, historical significance</td>
-  </tr>
-</table>
+      </div>
 
-</div>
-</div>
+      <div style="order: 2;" align="left">
+
+      **Specifications**
+
+      | Specification | Details |
+      |---|---|
+      | Type | CoreXZ Conversion |
+      | Build Volume | 235mm³ (220mm*) |
+
+      **Features**
+
+      - Ender 3 conversion
+      - CoreXZ motion
+      - Fully enclosed
+      - Cost-effective upgrade
+      - Active community
+
+      ### Links
+
+      [Siboor Enderwire kit](https://s.click.aliexpress.com/e/_opZaYvv)  
+      [GitHub](https://github.com/RobotRogue/Enderwire_Docs)
+      </div>
+    </div>
 
 ---
+
+### Sovol Printers
+
+=== "Sovol SV08"
+
+    <div class="grid" markdown>
+      <div style="order: 1;" align="left">
+
+      **Specifications**
+
+      | Specification | Details |
+      |---|---|
+      | Type | CoreXY |
+      | Build Volume | 350x350x345mm |
+
+      **Features**
+
+      - Based on Voron V2.4
+      - CoreXY motion
+      - Can be Fully enclosed
+      - Commercial availability
+
+      </div>
+
+      <div style="order: 2;" align="left">
+
+      **Description**
+
+      A commercial 3D printer based on the Voron V2.4 design, offering CoreXY motion in a fully enclosed chassis.
+
+      **Purchase**
+
+      [Amazon](https://amzn.to/4rf9B6Q) \| [GitHub](https://github.com/Sovol3d/SV08)
+
+      </div>
+    </div>
+
+=== "Sovol Zero"
+
+    <div class="grid" markdown>
+      <div style="order: 1;" align="left">
+
+      **Specifications**
+
+      | Specification | Details |
+      |---|---|
+      | Type | CoreXY |
+      | Build Volume | 150mm³ |
+
+      **Features**
+
+      - Based on Voron V0
+      - CoreXY motion
+      - Fully enclosed
+      - Commercial availability
+
+      </div>
+
+      <div style="order: 2;" align="left">
+
+      **Description**
+
+      A commercial variant based on the Voron V0, providing CoreXY motion in a compact, fully enclosed design.
+
+      **Purchase**
+
+      [Amazon](https://amzn.to/4phsZyc) \| [GitHub](https://github.com/Sovol3d/SV08)
+
+      </div>
+    </div>
+
+---
+
+=== "Voron Legacy"
+
+    <div class="grid cards" markdown>
+      <div style="order: 1;" align="left">
+
+      **Specifications**
+
+      | Specification | Details |
+      |---|---|
+      | Type | Legacy CoreXY |
+      | Build Volume | 250mm³ |
+
+      **Features**
+
+      - Original Voron design
+      - CoreXY motion
+      - Community support
+      - Historical significance
+
+      </div>
+
+      <div style="order: 2;" align="left">
+
+      **Description**
+
+      The original Voron design with CoreXY motion, representing the heritage of the Voron project with strong community support and historical importance to the 3D printing community.
+
+      **Links**
+
+      [Documentation](./legacy/legacy.md)
+
+      </div>
+    </div>
+
+---
+
 
 ## Related Resources
 

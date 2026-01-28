@@ -84,8 +84,8 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 
 | Model Name and Brand | Buy |
 |---|---|
-| LDO Stepper Motor (35STH52-1504AH) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-1504ah-stepper-motor/?wpam_id=9) |
-| LDO Stepper Motor (35STH52-2004AHS35) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9) |
+| LDO Stepper Motor (35STH52-1504AH) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-1504ah-stepper-motor/?wpam_id=9) [ West3d](https://west3d.com/products/ldo-motors-ldo-35sth52-1504ahvrn-nema14-motor?_pos=7&_sid=c9fb57772&_ss=r) |
+| LDO Stepper Motor (35STH52-2004AHS35) | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-35sth52-2004ahs35-stepper-motor/?wpam_id=9) [ West3d](https://west3d.com/products/ldo-motors-ldo-35sth52-2004s35-nema14-motor?_pos=4&_sid=c9fb57772&_ss=r) |
 
 
 ## References
