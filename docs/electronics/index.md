@@ -16,11 +16,63 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 
 ### Main Components
 
-[Main Control Units](./mcu/index.md) | [Toolhead Boards](../printhead/toolhead-boards/index.md) | [Connectors](./connectors.md)
+<div class="grid cards" markdown>
+
+-   :material-chip:{ .lg .middle } __Main Control Units__
+
+    ---
+
+    Explore the main control units and MCU boards for Voron printers.
+
+    [:octicons-arrow-right-24: Learn more](./mcu/index.md){ .md-button }
+
+-   :material-lightning-bolt:{ .lg .middle } __Toolhead Boards__
+
+    ---
+
+    Discover toolhead electronics and control boards for your printhead.
+
+    [:octicons-arrow-right-24: Learn more](../printhead/toolhead-boards/index.md){ .md-button }
+
+-   :material-power-plug:{ .lg .middle } __Connectors__
+    ---
+
+    Find information on connectors and wiring standards used in Voron printers.
+
+    [:octicons-arrow-right-24: Learn more](./connectors.md){ .md-button }
+
+</div>
 
 ### Power Systems
 
-[Power Supplies](./power-supplies/index.md) | [Wiring Guide](./wiring/index.md) | [Safety Guidelines](./safety/index.md)
+<div class="grid cards" markdown>
+
+-   :material-power-socket:{ .lg .middle } __Power Supplies__
+
+    ---
+
+    Learn how to choose and configure the right power supply for your printer.
+
+    [:octicons-arrow-right-24: Learn more](./power-supplies/index.md){ .md-button }
+
+-   :material-cable:{ .lg .middle } __Wiring Guide__
+
+    ---
+
+    Complete wiring diagrams and best practices for safe electrical connections.
+
+    [:octicons-arrow-right-24: Learn more](./wiring/index.md){ .md-button }
+
+-   :material-shield-alert:{ .lg .middle } __Safety Guidelines__
+
+    ---
+
+    Essential safety information for working with printer electronics.
+
+    [:octicons-arrow-right-24: Learn more](./safety/index.md){ .md-button }
+
+</div>
+
 
 ## Key Topics
 

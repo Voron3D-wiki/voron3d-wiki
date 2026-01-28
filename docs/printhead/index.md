@@ -12,12 +12,41 @@ This section covers the mechanical components and assemblies that make up Voron 
 
 ## Quick Links
 
-<!-- ### Core Components -->
+<div class="grid cards" markdown>
 
-[**Extruders**](extruders/index.md){ .md-button }
-[**Hotends**](hotends/index.md){ .md-button }
-[**Part Cooling Fans**](../electronics/fans/index.md){ .md-button }
-[**Toolhead Boards**](toolhead-boards/index.md){ .md-button }
+-   :material-cube-outline:{ .lg .middle } __Extruders__
+
+    ---
+
+    Learn about the different extruders avalable for 3d printers.
+
+    [:octicons-arrow-right-24: Learn more](extruders/index.md){ .md-button }
+
+-   :material-cube-scan:{ .lg .middle } __Hotends__
+
+    ---
+
+    Discover different hotends and their features.
+
+    [:octicons-arrow-right-24: Learn more](hotends/index.md){ .md-button }
+
+-   :material-cube:{ .lg .middle } __Fans__
+
+    ---
+
+    Find the perfect fans for your build.
+
+    [:octicons-arrow-right-24: Learn more](../electronics/fans/index.md){ .md-button }
+
+-   :material-robot-outline:{ .lg .middle } __Toolheadboard__
+
+    ---
+
+    A toolhead board greatly simplifies your wiring and can add some interesting features.
+
+    [:octicons-arrow-right-24: Learn more](toolhead-boards/index.md){ .md-button }
+
+</div>
 
 ## Popular Options
 
@@ -31,8 +60,6 @@ This section covers the mechanical components and assemblies that make up Voron 
 | AT4 | Advanced cooling, modular design | Limited hotend support as it has tight clearance in between the fans and the hotend |  [More Info](https://github.com/Armchair-Heavy-Industries/A4T/tree/main) |
 | Dragon Burner | | |  [More Info](https://github.com/chirpy2605/voron/tree/main/V0/Dragon_Burner) |
 | CrownCooler | CPAP | CPAP |  [More Info](https://github.com/sneakytreesnake/CrownCooler/tree/main) |
-
-
 
 ## References
 1. [Voron Design](https://vorondesign.com)
