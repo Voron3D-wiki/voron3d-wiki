@@ -275,14 +275,14 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
     <div class="grid cards" markdown>
       <div style="order: 1;" align="left">
-      ### Specifications
+      **Specifications**
 
       | Specification | Details |
       |---|---|
       | Type | CoreXY |
       | Build Volume | 120mm³, 150mm³, 180mm³ |
 
-      ### Features
+      **Features**
 
       - 3-point bed tilt
       - Supports multiple probes
