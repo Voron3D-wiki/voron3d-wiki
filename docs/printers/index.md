@@ -171,7 +171,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ---
 
-=== Micron (Plus)
+=== "Micron (Plus)"
 
     <div class="grid cards" markdown>
       <div style="order: 1;" align="left">
@@ -184,6 +184,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
       | Build Volume | 185mm³ |
 
       </div>
+      
       <div style="order: 2;" align="left">
 
       **Features**
@@ -197,6 +198,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
       [Formbot Micron Plus kit](https://s.click.aliexpress.com/e/_oFJRybd)  
       [Documentation](Printers-for-ants/micron.md)
+
       </div>
     </div>
 
