@@ -1,9 +1,1 @@
-docs/electronics/index.md
-docs/electronics/mcu/index.md
-docs/electronics/stepper-motor/stepper-motor.md
-docs/printers/DoomCube/TriZero/index.md
-docs/printers/DoomCube/duelingZero/index.md
-docs/printers/DoomCube/index.md
 docs/printers/index.md
-docs/printers/v0/index.md
-docs/printhead/index.md

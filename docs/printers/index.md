@@ -165,9 +165,8 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ## NonVoron Printers
 
-??? What we mean by NonVoron
-
-  This is not a statment of opinion or a comment about the quality of anything, this is simple to differentiate between printers that are from the Voron Design team who released the v2.4, v0 etc. There are other printers out there designed by different poeple and we wanted to make sure we could show those off aswell.
+??? "note"
+    This is not a statment of opinion or a comment about the quality of anything, this is simple to differentiate between printers that are from the Voron Design team who released the v2.4, v0 etc. There are other printers out there designed by different poeple and we wanted to make sure we could show those off aswell.
 
 ---
 
