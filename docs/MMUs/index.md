@@ -76,6 +76,13 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 - [TriagnelLabs kit](https://s.click.aliexpress.com/e/_onfSHaw)
 - [Seleadlab  kit](https://s.click.aliexpress.com/e/_oCy7tdC)
 
+### [Low Rider V2](https://www.printables.com/model/1592898-low-rider-mmu-v20-for-any-klipper-printer)
+- **Description**: A similar system to the PICO MMU, and the HTLF, it uses a camshaft to put presure on the fillament it want to load.
+- **Key Features**:
+    - Modular design for easy expansion
+    - Supports up to 6 colors/materials
+
+
 ### [TradRack](tradrack.md)
 - **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
 - **Key Features**:
