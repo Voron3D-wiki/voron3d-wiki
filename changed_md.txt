@@ -1,1 +1,6 @@
+docs/MMUs/index.md
+docs/printers/DoomCube/TriZero/index.md
+docs/printers/DoomCube/index.md
 docs/printers/index.md
+docs/printers/v0/index.md
+docs/printhead/nozzle.md
