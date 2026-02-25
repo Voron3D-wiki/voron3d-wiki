@@ -25,28 +25,14 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 </div>
 <div style="order: 2;">
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Compact CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>120mm³</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Small footprint, high-speed printing, CoreXY motion, fully enclosed, ideal for small parts and prototyping</td>
-  </tr>
-  <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://s.click.aliexpress.com/e/_oBMsO7V">FormBot V0.2r1 kit</a></td>
-  </tr>
-</table>
+| Property | Details |
+| --- | --- |
+| Type | Compact CoreXY |
+| Build Volume | 120mm³ |
+| Key Features | Small footprint, high-speed printing, CoreXY motion, fully enclosed, ideal for small parts and prototyping |
+| Purchase Link | [FormBot V0.2r1 kit](https://s.click.aliexpress.com/e/_oBMsO7V) |
+
+[:octicons-arrow-right-24: Learn more](./v0/index.md){ .md-button }
 
 </div>
 </div>
@@ -63,28 +49,14 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 </div>
 <div style="order: 1;">
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Flagship CoreXY with flying gantry</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>250mm³, 300mm³*, 350mm³*</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Flying gantry, CoreXY motion, advanced customization, input shaping ready, top performance</td>
-  </tr>
-  <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://s.click.aliexpress.com/e/_omeAe5D">FormBot V2.4 kit</a></td>
-  </tr>
-</table>
+| Property | Details |
+| --- | --- |
+| Type | Flagship CoreXY with flying gantry |
+| Build Volume | 250mm³, 300mm³*, 350mm³* |
+| Key Features | Flying gantry, CoreXY motion, advanced customization, input shaping ready, top performance |
+| Purchase Link | [FormBot V2.4 kit](https://s.click.aliexpress.com/e/_omeAe5D) |
+
+[:octicons-arrow-right-24: Learn more](./2.4/index.md){ .md-button }
 
 </div>
 </div>
@@ -101,28 +73,14 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 </div>
 <div style="order: 2;">
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Fixed gantry CoreXY</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>250mm³, 300mm³*, 350mm³*</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>Fixed gantry for stability, CoreXY, three-point Z leveling, excellent print quality, simplified maintenance</td>
-  </tr>
-  <tr>
-    <td>Purchase Link</td>
-    <td><a href="https://s.click.aliexpress.com/e/_ooXQ0I3">FormBot Trident kit</a></td>
-  </tr>
-</table>
+| Property | Details |
+| --- | --- |
+| Type | Fixed gantry CoreXY |
+| Build Volume | 250mm³, 300mm³*, 350mm³* |
+| Key Features | Fixed gantry for stability, CoreXY, three-point Z leveling, excellent print quality, simplified maintenance |
+| Purchase Link | [FormBot Trident kit](https://s.click.aliexpress.com/e/_ooXQ0I3) |
+
+[:octicons-arrow-right-24: Learn more](./trident/index.md){ .md-button }
 
 </div>
 </div>
@@ -139,24 +97,13 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 </div>
 <div style="order: 1;">
 
-<table>
-  <tr>
-    <th>Specification</th>
-    <th>Details</th>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Bed Slinger</td>
-  </tr>
-  <tr>
-    <td>Build Volume</td>
-    <td>235mm³</td>
-  </tr>
-  <tr>
-    <td>Key Features</td>
-    <td>CoreXZ motion, compact design, direct drive extruder, fully enclosed, great Voron entry point</td>
-  </tr>
-</table>
+| Property | Details |
+| --- | --- |
+| Type | Bed Slinger |
+| Build Volume | 235mm³ |
+| Key Features | CoreXZ motion, compact design, direct drive extruder, fully enclosed, great Voron entry point |
+
+[:octicons-arrow-right-24: Learn more](./switchwire.md){ .md-button }
 
 </div>
 </div>
