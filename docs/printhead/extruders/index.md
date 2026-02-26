@@ -46,7 +46,6 @@ Extruders are critical components in 3D printers that control the flow of filame
   - [Bondtech offical kit sold by West3d (USA)](https://west3d.com/products/oem-all-metal-ridga-v2-set-by-bondtech?_pos=5&_sid=18c1e55c2&_ss=r&dt_id=2902688%3Bap%3A1878203)
   - [Bondtech OEoffical Set sold by Onetwo3d (UK)](https://www.onetwo3d.co.uk/product/bondtech-oem-set-for-sherpa-mini/?wpam_id=9)
 
-{% include "ads/article-AD.md" %}
 
 ---
 
