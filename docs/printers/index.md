@@ -472,4 +472,5 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 3. User Experience Reports
 4. Manufacturer Documentation
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

@@ -135,7 +135,6 @@ make flash FLASH_DEVICE=/dev/serial/by-id/[YOUR_DEVICE_ID]
 ```
 
 
-{% include "ads/article-AD.md" %}
 
 
 💡 Flashing Firmware — EBB36 / EBB42
@@ -260,7 +259,6 @@ make
 make flash FLASH_DEVICE=/dev/serial/by-id/[YOUR_DEVICE_ID]
 ```
 
-{% include "ads/article-AD.md" %}
 
 💡 Flashing Firmware — EBB36 / EBB42
 This procedure builds the Klipper firmware for the Tool Head Board.
@@ -359,4 +357,5 @@ control: pid
 
 - [Voron CANbus Hardware Guide]( https://docs.vorondesign.com/hardware.html)
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

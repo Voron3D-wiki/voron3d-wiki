@@ -25,7 +25,6 @@ The Voron Switchwire is a bed-slinger-style printer that combines the simplicity
 - **Hotend**: Compatible with various hotend options
 - **Electronics**: Modular design with optional toolhead board
 
-{% include "ads/article-AD.md" %}
 
 ## Technical Specifications
 
@@ -88,26 +87,7 @@ The Switchwire is popular for converting existing printers:
    - Enhanced motion system
    - Improved print quality
 
-## Build Guide
-[Link to official build guide]
 
-## Configuration
-[Link to configuration guide]
-
-## Troubleshooting
-[Link to troubleshooting guide]
-
-{% include "ads/article-AD.md" %}
-
-## Related Resources
-- [Voron Design GitHub](https://github.com/VoronDesign)
-- [Voron Discord](https://discord.gg/voron)
-- [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
-
-## References
-1. Voron Design Documentation
-2. Community Modifications Database
-3. User Experience Reports
 
 {% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
