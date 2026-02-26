@@ -45,4 +45,5 @@ Designed by Zruncho, the Tri-Zero (often called T0) is a Voron V0 mod that adds 
 - ZeroPanels (quick-release side panels)
 - Dueling Zero (dual gantry Tri-Zero)
 
-{% include "ads/article-AD.md" %}
+{% include "affiliate-disclosure.md" %}
+{% include "ads/footer-AD.md" %}

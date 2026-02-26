@@ -26,7 +26,6 @@ The Voron V2.4 is a high-performance, open-source 3D printer designed by the Vor
 - **Hotend**: Supports multiple hotend options
 - **Electronics**: Modular design with separate toolhead board
 
-{% include "ads/article-AD.md" %}
 
 ## BOMs
 
@@ -75,7 +74,6 @@ The Voron V2.4 is a high-performance, open-source 3D printer designed by the Vor
 
 ### ToolChangers / Multi Color Options
 
-{% include "ads/article-AD.md" %}
 
 ## Related Resources
 - [Voron Design GitHub](https://github.com/VoronDesign)

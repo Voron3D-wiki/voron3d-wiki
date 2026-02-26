@@ -17,7 +17,6 @@ Below is a generic image of what a Voron V0 can look like. Like all Voron 3D pri
 
 The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, like most Vorons, uses a CoreXY motion system where the bed moves as part of the Z-axis on a single lead screw.
 
-{% include "ads/article-AD.md" %}
 
 ## BOM
 
@@ -122,7 +121,6 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 - [StovePipe Toolhead](https://github.com/chirpy2605/voron/tree/main/V0/StovePipe)
   - v0.1 and [Printers for Ants](https://3dprintersforants.com/) toolhead using a 7040 CPAP fan for part cooling
 
-{% include "ads/article-AD.md" %}
 
 ![Voron V0](./voron%20v0%20(1).jpg)
 
@@ -135,8 +133,6 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | BoxZero                                 | A box-framed Voron V0                         | <img src="https://github.com/zruncho3d/BoxZero/raw/main/Renders/belt_rear_flat.png" alt="BoxZero photo" width="300"> | [BoxZero repo](https://github.com/zruncho3d/BoxZero)                                                                                                                    |
 
 
-{% include "ads/article-AD.md" %}
-
 
 ### XY Motion Modifications
 
@@ -146,7 +142,6 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | [Pandora](https://github.com/MasturMynd/Pandora)                                               | A gantry mod for the Voron V0 that allows 142 mm of X travel and 127 mm of Y travel within the stock frame                                       | <img src="https://github.com/MasturMynd/Pandora/raw/main/Images/Pandora_Complete_Gantry.png" alt="Pandora github photo" width="300">                                      |       |
 
 
-{% include "ads/article-AD.md" %}
 
 ### Printers based on the V0
 
@@ -160,7 +155,6 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | [SugarCube](https://github.com/ruiqimao/SugarCube/tree/main)                                 |  |               |       |
 | [Pandora's box](https://github.com/MasturMynd/Pandoras_Box)                                 | |            |       |
 
-{% include "ads/article-AD.md" %}
 
 ### Other Modifications
 
@@ -171,4 +165,6 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | [Nozzle Wiper and Purge Bucket](https://github.com/chirpy2605/voron/tree/main/V0/NozzleWiper)                  | *(no description)* | *(no image provided)*   |       |
 | [No drop nuts for ldo frames](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/zruncho/V0_No_Drop_Nuts)               | *(no description)* | *(no image provided)*   |   [offical](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/zruncho/V0_No_Drop_Nuts)    |
 
+
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

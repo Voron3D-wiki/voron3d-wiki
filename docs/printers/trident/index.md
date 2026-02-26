@@ -17,8 +17,6 @@ Below is a generic image of what a Voron Trident can look like. Like all Voron 3
 
 The Voron Trident is a hybrid design that combines the best features of the V1 and V2 models. It features a fixed gantry with a moving bed, utilizing three independent leadscrews for automatic bed leveling. This design provides exceptional precision and ease of use while maintaining the high-speed performance of the CoreXY motion system.
 
-{% include "ads/article-AD.md" %}
-
 ## BOM
 
 ??? info "Official Voron Trident Bill of Materials"
@@ -50,12 +48,6 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 - [EZbreak (doomcube for trident)](https://github.com/FrankenVoron/Trident-EZBake)
 - [Click-Clacky](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
-{% include "ads/article-AD.md" %}
-
-## Related Resources
-- [Voron Design GitHub](https://github.com/VoronDesign)
-- [Voron Discord](https://discord.gg/voron)
-- [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
 
 {% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

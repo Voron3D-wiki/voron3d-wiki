@@ -9,7 +9,6 @@ tags: [LH, LH PICO,LH PICO MMU]
 # What is it
 The Pico MMU is a very cost effective and compact multi material system. 
 
-{% include "ads/article-AD.md" %}
 
 # How does it work?
 It uses a common power shaft that attaches to the stepper motor, all the filament rests on this. To activate a lane/filament the servo will spin the camshaft to a set angle where an arm with a bearing inside can push the filament into the power shaft. This esentally is now working as a single gear extruder, this is how filament is loaded and unloaded. The pico does not use its stepper motor to help the main extruder, the pico's stepper motor is only used for filament changes and while the printer is doing a print it is doing nothing and the camshaft is in neutral.
@@ -21,7 +20,6 @@ any printer running klipper, that you can add a toolhead filament sensor too (or
  - a stepper motor, a servo motor, some bearings, d-shaft and a 3dprinter
 
 
-{% include "ads/article-AD.md" %}
 
 # BOM
 | **Item** | **Quantity** |
@@ -51,8 +49,6 @@ The printed parts can be found on the offical github, it is only 4 plates of par
 
 The offical print files can be found on github: [Print files](https://github.com/lhndo/LH-Stinger/tree/main/User_Mods/MMU/Stinger%20Pico%20MMU%20-%20%40LH){ .md-button}
 
-{% include "ads/article-AD.md" %}
-
 # Assembly/build
 At the time of writing this there is no offical assembly guide with the cad files being the only guidance.
 
@@ -62,5 +58,5 @@ At the time of writing this there is no offical assembly guide with the cad file
 # Customization / modifications
 
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
-

@@ -72,19 +72,6 @@ The Eddy USB is a more advanced version of BTT's Eddy bed-leveling sensor. Featu
 
 ---
 
-<!-- Google AdSense Code -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8999624978372317"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8999624978372317"
-     data-ad-slot="1140087271"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ### **Conclusion**
 The Eddy USB is an advanced bed-leveling sensor designed for users who need more precise calibration and thermal compensation. It's best suited for high-temp printing environments or users who require greater accuracy and reliability. However, its higher price and complex setup may not be necessary for all users.
 
@@ -200,8 +187,6 @@ samples_tolerance_retries: 3
 
 !!! tip "Best Practices"
     - Perform calibration at operating temperature
-    - Clean the bed surface before leveling
-    - Check probe alignment regularly
     - Update firmware when available
 
 !!! warning "Common Issues"
@@ -210,49 +195,6 @@ samples_tolerance_retries: 3
     - Interference from other electronics
     - Outdated firmware
 
-## Advanced Configuration { #advanced-config }
 
-### Temperature Compensation
-
-```ini
-[eddy]
-temperature_compensation: true
-compensation_factor: 1.0
-```
-
-### Multi-Material Support
-
-```ini
-[eddy]
-material_detection: true
-detection_threshold: 0.1
-```
-
-## Troubleshooting { #troubleshooting }
-
-### Common Problems
-
-1. **Inconsistent Readings**:
-   - Check mounting height
-   - Verify connections
-   - Clean probe surface
-
-2. **Calibration Issues**:
-   - Ensure proper temperature
-   - Check bed surface
-   - Verify probe alignment
-
-3. **Communication Errors**:
-   - Check USB connection
-   - Verify firmware version
-   - Restart Klipper
-
-## Related Resources { #related-resources }
-
-- [Official Documentation](https://eddy-probe.com/docs)
-- [GitHub Repository](https://github.com/eddy-probe)
-- [Voron Discord](https://discord.gg/voron)
-- [Klipper Documentation](https://www.klipper3d.org/Bed_Level.html)
-- [Reddit User Review](https://www.reddit.com/r/klippers/comments/1fyn6vq/btt_eddy_coil_review_and_rant/)
-
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}

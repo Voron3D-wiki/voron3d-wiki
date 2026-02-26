@@ -15,7 +15,6 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 1. **Access Printer's Linux Interface:**
    - Open a terminal on the printer's Linux interface.
 
-{% include "ads/article-AD.md" %}
 
 3. **Run the Following Commands:**
    
@@ -68,5 +67,5 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
          - boot the printer
 
 
+{% include "affiliate-disclosure.md" %}
 {% include "ads/footer-AD.md" %}
-
