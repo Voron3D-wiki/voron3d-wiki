@@ -1,2 +1,3 @@
 docs/printers/index.md
+docs/printers/v0/index.md
 docs/printhead/extruders/index.md
