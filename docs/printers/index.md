@@ -48,7 +48,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
--  [:octicons-arrow-right-24: Learn more](./v0/index.md){ .md-button }
+<button type="button" onclick="window.location.href='./v0/index.md'">Learn more</button>
 
 </div>
 </div>
@@ -88,7 +88,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
-- [:octicons-arrow-right-24: Learn more](./2.4/index.md){ .md-button }
+<button type="button" onclick="window.location.href='./2.4/index.md'">Learn more</button>
 
 </div>
 </div>
@@ -128,7 +128,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
-- [:octicons-arrow-right-24: Learn more](./trident/index.md){ .md-button }
+<button type="button" onclick="window.location.href='./trident/index.md'">Learn more</button>
 
 </div>
 </div>
@@ -164,7 +164,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
-- [:octicons-arrow-right-24: Learn more](./switchwire.md){ .md-button }
+<button type="button" onclick="window.location.href='./switchwire.md'">Learn more</button>
 
 </div>
 </div>
