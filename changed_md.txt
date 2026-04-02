@@ -1,13 +1,3 @@
-docs/MMUs/PICO-MMU/index.md
-docs/bedleveling/eddy.md
-docs/printers/2.4/index.md
-docs/printers/DoomCube/TriZero/index.md
-docs/printers/index.md
-docs/printers/switchwire.md
-docs/printers/trident/index.md
-docs/printers/v0/index.md
-docs/printhead/extruders/index.md
-docs/printhead/toolhead-boards/BTT-EBB-Gen1.md
-docs/printhead/toolhead-boards/BTT-EBB-Gen2/index.md
-docs/printhead/toolhead-boards/index.md
-docs/printhead/toolhead-boards/mks-thr.md
+docs/electronics/power-supplies/index.md
+docs/electronics/stepper-motor/index.md
+docs/electronics/wiring/index.md
