@@ -73,7 +73,7 @@ Higher supply voltages (48V) allow the driver to ramp motor current faster at hi
 
 |brand|wattage|voltage|current|purchase links|
 |-----|-------|-------|-------|---------------|
-|Mean Well|200W|24V|8.8A|[West3d](https://west3d.com/products/mean-well-lrs-200-24-200w-24v-8-8a-power-supply-psu)|
+|Mean Well|200W|24V|8.8A|[West3d](https://west3d.com/products/mean-well-lrs-200-24-200w-24v-8-8a-power-supply-psu?dt_id=2902688%3Bap%3A1878203)|
 
 ### LRS-350-24 (Mean Well)
 
@@ -85,13 +85,13 @@ Higher supply voltages (48V) allow the driver to ramp motor current faster at hi
 
 |brand|wattage|voltage|current|purchase links|
 |-----|-------|-------|-------|---------------|
-|Mean Well|200W|24V|8.4A|[West3d](https://west3d.com/products/mean-well-uhp-200-24-200w-24v-8-4a-power-supply-psu)|
+|Mean Well|200W|24V|8.4A|[West3d](https://west3d.com/products/mean-well-uhp-200-24-200w-24v-8-4a-power-supply-psu?dt_id=2902688%3Bap%3A1878203)|
 
 ### UHP-350-24 (Mean Well)
 
 |brand|wattage|voltage|current|purchase links|
 |-----|-------|-------|-------|---------------|
-|Mean Well|350W|24V|14.6A|[West3d](https://west3d.com/products/mean-well-uhp-350-24-350w-24v-14-6a-power-supply-psu)|
+|Mean Well|350W|24V|14.6A|[West3d](https://west3d.com/products/mean-well-uhp-350-24-350w-24v-14-6a-power-supply-psu?dt_id=2902688%3Bap%3A1878203)|
 
 ### RSP-500-24 (Mean Well)
 
@@ -119,13 +119,13 @@ Higher supply voltages (48V) allow the driver to ramp motor current faster at hi
 
 |brand|wattage|voltage|current|purchase links|
 |-----|-------|-------|-------|---------------|
-|Mean Well|200W|48V|4.2A|[West3d](https://west3d.com/products/mean-well-uhp-200-48-200w-48v-4-2a-power-supply-psu-1)|
+|Mean Well|200W|48V|4.2A|[West3d](https://west3d.com/products/mean-well-uhp-200-48-200w-48v-4-2a-power-supply-psu-1?dt_id=2902688%3Bap%3A1878203)|
 
 ### UHP-350-48 (Mean Well)
 
 |brand|wattage|voltage|current|purchase links|
 |-----|-------|-------|-------|---------------|
-|Mean Well|350W|48V|7.3A|[West3d](https://west3d.com/products/mean-well-uhp-350-24-350w-48v-7-3a-power-supply-psu)|
+|Mean Well|350W|48V|7.3A|[West3d](https://west3d.com/products/mean-well-uhp-350-24-350w-48v-7-3a-power-supply-psu?dt_id=2902688%3Bap%3A1878203)|
 
 ## 5V Power Supplies
 
@@ -135,7 +135,7 @@ Some builds use a dedicated 5V PSU to power a Raspberry Pi or other SBC instead 
 
 |brand|wattage|voltage|current|purchase links|
 |-----|-------|-------|-------|---------------|
-|Mean Well|25W|5V|5A|[West3d](https://west3d.com/products/mean-well-rs-25-5-25w-5v-5a-power-supply-psu)|
+|Mean Well|25W|5V|5A|[West3d](https://west3d.com/products/mean-well-rs-25-5-25w-5v-5a-power-supply-psu?dt_id=2902688%3Bap%3A1878203)|
 
 ### IRM-60-5 (Mean Well)
 
