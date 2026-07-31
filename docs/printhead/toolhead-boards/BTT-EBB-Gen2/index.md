@@ -16,11 +16,11 @@ This page consolidates all setup, firmware flashing, wiring, and configuration.
 <div class="cards" markdown>
 
 === "EBB36 GEN2 V1.0"
-    ![EBB36 pinout picture](./EBB36_GEN2_pin_en-min.jpg){ align=left }
+    ![EBB36 pinout picture](EBB36_GEN2_pin_en-min.jpg){ align=left }
 === "EBB42 GEN2 V1.0"
-    ![EBB42 pinout picture](./EBB42_GEN2_pin_en-min.jpg){ align=left }
+    ![EBB42 pinout picture](EBB42_GEN2_pin_en-min.jpg){ align=left }
 === "USB Adapter V1.0"
-    ![USB pinout picture](./Adapter_en-min.jpg){ align=left }
+    ![USB pinout picture](Adapter_en-min.jpg){ align=left }
 
 </div>
 

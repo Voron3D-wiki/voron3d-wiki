@@ -11,7 +11,7 @@ Official Voron Design link: [https://vorondesign.com/voron0](https://vorondesign
 
 Below is a generic image of what a Voron V0 can look like. Like all Voron 3D printers, the V0 can be highly customized to create whatever type of printer you would like.
 
-![Voron V0 Example](./v0-formbot-photo.jpg)
+![Voron V0 Example](v0-formbot-photo.jpg)
 
 ## What is a V0
 
@@ -21,7 +21,7 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 ## BOM
 
 ??? info "Offical Voron V0.2 R1 bill of materials"
-     {% include "./voron0.2_bom.md" %}
+     {% include "./bom/index.md" %}
 
 
 ## Hardware for the V0
@@ -31,7 +31,7 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 
 | Name                              | Description                                 | Documentation/Info                                                                 | Purchase Link         |
 |-----------------------------------|---------------------------------------------|------------------------------------------------------------------------------------|----------------------|
-| Siboor Voron V0 Simple Display    | ![v0 display - siboor](./assets/siboorscreen.jpg)                        | [Docs](https://docs.siboor.com/other-products/v0-display-screen)                   | [Buy](https://s.click.aliexpress.com/e/_omW4YFY) |
+| Siboor Voron V0 Simple Display    | ![v0 display - siboor](siboorscreen.jpg)                        | [Docs](https://docs.siboor.com/other-products/v0-display-screen)                   | [Buy](https://s.click.aliexpress.com/e/_omW4YFY) |
 | Fysetc Voron V0 Display           | Simple display for V0                       | [Docs](https://docs.siboor.com/other-products/v0-display-screen)                   | [Buy](https://s.click.aliexpress.com/e/_o2DBTEa) |
 
 ### Toolhead Boards
@@ -65,7 +65,7 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | Fysetc - France Store | Voron V0 kit from Fysetc France | [Buy](https://s.click.aliexpress.com/e/_opnBDl9) |
 | LDO KIT  | Voron V0 kit from LDO motors seen by many as the highest quality and ore polished kit |[Buy](https://west3d.com/products/ldo-voron-v0-2-s1-complete-kit-voron-v0-2/?dt_id=2902688%3Bap%3A1878203) |
 
-![formbot photo](./formbot-v0.jpg)
+![formbot photo](formbot-v0.jpg)
 
 ### Formbot Voron v0 kit review
 
@@ -128,7 +128,7 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 
 | Name            | Description                       | Image                                         | Links                   |
 |-----------------|-----------------------------------|-----------------------------------------------|------------------------------------|
-| LDO Mini Fridge door   | Mod for fridge-style door on Voron V0   | <img src="./voron%20v0%20fridge%20door.jpg" alt="LDO Mini Fridge door" width="300">    | [Mini Fridge repo](https://github.com/TheVoronModder/MiniFridge) <br> [Larger latch](https://www.printables.com/model/1097609-voron-02-mini-fridge-ldo-formbot-inner-door-latch/comments) |
+| LDO Mini Fridge door   | Mod for fridge-style door on Voron V0   | <img src="voron%20v0%20fridge%20door.jpg" alt="LDO Mini Fridge door" width="300">    | [Mini Fridge repo](https://github.com/TheVoronModder/MiniFridge) <br> [Larger latch](https://www.printables.com/model/1097609-voron-02-mini-fridge-ldo-formbot-inner-door-latch/comments) |
 | Zero Panel                              | Replacement for drop nuts to mount side panels  | *(no image provided)*                                                                 | [Zero Panel repo](https://github.com/zruncho3d/ZeroPanels)                                                                                                              |
 | BoxZero                                 | A box-framed Voron V0                         | <img src="https://github.com/zruncho3d/BoxZero/raw/main/Renders/belt_rear_flat.png" alt="BoxZero photo" width="300"> | [BoxZero repo](https://github.com/zruncho3d/BoxZero)                                                                                                                    |
 

@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   # Stage 1: Check Formatting
   format-check:
@@ -13,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16' # Specify the Node.js version
+          node-version: '20'
 
       - name: Install ESLint and Prettier
         run: |
@@ -43,27 +46,44 @@ jobs:
     needs: format-check
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          # git-revision-date-localized reads the full history to work out each
+          # page's "last updated" date. A shallow clone makes every page today.
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: '3.11'
+          cache: 'pip'
 
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
 
+      # --strict turns broken internal links, missing nav targets and bad plugin
+      # options into build failures. The tree is warning-clean; keep it that way.
       - name: Build MkDocs Site
         run: |
-          mkdocs build
+          mkdocs build --strict
 
   # Stage 3: Deploy to Cloudflare Pages
   deploy:
     name: Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
     needs: build
+    # Only deploy real pushes to main. Without this, every pull request - from
+    # any fork - triggered a production deploy.
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
       - name: Trigger Deployment Webhook
+        env:
+          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
         run: |
-          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/7724f14e-ef15-4422-9138-5237438fa80f
+          set -euo pipefail
+          if [ -z "${DEPLOY_HOOK:-}" ]; then
+            echo "::error::CLOUDFLARE_DEPLOY_HOOK secret is not set."
+            exit 1
+          fi
+          curl -fsS -X POST "$DEPLOY_HOOK"

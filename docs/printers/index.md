@@ -15,12 +15,12 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
 ## Official Models
 
-### [Voron V0.2r1](./v0/index.md)
+### [Voron V0.2r1](v0/index.md)
 
 <div class="grid" markdown>
 <div style="order: 1;">
 
-<img src="./v0/formbot-v0.jpg" alt="Voron V0.2r1" align="left" style="max-width: 300px; border-radius: 10px;" />
+<img src="v0/formbot-v0.jpg" alt="Voron V0.2r1" align="left" style="max-width: 300px; border-radius: 10px;" />
 
 </div>
 <div style="order: 2;">
@@ -48,19 +48,19 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
--  [:octicons-arrow-right-24: Learn more](./v0/index.md){ .md-button }
+-  [:octicons-arrow-right-24: Learn more](v0/index.md){ .md-button }
 
 </div>
 </div>
 
 ---
 
-### [Voron V2.4](./2.4/index.md)
+### [Voron V2.4](2.4/index.md)
 
 <div class="grid" markdown>
 <div style="order: 2;">
 
-<img src="./2.4/2.4-photo.jpg" alt="Voron V2.4" align="right" style="max-width: 300px; border-radius: 10px;" />
+<img src="2.4/2.4-photo.jpg" alt="Voron V2.4" align="right" style="max-width: 300px; border-radius: 10px;" />
 
 </div>
 <div style="order: 1;">
@@ -88,19 +88,19 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
-- [:octicons-arrow-right-24: Learn more](./2.4/index.md){ .md-button }
+- [:octicons-arrow-right-24: Learn more](2.4/index.md){ .md-button }
 
 </div>
 </div>
 
 ---
 
-### [Voron Trident](./trident/index.md)
+### [Voron Trident](trident/index.md)
 
 <div class="grid" markdown>
 <div style="order: 1;">
 
-<img src="./trident/trident.jpg" alt="Voron Trident" align="left" style="max-width: 300px; border-radius: 10px;" />
+<img src="trident/trident.jpg" alt="Voron Trident" align="left" style="max-width: 300px; border-radius: 10px;" />
 
 </div>
 <div style="order: 2;">
@@ -128,19 +128,19 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
-- [:octicons-arrow-right-24: Learn more](./trident/index.md){ .md-button }
+- [:octicons-arrow-right-24: Learn more](trident/index.md){ .md-button }
 
 </div>
 </div>
 
 ---
 
-### [Voron Switchwire](switchwire.md)
+### [Voron Switchwire](switchwire/index.md)
 
 <div class="grid" markdown>
 <div style="order: 2;">
 
-<img src="./switchwire-ldo-off.jpg" alt="Voron Switchwire" align="right" style="max-width: 300px; border-radius: 10px;" />
+<img src="switchwire-ldo-off.jpg" alt="Voron Switchwire" align="right" style="max-width: 300px; border-radius: 10px;" />
 
 </div>
 <div style="order: 1;">
@@ -164,7 +164,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
   </tr>
 </table>
 
-- [:octicons-arrow-right-24: Learn more](./switchwire.md){ .md-button }
+- [:octicons-arrow-right-24: Learn more](switchwire/index.md){ .md-button }
 
 </div>
 </div>
@@ -204,7 +204,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
       **Links**
 
       [Formbot Micron Plus kit](https://s.click.aliexpress.com/e/_oFJRybd)  
-      [Documentation](Printers-for-ants/micron.md)
+      [Documentation](Printers-for-ants/index.md)
 
       </div>
     </div>
@@ -317,7 +317,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
       <div style="order: 1;" align="left">
 
-      <img src="./enderwire.png" alt="Enderwire" style="max-width: 300px; border-radius: 10px;" />
+      <img src="enderwire.png" alt="Enderwire" style="max-width: 300px; border-radius: 10px;" />
 
       </div>
 
@@ -448,7 +448,7 @@ Voron Design offers a range of high-performance 3D printers, each designed for s
 
       **Links**
 
-      [Documentation](./legacy/legacy.md)
+      [Documentation](legacy/index.md)
 
       </div>
     </div>

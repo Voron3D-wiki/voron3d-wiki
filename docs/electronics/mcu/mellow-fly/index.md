@@ -70,9 +70,9 @@ Mellow Fly boards represent a series of high-quality mainboards designed for 3D 
 5. Flash firmware
 
 ### Configuration
-- [Klipper Configuration Guide](./guides/klipper-config.md)
-- [Marlin Configuration Guide](./guides/marlin-config.md)
-- [Pin Mapping Reference](./guides/pin-mapping.md)
+- [Klipper](../../../software/klipper/index.md)
+- [Klipper Config Help](../../../software/klipper-config-help/index.md)
+- [Klipper Config Reference](https://www.klipper3d.org/Config_Reference.html)
 
 ## Common Modifications
 
@@ -100,9 +100,9 @@ Mellow Fly boards represent a series of high-quality mainboards designed for 3D 
 5. CAN bus communication
 
 ### Solutions
-- [Troubleshooting Guide](./guides/troubleshooting.md)
-- [FAQ Section](./guides/faq.md)
-- [Community Support](./guides/community-support.md)
+- [Klipper Config Help](../../../software/klipper-config-help/index.md)
+- [Klipper Discourse](https://klipper.discourse.group/)
+- [Voron Discord](https://discord.gg/voron)
 
 ## Related Resources
 - [Mellow Official Documentation](https://github.com/mellow-3d)

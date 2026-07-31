@@ -7,8 +7,6 @@ tags: [DropEffect, NExt G Fiber, Hotend, Carbon Fiber, Abrasive, High-Temperatur
 
 # DropEffect NExt G Fiber Hotend
 
-![DropEffect NExt G Fiber Hotend](../../assets/dropeffect-nextg-image.jpg)
-
 ## Overview
 The DropEffect NExt G Fiber hotend is a specialized high-performance hotend designed specifically for printing fiber-reinforced filaments and other abrasive materials. As a premium product in the DropEffect lineup, it features hardened components, exceptional heat transfer characteristics, and durability that makes it ideal for industrial applications and advanced materials like carbon fiber composites, glass fiber, metal-filled polymers, and other engineering-grade filaments.
 

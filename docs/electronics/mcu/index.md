@@ -14,10 +14,10 @@ Main Control Units (MCUs) are the brains of 3D printers, responsible for process
 
 | MCU Series | Processor | Stepper Drivers | Connectivity | Price Range | Best For | Purchase |
 |------------|-----------|-----------------|--------------|-------------|-----------|----|
-| [BTT SKR Series](./skr-series.md) | STM32/RP2040 | 4-6 | USB, UART | $ | Entry to Mid-range | [  Biqu Offical Store](https://tidd.ly/3K362Qt) |
-| [MKS Boards](./mks.md) | LPC1768/1769 | 4-6 | USB/Ethernet | $$ | Mid-range | [Amazon link](https://amzn.to/3Nl80wZ) |
-| [Octopus Series](./octopus-series.md) | STM32 | 8 | Multiple | $$$ | High-end | [Biqu Offical link](https://tidd.ly/3ZfbL9P) |
-| [Mellow Fly Boards](./mellow-fly-boards.md) | STM32F407 | 4-8 | Multiple | $$-$$$$ | Mid to High-end | |
+| [BTT SKR Series](./btt-skr/index.md) | STM32/RP2040 | 4-6 | USB, UART | $ | Entry to Mid-range | [  Biqu Offical Store](https://tidd.ly/3K362Qt) |
+| [MKS Boards](mks/index.md) | LPC1768/1769 | 4-6 | USB/Ethernet | $$ | Mid-range | [Amazon link](https://amzn.to/3Nl80wZ) |
+| [Octopus Series](./octopus/index.md) | STM32 | 8 | Multiple | $$$ | High-end | [Biqu Offical link](https://tidd.ly/3ZfbL9P) |
+| [Mellow Fly Boards](./mellow-fly/index.md) | STM32F407 | 4-8 | Multiple | $$-$$$$ | Mid to High-end | |
 
 ## Key Features Comparison
 

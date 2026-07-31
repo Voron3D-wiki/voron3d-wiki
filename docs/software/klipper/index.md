@@ -5,7 +5,7 @@ tags: [klipper, kiauh, fluidd, mainsail]
 
 **[klipper Offical](https://github.com/Klipper3d/klipper)**
 
-- [Klipper config cheat sheet](./klipper-config-help.md)
+- [Klipper config cheat sheet](../klipper-config-help/index.md)
 
 ---
 
@@ -46,10 +46,10 @@ tags: [klipper, kiauh, fluidd, mainsail]
 - This plugin contains a lot of features but it has quite a high learning curve and is ideal for people who want to tune their printers down to the last nanometers
 - this can be used to create better input shaper graphs, such as the follow
 - X axis Graph:
-- ![voron-v0 shake and tune](./shakeAndtune/voron-v0.2-shakeandtune-X-min.png)
+- ![voron-v0 shake and tune](../shakeAndtune/voron-v0.2-shakeandtune-X-min.png)
 
 - Y axis Graph
-- ![voron-v0 shake and tune](./shakeAndtune/voron-v0.2-shakeandtune-Y-min.png)
+- ![voron-v0 shake and tune](../shakeAndtune/voron-v0.2-shakeandtune-Y-min.png)
 
 **[ResHelper](https://github.com/lhndo/ResHelper)**
 - An alternative to klipper shake and tune (that can also be using alongside shake and tune) is ResHelper by lhndo

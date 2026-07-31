@@ -36,7 +36,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ## Filament Feeders / filament Multiplexers
 
-### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF.md)
+### [ERCF (Enraged Rabbit Carrot Feeder)](ERCF/index.md)
 - **Description**: A community-driven MMU system designed for high reliability and extensive customization.
 - **Key Features**:
     - Supports up to 12 colors/materials
@@ -44,7 +44,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Extensive community support and documentation
     - Advanced filament path control for reduced tangling
 
-### [PICO-MMU](PICO-MMU.md)
+### [PICO-MMU](PICO-MMU/index.md)
 - **Description**: A very interesting project by [Ihndo](https://github.com/lhndo), the creator of the [LH-Stinger](https://github.com/lhndo/LH-Stinger).
 - **Key Features**:
     - Compact design for all printers
@@ -53,7 +53,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Lightweight and easy to assemble
     - no kits avaliable
 
-### [BoxTurtle](BoxTurtle.md)
+### [BoxTurtle](BoxTurtle/index.md)
 - **Description**: An open-source multi-material system that supports 4 spools (unsure if they can be daisy-chained). Includes an auto-rewinding system, and a kit can be purchased through LDO Motors.
 - **Key Features**:
     - Supports up to 4 colors/materials (per boxturtle)
@@ -83,7 +83,7 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Supports up to 6 colors/materials
 
 
-### [TradRack](tradrack.md)
+### [TradRack](tradrack/index.md)
 - **Description**: A similar system to the ERCF, the TradRack is designed by Annex Engineering.
 - **Key Features**:
     - Modular design for easy expansion

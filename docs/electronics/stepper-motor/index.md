@@ -34,7 +34,7 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 
 ## Stepper Motor Database
 
-{% include "../stepper-motor/stepper-motor-database.md" %}
+{% include "./database/index.md" %}
 
 ### Nema 17 Stepper Motor Purchase links
 

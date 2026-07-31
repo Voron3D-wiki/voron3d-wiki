@@ -162,3 +162,8 @@ site/printhead/toolhead-boards/BTT-EBB/index.html
 site/printhead/toolhead-boards/FLY-SHT/index.html
 site/printhead/toolhead-boards/MKS-THR/index.html
 site/printhead/toolhead-home/index.html
+
+# CI scratch output
+changed_md.txt
+highlevel.txt
+diff.txt

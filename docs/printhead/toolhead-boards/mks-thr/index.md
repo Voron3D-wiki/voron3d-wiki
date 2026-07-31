@@ -30,7 +30,7 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 
    Copy the Config in this photo:
 
-   ![config photo](./MKS-UTC-conf.png)
+   ![config photo](MKS-UTC-conf.png)
 
          - make  # Build the firmware
 
@@ -46,7 +46,7 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 
    Copy the Config in this photo:
 
-   ![config photo 2](./MKS-THR-36-42-conf.png)
+   ![config photo 2](MKS-THR-36-42-conf.png)
 
          - make
 

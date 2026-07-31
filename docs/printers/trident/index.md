@@ -11,7 +11,7 @@ Official Voron Design link: [https://vorondesign.com/trident](https://vorondesig
 
 Below is a generic image of what a Voron Trident can look like. Like all Voron 3D printers, the Trident can be highly customized to create whatever type of printer you would like.
 
-[photo](./trident.jpg)
+[photo](trident.jpg)
 
 ## What is a Trident
 

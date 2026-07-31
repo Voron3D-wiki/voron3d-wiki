@@ -40,10 +40,10 @@ These sensors use electromagnetic induction to detect the bed surface without ph
 
 | Sensor | Image | Key Features | More Info |
 |:-------|:-----:|:------------|:----------|
-| [Eddy](eddy.md) | ![Eddy-USB](../bedleveling/assets/eddyUSB-min.png) | - USB connectivity<br>- High precision<br>- Non-contact | [Details](eddy.md) |
-| [Eddy Coil](eddy-coil.md) | ![Eddy-IC2](../bedleveling/assets/eddy-IC2-min.png) | - I2C interface<br>- Compact design<br>- Fast response | [Details](eddy-coil.md) |
-| [Beacon3D](beacon.md) | ![Beacon3D](../bedleveling/assets/RevH8-min.png) | - Multiple sensing modes<br>- Auto Z-offset<br>- High accuracy | [Details](beacon.md) |
-| [Cartographer](cartographer.md) | ![Cartographer](../bedleveling/assets/RevH8-min.png) | - Advanced algorithms<br>- Multi-material support<br>- Fast scanning | [Details](cartographer.md) |
+| [Eddy](eddy/index.md) | ![Eddy-USB](eddyUSB-min.png) | - USB connectivity<br>- High precision<br>- Non-contact | [Details](eddy/index.md) |
+| [Eddy Coil](eddy-coil/index.md) | ![Eddy-IC2](eddy-IC2-min.png) | - I2C interface<br>- Compact design<br>- Fast response | [Details](eddy-coil/index.md) |
+| [Beacon3D](beacon/index.md) | ![Beacon3D](RevH8-min.png) | - Multiple sensing modes<br>- Auto Z-offset<br>- High accuracy | [Details](beacon/index.md) |
+| [Cartographer](cartographer/index.md) | ![Cartographer](RevH8-min.png) | - Advanced algorithms<br>- Multi-material support<br>- Fast scanning | [Details](cartographer/index.md) |
 
 ### Physical Contact Sensors { #physical-sensors }
 
@@ -51,10 +51,10 @@ These sensors make physical contact with the bed surface to measure its position
 
 | Sensor | Image | Key Features | More Info |
 |:-------|:-----:|:------------|:----------|
-| BLTouch | ![BLTouch](../bedleveling/assets/3dTouch-min.png) | - Reliable mechanical probe<br>- Self-testing<br>- Wide compatibility | [Details](bltouch.md) |
-| Beacon3D Poke | ![Beacon Poke](../bedleveling/assets/RevH8-min.png) | - Dual-mode operation<br>- Auto-calibration<br>- High precision | [Details](beacon.md) |
-| Inductive Probe | ![Inductive](../bedleveling/assets/3dTouch-min.png) | - Metal bed detection<br>- Fast response<br>- Durable design | [Details](inductive.md) |
-| Klicky | ![Klicky](../bedleveling/assets/3dTouch-min.png) | - Open source<br>- Easy to build<br>- Accurate results | [Details](klicky.md) |
+| BLTouch | ![BLTouch](3DTouch-min.jpg) | - Reliable mechanical probe<br>- Self-testing<br>- Wide compatibility | *(page pending)* |
+| Beacon3D Poke | ![Beacon Poke](RevH8-min.png) | - Dual-mode operation<br>- Auto-calibration<br>- High precision | [Details](beacon/index.md) |
+| Inductive Probe | ![Inductive](3DTouch-min.jpg) | - Metal bed detection<br>- Fast response<br>- Durable design | *(page pending)* |
+| Klicky | ![Klicky](3DTouch-min.jpg) | - Open source<br>- Easy to build<br>- Accurate results | *(page pending)* |
 
 ## Auto Z-Offset { #auto-z-offset }
 
@@ -64,8 +64,8 @@ Auto Z-offset systems automatically calibrate the distance between the nozzle an
 
 | System | Image | Key Features | More Info |
 |:-------|:-----:|:------------|:----------|
-| Beacon3D Poke | ![Beacon Poke](../bedleveling/assets/RevH8-min.png) | - Automatic calibration<br>- Real-time adjustment<br>- Multi-material support | [Details](beacon.md) |
-| Eddy Auto-Z | ![Eddy Auto-Z](../bedleveling/assets/eddyUSB-min.png) | - Non-contact measurement<br>- High precision<br>- Fast response | [Details](eddy.md) |
+| Beacon3D Poke | ![Beacon Poke](RevH8-min.png) | - Automatic calibration<br>- Real-time adjustment<br>- Multi-material support | [Details](beacon/index.md) |
+| Eddy Auto-Z | ![Eddy Auto-Z](eddyUSB-min.png) | - Non-contact measurement<br>- High precision<br>- Fast response | [Details](eddy/index.md) |
 
 ## Configuration Tips { #configuration-tips }
 

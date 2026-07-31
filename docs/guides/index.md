@@ -42,7 +42,7 @@ Confirm that your canbus UUID is falshed with klipper
 '''
 !!! note
 
-    If you are looking for a setup guide for the MKS-THR series of tool headboards, [click here](../toolhead-boards/MKS-THR.md)
+    If you are looking for a setup guide for the MKS-THR series of tool headboards, [click here](../printhead/toolhead-boards/mks-thr/index.md)
 
 ---
 

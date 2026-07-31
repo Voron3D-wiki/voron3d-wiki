@@ -7,8 +7,6 @@ tags: [E3D, Revo, Voron, Hotend, RapidChange, StealthBurner]
 
 # E3D Revo Voron Hotend
 
-![E3D Revo Voron Hotend](../../assets/e3d-revo-voron-image.jpg)
-
 ## Overview
 The E3D Revo Voron is a revolutionary hotend developed in collaboration with the Voron Design team specifically for the Voron StealthBurner toolhead. It combines E3D's innovative RapidChange nozzle system with a compact, lightweight design optimized for high-performance CoreXY printers. The Revo Voron represents a significant advancement in hotend technology, allowing for tool-free nozzle changes at room temperature and improved thermal performance.
 

@@ -42,7 +42,7 @@ Cheaper and stiffer than silicone. Acceptable for static runs (e.g. inside the e
 
 ## Connectors
 
-See the [Connectors](../connectors.md) page for connector types, ratings, and recommendations.
+See the [Connectors](../connectors/index.md) page for connector types, ratings, and recommendations.
 
 ## Drag chains and umbilicals
 
