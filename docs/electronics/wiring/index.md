@@ -84,4 +84,4 @@ Ferrules (also called wire end sleeves) should be used on all stranded wire term
 - Avoid joining wires mid-run where possible. If a splice is necessary, solder and heat-shrink it; do not use butt connectors or twist-and-tape.
 - Heater cartridge and heated bed wires should be checked for continuity and resistance before first power-on.
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

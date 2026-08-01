@@ -13,7 +13,7 @@ convenience, and they vary a lot in how closely they follow the original design.
 
 ![Troodon](Troodon.jpg)
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 

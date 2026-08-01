@@ -115,4 +115,4 @@ The DropEffect NExt G Fiber hotend represents a specialized solution for users w
 
 The ability to maintain precision over extended use with abrasive materials sets the NExt G Fiber apart from standard hotends, making it ideal for industrial applications where consistent quality and reduced downtime are critical factors.
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

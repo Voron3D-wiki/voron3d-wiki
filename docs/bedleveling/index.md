@@ -87,7 +87,7 @@ Auto Z-offset systems automatically calibrate the distance between the nozzle an
 - [Voron Discord](https://discord.gg/voron)
 - [GitHub Discussions](https://github.com/VoronDesign/VoronUsers/discussions)
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}
 
 # Index of bedleveling
 

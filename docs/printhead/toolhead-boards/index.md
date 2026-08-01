@@ -72,4 +72,4 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 1. [Voron Hardware Guide](https://docs.vorondesign.com/hardware.html)
 2. [Klipper Documentation](https://www.klipper3d.org/)
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

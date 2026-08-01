@@ -47,4 +47,4 @@ tags: [BoxTurtle, MMU, Multi-Material]
 * [Seleadlab  on aliexpress](https://s.click.aliexpress.com/e/_okz8n5H)
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

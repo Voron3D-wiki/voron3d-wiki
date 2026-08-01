@@ -67,4 +67,4 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
          - boot the printer
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

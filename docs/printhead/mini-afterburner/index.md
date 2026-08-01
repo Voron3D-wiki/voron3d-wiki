@@ -11,7 +11,7 @@ The Mini Afterburner is the compact Afterburner variant designed for the
 [Voron V0](../../printers/v0/index.md). It has largely been replaced by the
 Mini Stealthburner.
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 

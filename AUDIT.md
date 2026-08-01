@@ -31,15 +31,27 @@ build, or reopens a security hole. Each has a check you can actually run.
 
 ### Not pages
 
-`{% include %}` partials and templates, not routable pages. These three are the
-**only** legitimate output of the invariant 2 check — anything else it prints is
-a page that needs moving into a folder:
+Two folders hold files that are not routable pages. Both are listed in
+`exclude_docs`, so they render *into* pages via `{% include %}` but are never
+served or indexed on their own.
+
+**`docs/tools/`** — reusable include partials. Anything pulled into multiple
+pages goes here:
 
 ```
-docs/affiliate-disclosure.md
-docs/_templates/page_template.md
-docs/_templates/work-in-progress.md
+docs/tools/affiliate-disclosure.md    included by 29 pages
+docs/tools/work-in-progress.md        included by 11 pages
 ```
+
+**`docs/_templates/`** — page scaffolding, copied by hand when starting a page,
+never included:
+
+```
+docs/_templates/page_template.md
+```
+
+Those three files are the **only** legitimate output of the invariant 2 check.
+Anything else it prints is a page in the wrong shape.
 
 Two more sit outside the usual rules without showing up in that check:
 
@@ -103,20 +115,28 @@ Adding a page:
 4. Add it to `nav` in `mkdocs.yml`
 5. `mkdocs build --strict`
 
+Reusable partials live in `docs/tools/` and are included by path from there.
+
 Pages carrying affiliate links should end with:
 
 ```
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}
 ```
 
 Pages that are still being written can carry the notice partial, usually just
 after the intro:
 
 ```
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 ```
 
-There is no ad include. If you find one in an old branch, drop it.
+Add a new partial by dropping it in `docs/tools/` — no config change needed,
+the folder is already excluded from the build. There is no ad include; if you
+find one in an old branch, drop it.
+
+Page-to-page includes (a page embedding another real page, such as the 2.4
+overview pulling in its BOMs) are a different thing and stay as relative paths
+to the page's `index.md`.
 
 MkDocs uses directory URLs, so `<page>.md` and `<page>/index.md` serve the same
 URL. The 2026-08 restructure changed no published links.

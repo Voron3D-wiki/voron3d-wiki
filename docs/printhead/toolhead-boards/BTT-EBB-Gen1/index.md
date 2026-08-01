@@ -357,4 +357,4 @@ control: pid
 
 - [Voron CANbus Hardware Guide]( https://docs.vorondesign.com/hardware.html)
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

@@ -14,7 +14,7 @@ extrusions.
 
 ![Micron 180](micron+180.jpg)
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 

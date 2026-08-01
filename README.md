@@ -73,7 +73,8 @@ voron3d-wiki/
 │   ├── assets/         # Site-wide assets (logo, favicon)
 │   ├── javascripts/    # Custom JS
 │   ├── stylesheets/    # Custom CSS
-│   └── _templates/     # Page template, and partials pulled in with {% include %}
+│   ├── tools/          # Reusable partials pulled in with {% include %}
+│   └── _templates/     # Page template to copy when starting a new page
 ├── overrides/          # Material theme overrides
 ├── requirements.txt    # Python dependencies
 └── mkdocs.yml          # MkDocs configuration
@@ -101,9 +102,21 @@ paths to get wrong. When adding a page:
 4. Add it to the `nav` in `mkdocs.yml` as `<section>/<page-name>/index.md`
 
 Do not create flat `docs/<section>/<page>.md` files. The only files outside this
-convention are the root `docs/index.md` and three `{% include %}` partials:
-`docs/affiliate-disclosure.md`, `docs/_templates/page_template.md`, and
-`docs/_templates/work-in-progress.md`.
+convention are the root `docs/index.md` and the contents of `docs/tools/` and
+`docs/_templates/`.
+
+### Reusable Partials
+
+`docs/tools/` holds snippets used on more than one page — currently the
+affiliate disclosure and the work-in-progress notice. Pull one in with:
+
+```
+{% include "tools/affiliate-disclosure.md" %}
+```
+
+Both `tools/` and `_templates/` are listed in `exclude_docs`, so their contents
+render into pages but are never served or indexed as pages themselves. Adding a
+new partial needs no config change — just drop the file in `docs/tools/`.
 
 ### Building the Site
 ```bash

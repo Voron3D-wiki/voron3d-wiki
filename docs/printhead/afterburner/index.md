@@ -11,7 +11,7 @@ The Afterburner is the previous-generation Voron toolhead, superseded by the
 [Stealthburner](../stealthburner/index.md). It is still found on older builds and on
 printers that have not been upgraded.
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 

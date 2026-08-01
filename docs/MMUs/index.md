@@ -170,4 +170,4 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 2. Community Modifications Database
 3. User Experience Reports
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

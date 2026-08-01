@@ -11,7 +11,7 @@ The Prusa MMU is Prusa Research's multi-material unit. It is designed around
 Prusa's own printers rather than Voron, so running one on a Voron means adapting
 both the mounting and the firmware side yourself.
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 

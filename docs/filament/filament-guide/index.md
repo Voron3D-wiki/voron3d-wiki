@@ -144,4 +144,4 @@ Filament selection plays a crucial role in 3D printing success. This guide cover
 - [Filament Properties Table](https://www.simplify3d.com/resources/materials-guide/)
 - [Filament Drying Guide](https://all3dp.com/2/how-to-dry-filament-pla-abs-and-nylon/)
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

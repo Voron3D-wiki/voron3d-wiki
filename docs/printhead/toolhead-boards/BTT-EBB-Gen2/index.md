@@ -258,4 +258,4 @@ This page consolidates all setup, firmware flashing, wiring, and configuration.
 
 # References
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

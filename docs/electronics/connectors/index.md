@@ -75,4 +75,4 @@ Proper connectors and wiring are crucial for reliable 3D printer operation. This
 - [Voron Design Wiring Guide](https://docs.vorondesign.com)
 - [Online Connector Reference](https://www.connector-reference.com)
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

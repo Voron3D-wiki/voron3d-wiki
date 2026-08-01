@@ -58,4 +58,4 @@ At the time of writing this there is no offical assembly guide with the cad file
 # Customization / modifications
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

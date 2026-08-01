@@ -13,7 +13,7 @@ sustain high volumetric flow rates.
 
 ![CHC XL](chcXL.png)
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 

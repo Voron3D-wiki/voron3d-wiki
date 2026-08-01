@@ -49,4 +49,4 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 - [Click-Clacky](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

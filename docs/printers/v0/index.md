@@ -166,4 +166,4 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 | [No drop nuts for ldo frames](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/zruncho/V0_No_Drop_Nuts)               | *(no description)* | *(no image provided)*   |   [offical](https://github.com/VoronDesign/VoronUsers/tree/main/printer_mods/zruncho/V0_No_Drop_Nuts)    |
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

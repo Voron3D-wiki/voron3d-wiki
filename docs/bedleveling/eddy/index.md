@@ -196,4 +196,4 @@ samples_tolerance_retries: 3
     - Outdated firmware
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

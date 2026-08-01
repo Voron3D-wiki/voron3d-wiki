@@ -39,6 +39,10 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+exclude_docs: |
+  tools/
+  _templates/
+
 extra_css:
   - stylesheets/extra.css
 
@@ -144,6 +148,7 @@ plugins:
         - "javascripts"
         - "mkdocs"
         - "_templates"
+        - "tools"
         - "stylesheets"
         - "docs"
         - "overrides"

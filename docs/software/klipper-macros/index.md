@@ -16,7 +16,7 @@ The two you cannot do without are `PRINT_START` and `PRINT_END`. Your slicer
 calls them, and everything the printer does before and after a print lives
 inside them.
 
-{% include "_templates/work-in-progress.md" %}
+{% include "tools/work-in-progress.md" %}
 
 ## Related
 
