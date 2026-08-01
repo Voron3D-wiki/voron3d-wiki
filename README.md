@@ -33,6 +33,17 @@ mkdocs serve
 
 Visit `http://127.0.0.1:8000` to view the documentation.
 
+## Project State and Invariants
+
+**[AUDIT.md](AUDIT.md)** tracks the current state of the wiki and, more
+importantly, the things that must not be broken by a change — the page layout
+convention, the deployment setup, and the CI security rules. Read the Invariants
+section before touching `mkdocs.yml`, `.github/`, `requirements.txt`, or the
+layout of `docs/`, and use its pre-merge checklist.
+
+It also lists which pages are stalest and thinnest, so there is always an
+obvious place to start writing.
+
 ## Contributing
 
 We welcome contributions! Here's how you can help:
