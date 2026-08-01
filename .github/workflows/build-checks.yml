@@ -1,4 +1,4 @@
-name: Build, Format, and Deploy to Cloudflare Pages
+name: Build and Format Checks
 
 on:
   push:
@@ -68,22 +68,11 @@ jobs:
         run: |
           mkdocs build --strict
 
-  # Stage 3: Deploy to Cloudflare Pages
-  deploy:
-    name: Deploy to Cloudflare Pages
-    runs-on: ubuntu-latest
-    needs: build
-    # Only deploy real pushes to main. Without this, every pull request - from
-    # any fork - triggered a production deploy.
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    steps:
-      - name: Trigger Deployment Webhook
-        env:
-          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
-        run: |
-          set -euo pipefail
-          if [ -z "${DEPLOY_HOOK:-}" ]; then
-            echo "::error::CLOUDFLARE_DEPLOY_HOOK secret is not set."
-            exit 1
-          fi
-          curl -fsS -X POST "$DEPLOY_HOOK"
+  # Deployment is NOT done here. Cloudflare Pages is connected to this
+  # repository directly and builds it itself:
+  #   production branch: main
+  #   build command:     pip install -r requirements.txt && mkdocs build
+  #   output directory:  site
+  # Pushes to main publish to production; other branches get preview
+  # deployments automatically. The old deploy-hook curl step was removed because
+  # it duplicated that and required a secret URL to be kept in the workflow.
