@@ -161,6 +161,3 @@ detection_threshold: 0.1
 - [GitHub Repository](https://github.com/beacon3d)
 - [Voron Discord](https://discord.gg/voron)
 - [Klipper Documentation](https://www.klipper3d.org/Bed_Level.html)
-
-{% include "ads/footer-AD.md" %}
-

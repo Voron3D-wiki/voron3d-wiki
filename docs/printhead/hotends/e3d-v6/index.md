@@ -105,4 +105,3 @@ While newer hotends offer specific advantages in certain areas, the V6 remains r
 - [OneTwo3D - E3D V6 Gold](https://www.onetwo3d.co.uk/product/e3d-v6-gold/?wpam_id=9) ← *Affiliate link*
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %} 

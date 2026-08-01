@@ -73,4 +73,3 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 2. [Klipper Documentation](https://www.klipper3d.org/)
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}

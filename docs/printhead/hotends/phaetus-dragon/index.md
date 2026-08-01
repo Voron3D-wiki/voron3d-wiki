@@ -122,5 +122,3 @@ print(f"Flow rate: {flow_rate} mm³/s")
 1. [Phaetus Official Dragon Documentation](https://www.phaetus.com/dragon)
 2. [Voron Hardware Guide](https://docs.vorondesign.com/hardware.html)
 3. [Community Review at 3DPrintBeginner](https://3dprintbeginner.com/phaetus-dragon-hotend-review/)
-
-{% include "ads/footer-AD.md" %}

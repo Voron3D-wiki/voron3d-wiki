@@ -69,5 +69,4 @@ Each code block includes:
 !!! info "Page Information"
     - **Last Updated**: {{ git_revision_date_localized }}
     - **Contributors**: {{ git_author }}
-    - 
-{% include "ads/footer-AD.md" %} 
+    -

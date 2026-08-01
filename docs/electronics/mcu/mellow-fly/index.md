@@ -113,5 +113,3 @@ Mellow Fly boards represent a series of high-quality mainboards designed for 3D 
 1. Mellow Official Documentation
 2. Community Modifications Database
 3. User Experience Reports
-
-{% include "ads/footer-AD.md" %} 

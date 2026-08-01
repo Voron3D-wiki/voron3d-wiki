@@ -123,10 +123,9 @@ For additional support:
 - Check the Mellow GitHub repository
 - Consult the Klipper documentation
 
-{% include "ads/footer-AD.md" %}
 
 ## Purchase Information
 
 The FLY-SB2040 boards are available for purchase through:
 - Mellow's AliExpress store
-- Authorized Mellow resellers 
+- Authorized Mellow resellers

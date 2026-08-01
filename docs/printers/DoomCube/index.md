@@ -27,5 +27,3 @@ than a polished manual. If this is your first build, start with a
 
 - [Zruncho's designs on GitHub](https://github.com/zruncho3d)
 - [Tri-Zero repository](https://github.com/zruncho3d/tri-zero)
-
-{% include "ads/footer-AD.md" %}

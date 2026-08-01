@@ -48,5 +48,3 @@ tags: [BoxTurtle, MMU, Multi-Material]
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
-

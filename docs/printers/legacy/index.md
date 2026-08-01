@@ -30,5 +30,3 @@ point for a new build. For a new printer see the
     Legacy models use extrusion sizes, rail lengths, and printed parts that
     current kits do not ship. Check the BOM for the specific revision before
     buying anything.
-
-{% include "ads/footer-AD.md" %}

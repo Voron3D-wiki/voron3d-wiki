@@ -6,5 +6,3 @@ tags: [TradRack]
 ---
 
 # TradRack
-{% include "ads/footer-AD.md" %}
-

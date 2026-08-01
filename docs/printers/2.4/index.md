@@ -81,5 +81,3 @@ The Voron V2.4 is a high-performance, open-source 3D printer designed by the Vor
 - [Voron Subreddit](https://www.reddit.com/r/voroncorexy)
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
-

@@ -83,4 +83,3 @@ The Octopus series represents BigTreeTech's high-end mainboard offerings, design
 3. User Experience Reports
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %} 

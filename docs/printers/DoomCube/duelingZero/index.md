@@ -11,7 +11,7 @@ Dueling Zero (D0) is a DoomCube design that puts two independent gantries in a
 single [Voron V0](../../v0/index.md) frame, so the printer can run two toolheads
 in the same build volume.
 
-{% include "ads/soon.md" %}
+{% include "_templates/work-in-progress.md" %}
 
 ## Related
 
@@ -19,5 +19,3 @@ in the same build volume.
 - [Tri-Zero](../TriZero/index.md)
 - [Voron V0](../../v0/index.md)
 - [Zruncho's designs on GitHub](https://github.com/zruncho3d)
-
-{% include "ads/footer-AD.md" %}

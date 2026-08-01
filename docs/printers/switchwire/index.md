@@ -90,5 +90,3 @@ The Switchwire is popular for converting existing printers:
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
-

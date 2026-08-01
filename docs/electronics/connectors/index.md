@@ -76,4 +76,3 @@ Proper connectors and wiring are crucial for reliable 3D printer operation. This
 - [Online Connector Reference](https://www.connector-reference.com)
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %} 

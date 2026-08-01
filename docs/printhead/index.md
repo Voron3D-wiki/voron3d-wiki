@@ -65,5 +65,3 @@ This section covers the mechanical components and assemblies that make up Voron 
 1. [Voron Design](https://vorondesign.com)
 2. [Community Support](https://discord.gg/voron)
 3. [GitHub Repository](https://github.com/VoronDesign)
-
-{% include "ads/footer-AD.md" %}

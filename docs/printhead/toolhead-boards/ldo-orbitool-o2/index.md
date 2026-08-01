@@ -72,6 +72,4 @@ The LDO Orbitool O2 Toolboard Kit is a specialized control board designed specif
 3. User Experience Reports
 
 ## Purchase Links:
-- [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-orbitool-o2-toolboard-kit/?wpam_id=9) 
-
-{% include "ads/footer-AD.md" %} 
+- [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-orbitool-o2-toolboard-kit/?wpam_id=9)

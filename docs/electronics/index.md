@@ -114,5 +114,3 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 1. Voron Design Documentation
 2. Community Modifications Database
 3. User Experience Reports
-
-{% include "ads/footer-AD.md" %}

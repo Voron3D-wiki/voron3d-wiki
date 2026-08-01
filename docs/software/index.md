@@ -33,5 +33,3 @@ depends on.
 - [Klipper Config Reference](https://www.klipper3d.org/Config_Reference.html)
 - [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/)
 - [Official Voron documentation](https://docs.vorondesign.com/)
-
-{% include "ads/footer-AD.md" %}

@@ -50,5 +50,3 @@ The Voron Trident is a hybrid design that combines the best features of the V1 a
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
-

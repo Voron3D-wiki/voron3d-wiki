@@ -197,4 +197,3 @@ samples_tolerance_retries: 3
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}

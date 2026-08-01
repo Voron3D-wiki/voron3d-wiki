@@ -13,11 +13,9 @@ sustain high volumetric flow rates.
 
 ![CHC XL](chcXL.png)
 
-{% include "ads/soon.md" %}
+{% include "_templates/work-in-progress.md" %}
 
 ## Related
 
 - [Hotends overview](../index.md)
 - [Nozzles](../../nozzle/index.md)
-
-{% include "ads/footer-AD.md" %}

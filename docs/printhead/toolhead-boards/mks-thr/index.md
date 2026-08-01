@@ -68,4 +68,3 @@ If you have a USB-to-CAN bus adapter, follow these steps to configure it:
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}

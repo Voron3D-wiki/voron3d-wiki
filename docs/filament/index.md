@@ -24,5 +24,3 @@ affects the printer itself as much as what comes off it.
 - [Extruders](../printhead/extruders/index.md) — what actually pushes the filament
 - [Hotends](../printhead/hotends/index.md) — temperature ceilings and abrasive-material support
 - [Nozzles](../printhead/nozzle/index.md) — nozzle material for abrasive filaments
-
-{% include "ads/footer-AD.md" %}

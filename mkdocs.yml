@@ -143,7 +143,6 @@ plugins:
         - "assets"
         - "javascripts"
         - "mkdocs"
-        - "ads"
         - "_templates"
         - "stylesheets"
         - "docs"

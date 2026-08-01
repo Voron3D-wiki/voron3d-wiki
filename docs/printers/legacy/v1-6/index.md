@@ -147,5 +147,3 @@ Nozzle Size: 0.4mm standard
 1. [Legacy Documentation](https://docs.vorondesign.com/archive/v1.6/)
 2. [Upgrade Guides](https://docs.vorondesign.com/upgrades/)
 3. [Community Support](https://discord.gg/voron)
-
-{% include "ads/footer-AD.md" %} 

@@ -167,4 +167,3 @@ The Voron V0 is a small 3D printer with a build area of 120mm³. This printer, l
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}

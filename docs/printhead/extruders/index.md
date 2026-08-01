@@ -194,4 +194,3 @@ Extruders are critical components in 3D printers that control the flow of filame
 - [Extruder Calibration Guide](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html) - Comprehensive guide to extruder calibration and tuning.
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}

@@ -16,7 +16,7 @@ The two you cannot do without are `PRINT_START` and `PRINT_END`. Your slicer
 calls them, and everything the printer does before and after a print lives
 inside them.
 
-{% include "ads/soon.md" %}
+{% include "_templates/work-in-progress.md" %}
 
 ## Related
 
@@ -29,5 +29,3 @@ inside them.
 - [Klipper G-Code Macros](https://www.klipper3d.org/Command_Templates.html)
 - [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/)
 - [Voron Discord](https://discord.gg/voron)
-
-{% include "ads/footer-AD.md" %}

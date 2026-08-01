@@ -15,12 +15,10 @@ shaper results — rather than the raw CSVs Klipper produces on its own.
 
 ![Shake&Tune Y axis result](voron-v0.2-shakeandtune-Y-min.png)
 
-{% include "ads/soon.md" %}
+{% include "_templates/work-in-progress.md" %}
 
 ## Related
 
 - [Klipper](../klipper/index.md)
 - [Klipper Config Help](../klipper-config-help/index.md)
 - [Shake&Tune on GitHub](https://github.com/Frix-x/klippain-shaketune)
-
-{% include "ads/footer-AD.md" %}

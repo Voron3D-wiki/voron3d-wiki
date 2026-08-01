@@ -59,4 +59,3 @@ At the time of writing this there is no offical assembly guide with the cad file
 
 
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}

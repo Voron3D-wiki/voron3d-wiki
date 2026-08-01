@@ -73,8 +73,7 @@ voron3d-wiki/
 │   ├── assets/         # Site-wide assets (logo, favicon)
 │   ├── javascripts/    # Custom JS
 │   ├── stylesheets/    # Custom CSS
-│   ├── ads/            # Ad + notice partials, pulled in with {% include %}
-│   └── _templates/     # Page template for new pages
+│   └── _templates/     # Page template, and partials pulled in with {% include %}
 ├── overrides/          # Material theme overrides
 ├── requirements.txt    # Python dependencies
 └── mkdocs.yml          # MkDocs configuration
@@ -102,8 +101,9 @@ paths to get wrong. When adding a page:
 4. Add it to the `nav` in `mkdocs.yml` as `<section>/<page-name>/index.md`
 
 Do not create flat `docs/<section>/<page>.md` files. The only files outside this
-convention are the root `docs/index.md` and the `{% include %}` partials in
-`docs/ads/` and `docs/affiliate-disclosure.md`.
+convention are the root `docs/index.md` and three `{% include %}` partials:
+`docs/affiliate-disclosure.md`, `docs/_templates/page_template.md`, and
+`docs/_templates/work-in-progress.md`.
 
 ### Building the Site
 ```bash

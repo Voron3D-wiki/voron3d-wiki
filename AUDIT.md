@@ -31,14 +31,14 @@ build, or reopens a security hole. Each has a check you can actually run.
 
 ### Not pages
 
-`{% include %}` partials and templates, not routable pages. These five are the
+`{% include %}` partials and templates, not routable pages. These three are the
 **only** legitimate output of the invariant 2 check — anything else it prints is
 a page that needs moving into a folder:
 
 ```
-docs/ads/footer-AD.md          docs/ads/article-AD.md
-docs/ads/soon.md               docs/affiliate-disclosure.md
+docs/affiliate-disclosure.md
 docs/_templates/page_template.md
+docs/_templates/work-in-progress.md
 ```
 
 Two more sit outside the usual rules without showing up in that check:
@@ -65,9 +65,14 @@ Cloudflare builds the site itself. GitHub Actions only *validates* — nothing i
 `.github/` deploys. Note that Actions builds with `--strict` while Cloudflare
 builds without it, so CI is the stricter gate of the two.
 
-**Ads are disabled.** Both snippets in `docs/ads/` are commented out pending an
-AdSense issue, while ~48 pages still include `footer-AD.md`. Those includes
-render nothing. Uncommenting the snippets re-enables ads site-wide.
+**There are no ads.** AdSense was removed entirely in 2026-08 — it earned about
+35 cents a month, which did not justify the markup or the third-party script.
+Gone: both ad partials, the 60 `footer-AD` includes, the `_templates/ads.html`
+snippet, and `docs/ads.txt`. Do not reintroduce an ad network without deciding
+that trade again.
+
+Revenue now comes from affiliate links only. Those are unrelated to AdSense and
+stay — see the affiliate disclosure partial and `affiliate-link-check.yml`.
 
 ---
 
@@ -102,8 +107,16 @@ Pages carrying affiliate links should end with:
 
 ```
 {% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
 ```
+
+Pages that are still being written can carry the notice partial, usually just
+after the intro:
+
+```
+{% include "_templates/work-in-progress.md" %}
+```
+
+There is no ad include. If you find one in an old branch, drop it.
 
 MkDocs uses directory URLs, so `<page>.md` and `<page>/index.md` serve the same
 URL. The 2026-08 restructure changed no published links.

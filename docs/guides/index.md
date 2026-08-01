@@ -82,6 +82,3 @@ Confirm that your canbus UUID is falshed with klipper
 ## **Assembly Guides**
 
  - coming soon
-
-{% include "ads/footer-AD.md" %}
-

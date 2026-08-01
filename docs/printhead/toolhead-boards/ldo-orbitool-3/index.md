@@ -72,5 +72,3 @@ The LDO Orbitool 3 Toolboard Kit is a specialized control board designed specifi
 
 ## Purchase Links:
 - [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0?wpam_id=9)  |
-
-{% include "ads/footer-AD.md" %} 

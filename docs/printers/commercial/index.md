@@ -13,12 +13,10 @@ convenience, and they vary a lot in how closely they follow the original design.
 
 ![Troodon](Troodon.jpg)
 
-{% include "ads/soon.md" %}
+{% include "_templates/work-in-progress.md" %}
 
 ## Related
 
 - [Printers overview](../index.md)
 - [Voron V2.4](../2.4/index.md)
 - [Voron Trident](../trident/index.md)
-
-{% include "ads/footer-AD.md" %}

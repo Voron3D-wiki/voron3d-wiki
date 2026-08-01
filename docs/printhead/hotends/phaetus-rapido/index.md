@@ -167,5 +167,3 @@ Heat Breaks:
 1. [Manufacturer Documentation](https://www.phaetus.com/rapido)
 2. [Voron Documentation](https://docs.vorondesign.com)
 3. [Community Guide](https://3dprintbeginner.com/phaetus-rapido-review/)
-
-{% include "ads/footer-AD.md" %} 

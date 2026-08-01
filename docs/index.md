@@ -86,5 +86,3 @@ We hope this wiki serves as a valuable resource for your 3D printing journey. St
 
 !!! tip "Need Help?"
     Join the Offical voron [Discord](https://discord.gg/voron) for real-time support and discussions.
-
-{% include "ads/footer-AD.md" %}

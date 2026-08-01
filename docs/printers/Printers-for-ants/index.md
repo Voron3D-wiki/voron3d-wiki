@@ -14,7 +14,7 @@ extrusions.
 
 ![Micron 180](micron+180.jpg)
 
-{% include "ads/soon.md" %}
+{% include "_templates/work-in-progress.md" %}
 
 ## Related
 
@@ -22,5 +22,3 @@ extrusions.
 - [Voron V0](../v0/index.md)
 - [Voron V2.4](../2.4/index.md)
 - [DoomCube](../DoomCube/index.md)
-
-{% include "ads/footer-AD.md" %}

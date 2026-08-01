@@ -13,5 +13,3 @@ The VORON 1.8 is a CoreXY 3D printer design that builds upon the success of prev
 ## References
 1. [Build Manual](https://voron.dozuki.com/c/Voron_1.6)
 2. [Documentation](https://docs.vorondesign.com/build/mechanical/#v1)
-
-{% include "ads/footer-AD.md" %} 

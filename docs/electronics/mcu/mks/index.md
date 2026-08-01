@@ -101,5 +101,3 @@ MKS (Makerbase) boards are known for their reliability and feature-rich design. 
 1. MKS Official Documentation
 2. Community Modifications Database
 3. User Experience Reports
-
-{% include "ads/footer-AD.md" %} 

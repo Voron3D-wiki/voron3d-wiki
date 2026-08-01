@@ -61,9 +61,3 @@ tags: [klipper, kiauh, fluidd, mainsail]
 - This is the standalone repository of the Klipper LED Effects module developed by Paul McGowan with contributions from myself. It allows Klipper to run effects and animations on addressable LEDs, such as Neopixels, WS2812 or SK6812.
 
 ---
-
-
-
-
-{% include "ads/footer-AD.md" %}
-
