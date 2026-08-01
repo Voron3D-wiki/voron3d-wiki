@@ -5,6 +5,9 @@ theme:
   favicon: assets/vdesignplainlorig.png
   logo: assets/VoronLogo.png
   name: material
+  # Required for overrides/main.html to be rendered at all. Without this the
+  # whole overrides/ directory is silently ignored.
+  custom_dir: overrides
   features:
     - navigation.tracking
     - navigation.tabs
@@ -207,9 +210,12 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-# GA is configured here only. Do not re-configure the same property in a custom
-# script as well, or every page view is counted twice.
-# NOTE: overrides/main.html still loads a second property (G-VPL8R0L9Z1).
+# Analytics is NOT configured here. The gtag.js library and the `config` call
+# live in overrides/main.html so we can set url_passthrough/linker, which the
+# Material provider does not expose and which are what kept affiliate URLs
+# getting rewritten. Custom events are in docs/javascripts/analytics.js.
+# Do not add an `analytics:` block below — it would load a second GA integration
+# and double-count every page view.
 extra:
   version:
     provider: mike
@@ -221,13 +227,10 @@ extra:
   footer:
     - text: Policies
       link: policies/index.md
-  analytics:
-    provider: google
-    property: G-7E70MV2KN4
 
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
-  - javascripts/block-affiliate-tracking.js
+  - javascripts/analytics.js
   - javascripts/external-links.js
 

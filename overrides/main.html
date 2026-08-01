@@ -2,12 +2,25 @@
 
 {% block extrahead %}
   {{ super() }}
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPL8R0L9Z1"></script>
+  <!-- Google Analytics 4 (gtag.js) — single source of truth for the GA library.
+       Deliberately loaded here instead of via mkdocs.yml `extra.analytics`, so we
+       control the config flags below. The Material provider does not expose
+       url_passthrough/linker, and its outbound-click handling was previously
+       found to rewrite affiliate URLs.
+       Custom events live in docs/javascripts/analytics.js. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7E70MV2KN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-VPL8R0L9Z1');
+    gtag('config', 'G-7E70MV2KN4', {
+      transport_type: 'beacon',
+      // Keep GA away from outbound URLs — these are what append `_gl=` and
+      // friends to links, which breaks affiliate attribution.
+      url_passthrough: false,
+      linker: { domains: [], decorate_forms: false },
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
   </script>
 {% endblock %}
