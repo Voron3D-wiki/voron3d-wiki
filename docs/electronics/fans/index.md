@@ -93,4 +93,4 @@ Performance (generally) goes up with rpm, but not always.  The design of the fan
 
 
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

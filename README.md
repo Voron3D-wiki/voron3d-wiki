@@ -33,6 +33,17 @@ mkdocs serve
 
 Visit `http://127.0.0.1:8000` to view the documentation.
 
+## Project State and Invariants
+
+**[AUDIT.md](AUDIT.md)** tracks the current state of the wiki and, more
+importantly, the things that must not be broken by a change — the page layout
+convention, the deployment setup, and the CI security rules. Read the Invariants
+section before touching `mkdocs.yml`, `.github/`, `requirements.txt`, or the
+layout of `docs/`, and use its pre-merge checklist.
+
+It also lists which pages are stalest and thinnest, so there is always an
+obvious place to start writing.
+
 ## Contributing
 
 We welcome contributions! Here's how you can help:
@@ -49,7 +60,9 @@ We welcome contributions! Here's how you can help:
 - Include relevant images and diagrams
 - Follow the existing style guide
 - Test all links and code examples
-- Update the table of contents if needed
+- Add every new page to the `nav` in `mkdocs.yml`
+- Run `mkdocs build --strict` before opening a PR — CI runs it and it fails on
+  broken internal links, missing nav targets, and bad plugin options
 
 ## Development
 
@@ -57,10 +70,53 @@ We welcome contributions! Here's how you can help:
 ```
 voron3d-wiki/
 ├── docs/               # Documentation source files
-├── assets/            # Static assets (images, etc.)
-├── stylesheets/       # Custom CSS
-└── mkdocs.yml        # MkDocs configuration
+│   ├── assets/         # Site-wide assets (logo, favicon)
+│   ├── javascripts/    # Custom JS
+│   ├── stylesheets/    # Custom CSS
+│   ├── tools/          # Reusable partials pulled in with {% include %}
+│   └── _templates/     # Page template to copy when starting a new page
+├── overrides/          # Material theme overrides
+├── requirements.txt    # Python dependencies
+└── mkdocs.yml          # MkDocs configuration
 ```
+
+### Page Layout Convention
+
+**Every content page is `<name>/index.md`, and its images live in that same
+folder.** One topic, one folder, everything for it in one place.
+
+```
+docs/printhead/toolhead-boards/mks-thr/
+├── index.md                 # the page
+├── MKS-UTC-conf.png         # its images
+└── MKS-THR-36-42-conf.png
+```
+
+So a page's URL is its folder path, and adding a screenshot means dropping the
+file next to `index.md` and referencing it by bare filename — no `../assets/`
+paths to get wrong. When adding a page:
+
+1. `mkdir docs/<section>/<page-name>/`
+2. Copy `docs/_templates/page_template.md` to `<page-name>/index.md`
+3. Put the images in the same folder
+4. Add it to the `nav` in `mkdocs.yml` as `<section>/<page-name>/index.md`
+
+Do not create flat `docs/<section>/<page>.md` files. The only files outside this
+convention are the root `docs/index.md` and the contents of `docs/tools/` and
+`docs/_templates/`.
+
+### Reusable Partials
+
+`docs/tools/` holds snippets used on more than one page — currently the
+affiliate disclosure and the work-in-progress notice. Pull one in with:
+
+```
+{% include "tools/affiliate-disclosure.md" %}
+```
+
+Both `tools/` and `_templates/` are listed in `exclude_docs`, so their contents
+render into pages but are never served or indexed as pages themselves. Adding a
+new partial needs no config change — just drop the file in `docs/tools/`.
 
 ### Building the Site
 ```bash

@@ -33,7 +33,6 @@ site/**
 !site/assets/icons/
 
 site/404.html
-site/ads.txt
 site/analytics.js
 
 site/index.html
@@ -90,7 +89,6 @@ site/assets/external/github.com/MasturMynd/Pandora/raw/main/Images/Pandora_Compl
 site/assets/external/github.com/zruncho3d/BoxZero/raw/main/Renders/belt_rear_flat.png
 site/assets/external/github.com/zruncho3d/tri-zero/raw/main/Renders/alpha-6/iso-red.png
 site/assets/external/i.redd.it/po0y0d65hzqa1.png
-site/assets/external/pagead2.googlesyndication.com/pagead/js/adsbygoogle.16232412.js
 site/assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js
 site/assets/external/www.googletagmanager.com/gtag/js.316fbd15.js
 site/assets/images/favicon.png
@@ -162,3 +160,8 @@ site/printhead/toolhead-boards/BTT-EBB/index.html
 site/printhead/toolhead-boards/FLY-SHT/index.html
 site/printhead/toolhead-boards/MKS-THR/index.html
 site/printhead/toolhead-home/index.html
+
+# CI scratch output
+changed_md.txt
+highlevel.txt
+diff.txt

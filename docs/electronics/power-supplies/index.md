@@ -150,4 +150,4 @@ Some builds use a dedicated 5V PSU to power a Raspberry Pi or other SBC instead 
 - Higher-wattage beds (e.g. 500W+ on a V2.4 350mm) may benefit from an **RSP-500-24** or dual-PSU setups.
 - Always verify your wiring and fusing when dealing with mains voltage.
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

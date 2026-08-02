@@ -7,7 +7,7 @@ tags: [BoxTurtle, MMU, Multi-Material]
 
 # BoxTurtle MMU
 
-![boxturtle offical photo](./boxturtle-offical.png)
+![boxturtle offical photo](boxturtle-offical.png)
 
 ## Offical kit (authorized resellers)
 
@@ -41,12 +41,10 @@ tags: [BoxTurtle, MMU, Multi-Material]
 
 * [formbot on aliexpress](https://s.click.aliexpress.com/e/_on7c7WX)
 
-* [Trianglelab  on aliexpress](https://s.click.aliexpress.com/e/_ol7kwyJ) ![photo](./boxturtle-trianglelabs.jpg){ align="right" }
+* [Trianglelab  on aliexpress](https://s.click.aliexpress.com/e/_ol7kwyJ) ![photo](boxturtle-trianglelabs.jpg){ align="right" }
 
 
 * [Seleadlab  on aliexpress](https://s.click.aliexpress.com/e/_okz8n5H)
 
 
-{% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
-
+{% include "tools/affiliate-disclosure.md" %}

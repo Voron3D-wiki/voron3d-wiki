@@ -7,7 +7,7 @@ tags: [Voron, Voron3D, 3dprint, 3dprinting]
 
 # Welcome to the Voron3D Wiki
 
-![Voron3D Logo](../assets/VoronLogo.png){ width="250" align="right" }
+![Voron3D Logo](assets/VoronLogo.png){ width="250" align="right" }
 
 Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and other 3D printing-related topics. We aim to make a useful resource for finding interesting modifications and share knowledge about the latest developments in the field.
 
@@ -52,7 +52,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 
     Explore the Voron Switchwire.
 
-    [:octicons-arrow-right-24: Learn more](printers/switchwire.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](printers/switchwire/index.md){ .md-button }
 
 </div>
 
@@ -64,7 +64,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 - [MCUs and Motherboards](electronics/mcu/index.md) - Learn about the various MCUs and motherboards compatible with Voron printers
 - [Toolhead Boards](printhead/toolhead-boards/index.md) - Explore the best toolhead boards for efficient wiring and performance
 - [FANS](electronics/fans/index.md) - Understand the importance of fans and how to choose the right ones
-- [Stepper Motor](electroniics/stepper-motor/stepper-motor.md)
+- [Stepper Motor](electronics/stepper-motor/index.md)
 <!-- - [Expansion Boards](electronics/expansion-boards/expansion-boards.md) - Learn about expansion boards and how to flash them -->
 
 
@@ -74,7 +74,7 @@ The Voron project revolves around open-source 3D printers that are known for the
 - [extruders](printhead/extruders/index.md) - Learn about the different types of extruders available
 - [toolhead-boards](printhead/toolhead-boards/index.md) - Learn about the best toolhead boards for efficient wiring and performance
 
-### [Bed Leveling](bedleveling/bed-leveling.md) - Guides for bed leveling tools and probes
+### [Bed Leveling](bedleveling/index.md) - Guides for bed leveling tools and probes
 
 ### [Multi-Material Units](MMUs/index.md) - Explore MMU systems for multi-material printing
 
@@ -86,5 +86,3 @@ We hope this wiki serves as a valuable resource for your 3D printing journey. St
 
 !!! tip "Need Help?"
     Join the Offical voron [Discord](https://discord.gg/voron) for real-time support and discussions.
-
-{% include "ads/footer-AD.md" %}

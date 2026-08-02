@@ -24,7 +24,7 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 
     Explore the main control units and MCU boards for Voron printers.
 
-    [:octicons-arrow-right-24: Learn more](./mcu/index.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](mcu/index.md){ .md-button }
 
 -   :material-lightning-bolt:{ .lg .middle } __Toolhead Boards__
 
@@ -39,7 +39,7 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 
     Find information on connectors and wiring standards used in Voron printers.
 
-    [:octicons-arrow-right-24: Learn more](./connectors.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](connectors/index.md){ .md-button }
 
 </div>
 
@@ -53,7 +53,7 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 
     Learn how to choose and configure the right power supply for your printer.
 
-    [:octicons-arrow-right-24: Learn more](./power-supplies/index.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](power-supplies/index.md){ .md-button }
 
 -   :material-cable:{ .lg .middle } __Wiring Guide__
 
@@ -61,7 +61,7 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 
     Complete wiring diagrams and best practices for safe electrical connections.
 
-    [:octicons-arrow-right-24: Learn more](./wiring/index.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](wiring/index.md){ .md-button }
 
 -   :material-shield-alert:{ .lg .middle } __Safety Guidelines__
 
@@ -69,7 +69,7 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 
     Essential safety information for working with printer electronics.
 
-    [:octicons-arrow-right-24: Learn more](./safety/index.md){ .md-button }
+    [:octicons-arrow-right-24: Learn more](safety/index.md){ .md-button }
 
 </div>
 
@@ -114,5 +114,3 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 1. Voron Design Documentation
 2. Community Modifications Database
 3. User Experience Reports
-
-{% include "ads/footer-AD.md" %}

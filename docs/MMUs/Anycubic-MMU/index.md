@@ -23,6 +23,3 @@ The Anycubic Multi-Color/Material Unit (MMU) is an advanced add-on for 3D printe
 ## Tips for Successful Printing
 
 ## Troubleshooting
-
-{% include "ads/footer-AD.md" %}
-

@@ -34,7 +34,7 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 
 ## Stepper Motor Database
 
-{% include "../stepper-motor/stepper-motor-database.md" %}
+{% include "./database/index.md" %}
 
 ### Nema 17 Stepper Motor Purchase links
 
@@ -88,4 +88,4 @@ I recently got a message from DevMiner the creator of the stepper motor simulato
 1. [Voron Design](https://vorondesign.com)
 2. [Community Support](https://discord.gg/voron)
 
-{% include "affiliate-disclosure.md" %}
+{% include "tools/affiliate-disclosure.md" %}

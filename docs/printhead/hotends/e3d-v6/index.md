@@ -7,7 +7,7 @@ tags: [E3D, V6, Hotend]
 
 # E3D V6 Hotend
 
-![E3D V6 Hotend](../../assets/e3d-v6-image.jpg)
+![E3D V6 Hotend](photo-v6.jpg)
 
 ## Overview
 The E3D V6 hotend is one of the most influential and widely adopted hotends in the history of consumer 3D printing. First released in 2014, the V6 has become the industry standard that many other hotends are measured against. Its reliable design, excellent performance, and vast ecosystem of compatible parts have made it a cornerstone of the 3D printing community.
@@ -104,5 +104,4 @@ While newer hotends offer specific advantages in certain areas, the V6 remains r
 - [OneTwo3D - E3D V6 Hotend](https://www.onetwo3d.co.uk/product/e3d-v6-hotend/?wpam_id=9) ← *Affiliate link*
 - [OneTwo3D - E3D V6 Gold](https://www.onetwo3d.co.uk/product/e3d-v6-gold/?wpam_id=9) ← *Affiliate link*
 
-{% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %} 
+{% include "tools/affiliate-disclosure.md" %}

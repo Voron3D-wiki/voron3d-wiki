@@ -193,5 +193,4 @@ Extruders are critical components in 3D printers that control the flow of filame
 - [Extruder Force Testing by Annex Engineering](https://github.com/Annex-Engineering/Annex-Engineering.github.io/blob/master/extruder_force.md) - Detailed information on extruder force testing and performance.
 - [Extruder Calibration Guide](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html) - Comprehensive guide to extruder calibration and tuning.
 
-{% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
+{% include "tools/affiliate-disclosure.md" %}

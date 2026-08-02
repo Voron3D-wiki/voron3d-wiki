@@ -17,32 +17,32 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 
 | Model                                   | Description          | Photo      | Purchase Link |
 | --------------------------------------- | -------------------- | -------------- | ------------ |
-| [BTT EBB36 Gen 1](./BTT-EBB-Gen1.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
-| [BTT EBB36 Gen 2](./BTT-EBB-Gen2/index.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
-| [Mellow Fly SHT36](FLY-SHT.md) | Compact version      | *(Photo here)* | [aliexpress ](https://s.click.aliexpress.com/e/_on6cQcV)|
-| [NiteHawk 36 RevC Toolboard Kit](mellow-fly-sht36.md) | USB connection      | *(Photo here)* | |
+| [BTT EBB36 Gen 1](BTT-EBB-Gen1/index.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
+| [BTT EBB36 Gen 2](BTT-EBB-Gen2/index.md)               | Compact and reliable |  | [aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
+| [Mellow Fly SHT36](FLY-SHT/index.md) | Compact version      | *(Photo here)* | [aliexpress ](https://s.click.aliexpress.com/e/_on6cQcV)|
+| [NiteHawk 36 RevC Toolboard Kit](FLY-SHT/index.md) | USB connection      | *(Photo here)* | |
 
 ### 42mm Motor Mount Boards
 
 | Model                               | Description            | Photo      | Purchase Link |
 | ----------------------------------- | ---------------------- | -------------- | --- |
-| [BTT EBB42 Gen 1](BTT-EBB-Gen1.md)           | Full-featured option   | *(Photo here)* |[aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
+| [BTT EBB42 Gen 1](BTT-EBB-Gen1/index.md)           | Full-featured option   | *(Photo here)* |[aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
 | [BTT EBB42 Gen 2](BTT-EBB-Gen2/index.md)           | Full-featured option   | *(Photo here)* |[aliexpress ](https://s.click.aliexpress.com/e/_oB7xuKp), [   BIQU Offical store](https://tidd.ly/4oDy9om) |
-| [Mellow Fly SHT42](FLY-SHT.md) | High performance board | *(Photo here)* | |
+| [Mellow Fly SHT42](FLY-SHT/index.md) | High performance board | *(Photo here)* | |
 
 ### StealthBurner-Specific Boards
 
 | Model                             | Description             | Photo      | Purchase Link |
 | --------------------------------- | ----------------------- | -------------- | --- |
-| [Mellow Fly SB2040](FLY-SB2040.md) | StealthBurner optimized | *(Photo here)* | |
+| [Mellow Fly SB2040](FLY-SB2040/index.md) | StealthBurner optimized | *(Photo here)* | |
 
 
 ### other Boards
 
 | Model                             | Description             | Photo      | Purchase Link |
 | --------------------------------- | ----------------------- | -------------- | ----- |
-| [LDO Orbitool-02](ldo-orbitool-O2.md) | Orbitool-02 board | *(Photo here)* |[onetwo3d](https://www.onetwo3d.co.uk/product/ldo-orbitool-o2-toolboard-kit/?wpam_id=9)   |
-| [LDO Orbitool-3](ldo-orbitool-3.md) | Designed for Orbiter 3 extruder and hotend assembly | *(Photo here)* | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0?wpam_id=9)  |
+| [LDO Orbitool-02](ldo-orbitool-o2/index.md) | Orbitool-02 board | *(Photo here)* |[onetwo3d](https://www.onetwo3d.co.uk/product/ldo-orbitool-o2-toolboard-kit/?wpam_id=9)   |
+| [LDO Orbitool-3](ldo-orbitool-3/index.md) | Designed for Orbiter 3 extruder and hotend assembly | *(Photo here)* | [onetwo3d](https://www.onetwo3d.co.uk/product/ldo-smart-orbiter-3-0?wpam_id=9)  |
 
 ### Acessories
 
@@ -65,12 +65,11 @@ Toolhead boards are specialized electronic boards designed to be mounted on the 
 ## Tips and Guides
 
 
-### [BigTreeTech EBB toolhead board Firmware Flashing Guilde](BTT-EBB-CONFIG.md)
+### [BigTreeTech EBB toolhead board Firmware Flashing Guilde](BTT-EBB-Gen1/index.md)
 
 ## References
 
 1. [Voron Hardware Guide](https://docs.vorondesign.com/hardware.html)
 2. [Klipper Documentation](https://www.klipper3d.org/)
 
-{% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
+{% include "tools/affiliate-disclosure.md" %}

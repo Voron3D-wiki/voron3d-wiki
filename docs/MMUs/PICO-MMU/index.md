@@ -4,7 +4,7 @@ description: The Pico MMU is a very cost effective and compact multi material sy
 tags: [LH, LH PICO,LH PICO MMU]
 ---
 # LH PICO MMU
-![LH PICO MMU photo](./PICO-MMU/PXL_20250116_114328519.jpg)
+![LH PICO MMU photo](./PXL_20250116_114328519.jpg)
 
 # What is it
 The Pico MMU is a very cost effective and compact multi material system. 
@@ -58,5 +58,4 @@ At the time of writing this there is no offical assembly guide with the cad file
 # Customization / modifications
 
 
-{% include "affiliate-disclosure.md" %}
-{% include "ads/footer-AD.md" %}
+{% include "tools/affiliate-disclosure.md" %}
