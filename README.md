@@ -53,7 +53,7 @@ reviews   ->  how did they actually hold up
 buy       ->  where to get it
 ```
 
-`docs/electronics/fans/index.md` is the reference implementation — it opens with
+`src/content/docs/electronics/fans/index.mdx` is the reference implementation — it opens with
 "How to choose a fan" and attaches no affiliate link to the reasoning. A reader
 must be able to read the whole criteria layer and leave without ever seeing a
 product link.
@@ -79,108 +79,125 @@ the wrong change regardless of how much sense it makes commercially.
 
 ```
 voron3d-wiki/
-├── docs/                  # Content (production). 75 pages of markdown.
-│   ├── assets/            # Site-wide assets (logo, favicon)
-│   ├── javascripts/       # analytics.js, external-links.js, tablesort.js
-│   ├── stylesheets/       # extra.css
-│   ├── tools/             # Reusable partials pulled in with {% include %}
-│   └── _templates/        # Page scaffold to copy when starting a page
-├── overrides/             # Material theme override — loads GA4
-├── astro/                 # Astro + Starlight evaluation build (NOT deployed)
-├── .github/               # CI: affiliate link checks, build validation
+├── src/
+│   ├── content/docs/      # All content. 75 pages of MDX.
+│   ├── components/        # Shared blocks (AffiliateDisclosure, WorkInProgress)
+│   ├── assets/            # Logo and site-wide images
+│   └── styles/            # custom.css
+├── public/                # Served as-is: favicon, js/ (analytics, sorting, links)
+├── .github/               # CI: build checks, affiliate link gating
+├── astro.config.mjs       # Site config, sidebar, GA4
 ├── AUDIT.md               # Invariants + current state. Read before merging.
-├── mkdocs.yml             # Production site config
-└── requirements.txt       # Production Python dependencies
+└── package.json
 ```
 
-### Two stacks, one content tree
-
-| | Production | Evaluation |
-|:--|:--|:--|
-| **Stack** | MkDocs Material | Astro + Starlight |
-| **Lives in** | `docs/` + `mkdocs.yml` | `astro/` |
-| **Deployed?** | **Yes** — Cloudflare Pages, git-connected | No |
-| **Build** | `mkdocs build --strict` | `cd astro && npm run build` |
-
-`astro/` is a **proof of concept for a possible migration, not a second site.**
-It does not deploy and does not need to be kept passing to merge content.
-
-Critically, it has **no separate copy of the content**. `astro/scripts/convert.mjs`
-projects `docs/` into `astro/src/content/docs/` on demand, so `docs/` stays the
-single source of truth. If you write content, write it in `docs/`.
+## Running it
 
 ```bash
-cd astro
 npm install
-npm run convert   # regenerate from ../docs
-npm run dev       # preview at localhost:4321
+npm run dev      # http://localhost:4321
+npm run build    # -> dist/
+npx astro check  # type-checks content against the schema; CI runs this
 ```
 
-The converter reports anything it could not translate confidently rather than
-emitting silently-wrong output. Currently one page is flagged — see [TODO](#todo).
+Built with **Astro + Starlight**. Deploys to Cloudflare Pages, which builds from
+git — nothing in `.github/` deploys.
 
----
+| | |
+|:--|:--|
+| Build command | `npm ci && npm run build` |
+| Output directory | `dist` |
+| Node version | 22 |
 
-## Running the production site
-
-```bash
-pip install -r requirements.txt
-mkdocs serve          # http://127.0.0.1:8000
-mkdocs build --strict # CI runs this; it must exit 0
-```
-
-`--strict` fails on broken internal links, missing nav targets, and bad plugin
-options. Run it before opening a PR.
+> Migrated from MkDocs Material in August 2026. Every URL was preserved — see
+> [Page conventions](#page-conventions) for the one rule that keeps it that way.
 
 ---
 
 ## Page conventions
 
-**Every content page is `<name>/index.md`, with its images in that same folder.**
+**Every content page is `<name>/index.mdx`, with its images in that same folder.**
 One topic, one folder.
 
 ```
-docs/printhead/toolhead-boards/mks-thr/
-├── index.md
+src/content/docs/printhead/toolhead-boards/mks-thr/
+├── index.mdx
 ├── MKS-UTC-conf.png
 └── MKS-THR-36-42-conf.png
 ```
 
-A page's URL is its folder path, so adding a screenshot means dropping the file
-next to `index.md` and referencing it by bare filename. To add a page:
+To add a page:
 
-1. `mkdir docs/<section>/<page-name>/`
-2. Copy `docs/_templates/page_template.md` to `<page-name>/index.md`
-3. Put images in the same folder
-4. Add it to `nav` in `mkdocs.yml`
+1. `mkdir src/content/docs/<section>/<page-name>/`
+2. Create `index.mdx` with `title`, `description`, and a **`slug`**
+3. Put images in the same folder, reference them by bare filename
+4. Add it to the `sidebar` in `astro.config.mjs`
+5. `npx astro check && npm run build`
 
-Do not create flat `docs/<section>/<page>.md` files. The only exceptions are
-`docs/index.md`, `docs/tools/`, and `docs/_templates/`.
+### The slug rule
 
-### Reusable partials
+**Every page must pin an explicit `slug` matching its URL path.** CI fails
+without one.
 
-`docs/tools/` holds snippets used on more than one page — currently the affiliate
-disclosure and the work-in-progress notice:
-
+```yaml
+---
+title: 'Part Cooling'
+description: 'Guide to part cooling options for Voron printers'
+slug: 'electronics/fans'
+---
 ```
-{% include "tools/affiliate-disclosure.md" %}
+
+Starlight slugifies by default — lowercasing and dropping dots. Left alone it
+would turn `/printers/2.4/` into `/printers/24/` and `/MMUs/` into `/mmus/`.
+That is 21 live URLs, every inbound link from Discord and the forums, and the
+search rankings attached to them. The pinned slugs are the only reason the
+migration changed no URLs. Do not remove them.
+
+### Shared blocks
+
+Reusable pieces are components in `src/components/`, imported where needed:
+
+```mdx
+import AffiliateDisclosure from '~/components/AffiliateDisclosure.astro';
+
+...page content...
+
+<AffiliateDisclosure />
 ```
 
-Both `tools/` and `_templates/` are in `exclude_docs`, so they render into pages
-but are never served as pages themselves.
+The disclosure goes at the **bottom**, with the buy links it is disclosing.
+
+### MDX is stricter than the old Markdown
+
+Content is MDX — CommonMark plus JSX. Three things that used to be legal now
+break the build:
+
+- **A bare `<` opens a tag.** `(<5A)` and `length < 1 meter` are parse errors.
+  Write `&lt;` or wrap in backticks. This is the most common one here, because
+  specs are full of comparison operators.
+- **Headings need a space after the hashes.** `###2507` is literal text now.
+- **HTML must be valid JSX** — `className=`, `style={{...}}`, `<br />`.
+
+The upside is that these fail loudly at build time instead of rendering wrong in
+production, which is how the duplicate-content bug in `BTT-EBB-Gen1` was found.
 
 ---
 
 ## Analytics
 
-GA4 property **G-7E70MV2KN4**, configured in exactly one place: `overrides/main.html`.
+GA4 property **G-7E70MV2KN4**, configured in exactly one place: the `head` block
+in `astro.config.mjs`.
 
-**Do not add an `analytics:` block to `mkdocs.yml`.** Material's built-in provider
-does not expose `url_passthrough` or `linker`, and it was previously diagnosed
-(`c53bee2`) as decorating outbound URLs with `_gl=` params, which breaks affiliate
-attribution. That is why the config is hand-rolled.
+**`url_passthrough` and `linker` must stay off.** They decorate outbound URLs
+with `_gl=` params, which breaks affiliate attribution. That was diagnosed in
+`c53bee2` and is why the GA config is hand-rolled rather than using an
+integration. Do not add a second `gtag('config', ...)` anywhere — it
+double-counts every page view.
 
-Custom events live in `docs/javascripts/analytics.js`:
+Custom events live in `public/js/analytics.js`. Two other scripts ship
+alongside it: `external-links.js` (external links open in a new tab) and
+`tablesort.js` (click-to-sort table headers, rewritten to drop the CDN
+dependency the MkDocs version had).
 
 | Event | What it answers |
 |:--|:--|
@@ -208,7 +225,7 @@ Running list. Keep it current — add what you find, tick what you finish.
 - [ ] **Verify affiliate clicks land clean** in the West3D / OneTwo3D / AliExpress
       dashboards, then compare against GA's `affiliate_click` count. The gap is
       the ad-blocker loss (expect 25–40% on this audience).
-- [ ] **Retire the `preventDefault()` guard** in `analytics.js` once the above
+- [ ] **Retire the `preventDefault()` guard** in `public/js/analytics.js` once the above
       confirms URLs are no longer being decorated. It is a workaround; the
       `url_passthrough: false` config is the actual fix.
 - [ ] Consider routing affiliate links through `/go/<slug>` with a `_redirects`
@@ -217,20 +234,19 @@ Running list. Keep it current — add what you find, tick what you finish.
 
 ### Content bugs
 
-- [ ] **`docs/printhead/toolhead-boards/BTT-EBB-Gen1/index.md` has duplicate
-      content.** Lines ~69–197 and ~198–360 are the same instructions twice. The
-      second copy is wrapped in a hand-rolled `.mkdocs-tabs` widget whose CSS was
-      never written, so it renders as inert divs today and the tags are left
-      unclosed. Needs an editorial fix: pick one copy, or convert to real tabs.
-- [ ] **`docs/electronics/fans/index.md` has 17 malformed headings** — `###2507`
-      with no space after the hashes. Python-Markdown renders those as headings so
-      the page looks fine today, but it is not valid CommonMark and any stricter
-      parser drops them to plain text. Worth fixing at source either way.
+- [ ] **`BTT-EBB-Gen1` has duplicate content.** The same flashing instructions
+      appear twice (~130 lines). The second copy was wrapped in a hand-rolled
+      tab widget whose CSS was never written; the migration stripped the dead
+      wrapper but deliberately kept both copies, because picking one is an
+      editorial call. Pick one, or convert to real `<Tabs>`.
+- [x] ~~17 malformed headings in `electronics/fans`~~ — repaired during the
+      migration. Noted because the same mistake now fails visibly instead of
+      silently rendering.
 - [ ] **Non-Voron printers are buried.** ~285 lines covering Siboor Enderwire,
       Sovol SV08 and others sit at the bottom of `docs/printers/index.md`,
       invisible to navigation. This is monetized content nobody can find. Promote
       it to its own section.
-- [ ] **`docs/guides/` is one page of outbound links** to Ellis's tuning guide,
+- [ ] **`guides/` is one page of outbound links** to Ellis's tuning guide,
       occupying a top-level nav slot and sending traffic away. Either build it out
       or fold it into Software.
 
@@ -251,36 +267,38 @@ Running list. Keep it current — add what you find, tick what you finish.
 - [ ] Add `unit_source: purchased | vendor_loan | gifted | reader_submitted` as a
       required field so a review cannot publish without declaring provenance.
 
-### Framework decision — open
+### Migration follow-ups
 
-- [ ] **Decide: stay on MkDocs, or migrate to Astro + Starlight.** The `astro/`
-      build exists to make this decision on evidence rather than argument.
-      Findings so far:
-      - 75/75 URL parity, verified by diffing both builds. No redirects needed.
-      - Output 36M → 16M; images 24M → 8.9M via automatic WebP.
-      - Ships Pagefind search, sitemap, and per-PR previews.
-      - Nav can be regrouped without moving a single file — Starlight's sidebar is
-        configured independently of disk layout, so the reorganisation carries
-        zero SEO risk.
-      - Upstream pressure: the Material build now warns that **MkDocs 2.0 removes
-        the plugin system and breaks all theme overrides, with no migration path.**
-        This repo uses 9 plugins and 1 theme override. Verify their current
-        position before weighting this heavily.
-- [ ] If migrating: rewrite `.github/scripts/affiliate_links.py` paths if `docs/`
-      moves. It operates on raw markdown diffs, so it survives the move as long as
-      content stays markdown — which is why Starlight was chosen over anything
-      that converts content to JSX.
-- [ ] If staying: run a one-time `cwebp` pass over `docs/`. 29MB of unoptimized
-      images is the single biggest performance win available, and MkDocs will not
-      do it automatically.
+The move from MkDocs Material to Astro + Starlight landed in August 2026. What
+it achieved, and what is left:
+
+- [x] 75/75 URL parity, verified by diffing both builds. No redirects needed.
+- [x] Nav regrouped into four sections without moving a single file — the
+      sidebar is configured independently of disk layout.
+- [x] Output 36M → 16M; images 24M → 8.9M via automatic WebP.
+- [x] Pagefind search, sitemap, and per-PR preview deployments.
+- [x] CI ported to Node; affiliate pipeline taught about `.mdx`.
+- [ ] **Verify the live deployment** — Cloudflare Pages build settings need to be
+      changed from the MkDocs values to `npm ci && npm run build`, output `dist`,
+      Node 22. Until that is done Pages will still try to run `mkdocs build` and
+      fail.
+- [ ] **Check "last updated" dates on the deployed site.** Starlight reads git
+      history for them, and Cloudflare's clone may be shallow. If every page shows
+      the same recent date, that is the cause.
+- [ ] Move the buy-link block into the page layout so its position cannot drift.
+      This is the structural enforcement of the editorial stance and it touches
+      every product page — a deliberate change, not a side effect.
+- [ ] Write the editorial policy page that `AffiliateDisclosure` links to
+      (`/policies/` currently has no such section).
+- [ ] Convert the 8 stale branches. They predate the migration and carry `.md`
+      content, so they need converting rather than merging.
 
 ### Deployment — open question
 
-- [ ] **Decide Cloudflare Pages vs Workers Static Assets.** Pages works today and
-      Pages Functions cover server-side needs. Workers adds native cron triggers
-      (relevant if comparison tables ever want scheduled price/stock refreshes) and
-      is where Cloudflare is directing new development. No urgency; best done at
-      the same time as a framework migration, not as a separate change.
+- [ ] **Cloudflare Pages vs Workers Static Assets.** Pages works and Pages
+      Functions cover server-side needs. Workers adds native cron triggers
+      (relevant if comparison tables ever want scheduled price/stock refreshes)
+      and is where Cloudflare is directing new development. No urgency.
 
 ---
 
@@ -289,7 +307,7 @@ Running list. Keep it current — add what you find, tick what you finish.
 1. Fork, branch (`git checkout -b feature/thing`)
 2. Follow the [page conventions](#page-conventions) and the
    [editorial stance](#editorial-stance)
-3. Run `mkdocs build --strict` — it must exit 0
+3. Run `npx astro check && npm run build` — both must pass
 4. Check your change against the invariants in [AUDIT.md](AUDIT.md)
 5. Open a PR
 
@@ -301,9 +319,10 @@ review from a listed CODEOWNER.
 - Explain before you recommend
 - Include relevant images and diagrams; put them beside the page
 - Test all links and code examples
-- Add every new page to `nav` in `mkdocs.yml` — pages missing from it are
-  reachable only by URL or search, which is how a batch of pages stayed invisible
-  for months
+- Give every new page a `slug` pinned to its URL path — CI fails without one
+- Add every new page to the `sidebar` in `astro.config.mjs` — pages missing from
+  it are reachable only by URL or search, which is how a batch of pages stayed
+  invisible for months
 
 ---
 
@@ -315,5 +334,6 @@ MIT — see [LICENSE](LICENSE).
 
 - [Voron Design](https://vorondesign.com/) for the original printer designs
 - [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) for tuning reference
-- [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) for the current framework
+- [Astro](https://astro.build/) and [Starlight](https://starlight.astro.build/) for the framework
+- [MkDocs Material](https://squidfunk.github.io/mkdocs-material/), which served this wiki for years
 - Everyone who has contributed content, corrections, and test data

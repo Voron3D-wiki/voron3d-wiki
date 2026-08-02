@@ -140,7 +140,7 @@ def load_files_from_list(file_list_path: Path) -> list[Path]:
         if not line:
             continue
         p = Path(line)
-        if p.suffix.lower() not in (".md", ".markdown"):
+        if p.suffix.lower() not in (".md", ".mdx", ".markdown"):
             continue
         files.append(p)
     return files
