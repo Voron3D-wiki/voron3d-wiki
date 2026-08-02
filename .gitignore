@@ -165,3 +165,10 @@ site/printhead/toolhead-home/index.html
 changed_md.txt
 highlevel.txt
 diff.txt
+
+# Astro (astro/ is an evaluation build, not deployed)
+astro/node_modules/
+astro/dist/
+astro/.astro/
+astro/src/content/docs/
+astro/public/js/analytics.js

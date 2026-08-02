@@ -1,0 +1,39 @@
+---
+// The affiliate disclosure, as a component instead of a pasted {% include %}.
+//
+// Under MkDocs this partial was included by hand on 29 pages, which means it
+// could be forgotten, reordered, or moved above the content it is disclosing.
+// As a component it renders identically everywhere, and once it moves into the
+// page layout it cannot be omitted at all.
+---
+
+<details class="affiliate-disclosure">
+  <summary><strong>Affiliate Disclosure</strong></summary>
+  <p>
+    This page contains affiliate links. If you click one and make a purchase, we may
+    earn a small commission — <strong>at no extra cost to you</strong>.
+  </p>
+  <p>
+    These commissions pay for hosting and let us keep the wiki running. They never
+    influence what we recommend: see our
+    <a href="/policies/">editorial policy</a> for how we choose what to cover.
+  </p>
+</details>
+
+<style>
+  .affiliate-disclosure {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    margin-block: 1.5rem;
+    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+    font-size: var(--sl-text-sm);
+  }
+  .affiliate-disclosure summary {
+    cursor: pointer;
+    user-select: none;
+  }
+  .affiliate-disclosure p {
+    margin-block: 0.6rem 0;
+  }
+</style>

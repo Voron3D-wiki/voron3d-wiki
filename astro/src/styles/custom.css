@@ -1,0 +1,19 @@
+/* Voron orange, carried over from the MkDocs Material palette. */
+:root {
+  --sl-color-accent-low: #3a1a00;
+  --sl-color-accent: #e8590c;
+  --sl-color-accent-high: #ffc09f;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #ffd8bf;
+  --sl-color-accent: #d9480f;
+  --sl-color-accent-high: #7a2e06;
+}
+
+/* Wide BOM and spec tables scroll inside their own box rather than pushing the
+   page sideways. */
+.sl-markdown-content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
