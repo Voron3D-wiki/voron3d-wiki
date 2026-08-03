@@ -73,9 +73,14 @@ Two pages sit outside the usual rules:
 | Host | Cloudflare Pages, project `voron3d-wiki` |
 | Source | GitHub `Voron3D-wiki/voron3d-wiki`, git integration |
 | Production branch | `main` |
-| Build command | `npm ci && npm run build` |
-| Output directory | `dist` |
-| Node version | 22 (`NODE_VERSION` in the Pages environment) |
+| Build command | `npm ci && npm run build` (target) |
+| Output directory | `dist` (target) |
+| Node version | 22 (`NODE_VERSION`, also pinned in `.node-version`) |
+
+The dashboard may still hold the MkDocs values. Two shims make the deploy work
+either way — `scripts/mirror-output.mjs` publishes to both `dist/` and `site/`,
+and `tools/mkdocs-compat/` provides a `mkdocs` command that runs the Astro
+build. Both are temporary; remove them once the dashboard is updated.
 | Domains | `voron3d.wiki`, `www.voron3d.wiki` → `voron3d-wiki.pages.dev`, proxied |
 | Previews | automatic per-branch |
 

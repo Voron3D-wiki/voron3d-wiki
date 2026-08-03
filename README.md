@@ -103,11 +103,29 @@ npx astro check  # type-checks content against the schema; CI runs this
 Built with **Astro + Starlight**. Deploys to Cloudflare Pages, which builds from
 git — nothing in `.github/` deploys.
 
+**Target Pages configuration:**
+
 | | |
 |:--|:--|
 | Build command | `npm ci && npm run build` |
 | Output directory | `dist` |
-| Node version | 22 |
+| Node version | 22 (also pinned in `.node-version`) |
+
+### Deploy compatibility shim — temporary
+
+Pages holds its build command and output directory in the dashboard, which this
+repo cannot change. The project was created against MkDocs. Until the settings
+above are applied, two shims keep deploys working under the **old**
+configuration (`pip install -r requirements.txt && mkdocs build`, output `site`):
+
+- `scripts/mirror-output.mjs` copies `dist/` to `site/` after every build, so
+  either output directory publishes a complete site.
+- `tools/mkdocs-compat/` is a pip package whose only job is to put a `mkdocs`
+  executable on PATH that runs `npm ci && npm run build`. `requirements.txt`
+  exists solely to install it.
+
+Both paths are tested and produce byte-identical output. **Remove them once the
+dashboard is updated** — see the TODO. They are a bridge, not architecture.
 
 > Migrated from MkDocs Material in August 2026. Every URL was preserved — see
 > [Page conventions](#page-conventions) for the one rule that keeps it that way.
@@ -278,10 +296,13 @@ it achieved, and what is left:
 - [x] Output 36M → 16M; images 24M → 8.9M via automatic WebP.
 - [x] Pagefind search, sitemap, and per-PR preview deployments.
 - [x] CI ported to Node; affiliate pipeline taught about `.mdx`.
-- [ ] **Verify the live deployment** — Cloudflare Pages build settings need to be
-      changed from the MkDocs values to `npm ci && npm run build`, output `dist`,
-      Node 22. Until that is done Pages will still try to run `mkdocs build` and
-      fail.
+- [ ] **Update the Cloudflare Pages build settings** to `npm ci && npm run build`,
+      output `dist`, `NODE_VERSION=22`. Deploys work without this — the
+      compatibility shims cover the old settings — but the shims exist only to
+      unblock preprod and should not outlive it.
+- [ ] **Then delete the shims**: `tools/mkdocs-compat/`, `requirements.txt`, and
+      the `&& node scripts/mirror-output.mjs` from the `build` script in
+      `package.json`. Confirm a deploy still succeeds afterwards.
 - [ ] **Check "last updated" dates on the deployed site.** Starlight reads git
       history for them, and Cloudflare's clone may be shallow. If every page shows
       the same recent date, that is the cause.

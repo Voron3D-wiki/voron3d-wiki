@@ -169,3 +169,11 @@ diff.txt
 # Astro build output
 dist/
 .astro/
+# site/ is the mirrored copy of dist/ (see scripts/mirror-output.mjs).
+# The long list of individual site/... paths above is legacy MkDocs output;
+# this blanket rule is what actually covers it now.
+site/
+
+# Build artifacts from the temporary mkdocs-compat shim
+tools/mkdocs-compat/build/
+tools/mkdocs-compat/*.egg-info/

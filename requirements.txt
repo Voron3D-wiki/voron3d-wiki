@@ -1,0 +1,10 @@
+# This site is built with Astro, not MkDocs. There are no Python dependencies.
+#
+# This file exists only so a Cloudflare Pages build command still set to
+#   pip install -r requirements.txt && mkdocs build
+# keeps working after the migration. Installing the shim below puts a `mkdocs`
+# executable on PATH that runs the Astro build instead.
+#
+# Once the Pages project is on `npm ci && npm run build` with output `dist`,
+# delete this file and tools/mkdocs-compat/. See tools/mkdocs-compat/ for notes.
+./tools/mkdocs-compat
