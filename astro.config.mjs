@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import rehypeLinkBadges from './src/plugins/rehype-link-badges.mjs';
 import rehypeTableWrap from './src/plugins/rehype-table-wrap.mjs';
+import { IS_PRODUCTION, SITE_ENV } from './src/lib/site-env.mjs';
 
 // NOTE ON NAVIGATION
 //
@@ -69,6 +70,12 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
         { tag: 'script', attrs: { src: '/js/external-links.js', defer: true } },
         // Click-to-sort table headers (BOMs, the stepper database, spec tables).
         { tag: 'script', attrs: { src: '/js/tablesort.js', defer: true } },
+        // Keep non-production deploys out of search. Defaults to production, so
+        // a forgotten env var can never deindex the live site — see
+        // src/lib/site-env.mjs for why the default leans that way.
+        ...(IS_PRODUCTION
+          ? []
+          : [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' } }]),
       ],
 
       editLink: { baseUrl: 'https://github.com/Voron3D-wiki/voron3d-wiki/edit/main/src/content/docs/' },

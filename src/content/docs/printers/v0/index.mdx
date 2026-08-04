@@ -4,6 +4,9 @@ description: 'Overview of the Voron V0'
 slug: 'printers/v0'
 ---
 
+import { Image } from 'astro:assets';
+import imgFridgeDoor from './voron v0 fridge door.jpg';
+
 import AffiliateDisclosure from '~/components/AffiliateDisclosure.astro';
 import IncPrintersV0Bom from './bom/index.mdx';
 
@@ -136,7 +139,7 @@ We are working on the assumption that all voron v0 kits will have all the parts 
 
 | Name            | Description                       | Image                                         | Links                   |
 |-----------------|-----------------------------------|-----------------------------------------------|------------------------------------|
-| LDO Mini Fridge door   | Mod for fridge-style door on Voron V0   | <img src="voron%20v0%20fridge%20door.jpg" alt="LDO Mini Fridge door" width="300" />    | [Mini Fridge repo](https://github.com/TheVoronModder/MiniFridge) <br /> [Larger latch](https://www.printables.com/model/1097609-voron-02-mini-fridge-ldo-formbot-inner-door-latch/comments) |
+| LDO Mini Fridge door   | Mod for fridge-style door on Voron V0   | <Image src={imgFridgeDoor} alt="LDO Mini Fridge door" width={300} />    | [Mini Fridge repo](https://github.com/TheVoronModder/MiniFridge) <br /> [Larger latch](https://www.printables.com/model/1097609-voron-02-mini-fridge-ldo-formbot-inner-door-latch/comments) |
 | Zero Panel                              | Replacement for drop nuts to mount side panels  | *(no image provided)*                                                                 | [Zero Panel repo](https://github.com/zruncho3d/ZeroPanels)                                                                                                              |
 | BoxZero                                 | A box-framed Voron V0                         | <img src="https://github.com/zruncho3d/BoxZero/raw/main/Renders/belt_rear_flat.png" alt="BoxZero photo" width="300" /> | [BoxZero repo](https://github.com/zruncho3d/BoxZero)                                                                                                                    |
 

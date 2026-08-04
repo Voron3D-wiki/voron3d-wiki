@@ -20,6 +20,10 @@ things before changing anything:**
    run.
 3. **[TODO](#todo)** below — what is actually in flight.
 
+**Launching or changing the deployment?** Read **[LAUNCH.md](LAUNCH.md)** first.
+It carries the launch-readiness evidence, the zero-downtime cutover sequence,
+and why `SITE_ENV` defaults the way it does.
+
 ---
 
 ## What this project is
@@ -296,6 +300,9 @@ it achieved, and what is left:
 - [x] Output 36M → 16M; images 24M → 8.9M via automatic WebP.
 - [x] Pagefind search, sitemap, and per-PR preview deployments.
 - [x] CI ported to Node; affiliate pipeline taught about `.mdx`.
+- [ ] **Set `SITE_ENV=preview` on the dev deploy.** Without it the dev site is
+      indexable and will compete with production in search. See
+      [LAUNCH.md](LAUNCH.md#environment-safety).
 - [ ] **Update the Cloudflare Pages build settings** to `npm ci && npm run build`,
       output `dist`, `NODE_VERSION=22`. Deploys work without this — the
       compatibility shims cover the old settings — but the shims exist only to

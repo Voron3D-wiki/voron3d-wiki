@@ -4,7 +4,9 @@ description: 'Comprehensive overview of Voron 3D printer models and their specif
 slug: 'printers'
 ---
 
+import { Image } from 'astro:assets';
 import ProductSpec from '~/components/ProductSpec.astro';
+import imgEnderwire from './enderwire.png';
 import imgV0 from './v0/formbot-v0.jpg';
 import img24 from './2.4/2.4-photo.jpg';
 import imgTrident from './trident/trident.jpg';
@@ -235,7 +237,7 @@ This is not a statment of opinion or a comment about the quality of anything, th
 
   <div style={{order: "1"}} align="left">
 
-  <img src="enderwire.png" alt="Enderwire" style={{maxWidth: "300px", borderRadius: "10px"}} />
+  <Image src={imgEnderwire} alt="Enderwire" width={300} style={{borderRadius: "10px"}} />
 
   </div>
 
