@@ -3,7 +3,8 @@ title: 'Home'
 description: 'Welcome to the Voron3D Wiki - Your comprehensive resource for Voron 3D printers'
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid } from '@astrojs/starlight/components';
+import WikiCard from '~/components/WikiCard.astro';
 import { Image } from 'astro:assets';
 import logo from '~/assets/VoronLogo.png';
 
@@ -20,33 +21,21 @@ The Voron project revolves around open-source 3D printers that are known for the
 
 ### [Printers](/printers/)
 <CardGrid>
-<Card title="Untitled">
-
-</Card>
-
-<Card title="Voron V0">
+<WikiCard title="Voron V0" icon="printer-small" href="/printers/v0/">
 Learn about the compact and customizable Voron V0.
+</WikiCard>
 
-[ Learn more](/printers/v0/)
-</Card>
-
-<Card title="Voron Trident">
+<WikiCard title="Voron Trident" icon="printer-mid" href="/printers/trident/">
 Discover the Voron Trident, with its modular design and advanced features.
+</WikiCard>
 
-[ Learn more](/printers/trident/)
-</Card>
-
-<Card title="Voron V2.4">
+<WikiCard title="Voron V2.4" icon="printer-large" href="/printers/2.4/">
 Learn about the latest and most advanced Voron V2.4.
+</WikiCard>
 
-[ Learn more](/printers/2.4/)
-</Card>
-
-<Card title="Voron Switchwire">
+<WikiCard title="Voron Switchwire" icon="printer-belt" href="/printers/switchwire/">
 Explore the Voron Switchwire.
-
-[ Learn more](/printers/switchwire/)
-</Card>
+</WikiCard>
 </CardGrid>
 
 :::tip[Recently added!]

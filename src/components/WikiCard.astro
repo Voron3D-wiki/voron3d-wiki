@@ -1,0 +1,122 @@
+---
+/**
+ * A card with an icon and a call-to-action.
+ *
+ * Starlight's own <Card> takes an `icon` only from its built-in set, which has
+ * no hardware icons, and has no notion of a primary link. The MkDocs grid cards
+ * had both — an icon and an `{ .md-button }` "Learn more" — so this restores
+ * that shape rather than approximating it.
+ *
+ * Usage inside a <CardGrid>:
+ *   <WikiCard title="Voron V0" icon="printer-small" href="/printers/v0/">
+ *     Learn about the compact and customizable Voron V0.
+ *   </WikiCard>
+ */
+import WikiIcon from './WikiIcon.astro';
+
+interface Props {
+  title: string;
+  icon?: string;
+  href?: string;
+  cta?: string;
+}
+
+const { title, icon, href, cta = 'Learn more' } = Astro.props;
+---
+
+<article class="wiki-card">
+  <div class="wiki-card__head">
+    {icon && <WikiIcon name={icon} />}
+    <h3 class="wiki-card__title">
+      {href ? <a href={href}>{title}</a> : title}
+    </h3>
+  </div>
+
+  <div class="wiki-card__body"><slot /></div>
+
+  {href && <a class="wiki-card__cta" href={href}>{cta}</a>}
+</article>
+
+<style>
+  .wiki-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    height: 100%;
+    padding: 1.15rem 1.25rem 1.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.6rem;
+    background: color-mix(in srgb, var(--sl-color-gray-6) 45%, transparent);
+    transition: border-color 140ms ease, background-color 140ms ease;
+  }
+
+  .wiki-card:hover {
+    border-color: var(--sl-color-accent);
+    background: color-mix(in srgb, var(--sl-color-accent) 7%, transparent);
+  }
+
+  .wiki-card__head {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .wiki-card__title {
+    margin: 0;
+    font-size: var(--sl-text-lg);
+    line-height: 1.25;
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+
+  .wiki-card__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Stretch the title link over the whole card so the entire surface is
+     clickable, while keeping one real link for assistive tech. */
+  .wiki-card__title a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .wiki-card {
+    position: relative;
+  }
+
+  .wiki-card__body {
+    flex: 1;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+
+  .wiki-card__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .wiki-card__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .wiki-card__cta {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+    color: var(--sl-color-accent-high);
+    text-decoration: none;
+  }
+
+  .wiki-card__cta::after {
+    content: '→';
+    transition: translate 140ms ease;
+  }
+
+  .wiki-card:hover .wiki-card__cta::after {
+    translate: 0.2em 0;
+  }
+</style>

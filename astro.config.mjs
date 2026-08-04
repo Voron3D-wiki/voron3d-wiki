@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import rehypeLinkBadges from './src/plugins/rehype-link-badges.mjs';
+import rehypeTableWrap from './src/plugins/rehype-table-wrap.mjs';
 
 // NOTE ON NAVIGATION
 //
@@ -23,6 +25,14 @@ import starlight from '@astrojs/starlight';
 
 export default defineConfig({
   site: 'https://voron3d.wiki',
+
+  // Every outbound link gets a badge saying where it goes, and every table gets
+  // a scroll wrapper. Both run at build time so authors cannot forget them —
+  // the affiliate badge in particular is a disclosure, not decoration.
+  markdown: {
+    rehypePlugins: [[rehypeLinkBadges, { site: 'voron3d.wiki' }], rehypeTableWrap],
+  },
+
   // Matches MkDocs' use_directory_urls, so /printers/v0/ stays /printers/v0/.
   trailingSlash: 'always',
   build: { format: 'directory' },

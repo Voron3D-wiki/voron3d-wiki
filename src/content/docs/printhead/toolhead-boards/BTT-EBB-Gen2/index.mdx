@@ -4,8 +4,21 @@ description: 'Documentation for the BTT EBB Gen 2 toolhead boards.'
 slug: 'printhead/toolhead-boards/BTT-EBB-Gen2'
 ---
 
-import { Card, CardGrid, TabItem, Tabs } from '@astrojs/starlight/components';
+import { TabItem, Tabs } from '@astrojs/starlight/components';
 import AffiliateDisclosure from '~/components/AffiliateDisclosure.astro';
+import Gallery from '~/components/Gallery.astro';
+import ImgIMG_2855 from './IMG_2855.JPG';
+import ImgIMG_2857 from './IMG_2857.JPG';
+import ImgIMG_2860 from './IMG_2860.JPG';
+import ImgIMG_2861 from './IMG_2861.JPG';
+import ImgIMG_2867 from './IMG_2867.JPG';
+import ImgIMG_2871 from './IMG_2871.JPG';
+import ImgIMG_2875 from './IMG_2875.JPG';
+import ImgIMG_2885 from './IMG_2885.JPG';
+import ImgIMG_2886 from './IMG_2886.JPG';
+import ImgIMG_2887 from './IMG_2887.JPG';
+import ImgIMG_2888 from './IMG_2888.JPG';
+import ImgIMG_2890 from './IMG_2890.JPG';
 
 The **BigTreeTech EBB Gen 2 series** (EBB36 and EBB42) are compact CAN bus toolhead boards commonly used in Voron and other high-performance 3D printers.  
 This page consolidates all setup, firmware flashing, wiring, and configuration. 
@@ -31,22 +44,20 @@ This page consolidates all setup, firmware flashing, wiring, and configuration.
 
 ## Gallery
 
-<CardGrid>
-<Card title="Untitled">
-- ![IMG1](IMG_2855.JPG)
-- ![IMG1](IMG_2857.JPG)
-- ![IMG1](IMG_2860.JPG)
-- ![IMG1](IMG_2861.JPG)
-- ![IMG1](IMG_2867.JPG)
-- ![IMG1](IMG_2871.JPG)
-- ![IMG1](IMG_2875.JPG)
-- ![IMG1](IMG_2885.JPG)
-- ![IMG1](IMG_2886.JPG)
-- ![IMG1](IMG_2887.JPG)
-- ![IMG1](IMG_2888.JPG)
-- ![IMG1](IMG_2890.JPG)
-</Card>
-</CardGrid>
+<Gallery images={[
+  { src: ImgIMG_2855, alt: 'BTT EBB Gen2 board photo 1' },
+  { src: ImgIMG_2857, alt: 'BTT EBB Gen2 board photo 2' },
+  { src: ImgIMG_2860, alt: 'BTT EBB Gen2 board photo 3' },
+  { src: ImgIMG_2861, alt: 'BTT EBB Gen2 board photo 4' },
+  { src: ImgIMG_2867, alt: 'BTT EBB Gen2 board photo 5' },
+  { src: ImgIMG_2871, alt: 'BTT EBB Gen2 board photo 6' },
+  { src: ImgIMG_2875, alt: 'BTT EBB Gen2 board photo 7' },
+  { src: ImgIMG_2885, alt: 'BTT EBB Gen2 board photo 8' },
+  { src: ImgIMG_2886, alt: 'BTT EBB Gen2 board photo 9' },
+  { src: ImgIMG_2887, alt: 'BTT EBB Gen2 board photo 10' },
+  { src: ImgIMG_2888, alt: 'BTT EBB Gen2 board photo 11' },
+  { src: ImgIMG_2890, alt: 'BTT EBB Gen2 board photo 12' },
+]} />
 
 ## Features
 

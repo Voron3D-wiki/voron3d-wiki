@@ -4,7 +4,8 @@ description: 'More Info to Voron printer toolhead components and assemblies'
 slug: 'printhead'
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid } from '@astrojs/starlight/components';
+import WikiCard from '~/components/WikiCard.astro';
 
 ## Overview
 This section covers the mechanical components and assemblies that make up Voron printer toolheads, including their features, compatibility, and setup guides. Choose the right toolhead for your specific needs and printing requirements.
@@ -12,33 +13,21 @@ This section covers the mechanical components and assemblies that make up Voron 
 ## Quick Links
 
 <CardGrid>
-<Card title="Untitled">
-
-</Card>
-
-<Card title="Extruders">
+<WikiCard title="Extruders" icon="extruder" href="/printhead/extruders/">
 Learn about the different extruders avalable for 3d printers.
+</WikiCard>
 
-[ Learn more](/printhead/extruders/)
-</Card>
-
-<Card title="Hotends">
+<WikiCard title="Hotends" icon="hotend" href="/printhead/hotends/">
 Discover different hotends and their features.
+</WikiCard>
 
-[ Learn more](/printhead/hotends/)
-</Card>
-
-<Card title="Fans">
+<WikiCard title="Fans" icon="fan" href="/electronics/fans/">
 Find the perfect fans for your build.
+</WikiCard>
 
-[ Learn more](/electronics/fans/)
-</Card>
-
-<Card title="Toolheadboard">
+<WikiCard title="Toolheadboard" icon="board" href="/printhead/toolhead-boards/">
 A toolhead board greatly simplifies your wiring and can add some interesting features.
-
-[ Learn more](/printhead/toolhead-boards/)
-</Card>
+</WikiCard>
 </CardGrid>
 
 ## Popular Options

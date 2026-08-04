@@ -4,7 +4,8 @@ description: 'Comprehensive guide to electronics components and systems for Voro
 slug: 'electronics'
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid } from '@astrojs/starlight/components';
+import WikiCard from '~/components/WikiCard.astro';
 
 ## Overview
 
@@ -15,53 +16,33 @@ This section covers all aspects of electronics for Voron 3D printers, from main 
 ### Main Components
 
 <CardGrid>
-<Card title="Untitled">
-
-</Card>
-
-<Card title="Main Control Units">
+<WikiCard title="Main Control Units" icon="chip" href="/electronics/mcu/">
 Explore the main control units and MCU boards for Voron printers.
+</WikiCard>
 
-[ Learn more](/electronics/mcu/)
-</Card>
-
-<Card title="Toolhead Boards">
+<WikiCard title="Toolhead Boards" icon="bolt" href="/printhead/toolhead-boards/">
 Discover toolhead electronics and control boards for your printhead.
+</WikiCard>
 
-[ Learn more](/printhead/toolhead-boards/)
-</Card>
-
-<Card title="Connectors">
+<WikiCard title="Connectors" icon="plug" href="/electronics/connectors/">
 Find information on connectors and wiring standards used in Voron printers.
-
-[ Learn more](/electronics/connectors/)
-</Card>
+</WikiCard>
 </CardGrid>
 
 ### Power Systems
 
 <CardGrid>
-<Card title="Untitled">
-
-</Card>
-
-<Card title="Power Supplies">
+<WikiCard title="Power Supplies" icon="socket" href="/electronics/power-supplies/">
 Learn how to choose and configure the right power supply for your printer.
+</WikiCard>
 
-[ Learn more](/electronics/power-supplies/)
-</Card>
-
-<Card title="Wiring Guide">
+<WikiCard title="Wiring Guide" icon="cable" href="/electronics/wiring/">
 Complete wiring diagrams and best practices for safe electrical connections.
+</WikiCard>
 
-[ Learn more](/electronics/wiring/)
-</Card>
-
-<Card title="Safety Guidelines">
+<WikiCard title="Safety Guidelines" icon="shield" href="/electronics/safety/">
 Essential safety information for working with printer electronics.
-
-[ Learn more](/electronics/safety/)
-</Card>
+</WikiCard>
 </CardGrid>
 
 
