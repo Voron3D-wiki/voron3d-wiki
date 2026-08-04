@@ -1,0 +1,198 @@
+---
+/**
+ * Where-to-buy options for a product.
+ *
+ * Replaces the run-on `**Buy**: [Amazon ](…) [Biqu Offical Store](…)` pattern,
+ * which had six different shapes across the wiki — inline space-separated,
+ * comma-separated, indented sublists, a bare link on the next line, headings
+ * called "Purchase Options" / "Purchase Links:" / "Purchase Information", a
+ * stray trailing `|`, and hand-written `← *Affiliate link*` notes that the
+ * automatic badge now duplicates.
+ *
+ * Each option renders as its own target rather than a run of links sharing a
+ * line, which matters most on mobile where adjacent inline links are hard to
+ * hit accurately.
+ *
+ * Vendor names come from the URL (src/lib/link-kind.mjs), so "Amazon",
+ * "amazon", "Amazon ", "West3d" and "Biqu Offical Store" all become one
+ * consistent name. Affiliate-network redirectors (tidd.ly, awin1, collabs.shop)
+ * cannot be identified from the hostname, so those take an explicit `label`.
+ *
+ * Usage:
+ *   <BuyOptions options={[
+ *     { href: 'https://amzn.to/…' },
+ *     { href: 'https://tidd.ly/…', label: 'BIQU' },
+ *     { href: 'https://west3d.com/…', note: '350mm kit' },
+ *   ]} />
+ */
+import { classify, hostOf, relFor, vendorName } from '~/lib/link-kind.mjs';
+
+interface BuyOption {
+  href: string;
+  /** Needed only for affiliate-network redirectors, where the URL hides the shop. */
+  label?: string;
+  /** Optional qualifier, e.g. a variant or size. */
+  note?: string;
+}
+
+interface Props {
+  options: BuyOption[];
+  /** Overrides the "Where to buy" heading. */
+  title?: string;
+}
+
+const { options, title = 'Where to buy' } = Astro.props;
+
+const resolved = options
+  .map((option) => {
+    const host = hostOf(option.href);
+    if (!host) return null;
+    const kind = classify(host);
+    return {
+      ...option,
+      kind,
+      name: option.label ?? vendorName(option.href) ?? host,
+      isAffiliate: kind === 'affiliate',
+    };
+  })
+  .filter(Boolean) as Array<BuyOption & { kind: string; name: string; isAffiliate: boolean }>;
+
+const anyAffiliate = resolved.some((o) => o.isAffiliate);
+---
+
+{
+  resolved.length > 0 && (
+    <div class="buy">
+      <p class="buy__title">{title}</p>
+
+      <ul class="buy__list">
+        {resolved.map((option) => (
+          <li>
+            <a
+              class:list={['buy__option', option.isAffiliate && 'buy__option--affiliate']}
+              href={option.href}
+              target="_blank"
+              rel={relFor(option.kind)}
+            >
+              <span class="buy__vendor">{option.name}</span>
+              {option.note && <span class="buy__note">{option.note}</span>}
+              {option.isAffiliate && (
+                <>
+                  <svg class="buy__tag" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false" fill="currentColor">
+                    <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.84zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" />
+                  </svg>
+                  <span class="sr-only"> (affiliate link — we may earn a commission)</span>
+                </>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {/* One disclosure for the group rather than the word "affiliate" repeated
+          after every option, which is what made these read as a wall of badges.
+          Each option still carries the tag icon, so a mixed set stays honest. */}
+      {anyAffiliate && (
+        <p class="buy__disclosure">
+          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false" fill="currentColor">
+            <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.84zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" />
+          </svg>
+          Tagged links are affiliate links — buying through them supports the wiki at no extra cost to you.
+        </p>
+      )}
+    </div>
+  )
+}
+
+<style>
+  .buy {
+    margin-block: 1.5rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.6rem;
+    background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent);
+  }
+
+  .buy__title {
+    margin: 0 0 0.7rem;
+    font-size: var(--sl-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--sl-color-gray-3);
+  }
+
+  .buy__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .buy__list li {
+    margin: 0;
+  }
+
+  .buy__option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    /* A real target rather than a word in a run of links — inline links sitting
+       next to each other are the hardest thing to tap accurately on a phone. */
+    min-height: 2.25rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.4rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 130ms ease, background-color 130ms ease;
+  }
+
+  .buy__option:hover {
+    border-color: var(--sl-color-accent);
+    background: color-mix(in srgb, var(--sl-color-accent) 12%, var(--sl-color-black));
+  }
+
+  .buy__option--affiliate .buy__tag {
+    color: var(--wiki-affiliate);
+    flex: none;
+  }
+
+  .buy__note {
+    font-weight: 400;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+  }
+
+  .buy__disclosure {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin: 0.75rem 0 0;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+  }
+
+  .buy__disclosure svg {
+    flex: none;
+    color: var(--wiki-affiliate);
+    translate: 0 0.1em;
+  }
+
+  /* Full-width stacked options on narrow screens — easier to hit, and the
+     vendor names stay left-aligned and scannable. */
+  @media (max-width: 30rem) {
+    .buy__list {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .buy__option {
+      justify-content: flex-start;
+    }
+  }
+</style>

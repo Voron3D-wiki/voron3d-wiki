@@ -17,11 +17,13 @@
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import ExtLink from './ExtLink.astro';
+import BuyOptions from './BuyOptions.astro';
 
 interface BuyLink {
-  label: string;
   href: string;
+  /** Optional override; the vendor name is derived from the URL otherwise. */
+  label?: string;
+  note?: string;
 }
 
 interface Props {
@@ -64,20 +66,10 @@ const { title, href, image, imageAlt, specs, buy = [], flip = false } = Astro.pr
 
     <slot />
 
-    {
-      buy.length > 0 && (
-        <div class="product__buy">
-          <span class="product__buy-label">Where to buy</span>
-          <ul>
-            {buy.map((link) => (
-              <li>
-                <ExtLink href={link.href}>{link.label}</ExtLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
+    {/* Delegated so a product's buy block looks identical to one written
+        inline on any other page — same panel, same vendor naming, same single
+        group disclosure. */}
+    {buy.length > 0 && <BuyOptions options={buy} />}
 
     {href && <a class="product__more" href={href}>Full guide</a>}
   </div>
@@ -193,38 +185,6 @@ const { title, href, image, imageAlt, specs, buy = [], flip = false } = Astro.pr
     min-width: 0;
     color: var(--sl-color-white);
     overflow-wrap: anywhere;
-  }
-
-  /* Buy links sit last, visually separated, after everything a reader needs to
-     decide. */
-  .product__buy {
-    margin-block-start: 1rem;
-    padding-block-start: 0.9rem;
-    border-block-start: 1px dashed var(--sl-color-gray-5);
-  }
-
-  .product__buy-label {
-    display: block;
-    margin-block-end: 0.35rem;
-    font-size: var(--sl-text-xs);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sl-color-gray-3);
-  }
-
-  .product__buy ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1rem;
-    font-size: var(--sl-text-sm);
-  }
-
-  .product__buy li {
-    margin: 0;
   }
 
   .product__more {

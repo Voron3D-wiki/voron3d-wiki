@@ -4,6 +4,8 @@ description: 'Comprehensive overview of Voron 3D printer models and their specif
 slug: 'printers'
 ---
 
+import BuyOptions from '~/components/BuyOptions.astro';
+
 import { Image } from 'astro:assets';
 import ProductSpec from '~/components/ProductSpec.astro';
 import imgEnderwire from './enderwire.png';
@@ -299,9 +301,11 @@ This is not a statment of opinion or a comment about the quality of anything, th
 
   A commercial 3D printer based on the Voron V2.4 design, offering CoreXY motion in a fully enclosed chassis.
 
-  **Purchase**
+  <BuyOptions options={[
+    { href: 'https://amzn.to/4rf9B6Q' },
+  ]} />
 
-  [Amazon](https://amzn.to/4rf9B6Q) \| [GitHub](https://github.com/Sovol3d/SV08)
+  Source: [GitHub](https://github.com/Sovol3d/SV08)
 
   </div>
 </div>
@@ -334,9 +338,11 @@ This is not a statment of opinion or a comment about the quality of anything, th
 
   A commercial variant based on the Voron V0, providing CoreXY motion in a compact, fully enclosed design.
 
-  **Purchase**
+  <BuyOptions options={[
+    { href: 'https://amzn.to/4phsZyc' },
+  ]} />
 
-  [Amazon](https://amzn.to/4phsZyc) \| [GitHub](https://github.com/Sovol3d/SV08)
+  Source: [GitHub](https://github.com/Sovol3d/SV08)
 
   </div>
 </div>
@@ -383,7 +389,6 @@ This is not a statment of opinion or a comment about the quality of anything, th
 </TabItem>
 </Tabs>
 ---
-
 
 ## Related Resources
 

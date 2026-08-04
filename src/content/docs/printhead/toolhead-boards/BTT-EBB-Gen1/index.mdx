@@ -71,7 +71,6 @@ Follow these steps to physically install the board and prepare for the firmware 
 
 [Image of BTT EBB board mounted to toolhead with key components labeled for wiring]
 
-
 1.  **Mount** the **EBB board** securely to your toolhead.
 2.  **Connect** essential components: **heater**, **thermistor**, **fans**, **LEDs**, and the **extruder motor**.
 3.  **Wire** the **CAN Bus** connection: **CAN\_H**, **CAN\_L**, and the **+24V** power supply.
@@ -101,13 +100,9 @@ The Adapter must be put into **DFU (Device Firmware Upgrade) mode** before flash
 
 Access the Linux interface (e.g., Raspberry Pi):
 
-
-
 ```bash title="SSH Command"
 ssh pi@<printer-ip>
 ```
-
-
 
 3. Build & Flash Adapter Firmware
 Run these commands to configure, build, and flash the adapter firmware from the Klipper source directory.
@@ -118,11 +113,8 @@ make clean
 make menuconfig
 ```
 
-
-
 <details>
 <summary>Recommended menuconfig Options</summary>
-
 
     Select the following options inside the make menuconfig interface: * Microcontroller: Generic USB-to-CAN bridge * Bootloader: 16 KiB DFU * Communication: CAN bus
 
@@ -134,15 +126,11 @@ make
 make flash FLASH_DEVICE=/dev/serial/by-id/[YOUR_DEVICE_ID]
 ```
 
-
-
-
 💡 Flashing Firmware — EBB36 / EBB42
 This procedure builds the Klipper firmware for the Tool Head Board.
 
 1. Configure EBB Firmware
 Run these commands in your printer host's terminal:
-
 
 ```bash title="SSH Command"
 cd ~/klipper
@@ -153,7 +141,6 @@ make menuconfig
 <details>
 <summary>Recommended menuconfig Options</summary>
 
-
   Select the following options inside the make menuconfig interface: * Microcontroller: STM32G0B1 * Bootloader: 8 KiB (or None, depending on board revision) * Communication: CAN bus * CAN speed: 500000 * Default CAN pins: PB8 / PB9
 
 </details>
@@ -163,7 +150,6 @@ make
 
 <details>
 <summary>Output File Location</summary>
-
 
   The firmware file will be generated here: klipper/out/klipper.uf2
 
@@ -204,7 +190,6 @@ Markdown
 Follow these steps to physically install the board and prepare for the firmware flashing. 
 
 [Image of BTT EBB board mounted to toolhead with key components labeled for wiring]
-
 
 1.  **Mount** the **EBB board** securely to your toolhead.
 2.  **Connect** essential components: **heater**, **thermistor**, **fans**, **LEDs**, and the **extruder motor**.
@@ -261,7 +246,6 @@ make
 make flash FLASH_DEVICE=/dev/serial/by-id/[YOUR_DEVICE_ID]
 ```
 
-
 💡 Flashing Firmware — EBB36 / EBB42
 This procedure builds the Klipper firmware for the Tool Head Board.
 
@@ -288,7 +272,6 @@ make
 
 <details>
 <summary>Output File Location</summary>
-
 
    The firmware file will be generated here: klipper/out/klipper.uf2
 

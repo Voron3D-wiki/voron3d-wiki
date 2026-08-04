@@ -60,3 +60,42 @@ export function relFor(kind) {
   // rel="sponsored" is what Google asks for on paid links.
   return kind === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer';
 }
+
+// Display name for a vendor, derived from the URL.
+//
+// Deriving rather than typing is the point: the same four shops are currently
+// written as "Amazon", "amazon", "Amazon ", "West3d", "  West3d", "onetwo3d"
+// and "Biqu Offical Store" (sic). A name that comes from the href cannot drift
+// or be misspelled.
+//
+// Affiliate networks (tidd.ly, awin1, collabs.shop) are redirectors — the real
+// vendor is not in the hostname — so those need an explicit label at the call
+// site and fall back to a generic one.
+const VENDOR_NAMES = {
+  'amzn.to': 'Amazon',
+  'amazon.com': 'Amazon',
+  'aliexpress.com': 'AliExpress',
+  'west3d.com': 'West3D',
+  'onetwo3d.co.uk': 'OneTwo3D',
+  'biqu.equipment': 'BIQU',
+  'bigtreetech.com': 'BIGTREETECH',
+  'e3d-online.com': 'E3D',
+  'phaetus.com': 'Phaetus',
+  'ldomotors.com': 'LDO Motors',
+};
+
+/** Networks whose hostname tells us nothing about the destination shop. */
+const REDIRECTORS = ['tidd.ly', 'awin1.com', 'collabs.shop', 's.click.aliexpress.com'];
+
+export function isRedirector(hostname) {
+  return REDIRECTORS.some((d) => hostname === d || hostname.endsWith('.' + d));
+}
+
+export function vendorName(href) {
+  const host = hostOf(href);
+  if (!host) return null;
+  for (const domain in VENDOR_NAMES) {
+    if (host === domain || host.endsWith('.' + domain)) return VENDOR_NAMES[domain];
+  }
+  return null;
+}
