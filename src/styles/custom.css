@@ -290,3 +290,26 @@ footer .link-badge {
   padding-block-end: 0.6rem;
   border-block-end: 1px solid var(--sl-color-gray-5);
 }
+
+/* ---------------------------------------------------------------------------
+   Section bar
+   The header carries a second row on desktop (src/overrides/Header.astro) with
+   the top-level sections, so the sidebar only has to show the current one.
+   Starlight offsets all content by --sl-nav-height, so that has to grow by the
+   bar's height or the page slides under the header.
+
+   Deliberately desktop-only: on mobile the switcher lives at the top of the
+   menu panel instead, where it costs no permanent vertical space.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --wiki-section-bar-height: 0rem;
+}
+
+@media (min-width: 50rem) {
+  :root {
+    --wiki-section-bar-height: 2.75rem;
+    /* 4rem is Starlight's desktop default. */
+    --sl-nav-height: calc(4rem + var(--wiki-section-bar-height));
+  }
+}

@@ -1,0 +1,112 @@
+---
+/**
+ * Top-level section switcher.
+ *
+ * The sidebar rendered all four sections fully expanded — 68 links and 16
+ * collapsible groups on a typical page, well past a screenful. Splitting the
+ * top level out into its own bar means the sidebar only ever shows the section
+ * you are actually in, which brings it down to roughly a screenful without
+ * hiding anything behind an extra click.
+ *
+ * Rendered twice: as a row under the header on desktop, and at the top of the
+ * mobile menu. Both come from the same `sidebar` data, so they cannot drift.
+ */
+import { currentSectionLabel, sectionLinkFor } from '~/lib/sidebar-sections.mjs';
+
+interface Props {
+  variant?: 'bar' | 'menu';
+}
+
+const { variant = 'bar' } = Astro.props;
+const { sidebar } = Astro.locals.starlightRoute;
+
+const current = currentSectionLabel(sidebar);
+const sections = sidebar
+  .filter((entry: any) => entry.type === 'group')
+  .map((group: any) => ({
+    label: group.label,
+    href: sectionLinkFor(group),
+    isCurrent: group.label === current,
+  }))
+  .filter((s: any) => s.href);
+---
+
+{
+  sections.length > 0 && (
+    <nav class:list={['section-nav', `section-nav--${variant}`]} aria-label="Sections">
+      <ul>
+        {sections.map((section: any) => (
+          <li>
+            <a href={section.href} aria-current={section.isCurrent ? 'true' : undefined}>
+              {section.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .section-nav ul {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .section-nav a {
+    display: block;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.4rem;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .section-nav a:hover {
+    color: var(--sl-color-white);
+    background: var(--sl-color-gray-6);
+  }
+
+  .section-nav a[aria-current='true'] {
+    color: var(--sl-color-accent-high);
+    background: color-mix(in srgb, var(--sl-color-accent) 14%, transparent);
+  }
+
+  /* Desktop: a bar under the header. */
+  .section-nav--bar {
+    /* Scrolls rather than wraps, so the header can never grow a second row and
+       push the whole page down. */
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .section-nav--bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mobile: sits at the top of the menu panel, above the section's own links. */
+  .section-nav--menu {
+    margin-block-end: 0.75rem;
+    padding-block-end: 0.75rem;
+    border-block-end: 1px solid var(--sl-color-gray-5);
+  }
+
+  .section-nav--menu ul {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .section-nav--menu a {
+    border: 1px solid var(--sl-color-gray-5);
+  }
+
+  .section-nav--menu a[aria-current='true'] {
+    border-color: var(--sl-color-accent);
+  }
+</style>

@@ -78,6 +78,14 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
           : [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' } }]),
       ],
 
+      // Split the 68-link sidebar: top-level sections move into a bar in the
+      // header (desktop) / the top of the menu panel (mobile), and the sidebar
+      // shows only the section you are in.
+      components: {
+        Header: './src/overrides/Header.astro',
+        Sidebar: './src/overrides/Sidebar.astro',
+      },
+
       editLink: { baseUrl: 'https://github.com/Voron3D-wiki/voron3d-wiki/edit/main/src/content/docs/' },
       lastUpdated: true,
 
@@ -88,6 +96,7 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
             { label: 'Choosing a printer', link: '/printers/' },
             {
               label: 'Voron V0',
+              collapsed: true,
               items: [
                 { label: 'Overview', link: '/printers/v0/' },
                 { label: 'V0.2 BOM', link: '/printers/v0/bom/' },
@@ -95,6 +104,7 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
             },
             {
               label: 'Voron V2.4',
+              collapsed: true,
               items: [
                 { label: 'Overview', link: '/printers/2.4/' },
                 { label: 'BOM — 300mm', link: '/printers/2.4/BOM-300/' },
@@ -131,10 +141,12 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
           items: [
             {
               label: 'Electronics',
+              collapsed: true,
               items: [
                 { label: 'How to choose', link: '/electronics/' },
                 {
                   label: 'Motherboards',
+                  collapsed: true,
                   items: [
                     { label: 'Overview', link: '/electronics/mcu/' },
                     { label: 'BTT SKR Series', link: '/electronics/mcu/btt-skr/' },
@@ -145,6 +157,7 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
                 },
                 {
                   label: 'Toolhead Boards',
+                  collapsed: true,
                   items: [
                     { label: 'Overview', link: '/printhead/toolhead-boards/' },
                     { label: 'BTT EBB Gen1', link: '/printhead/toolhead-boards/BTT-EBB-Gen1/' },
@@ -158,6 +171,7 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
                 },
                 {
                   label: 'Stepper Motors',
+                  collapsed: true,
                   items: [
                     { label: 'Overview', link: '/electronics/stepper-motor/' },
                     { label: 'Motor database', link: '/electronics/stepper-motor/database/' },
@@ -173,10 +187,12 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
             },
             {
               label: 'Printhead',
+              collapsed: true,
               items: [
                 { label: 'Overview', link: '/printhead/' },
                 {
                   label: 'Hotends',
+                  collapsed: true,
                   items: [
                     { label: 'How to choose', link: '/printhead/hotends/' },
                     { label: 'DropEffect NExt G', link: '/printhead/hotends/dropeffect-nextg/' },
@@ -193,6 +209,7 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
             },
             {
               label: 'Bed Leveling',
+              collapsed: true,
               items: [
                 { label: 'How to choose', link: '/bedleveling/' },
                 { label: 'Beacon', link: '/bedleveling/beacon/' },
@@ -203,6 +220,7 @@ gtag('config','G-7E70MV2KN4',{transport_type:'beacon',url_passthrough:false,link
             },
             {
               label: 'Multi-Material',
+              collapsed: true,
               items: [
                 { label: 'How to choose', link: '/MMUs/' },
                 { label: 'ERCF v1/v2', link: '/MMUs/ERCF/' },

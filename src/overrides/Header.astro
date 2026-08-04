@@ -1,0 +1,41 @@
+---
+/**
+ * Default header, plus a section bar underneath it on desktop.
+ *
+ * The section bar only renders at >=50rem; below that the switcher lives at the
+ * top of the mobile menu (see Sidebar.astro), so the header never grows a
+ * second row on small screens where vertical space is scarcest.
+ */
+import Default from '@astrojs/starlight/components/Header.astro';
+import SectionNav from './SectionNav.astro';
+---
+
+<div class="header-stack">
+  <div class="header-row">
+    <Default><slot /></Default>
+  </div>
+  <div class="section-bar sl-hidden md:sl-flex">
+    <SectionNav variant="bar" />
+  </div>
+</div>
+
+<style>
+  .header-stack {
+    height: 100%;
+  }
+
+  /* --sl-nav-height now includes the section bar, so the top row must claim
+     only the remainder — otherwise it eats the whole header and pushes the bar
+     out the bottom, over the sidebar. */
+  .header-row {
+    height: calc(var(--sl-nav-height) - var(--wiki-section-bar-height));
+  }
+
+  .section-bar {
+    align-items: center;
+    height: var(--wiki-section-bar-height);
+    margin-inline: calc(-1 * var(--sl-nav-pad-x));
+    padding-inline: var(--sl-nav-pad-x);
+    border-block-start: 1px solid var(--sl-color-hairline-shade);
+  }
+</style>
