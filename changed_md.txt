@@ -1,3 +1,0 @@
-docs/electronics/power-supplies/index.md
-docs/electronics/stepper-motor/index.md
-docs/electronics/wiring/index.md

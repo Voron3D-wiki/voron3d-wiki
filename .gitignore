@@ -33,7 +33,6 @@ site/**
 !site/assets/icons/
 
 site/404.html
-site/ads.txt
 site/analytics.js
 
 site/index.html
@@ -90,7 +89,6 @@ site/assets/external/github.com/MasturMynd/Pandora/raw/main/Images/Pandora_Compl
 site/assets/external/github.com/zruncho3d/BoxZero/raw/main/Renders/belt_rear_flat.png
 site/assets/external/github.com/zruncho3d/tri-zero/raw/main/Renders/alpha-6/iso-red.png
 site/assets/external/i.redd.it/po0y0d65hzqa1.png
-site/assets/external/pagead2.googlesyndication.com/pagead/js/adsbygoogle.16232412.js
 site/assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js
 site/assets/external/www.googletagmanager.com/gtag/js.316fbd15.js
 site/assets/images/favicon.png
@@ -162,3 +160,29 @@ site/printhead/toolhead-boards/BTT-EBB/index.html
 site/printhead/toolhead-boards/FLY-SHT/index.html
 site/printhead/toolhead-boards/MKS-THR/index.html
 site/printhead/toolhead-home/index.html
+
+# CI scratch output
+changed_md.txt
+highlevel.txt
+diff.txt
+
+# Astro build output
+dist/
+.astro/
+# site/ is the mirrored copy of dist/ (see scripts/mirror-output.mjs).
+# The long list of individual site/... paths above is legacy MkDocs output;
+# this blanket rule is what actually covers it now.
+#
+# Anchored with a leading slash, and it must stay that way. Unanchored, `site/`
+# matches a directory named `site` at ANY depth — which silently swallowed
+# src/components/site/ (the layout components) on commit. The build passed
+# locally, where the files exist on disk, and failed in CI on a fresh clone
+# where they had never arrived.
+/site/
+
+# Build artifacts from the temporary mkdocs-compat shim
+tools/mkdocs-compat/build/
+tools/mkdocs-compat/*.egg-info/
+
+# Local dev-server config for the Claude Code preview tool.
+.claude/

@@ -1,19 +1,36 @@
 name: Affiliate Links + Protected High-Level Changes
 
+# SECURITY NOTE
+# This workflow runs on `pull_request_target`, so it executes with the base
+# repository's secrets and a write-capable token, and a fork PR can trigger it.
+# Therefore:
+#   * The scripts and the CODEOWNERS allowlist are ALWAYS taken from the base
+#     checkout (./base) - never from the PR.
+#   * The PR is checked out into ./pr as DATA ONLY. Nothing in ./pr is executed,
+#     sourced, or installed. Do not add a build/install/test step that runs code
+#     from ./pr to this workflow - put that in a `pull_request` workflow instead.
+#   * Both checkouts are pinned to a SHA, not a branch name, so a push made
+#     after the job starts cannot swap the content out from under us.
+
 on:
   pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened]
 
+# Least privilege for the default GITHUB_TOKEN. The App token below is what
+# carries write access, and only where it is explicitly passed.
 permissions:
-  contents: write
-  pull-requests: write
-  issues: write
+  contents: read
 
 jobs:
   guard:
     if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
+
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
 
     steps:
       - name: Generate GitHub App token
@@ -23,192 +40,198 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      - name: Checkout PR head
+      # Trusted: base branch content. Everything we EXECUTE comes from here.
+      - name: Checkout base (trusted)
         uses: actions/checkout@v4
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+          persist-credentials: false
+
+      # Untrusted: PR content. Read and diffed, never executed.
+      - name: Checkout PR head (untrusted, data only)
+        uses: actions/checkout@v4
+        with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Configure git identity
+        working-directory: pr
         run: |
           git config user.name "affiliate-autofix[bot]"
           git config user.email "affiliate-autofix[bot]@users.noreply.github.com"
 
-      - name: Fetch base branch
+      - name: Fetch base commit into PR checkout
+        working-directory: pr
         run: |
-          git fetch origin "${{ github.event.pull_request.base.ref }}" --depth=1
+          set -euo pipefail
+          git remote add upstream "https://github.com/${{ github.repository }}.git" 2>/dev/null || true
+          git fetch --no-tags --depth=1 upstream "$BASE_SHA"
 
-      # --- Load allowlist from BASE .github/CODEOWNERS (trusted source) ---
-      - name: Load CODEOWNERS allowlist from base branch
+      # --- Allowlist from the BASE checkout (trusted source) ----------------
+      - name: Load CODEOWNERS allowlist
         id: codeowners
         run: |
           set -euo pipefail
-          BASE_REF="origin/${{ github.event.pull_request.base.ref }}"
-
-          if git show "$BASE_REF:.github/CODEOWNERS" > /tmp/CODEOWNERS 2>/dev/null; then
-            :
-          else
-            echo "No .github/CODEOWNERS found on base branch; allowlist empty."
-            : > /tmp/CODEOWNERS
+          CO="base/.github/CODEOWNERS"
+          if [ ! -f "$CO" ]; then
+            echo "No .github/CODEOWNERS on base branch; allowlist empty."
+            echo "users=" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
-
-          # Expect CODEOWNERS contains only lines like: @username
-          # - ignore comments/blank lines
-          # - strip leading '@'
-          # - take first token per line
-          ALLOW_USERS=$(grep -vE '^\s*#' /tmp/CODEOWNERS \
-            | awk 'NF{print $1}' \
+          # CODEOWNERS lines look like: <pattern> @user [@user...]
+          # Collect every @handle; drop comments and blank lines.
+          ALLOW_USERS=$(grep -vE '^\s*#' "$CO" \
+            | tr ' \t' '\n\n' \
+            | grep '^@' \
             | sed 's/^@//' \
             | sort -u \
             | tr '\n' ' ' \
             | sed 's/[[:space:]]*$//')
-
           echo "Allowlist from base CODEOWNERS: $ALLOW_USERS"
-          echo "users=$ALLOW_USERS" >> $GITHUB_OUTPUT
+          echo "users=$ALLOW_USERS" >> "$GITHUB_OUTPUT"
 
       - name: Detect CODEOWNERS modifications
         id: codeowners_changed
+        working-directory: pr
         run: |
           set -euo pipefail
-          BASE="origin/${{ github.event.pull_request.base.ref }}"
-          CHANGED=$(git diff --name-only "$BASE"...HEAD -- .github/CODEOWNERS || true)
+          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- .github/CODEOWNERS || true)
           if [ -n "$CHANGED" ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # Protect CODEOWNERS itself:
-      # Allow if PR author is already in BASE CODEOWNERS allowlist (or repo owner).
       - name: Block unauthorized CODEOWNERS changes
         if: ${{ steps.codeowners_changed.outputs.changed == 'true' }}
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          ALLOW_USERS: ${{ steps.codeowners.outputs.users }}
+          REPO_OWNER: ${{ github.repository_owner }}
         run: |
           set -euo pipefail
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
-          ALLOW_USERS="${{ steps.codeowners.outputs.users }}"
-
-          if [ "$PR_AUTHOR" = "${{ github.repository_owner }}" ]; then
+          if [ "$PR_AUTHOR" = "$REPO_OWNER" ]; then
             echo "Repo owner editing CODEOWNERS; allowed."
             exit 0
           fi
-
-          if echo " $ALLOW_USERS " | grep -q " $PR_AUTHOR "; then
+          if echo " $ALLOW_USERS " | grep -qF " $PR_AUTHOR "; then
             echo "Existing CODEOWNER editing CODEOWNERS; allowed."
             exit 0
           fi
-
-          echo "❌ .github/CODEOWNERS is protected. Only existing CODEOWNERS (or repo owner) may change it."
+          echo "::error::.github/CODEOWNERS is protected. Only existing CODEOWNERS (or the repo owner) may change it."
           exit 1
 
-      # --- Collect changed markdown files ---
+      # --- Collect changed markdown files -----------------------------------
       - name: Collect changed markdown files
+        id: changed
+        working-directory: pr
         run: |
-          BASE="origin/${{ github.event.pull_request.base.ref }}"
-          git diff --name-only "$BASE"...HEAD -- '*.md' '*.markdown' > changed_md.txt || true
+          set -euo pipefail
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- '*.md' '*.mdx' '*.markdown' \
+            > "$RUNNER_TEMP/changed_md.txt" || true
           echo "Changed markdown files:"
-          cat changed_md.txt || true
+          cat "$RUNNER_TEMP/changed_md.txt" || true
+          if [ -s "$RUNNER_TEMP/changed_md.txt" ]; then
+            echo "any=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "any=false" >> "$GITHUB_OUTPUT"
+          fi
 
-      # - name: Collect ALL markdown files (one-time cleanup)
-      #   run: |
-      #     find docs -type f \( -name "*.md" -o -name "*.markdown" \) > changed_md.txt
-
-
-      - name: Autofix West3D + OneTwo3D affiliate links (changed files only)
-        if: ${{ hashFiles('changed_md.txt') != '' }}
+      # Script comes from ./base (trusted); it only reads and writes markdown in ./pr.
+      - name: Autofix West3D + OneTwo3D affiliate links
+        if: ${{ steps.changed.outputs.any == 'true' }}
+        working-directory: pr
         run: |
-          python3 .github/scripts/affiliate_links.py fix --files changed_md.txt
+          python3 "$GITHUB_WORKSPACE/base/.github/scripts/affiliate_links.py" \
+            fix --files "$RUNNER_TEMP/changed_md.txt"
 
       - name: Commit and push affiliate fixes (same-repo PRs only)
-        if: ${{ hashFiles('changed_md.txt') != '' && github.event.pull_request.head.repo.full_name == github.repository }}
+        if: ${{ steps.changed.outputs.any == 'true' && github.event.pull_request.head.repo.full_name == github.repository }}
+        working-directory: pr
         run: |
+          set -euo pipefail
           if git diff --quiet; then
             echo "No autofix changes to commit."
             exit 0
           fi
           git add -A
           git commit -m "chore: auto-add affiliate tags"
-          git push
+          git push origin "HEAD:refs/heads/$HEAD_REF"
 
-      # --- High-level change detection (workflows, scripts, etc.) ---
+      # --- High-level change detection --------------------------------------
       - name: Detect high-level file changes
         id: highlevel
+        working-directory: pr
         run: |
           set -euo pipefail
-          BASE="origin/${{ github.event.pull_request.base.ref }}"
-
-          # Tune these patterns to your taste:
-          # - workflows
-          # - github actions scripts
-          # - CODEOWNERS already handled separately
-          git diff --name-only "$BASE"...HEAD \
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" \
             -- '.github/workflows/**' \
                '.github/actions/**' \
                '.github/scripts/**' \
-            > highlevel.txt || true
-
+            > "$RUNNER_TEMP/highlevel.txt" || true
           echo "High-level changed files:"
-          cat highlevel.txt || true
-
-          if [ -s highlevel.txt ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
+          cat "$RUNNER_TEMP/highlevel.txt" || true
+          if [ -s "$RUNNER_TEMP/highlevel.txt" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
+          {
+            echo "files<<HIGHLEVEL_EOF"
+            cat "$RUNNER_TEMP/highlevel.txt"
+            echo "HIGHLEVEL_EOF"
+          } >> "$GITHUB_OUTPUT"
 
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          cat highlevel.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      # --- External link change detection (non West3D/OneTwo3D) ---
+      # --- External link change detection (non West3D/OneTwo3D) -------------
       - name: Generate diff for markdown files
+        working-directory: pr
         run: |
-          BASE="origin/${{ github.event.pull_request.base.ref }}"
-          git diff "$BASE"...HEAD -- '*.md' '*.markdown' > diff.txt || true
+          git diff "$BASE_SHA" "$HEAD_SHA" -- '*.md' '*.mdx' '*.markdown' > "$RUNNER_TEMP/diff.txt" || true
 
       - name: Detect non-affiliate external link changes
         id: links
+        working-directory: pr
         run: |
-          python3 .github/scripts/affiliate_links.py check --diff diff.txt || true
+          python3 "$GITHUB_WORKSPACE/base/.github/scripts/affiliate_links.py" \
+            check --diff "$RUNNER_TEMP/diff.txt" || true
 
-      # --- Gate: allow if PR author is in BASE CODEOWNERS, else block when needed ---
+      # --- Gate: allow if PR author is in BASE CODEOWNERS -------------------
       - name: Gate changes (CODEOWNERS bypass)
         id: gate
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          ALLOW_USERS: ${{ steps.codeowners.outputs.users }}
+          ADDED: ${{ steps.links.outputs.ADDED }}
+          REMOVED: ${{ steps.links.outputs.REMOVED }}
+          HIGHLEVEL_CHANGED: ${{ steps.highlevel.outputs.changed }}
         run: |
           set -euo pipefail
-
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
-          ALLOW_USERS="${{ steps.codeowners.outputs.users }}"
-
-          ADDED="${{ steps.links.outputs.ADDED }}"
-          REMOVED="${{ steps.links.outputs.REMOVED }}"
-          HIGHLEVEL_CHANGED="${{ steps.highlevel.outputs.changed }}"
-
           NEEDS_REVIEW=false
-
-          if [ -n "$ADDED" ] || [ -n "$REMOVED" ]; then
+          if [ -n "${ADDED:-}" ] || [ -n "${REMOVED:-}" ]; then
             NEEDS_REVIEW=true
           fi
-
-          if [ "$HIGHLEVEL_CHANGED" = "true" ]; then
+          if [ "${HIGHLEVEL_CHANGED:-false}" = "true" ]; then
             NEEDS_REVIEW=true
           fi
 
           if [ "$NEEDS_REVIEW" = "false" ]; then
             echo "No gated changes detected."
+            echo "BLOCK=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          # Allow if author is in trusted allowlist
-          if echo " $ALLOW_USERS " | grep -q " $PR_AUTHOR "; then
-            echo "PR authored by CODEOWNER; allowing gated changes."
-            - uses: hmarr/auto-approve-action@v4
+          # Allow if the author is in the trusted allowlist.
+          if echo " $ALLOW_USERS " | grep -qF " $PR_AUTHOR "; then
+            echo "PR authored by a CODEOWNER; allowing gated changes."
+            echo "BLOCK=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          echo "BLOCK=true" >> $GITHUB_OUTPUT
-          exit 0
+          echo "BLOCK=true" >> "$GITHUB_OUTPUT"
 
       - name: Comment with report (approval required)
         if: ${{ steps.gate.outputs.BLOCK == 'true' }}

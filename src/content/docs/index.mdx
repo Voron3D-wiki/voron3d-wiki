@@ -1,0 +1,64 @@
+---
+title: 'Home'
+description: 'Welcome to the Voron3D Wiki - Your comprehensive resource for Voron 3D printers'
+---
+
+import CardGrid from '~/components/CardGrid.astro';
+import WikiCard from '~/components/WikiCard.astro';
+import { Image } from 'astro:assets';
+import logo from '~/assets/VoronLogo.png';
+
+<Image src={logo} alt="Voron3D Logo" width={250} />
+
+Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and other 3D printing-related topics. We aim to make a useful resource for finding interesting modifications and share knowledge about the latest developments in the field.
+
+This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers.
+
+## What is Voron?
+The Voron project revolves around open-source 3D printers that are known for their modularity, precision, and high print quality. These machines are highly customizable and can be tailored to individual needs, whether for personal, professional, or industrial use. The key feature of Voron printers is the community's commitment to improving every aspect of the design, including mechanics, electronics, and firmware.
+
+### [Printers](/printers/)
+<CardGrid>
+<WikiCard title="Voron V0" icon="printer-small" href="/printers/v0/">
+Learn about the compact and customizable Voron V0.
+</WikiCard>
+
+<WikiCard title="Voron Trident" icon="printer-mid" href="/printers/trident/">
+Discover the Voron Trident, with its modular design and advanced features.
+</WikiCard>
+
+<WikiCard title="Voron V2.4" icon="printer-large" href="/printers/2.4/">
+Learn about the latest and most advanced Voron V2.4.
+</WikiCard>
+
+<WikiCard title="Voron Switchwire" icon="printer-belt" href="/printers/switchwire/">
+Explore the Voron Switchwire.
+</WikiCard>
+</CardGrid>
+
+:::tip[Recently added!]
+We are happy to announce we have just added the big tree tech EBB gen 2 series of board to the website, we hope to make it a useful tool for the community.
+:::
+### [Electronics](/electronics/)
+- [MCUs and Motherboards](/electronics/mcu/) - Learn about the various MCUs and motherboards compatible with Voron printers
+- [Toolhead Boards](/printhead/toolhead-boards/) - Explore the best toolhead boards for efficient wiring and performance
+- [FANS](/electronics/fans/) - Understand the importance of fans and how to choose the right ones
+- [Stepper Motor](/electronics/stepper-motor/)
+{/* - [Expansion Boards](/electronics/expansion-boards/expansion-boards/) - Learn about expansion boards and how to flash them */}
+
+### [PrintHead stuff](/printhead/)
+- [hotends](/printhead/hotends/) - Information on hotends 
+- [extruders](/printhead/extruders/) - Learn about the different types of extruders available
+- [toolhead-boards](/printhead/toolhead-boards/) - Learn about the best toolhead boards for efficient wiring and performance
+
+### [Bed Leveling](/bedleveling/) - Guides for bed leveling tools and probes
+
+### [Multi-Material Units](/MMUs/) - Explore MMU systems for multi-material printing
+
+---
+
+We hope this wiki serves as a valuable resource for your 3D printing journey. Stay tuned for updates and new content!
+
+:::tip[Need Help?]
+Join the Offical voron [Discord](https://discord.gg/voron) for real-time support and discussions.
+:::

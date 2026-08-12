@@ -1,0 +1,31 @@
+{
+  "name": "voron3d-wiki",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/check-nav.mjs && astro build && pagefind --site dist && node scripts/mirror-output.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "check:nav": "node scripts/check-nav.mjs",
+    "check:urls": "node scripts/check-urls.mjs",
+    "urls:update": "node scripts/check-urls.mjs --update"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.1.6",
+    "remark-directive": "^4.0.0",
+    "sharp": "^0.35.3",
+    "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "pagefind": "^1.5.2",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,57 @@
+name: Build and Format Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Validate Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # src/lib/git-dates.mjs reads git history to date each page. A
+          # shallow clone makes every page look like it changed today.
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # `astro check` type-checks content against the schema in
+      # src/content.config.ts and catches missing frontmatter and bad component
+      # props. The tree is clean; keep it that way.
+      - name: Check content
+        run: npx astro check
+
+      - name: Build site
+        run: npm run build
+
+      # URLs come from content file paths now, not from a `slug:` frontmatter
+      # field, so the old "verify every page pins a slug" check no longer
+      # guards anything. This checks the invariant that check was really about:
+      # that no live URL appears, moves, or disappears without someone deciding
+      # to. See scripts/check-urls.mjs.
+      - name: Verify no URL changed
+        run: npm run check:urls
+
+  # Deployment is NOT done here. Cloudflare Pages is connected to this
+  # repository directly and builds it itself:
+  #   production branch: main
+  #   build command:     npm ci && npm run build
+  #   output directory:  dist
+  #   node version:      22 (set NODE_VERSION in the Pages environment)
+  # Pushes to main publish to production; other branches get preview
+  # deployments automatically.

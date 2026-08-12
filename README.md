@@ -1,80 +1,427 @@
 # Voron3D Wiki
 
-![Voron3D Wiki](assets/VoronLogo.png)
+A community documentation site for Voron 3D printers — live at **[voron3d.wiki](https://voron3d.wiki)**.
 
-A comprehensive documentation site for Voron 3D printers, built with MkDocs Material.
+Not affiliated with Voron Design. This is an independent community project that
+has been maintained for several years.
 
-## Overview
+---
 
-The Voron3D Wiki provides detailed documentation for Voron 3D printers, including:
-- Printer specifications and build guides
-- Component selection and compatibility
-- Software configuration
-- Troubleshooting guides
-- Community resources
+## Start here
 
-## Quick Start
+**If you are a person or an AI agent picking this project up, read these three
+things before changing anything:**
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/voron3d-wiki.git
-cd voron3d-wiki
+1. **[Editorial stance](#editorial-stance)** below — the single most important
+   constraint on this repo. Getting it wrong damages the site's credibility even
+   when the code is correct.
+2. **[AUDIT.md](AUDIT.md)** — the invariants. Things that take the site down,
+   break the build, or reopen a security hole if broken. Each has a check you can
+   run.
+3. **[TODO](#todo)** below — what is actually in flight.
+
+**Launching or changing the deployment?** Read **[LAUNCH.md](LAUNCH.md)** first.
+It carries the launch-readiness evidence, the zero-downtime cutover sequence,
+and why `SITE_ENV` defaults the way it does.
+
+---
+
+## What this project is
+
+A guide to Voron 3D printers and the ecosystem around them: build guides,
+component selection, configuration help, and troubleshooting.
+
+It is **a guide first**. The site explains *why* a part matters and *how to
+choose one* before it ever names a product. That ordering is what makes it worth
+reading rather than a storefront, and it is deliberate.
+
+### Funding
+
+The site is funded by affiliate links. They pay for hosting and upkeep, they are
+not going away, and they are disclosed on every page that carries them.
+
+They are also **not** what the site is for. The editorial stance below is how
+those two facts stay compatible.
+
+### Editorial stance
+
+> Explanation comes before recommendation. Always.
+
+Every component section follows the same order:
+
+```
+concept   ->  why does this part matter
+criteria  ->  how do I choose one
+options   ->  what exists
+reviews   ->  how did they actually hold up
+buy       ->  where to get it
 ```
 
-2. Install dependencies:
-```bash
-pip install mkdocs-material
+`src/content/docs/electronics/fans/index.mdx` is the reference implementation — it opens with
+"How to choose a fan" and attaches no affiliate link to the reasoning. A reader
+must be able to read the whole criteria layer and leave without ever seeing a
+product link.
+
+Concretely, this means:
+
+- **A buy link is a page footer, never a hero.** Purchase blocks go at the
+  bottom, after installation, configuration, and maintenance.
+- **The affiliate disclosure ships with the buy link**, not somewhere else.
+- **Negative findings get published.** The willingness to say "don't buy this"
+  is what makes every other recommendation credible.
+- **Gaps stay visible.** "We haven't tested this" is a legitimate and useful
+  sentence.
+- **Reviews attach to the component page they're about.** There is deliberately
+  no top-level "Reviews" section — that reads as a product vertical.
+
+If a change makes the site read more like a shop and less like a guide, it is
+the wrong change regardless of how much sense it makes commercially.
+
+---
+
+## Repository layout
+
+```
+voron3d-wiki/
+├── src/
+│   ├── content/docs/      # All content. 75 pages of MDX.
+│   ├── components/        # Shared blocks (AffiliateDisclosure, WorkInProgress)
+│   ├── assets/            # Logo and site-wide images
+│   └── styles/            # custom.css
+├── public/                # Served as-is: favicon, js/ (analytics, sorting, links)
+├── .github/               # CI: build checks, affiliate link gating
+├── astro.config.mjs       # Site config, sidebar, GA4
+├── AUDIT.md               # Invariants + current state. Read before merging.
+└── package.json
 ```
 
-3. Run locally:
+## Running it
+
 ```bash
-mkdocs serve
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # -> dist/
+npx astro check  # type-checks content against the schema; CI runs this
 ```
 
-Visit `http://127.0.0.1:8000` to view the documentation.
+Built with **Astro**, with a layout of the site's own in `src/layouts/` and
+`src/components/site/` — no docs theme. Deploys to Cloudflare Pages, which
+builds from git; nothing in `.github/` deploys.
+
+**Target Pages configuration:**
+
+| | |
+|:--|:--|
+| Build command | `npm ci && npm run build` |
+| Output directory | `dist` |
+| Node version | 22 (also pinned in `.node-version`) |
+
+### Deploy compatibility shim — temporary
+
+Pages holds its build command and output directory in the dashboard, which this
+repo cannot change. The project was created against MkDocs. Until the settings
+above are applied, two shims keep deploys working under the **old**
+configuration (`pip install -r requirements.txt && mkdocs build`, output `site`):
+
+- `scripts/mirror-output.mjs` copies `dist/` to `site/` after every build, so
+  either output directory publishes a complete site.
+- `tools/mkdocs-compat/` is a pip package whose only job is to put a `mkdocs`
+  executable on PATH that runs `npm ci && npm run build`. `requirements.txt`
+  exists solely to install it.
+
+Both paths are tested and produce byte-identical output. **Remove them once the
+dashboard is updated** — see the TODO. They are a bridge, not architecture.
+
+> Migrated from MkDocs Material in August 2026. Every URL was preserved — see
+> [Page conventions](#page-conventions) for the one rule that keeps it that way.
+
+---
+
+## Page conventions
+
+**Every content page is `<name>/index.mdx`, with its images in that same folder.**
+One topic, one folder.
+
+```
+src/content/docs/printhead/toolhead-boards/mks-thr/
+├── index.mdx
+├── MKS-UTC-conf.png
+└── MKS-THR-36-42-conf.png
+```
+
+To add a page:
+
+1. `mkdir src/content/docs/<section>/<page-name>/`
+2. Create `index.mdx` with `title`, `description`, and a **`slug`**
+3. Put images in the same folder, reference them by bare filename
+4. Add it to the `sidebar` in `astro.config.mjs`
+5. `npx astro check && npm run build`
+
+### The slug rule
+
+**Every page must pin an explicit `slug` matching its URL path.** CI fails
+without one.
+
+```yaml
+---
+title: 'Part Cooling'
+description: 'Guide to part cooling options for Voron printers'
+slug: 'electronics/fans'
+---
+```
+
+**A page's URL is its directory path, verbatim.** `src/content/docs/printers/2.4/`
+serves `/printers/2.4/`. Case and dots are significant: `/MMUs/` is not
+`/mmus/`, and there is no slugifier in the way — see the `generateId` note in
+`src/content.config.ts`.
+
+The `slug:` field still present in most pages' frontmatter is a leftover from
+the MkDocs migration, when Starlight owned routing and would otherwise have
+slugified these paths. It is inert now; the file's location is what routes.
+
+Renaming a content directory therefore changes a live URL. 21 of these have
+inbound links from Discord and the forums and the search rankings attached to
+them, so `npm run check:urls` compares the built site against the committed
+`urls.txt` and fails on any URL that appears, moves, or disappears. If a change
+is intentional, `npm run urls:update` re-records the manifest — as a reviewable
+diff, so a URL change is always a decision someone made.
+
+### Shared blocks
+
+Reusable pieces are components in `src/components/`, imported where needed:
+
+```mdx
+import AffiliateDisclosure from '~/components/AffiliateDisclosure.astro';
+
+...page content...
+
+<AffiliateDisclosure />
+```
+
+The disclosure goes at the **bottom**, with the buy links it is disclosing.
+
+### MDX is stricter than the old Markdown
+
+Content is MDX — CommonMark plus JSX. Three things that used to be legal now
+break the build:
+
+- **A bare `<` opens a tag.** `(<5A)` and `length < 1 meter` are parse errors.
+  Write `&lt;` or wrap in backticks. This is the most common one here, because
+  specs are full of comparison operators.
+- **Headings need a space after the hashes.** `###2507` is literal text now.
+- **HTML must be valid JSX** — `className=`, `style={{...}}`, `<br />`.
+
+The upside is that these fail loudly at build time instead of rendering wrong in
+production, which is how the duplicate-content bug in `BTT-EBB-Gen1` was found.
+
+---
+
+## Analytics
+
+GA4 property **G-7E70MV2KN4**, configured in exactly one place: the `head` block
+in `astro.config.mjs`.
+
+**`url_passthrough` and `linker` must stay off.** They decorate outbound URLs
+with `_gl=` params, which breaks affiliate attribution. That was diagnosed in
+`c53bee2` and is why the GA config is hand-rolled rather than using an
+integration. Do not add a second `gtag('config', ...)` anywhere — it
+double-counts every page view.
+
+Custom events live in `public/js/analytics.js`. Two other scripts ship
+alongside it: `external-links.js` (external links open in a new tab) and
+`tablesort.js` (click-to-sort table headers, rewritten to drop the CDN
+dependency the MkDocs version had).
+
+| Event | What it answers |
+|:--|:--|
+| `affiliate_click` | Which vendor, product, placement, and page section earned the click |
+| `search_no_results` | What readers looked for and we haven't written |
+| `outbound_reference` | Where we hand traffic away |
+| `copy_config` | Which configs people actually take |
+
+`placement` is the one that matters most — it shows whether people buy after
+reading the guide or straight off a card, which is how the editorial stance gets
+checked against reality rather than assumed.
+
+---
+
+## TODO
+
+Running list. Keep it current — add what you find, tick what you finish.
+
+### Analytics — blocked on account access
+
+- [ ] **Register custom dimensions in GA4.** Admin → Custom definitions →
+      event-scoped, for `vendor`, `product`, `placement`, `page_section`,
+      `destination`. Until this is done the events arrive but their parameters are
+      invisible in reports. Silent failure.
+- [ ] **Verify affiliate clicks land clean** in the West3D / OneTwo3D / AliExpress
+      dashboards, then compare against GA's `affiliate_click` count. The gap is
+      the ad-blocker loss (expect 25–40% on this audience).
+- [ ] **Retire the `preventDefault()` guard** in `public/js/analytics.js` once the above
+      confirms URLs are no longer being decorated. It is a workaround; the
+      `url_passthrough: false` config is the actual fix.
+- [ ] Consider routing affiliate links through `/go/<slug>` with a `_redirects`
+      map — changes vendor URLs in one place instead of 54 files, and enables
+      server-side click logging that ad blockers cannot suppress.
+
+### Content bugs
+
+- [ ] **`BTT-EBB-Gen1` has duplicate content.** The same flashing instructions
+      appear twice (~130 lines). The second copy was wrapped in a hand-rolled
+      tab widget whose CSS was never written; the migration stripped the dead
+      wrapper but deliberately kept both copies, because picking one is an
+      editorial call. Pick one, or convert to real `<Tabs>`.
+- [x] ~~17 malformed headings in `electronics/fans`~~ — repaired during the
+      migration. Noted because the same mistake now fails visibly instead of
+      silently rendering.
+- [ ] **Non-Voron printers are buried.** ~285 lines covering Siboor Enderwire,
+      Sovol SV08 and others sit at the bottom of `docs/printers/index.md`,
+      invisible to navigation. This is monetized content nobody can find. Promote
+      it to its own section.
+- [ ] **`guides/` is one page of outbound links** to Ellis's tuning guide,
+      occupying a top-level nav slot and sending traffic away. Either build it out
+      or fold it into Software.
+
+### Reviews programme — not started
+
+- [ ] **Write the methodology page first, before any review.** How we test, what
+      we measure, what equipment, how the unit was obtained. Every review links to
+      it. This page is most of what separates a review site from a shill site, and
+      it is very hard to add credibly after the fact.
+- [ ] Define a standard test bed — one printer, stated filament, stated slicer
+      config — so numbers are comparable across reviews.
+- [ ] Start with hardware already owned and run for months. Longitudinal data
+      ("14 months in, here's the failure mode") is the one thing a years-old wiki
+      can offer that a YouTube review cannot, and it cannot be rushed.
+- [ ] Decide the voice. The site currently has **zero** first-person testing
+      language; reviews need an identity and that is an editorial choice to make
+      deliberately.
+- [ ] Add `unit_source: purchased | vendor_loan | gifted | reader_submitted` as a
+      required field so a review cannot publish without declaring provenance.
+
+### Layout rewrite — Starlight removed
+
+Starlight was dropped in August 2026, one release after the MkDocs migration.
+The content stayed exactly where it was; what went was the theme.
+
+The complaint was that the site felt cluttered, and the specific causes were
+too much navigation, noisy body text, cramped density, and too many competing
+borders and fills. Two of those were ours rather than Starlight's, but the
+layout ones could not be fixed from outside a theme whose structure *is* two
+sidebars plus a header. Overriding it further would have meant more override
+files than layout files.
+
+What replaced it:
+
+- `src/layouts/` and `src/components/site/` — header, sidebar, contents rail,
+  prev/next, theme toggle, search dialog. All of it ordinary Astro.
+- `src/lib/nav.mjs` — the nav tree as plain data, with pure functions over it,
+  instead of a config block interpreted by an integration.
+- `src/styles/tokens.css` — the design system, and the four rules that keep it
+  calm. Read that file's header before adding styles.
+- Pagefind directly, rather than via the theme. Same index, own UI.
+- `Tabs`, `TabItem`, `CardGrid` and `:::note` reimplemented with identical
+  authoring syntax, so no page needed rewriting for the change.
+
+Specific things that changed for readers, all deliberate:
+
+- The four section links moved out of the header and into the top of the
+  sidebar. There is now one persistent navigation surface instead of three.
+- The home page shows 8 sidebar links instead of ~100. Starlight had no notion
+  of a page outside the nav, so it fell back to rendering the entire tree.
+- Only affiliate links keep a visible badge. GitHub / OEM / community links
+  still announce their destination to screen readers and still carry the right
+  `rel`, but no longer render a coloured pill mid-paragraph. One flag in
+  `src/plugins/rehype-link-badges.mjs` puts the labels back.
+- The affiliate disclosure appears once per page rather than once per buy block
+  plus once at the foot — four times on a typical product page.
+
+Things worth knowing:
+
+- Code blocks have a copy button again (`public/js/copy-code.js`). MkDocs had
+  one; the Astro migration dropped it, which also silently killed the
+  `copy_config` analytics event. `search_no_results` was dead for the same
+  reason — it was watching MkDocs' search DOM — and now listens for an event the
+  search client fires.
+- `npm run check:nav` fails the build when the nav and the content tree
+  disagree, in either direction. It reports 4 pages that are reachable by no
+  route at all; see `UNREACHABLE` in `scripts/check-nav.mjs`. That predates this
+  work — whether to link, merge, or drop them is an editorial call.
+
+### Migration follow-ups
+
+The move from MkDocs Material to Astro + Starlight landed in August 2026. What
+it achieved, and what is left:
+
+- [x] 75/75 URL parity, verified by diffing both builds. No redirects needed.
+- [x] Nav regrouped into four sections without moving a single file — the
+      sidebar is configured independently of disk layout.
+- [x] Output 36M → 16M; images 24M → 8.9M via automatic WebP.
+- [x] Pagefind search, sitemap, and per-PR preview deployments.
+- [x] CI ported to Node; affiliate pipeline taught about `.mdx`.
+- [ ] **Set `SITE_ENV=preview` on the dev deploy.** Without it the dev site is
+      indexable and will compete with production in search. See
+      [LAUNCH.md](LAUNCH.md#environment-safety).
+- [ ] **Update the Cloudflare Pages build settings** to `npm ci && npm run build`,
+      output `dist`, `NODE_VERSION=22`. Deploys work without this — the
+      compatibility shims cover the old settings — but the shims exist only to
+      unblock preprod and should not outlive it.
+- [ ] **Then delete the shims**: `tools/mkdocs-compat/`, `requirements.txt`, and
+      the `&& node scripts/mirror-output.mjs` from the `build` script in
+      `package.json`. Confirm a deploy still succeeds afterwards.
+- [ ] **Check "last updated" dates on the deployed site.** The footer reads git
+      history for them, and Cloudflare's clone may be shallow. If every page shows
+      the same recent date, that is the cause.
+- [ ] Move the buy-link block into the page layout so its position cannot drift.
+      This is the structural enforcement of the editorial stance and it touches
+      every product page — a deliberate change, not a side effect.
+- [ ] Write the editorial policy page that `AffiliateDisclosure` links to
+      (`/policies/` currently has no such section).
+- [ ] Convert the 8 stale branches. They predate the migration and carry `.md`
+      content, so they need converting rather than merging.
+
+### Deployment — open question
+
+- [ ] **Cloudflare Pages vs Workers Static Assets.** Pages works and Pages
+      Functions cover server-side needs. Workers adds native cron triggers
+      (relevant if comparison tables ever want scheduled price/stock refreshes)
+      and is where Cloudflare is directing new development. No urgency.
+
+---
 
 ## Contributing
 
-We welcome contributions! Here's how you can help:
+1. Fork, branch (`git checkout -b feature/thing`)
+2. Follow the [page conventions](#page-conventions) and the
+   [editorial stance](#editorial-stance)
+3. Run `npx astro check && npm run build` — both must pass
+4. Check your change against the invariants in [AUDIT.md](AUDIT.md)
+5. Open a PR
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Changes to affiliate links, `.github/`, and `CODEOWNERS` are gated by CI and need
+review from a listed CODEOWNER.
 
-### Documentation Guidelines
+### Writing guidelines
 
-- Use clear, concise language
-- Include relevant images and diagrams
-- Follow the existing style guide
+- Explain before you recommend
+- Include relevant images and diagrams; put them beside the page
 - Test all links and code examples
-- Update the table of contents if needed
+- Give every new page a `slug` pinned to its URL path — CI fails without one
+- Add every new page to the `sidebar` in `astro.config.mjs` — pages missing from
+  it are reachable only by URL or search, which is how a batch of pages stayed
+  invisible for months
 
-## Development
-
-### Project Structure
-```
-voron3d-wiki/
-├── docs/               # Documentation source files
-├── assets/            # Static assets (images, etc.)
-├── stylesheets/       # Custom CSS
-└── mkdocs.yml        # MkDocs configuration
-```
-
-### Building the Site
-```bash
-mkdocs build
-```
-
-The built site will be in the `site/` directory.
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](LICENSE).
 
 ## Acknowledgments
 
 - [Voron Design](https://vorondesign.com/) for the original printer designs
-- [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) for the documentation framework
-- All contributors who have helped improve the documentation 
+- [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) for tuning reference
+- [Astro](https://astro.build/) for the framework, and [Pagefind](https://pagefind.app/) for search
+- [MkDocs Material](https://squidfunk.github.io/mkdocs-material/), which served this wiki for years
+- Everyone who has contributed content, corrections, and test data
