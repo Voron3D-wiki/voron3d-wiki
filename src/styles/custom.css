@@ -168,7 +168,7 @@ footer .link-badge {
 
 .table-scroll {
   overflow-x: auto;
-  margin-block: 1.25rem;
+  margin-block: 1.75rem;
   border: 1px solid var(--sl-color-gray-5);
   border-radius: 0.5rem;
 }
@@ -272,11 +272,11 @@ footer .link-badge {
 /* Collapsible blocks — the old `???` admonitions became <details>. Give them a
    container so they do not read as loose text. */
 .sl-markdown-content details {
-  margin-block: 1.25rem;
+  margin-block: 1.75rem;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--sl-color-gray-5);
+  border: 1px solid var(--sl-color-gray-6);
   border-radius: 0.45rem;
-  background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent);
+  background: transparent;
 }
 
 .sl-markdown-content details > summary {
