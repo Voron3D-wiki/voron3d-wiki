@@ -1,0 +1,258 @@
+/* ---------------------------------------------------------------------------
+   Voron3D Wiki — design tokens and reset
+
+   The brief that produced these values: the site read as cluttered. Four causes
+   were named — too much navigation, noisy body text, cramped density, and too
+   many competing colours and borders. The tokens below are the answer to the
+   last two, and the layout components answer the first two.
+
+   The rules that keep it calm, and that new styles should not break:
+
+     1. One accent colour. Orange means "you can act on this" — a link, the
+        page you are on. It is never decoration. Nothing else is coloured.
+     2. Surfaces are earned. A box needs a reason (code, a table header, a
+        callout that must not be missed). Default to no border, no fill.
+     3. One hairline weight. --rule everywhere; --rule-strong only to separate
+        major regions.
+     4. Space is the separator of first resort, before rules and boxes.
+
+   Greys are warm (a touch of red/yellow) rather than the usual blue-grey,
+   because a blue-grey UI fights an orange accent — that mismatch is part of
+   what made the old palette feel busy.
+   --------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  /* --- Surfaces -------------------------------------------------------- */
+  --bg: #fbfaf9;
+  --bg-raised: #ffffff;
+  --bg-inset: #f3f1ee;
+  --bg-hover: rgba(24, 20, 16, 0.045);
+
+  /* --- Ink ------------------------------------------------------------- */
+  --fg: #1c1a18;
+  --fg-muted: #57524c;
+  --fg-faint: #837c74;
+
+  /* --- Rules ----------------------------------------------------------- */
+  --rule: rgba(24, 20, 16, 0.1);
+  --rule-strong: rgba(24, 20, 16, 0.17);
+
+  /* --- Accent ---------------------------------------------------------- */
+  --accent: #bc4508;
+  --accent-hover: #963606;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(188, 69, 8, 0.09);
+  --accent-line: rgba(188, 69, 8, 0.35);
+
+  /* --- Callout hues -----------------------------------------------------
+     Only used as a 2px left rule and a label. Deliberately desaturated: at
+     rule width a vivid hue reads as an alarm, and most of these are not. */
+  --hue-note: #2f6bb5;
+  --hue-tip: #1f7a53;
+  --hue-caution: #a8630a;
+  --hue-danger: #b3372c;
+
+  /* --- Type ------------------------------------------------------------
+     A wiki is read, not skimmed. 17px base with a 1.7 leading and a ~68ch
+     measure is the readable end of the range; the old 16/1.6 was the cramped
+     feeling being reported. */
+  --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.875rem;
+  /* 17px. The layout scale below stays on a 16px rem so this can be tuned
+     for readability without moving every margin on the site. */
+  --text-base: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+
+  --leading-tight: 1.25;
+  --leading-body: 1.7;
+
+  /* --- Space -----------------------------------------------------------
+     A 4px-based scale. Block rhythm in the article body is a multiple of
+     --space-5 so paragraphs, lists, and figures all sit on one grid. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --radius-sm: 4px;
+  --radius: 7px;
+  --radius-lg: 11px;
+
+  /* --- Layout ----------------------------------------------------------- */
+  --header-height: 3.5rem;
+  --sidebar-width: 16.5rem;
+  --toc-width: 13rem;
+  --measure: 44rem;
+  --gutter: 1.25rem;
+
+  --ease: 140ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Dark. Defined for both the explicit toggle and the system default, so the
+   page never borrows the host's theme or half-applies one. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --bg: #131211;
+    --bg-raised: #1a1918;
+    --bg-inset: #201e1c;
+    --bg-hover: rgba(255, 250, 245, 0.06);
+
+    --fg: #ece8e4;
+    --fg-muted: #a8a19a;
+    --fg-faint: #7d766e;
+
+    --rule: rgba(255, 250, 245, 0.11);
+    --rule-strong: rgba(255, 250, 245, 0.19);
+
+    --accent: #ff8a4c;
+    --accent-hover: #ffa877;
+    --accent-contrast: #1a0d04;
+    --accent-soft: rgba(255, 138, 76, 0.12);
+    --accent-line: rgba(255, 138, 76, 0.4);
+
+    --hue-note: #6fa8e8;
+    --hue-tip: #55c294;
+    --hue-caution: #e0a248;
+    --hue-danger: #ef7b6f;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #131211;
+  --bg-raised: #1a1918;
+  --bg-inset: #201e1c;
+  --bg-hover: rgba(255, 250, 245, 0.06);
+
+  --fg: #ece8e4;
+  --fg-muted: #a8a19a;
+  --fg-faint: #7d766e;
+
+  --rule: rgba(255, 250, 245, 0.11);
+  --rule-strong: rgba(255, 250, 245, 0.19);
+
+  --accent: #ff8a4c;
+  --accent-hover: #ffa877;
+  --accent-contrast: #1a0d04;
+  --accent-soft: rgba(255, 138, 76, 0.12);
+  --accent-line: rgba(255, 138, 76, 0.4);
+
+  --hue-note: #6fa8e8;
+  --hue-tip: #55c294;
+  --hue-caution: #e0a248;
+  --hue-danger: #ef7b6f;
+}
+
+/* ---------------------------------------------------------------------------
+   Reset
+   --------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Anchor links land below the sticky header instead of under it. */
+  scroll-padding-top: calc(var(--header-height) + var(--space-5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Visually hidden but still announced. Used by the skip link, the theme
+   toggle, and every icon-only control. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

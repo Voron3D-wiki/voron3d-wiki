@@ -66,8 +66,11 @@ const d = PATHS[name] ?? PATHS.layers;
 </svg>
 
 <style>
+  /* Inherits its colour from whatever it sits in, so an icon inside a card
+     picks up the card's hover state instead of being permanently orange. The
+     accent is reserved for things you can act on. */
   .wiki-icon {
     flex: none;
-    color: var(--sl-color-accent-high);
+    color: var(--fg-faint);
   }
 </style>

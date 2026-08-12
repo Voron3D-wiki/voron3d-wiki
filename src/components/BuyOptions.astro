@@ -6,8 +6,7 @@
  * which had six different shapes across the wiki — inline space-separated,
  * comma-separated, indented sublists, a bare link on the next line, headings
  * called "Purchase Options" / "Purchase Links:" / "Purchase Information", a
- * stray trailing `|`, and hand-written `← *Affiliate link*` notes that the
- * automatic badge now duplicates.
+ * stray trailing `|`, and hand-written `← *Affiliate link*` notes.
  *
  * Each option renders as its own target rather than a run of links sharing a
  * line, which matters most on mobile where adjacent inline links are hard to
@@ -17,6 +16,19 @@
  * "amazon", "Amazon ", "West3d" and "Biqu Offical Store" all become one
  * consistent name. Affiliate-network redirectors (tidd.ly, awin1, collabs.shop)
  * cannot be identified from the hostname, so those take an explicit `label`.
+ *
+ * ON THE DISCLOSURE
+ *
+ * This used to print the full "Tagged links are affiliate links — buying
+ * through them supports the wiki at no extra cost to you" sentence inside every
+ * block. Product pages carry three or four blocks plus <AffiliateDisclosure> at
+ * the foot, so the same sentence appeared four times on one page, which is
+ * where it stops reading as a disclosure and starts reading as noise.
+ *
+ * The obligation is met at three levels instead, without repetition:
+ *   - per link: the tag glyph and rel="sponsored";
+ *   - per block: the word "affiliate" in the heading row;
+ *   - per page: <AffiliateDisclosure>, which states the arrangement in full.
  *
  * Usage:
  *   <BuyOptions options={[
@@ -63,7 +75,20 @@ const anyAffiliate = resolved.some((o) => o.isAffiliate);
 {
   resolved.length > 0 && (
     <div class="buy">
-      <p class="buy__title">{title}</p>
+      <p class="buy__title">
+        {title}
+        {anyAffiliate && (
+          <>
+            <span class="buy__sep" aria-hidden="true">·</span>
+            <a class="buy__note-link" href="/policies/">
+              <svg viewBox="0 0 24 24" width="11" height="11" aria-hidden="true" focusable="false" fill="currentColor">
+                <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.84zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" />
+              </svg>
+              affiliate links
+            </a>
+          </>
+        )}
+      </p>
 
       <ul class="buy__list">
         {resolved.map((option) => (
@@ -78,7 +103,7 @@ const anyAffiliate = resolved.some((o) => o.isAffiliate);
               {option.note && <span class="buy__note">{option.note}</span>}
               {option.isAffiliate && (
                 <>
-                  <svg class="buy__tag" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false" fill="currentColor">
+                  <svg class="buy__tag" viewBox="0 0 24 24" width="11" height="11" aria-hidden="true" focusable="false" fill="currentColor">
                     <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.84zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" />
                   </svg>
                   <span class="sr-only"> (affiliate link — we may earn a commission)</span>
@@ -88,44 +113,56 @@ const anyAffiliate = resolved.some((o) => o.isAffiliate);
           </li>
         ))}
       </ul>
-
-      {/* One disclosure for the group rather than the word "affiliate" repeated
-          after every option, which is what made these read as a wall of badges.
-          Each option still carries the tag icon, so a mixed set stays honest. */}
-      {anyAffiliate && (
-        <p class="buy__disclosure">
-          <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false" fill="currentColor">
-            <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.84zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" />
-          </svg>
-          Tagged links are affiliate links — buying through them supports the wiki at no extra cost to you.
-        </p>
-      )}
     </div>
   )
 }
 
 <style>
+  /* No panel, no fill. The label row and the option buttons are enough to read
+     this as a group; wrapping it in a tinted box as well was one of the boxes
+     that made product pages feel like a stack of cards. */
   .buy {
-    margin-block: 2rem;
-    padding: 1.5rem;
-    border: 1px solid var(--sl-color-gray-6);
-    border-radius: 0.6rem;
-    background: transparent;
+    margin-block: var(--space-5);
   }
 
   .buy__title {
-    margin: 0 0 1rem;
-    font-size: var(--sl-text-xs);
-    font-weight: 600;
-    letter-spacing: 0.07em;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-3);
+    color: var(--fg-faint);
+    font-size: var(--text-xs);
+    font-weight: 650;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--sl-color-gray-4);
+  }
+
+  .buy__sep {
+    color: var(--rule-strong);
+  }
+
+  .buy__note-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    color: var(--fg-faint);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .buy__note-link svg {
+    color: var(--accent);
+  }
+
+  .buy__note-link:hover {
+    color: var(--fg-muted);
+    text-decoration: underline;
   }
 
   .buy__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem;
+    gap: var(--space-2);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -142,46 +179,30 @@ const anyAffiliate = resolved.some((o) => o.isAffiliate);
     /* A real target rather than a word in a run of links — inline links sitting
        next to each other are the hardest thing to tap accurately on a phone. */
     min-height: 2.25rem;
-    padding: 0.4rem 0.8rem;
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.4rem;
-    background: var(--sl-color-black);
-    color: var(--sl-color-white);
-    font-size: var(--sl-text-sm);
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius);
+    color: var(--fg);
+    font-size: var(--text-sm);
     font-weight: 600;
     text-decoration: none;
-    transition: border-color 130ms ease, background-color 130ms ease;
+    transition: border-color var(--ease), color var(--ease);
   }
 
   .buy__option:hover {
-    border-color: var(--sl-color-accent);
-    background: color-mix(in srgb, var(--sl-color-accent) 12%, var(--sl-color-black));
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .buy__option--affiliate .buy__tag {
-    color: var(--wiki-affiliate);
     flex: none;
+    color: var(--accent);
   }
 
   .buy__note {
     font-weight: 400;
-    font-size: var(--sl-text-xs);
-    color: var(--sl-color-gray-3);
-  }
-
-  .buy__disclosure {
-    display: flex;
-    align-items: baseline;
-    gap: 0.35rem;
-    margin: 1rem 0 0;
-    font-size: var(--sl-text-xs);
-    color: var(--sl-color-gray-4);
-  }
-
-  .buy__disclosure svg {
-    flex: none;
-    color: var(--wiki-affiliate);
-    translate: 0 0.1em;
+    font-size: var(--text-xs);
+    color: var(--fg-faint);
   }
 
   /* Full-width stacked options on narrow screens — easier to hit, and the

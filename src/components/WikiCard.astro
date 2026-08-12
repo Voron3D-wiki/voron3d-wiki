@@ -2,10 +2,13 @@
 /**
  * A card with an icon and a call-to-action.
  *
- * Starlight's own <Card> takes an `icon` only from its built-in set, which has
- * no hardware icons, and has no notion of a primary link. The MkDocs grid cards
- * had both — an icon and an `{ .md-button }` "Learn more" — so this restores
- * that shape rather than approximating it.
+ * The MkDocs grid cards had an icon and an `{ .md-button }` "Learn more", so
+ * this restores that shape rather than approximating it with a generic card.
+ *
+ * The surface is a hairline and nothing else — no fill, no shadow, no tint on
+ * hover beyond the border and the arrow. A grid of filled cards is the single
+ * heaviest element on the home page and it was competing with the prose above
+ * it.
  *
  * Usage inside a <CardGrid>:
  *   <WikiCard title="Voron V0" icon="printer-small" href="/printers/v0/">
@@ -24,99 +27,103 @@ interface Props {
 const { title, icon, href, cta = 'Learn more' } = Astro.props;
 ---
 
-<article class="wiki-card">
-  <div class="wiki-card__head">
-    {icon && <WikiIcon name={icon} />}
-    <h3 class="wiki-card__title">
+<article class="card">
+  <div class="card__head">
+    {icon && <WikiIcon name={icon} size={22} />}
+    <h3 class="card__title">
       {href ? <a href={href}>{title}</a> : title}
     </h3>
   </div>
 
-  <div class="wiki-card__body"><slot /></div>
+  <div class="card__body"><slot /></div>
 
-  {href && <a class="wiki-card__cta" href={href}>{cta}</a>}
+  {href && <span class="card__cta" aria-hidden="true">{cta}</span>}
 </article>
 
 <style>
-  .wiki-card {
+  .card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: var(--space-2);
     height: 100%;
-    padding: 1.15rem 1.25rem 1.25rem;
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.6rem;
-    background: color-mix(in srgb, var(--sl-color-gray-6) 45%, transparent);
-    transition: border-color 140ms ease, background-color 140ms ease;
+    padding: var(--space-4);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    transition: border-color var(--ease);
   }
 
-  .wiki-card:hover {
-    border-color: var(--sl-color-accent);
-    background: color-mix(in srgb, var(--sl-color-accent) 7%, transparent);
+  .card:hover {
+    border-color: var(--rule-strong);
   }
 
-  .wiki-card__head {
+  .card__head {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+    gap: var(--space-2);
   }
 
-  .wiki-card__title {
+  .card__title {
     margin: 0;
-    font-size: var(--sl-text-lg);
-    line-height: 1.25;
-    font-weight: 600;
-    color: var(--sl-color-white);
+    font-size: var(--text-base);
+    font-weight: 650;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
   }
 
-  .wiki-card__title a {
-    color: inherit;
+  .card__title a {
+    color: var(--fg);
     text-decoration: none;
   }
 
-  /* Stretch the title link over the whole card so the entire surface is
-     clickable, while keeping one real link for assistive tech. */
-  .wiki-card__title a::before {
+  /* Stretches the title link over the whole card so the entire surface is
+     clickable, while keeping exactly one real link for assistive tech — which
+     is also why the CTA below is aria-hidden rather than a second <a>. */
+  .card__title a::before {
     content: '';
     position: absolute;
     inset: 0;
+    border-radius: var(--radius);
   }
 
-  .wiki-card {
-    position: relative;
+  .card:hover .card__title a {
+    color: var(--accent);
   }
 
-  .wiki-card__body {
+  .card__body {
     flex: 1;
-    font-size: var(--sl-text-sm);
-    color: var(--sl-color-gray-2);
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+    line-height: 1.55;
   }
 
-  .wiki-card__body :global(p:first-child) {
-    margin-top: 0;
+  .card__body :global(p) {
+    margin: 0;
+    max-width: none;
   }
 
-  .wiki-card__body :global(p:last-child) {
-    margin-bottom: 0;
+  .card__body :global(p + p) {
+    margin-block-start: var(--space-2);
   }
 
-  .wiki-card__cta {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35em;
-    font-size: var(--sl-text-sm);
+  .card__cta {
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--sl-color-accent-high);
-    text-decoration: none;
   }
 
-  .wiki-card__cta::after {
+  .card__cta::after {
     content: '→';
-    transition: translate 140ms ease;
+    display: inline-block;
+    margin-inline-start: 0.35em;
+    transition: translate var(--ease);
   }
 
-  .wiki-card:hover .wiki-card__cta::after {
+  .card:hover .card__cta {
+    color: var(--accent);
+  }
+
+  .card:hover .card__cta::after {
     translate: 0.2em 0;
   }
 </style>

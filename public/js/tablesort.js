@@ -80,7 +80,7 @@
   }
 
   function init() {
-    document.querySelectorAll('.sl-markdown-content table').forEach(enhance);
+    document.querySelectorAll('.prose table').forEach(enhance);
   }
 
   document.addEventListener('DOMContentLoaded', init);

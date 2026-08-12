@@ -15,13 +15,32 @@
 // Marking is automatic and derived from the href. That is deliberate: the
 // affiliate badge is a disclosure, and a disclosure an author has to remember
 // to add is one that eventually goes missing.
+//
+// WHAT CHANGED, AND HOW TO CHANGE IT BACK
+//
+// Every kind used to render a coloured pill with a word in it — "GitHub",
+// "OEM", "community". On link-dense pages that put three or four coloured
+// chips in a single paragraph, which is most of what read as noisy body text.
+//
+// Only `affiliate` keeps a visible marker now, because only that one is a
+// disclosure; the rest are conveniences. Their destination is still announced
+// to screen readers, still carries the right `rel`, and still opens in a new
+// tab. To bring the visible labels back, flip `VISIBLE_LABEL` below — the
+// styling for both states already exists in src/styles/content.css.
 
 import { visit } from 'unist-util-visit';
 import { classify, relFor, LABELS, ICONS } from '../lib/link-kind.mjs';
 
+/** Which kinds render their label as visible text, rather than icon + sr-only. */
+const VISIBLE_LABEL = new Set([]);
 
 function icon(kind) {
-  const filled = kind !== 'social';
+  // Without a visible label there is nothing for a GitHub or Discord glyph to
+  // caption, and a paragraph sprinkled with brand marks is the noise this was
+  // meant to remove. Everything but affiliate falls back to the one neutral
+  // "leaves the site" arrow.
+  const glyph = kind === 'affiliate' ? 'affiliate' : 'external';
+
   return {
     type: 'element',
     tagName: 'svg',
@@ -32,11 +51,9 @@ function icon(kind) {
       height: 12,
       'aria-hidden': 'true',
       focusable: 'false',
-      ...(filled
-        ? { fill: 'currentColor' }
-        : { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round' }),
+      fill: 'currentColor',
     },
-    children: [{ type: 'element', tagName: 'path', properties: { d: ICONS[kind] }, children: [] }],
+    children: [{ type: 'element', tagName: 'path', properties: { d: ICONS[glyph] }, children: [] }],
   };
 }
 
@@ -44,7 +61,7 @@ function badge(kind) {
   const { text, sr } = LABELS[kind];
   const children = [icon(kind)];
 
-  if (text) {
+  if (text && VISIBLE_LABEL.has(kind)) {
     children.push({
       type: 'element',
       tagName: 'span',

@@ -1,0 +1,42 @@
+---
+/**
+ * Every documentation page.
+ *
+ * The route is the content file's path verbatim (see the `generateId` note in
+ * src/content.config.ts), so /printers/2.4/ and /MMUs/ keep their case and dots
+ * rather than being slugified into new URLs.
+ */
+import { getCollection, render } from 'astro:content';
+import DocLayout from '~/layouts/DocLayout.astro';
+import { lastUpdated } from '~/lib/git-dates.mjs';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((entry) => ({
+    // `index` is src/content/docs/index.mdx — the home page, at `/`. See the
+    // generateId note in src/content.config.ts for why it is not the empty
+    // string already.
+    params: { slug: entry.id === 'index' ? undefined : entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+// `filePath` is relative to the project root and is what the GitHub edit link
+// and the git date lookup both key on.
+const filePath = entry.filePath;
+---
+
+<DocLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  headings={headings}
+  showToc={entry.data.tableOfContents}
+  template={entry.data.template}
+  filePath={filePath}
+  lastUpdated={lastUpdated(filePath)}
+>
+  <Content />
+</DocLayout>

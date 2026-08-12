@@ -1,0 +1,146 @@
+---
+/**
+ * The document shell: <head>, header, sidebar, and the content slot.
+ *
+ * Everything Starlight used to supply here — meta tags, the theme script, the
+ * analytics carried over from the MkDocs `overrides/main.html`, the skip link —
+ * lives in this one file now, which is the point of the rewrite: the page
+ * structure is readable top to bottom instead of assembled from a dozen
+ * overridable component slots.
+ */
+import '~/styles/tokens.css';
+import '~/styles/content.css';
+import Header from '~/components/site/Header.astro';
+import Sidebar from '~/components/site/Sidebar.astro';
+import { IS_PRODUCTION } from '~/lib/site-env.mjs';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Full-bleed pages (home) drop the article column constraints. */
+  wide?: boolean;
+}
+
+const { title, description, wide = false } = Astro.props;
+
+const SITE_NAME = 'Voron3D Wiki';
+const DEFAULT_DESCRIPTION =
+  'A community resource for Voron 3D printers — build guides, component selection, and configuration help.';
+
+const pageTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+const pageDescription = description ?? DEFAULT_DESCRIPTION;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://voron3d.wiki');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+
+    {
+      /* Keep non-production deploys out of search. Defaults to production, so a
+         forgotten env var can never deindex the live site — see
+         src/lib/site-env.mjs for why the default leans that way. */
+      !IS_PRODUCTION && <meta name="robots" content="noindex, nofollow" />
+    }
+
+    {/* Applies the stored theme before first paint. Inline and blocking on
+        purpose: deferring it is what produces a white flash on a dark site. */}
+    <script is:inline>
+      (function () {
+        var pref = 'auto';
+        try {
+          pref = localStorage.getItem('theme') || 'auto';
+        } catch (e) {}
+        var root = document.documentElement;
+        root.dataset.themePref = pref;
+        if (pref === 'light' || pref === 'dark') root.dataset.theme = pref;
+      })();
+    </script>
+
+    {/* GA4, carrying over the hardened config from the MkDocs overrides.
+        url_passthrough and linker stay off — they are what decorate outbound
+        URLs with `_gl=` and break affiliate attribution. */}
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7E70MV2KN4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-7E70MV2KN4', {
+        transport_type: 'beacon',
+        url_passthrough: false,
+        linker: { domains: [], decorate_forms: false },
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+      });
+    </script>
+
+    <script is:inline src="/js/analytics.js" defer></script>
+    <script is:inline src="/js/external-links.js" defer></script>
+    <script is:inline src="/js/tablesort.js" defer></script>
+    <script is:inline src="/js/copy-code.js" defer></script>
+    {/* Search client. In public/ rather than bundled — see the note at the top
+        of that file for why the Pagefind import cannot go through Vite. */}
+    <script is:inline type="module" src="/js/search.js"></script>
+
+    <slot name="head" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <Header />
+    <Sidebar />
+
+    <div class:list={['shell', wide && 'shell--wide']}>
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: fixed;
+    inset-block-start: var(--space-2);
+    inset-inline-start: var(--space-2);
+    z-index: 100;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: var(--accent-contrast);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    translate: 0 -300%;
+  }
+
+  .skip-link:focus-visible {
+    translate: 0 0;
+  }
+
+  .shell {
+    padding-block-start: var(--header-height);
+    padding-inline-start: var(--sidebar-width);
+  }
+
+  @media (max-width: 64rem) {
+    .shell {
+      padding-inline-start: 0;
+    }
+  }
+</style>

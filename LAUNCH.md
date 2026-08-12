@@ -34,7 +34,7 @@ Comparing rendered word counts page by page flagged six pages where Astro had
 less text. All six were investigated and none is content loss:
 
 - **`/MMUs/tradrack`** — the source only ever contained an `# TradRack`
-  heading. Starlight renders the title itself, so the body is legitimately
+  heading. The layout renders the title itself, so the body is legitimately
   empty. The page was already a stub.
 - **`/electronics/stepper-motor/database`, `/printers/v0/bom`,
   `/printers/2.4/BOM-300`, `/printers/2.4/BOM-350`** — the live MkDocs site is

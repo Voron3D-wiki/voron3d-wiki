@@ -1,39 +1,60 @@
 ---
-// The affiliate disclosure, as a component instead of a pasted {% include %}.
-//
-// Under MkDocs this partial was included by hand on 29 pages, which means it
-// could be forgotten, reordered, or moved above the content it is disclosing.
-// As a component it renders identically everywhere, and once it moves into the
-// page layout it cannot be omitted at all.
+/**
+ * The page-level affiliate disclosure.
+ *
+ * Under MkDocs this partial was included by hand on 29 pages, which means it
+ * could be forgotten, reordered, or moved above the content it is disclosing.
+ * As a component it renders identically everywhere.
+ *
+ * This is now the only place the arrangement is stated in full — see the note
+ * in BuyOptions.astro about why the sentence no longer repeats per block. It
+ * reads as a quiet closing note rather than a bordered panel, because it sits
+ * at the foot of the article where nothing is competing for attention anyway.
+ */
 ---
 
-<details class="affiliate-disclosure">
-  <summary><strong>Affiliate Disclosure</strong></summary>
+<aside class="disclosure" aria-label="Affiliate disclosure">
+  <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" focusable="false" fill="currentColor">
+    <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.84zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" />
+  </svg>
   <p>
-    This page contains affiliate links. If you click one and make a purchase, we may
-    earn a small commission — <strong>at no extra cost to you</strong>.
+    Links marked with a tag are affiliate links. If you buy through one we may earn a
+    small commission, <strong>at no extra cost to you</strong>. Commissions pay for
+    hosting and never influence what we recommend — see the{' '}
+    <a href="/policies/">editorial policy</a>.
   </p>
-  <p>
-    These commissions pay for hosting and let us keep the wiki running. They never
-    influence what we recommend: see our
-    <a href="/policies/">editorial policy</a> for how we choose what to cover.
-  </p>
-</details>
+</aside>
 
 <style>
-  .affiliate-disclosure {
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.5rem;
-    padding: 0.6rem 0.9rem;
-    margin-block: 1.5rem;
-    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
-    font-size: var(--sl-text-sm);
+  .disclosure {
+    display: flex;
+    align-items: start;
+    gap: var(--space-2);
+    max-width: var(--measure);
+    margin-block: var(--space-6);
+    padding-block-start: var(--space-3);
+    border-block-start: 1px solid var(--rule);
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
+    line-height: 1.55;
   }
-  .affiliate-disclosure summary {
-    cursor: pointer;
-    user-select: none;
+
+  .disclosure svg {
+    flex: none;
+    margin-block-start: 0.32em;
+    color: var(--accent);
   }
-  .affiliate-disclosure p {
-    margin-block: 0.6rem 0;
+
+  .disclosure p {
+    margin: 0;
+  }
+
+  .disclosure strong {
+    color: var(--fg-muted);
+    font-weight: 650;
+  }
+
+  .disclosure a {
+    color: var(--fg-muted);
   }
 </style>

@@ -104,8 +104,9 @@ npm run build    # -> dist/
 npx astro check  # type-checks content against the schema; CI runs this
 ```
 
-Built with **Astro + Starlight**. Deploys to Cloudflare Pages, which builds from
-git — nothing in `.github/` deploys.
+Built with **Astro**, with a layout of the site's own in `src/layouts/` and
+`src/components/site/` — no docs theme. Deploys to Cloudflare Pages, which
+builds from git; nothing in `.github/` deploys.
 
 **Target Pages configuration:**
 
@@ -169,11 +170,21 @@ slug: 'electronics/fans'
 ---
 ```
 
-Starlight slugifies by default — lowercasing and dropping dots. Left alone it
-would turn `/printers/2.4/` into `/printers/24/` and `/MMUs/` into `/mmus/`.
-That is 21 live URLs, every inbound link from Discord and the forums, and the
-search rankings attached to them. The pinned slugs are the only reason the
-migration changed no URLs. Do not remove them.
+**A page's URL is its directory path, verbatim.** `src/content/docs/printers/2.4/`
+serves `/printers/2.4/`. Case and dots are significant: `/MMUs/` is not
+`/mmus/`, and there is no slugifier in the way — see the `generateId` note in
+`src/content.config.ts`.
+
+The `slug:` field still present in most pages' frontmatter is a leftover from
+the MkDocs migration, when Starlight owned routing and would otherwise have
+slugified these paths. It is inert now; the file's location is what routes.
+
+Renaming a content directory therefore changes a live URL. 21 of these have
+inbound links from Discord and the forums and the search rankings attached to
+them, so `npm run check:urls` compares the built site against the committed
+`urls.txt` and fails on any URL that appears, moves, or disappears. If a change
+is intentional, `npm run urls:update` re-records the manifest — as a reviewable
+diff, so a URL change is always a decision someone made.
 
 ### Shared blocks
 
@@ -289,6 +300,55 @@ Running list. Keep it current — add what you find, tick what you finish.
 - [ ] Add `unit_source: purchased | vendor_loan | gifted | reader_submitted` as a
       required field so a review cannot publish without declaring provenance.
 
+### Layout rewrite — Starlight removed
+
+Starlight was dropped in August 2026, one release after the MkDocs migration.
+The content stayed exactly where it was; what went was the theme.
+
+The complaint was that the site felt cluttered, and the specific causes were
+too much navigation, noisy body text, cramped density, and too many competing
+borders and fills. Two of those were ours rather than Starlight's, but the
+layout ones could not be fixed from outside a theme whose structure *is* two
+sidebars plus a header. Overriding it further would have meant more override
+files than layout files.
+
+What replaced it:
+
+- `src/layouts/` and `src/components/site/` — header, sidebar, contents rail,
+  prev/next, theme toggle, search dialog. All of it ordinary Astro.
+- `src/lib/nav.mjs` — the nav tree as plain data, with pure functions over it,
+  instead of a config block interpreted by an integration.
+- `src/styles/tokens.css` — the design system, and the four rules that keep it
+  calm. Read that file's header before adding styles.
+- Pagefind directly, rather than via the theme. Same index, own UI.
+- `Tabs`, `TabItem`, `CardGrid` and `:::note` reimplemented with identical
+  authoring syntax, so no page needed rewriting for the change.
+
+Specific things that changed for readers, all deliberate:
+
+- The four section links moved out of the header and into the top of the
+  sidebar. There is now one persistent navigation surface instead of three.
+- The home page shows 8 sidebar links instead of ~100. Starlight had no notion
+  of a page outside the nav, so it fell back to rendering the entire tree.
+- Only affiliate links keep a visible badge. GitHub / OEM / community links
+  still announce their destination to screen readers and still carry the right
+  `rel`, but no longer render a coloured pill mid-paragraph. One flag in
+  `src/plugins/rehype-link-badges.mjs` puts the labels back.
+- The affiliate disclosure appears once per page rather than once per buy block
+  plus once at the foot — four times on a typical product page.
+
+Things worth knowing:
+
+- Code blocks have a copy button again (`public/js/copy-code.js`). MkDocs had
+  one; the Astro migration dropped it, which also silently killed the
+  `copy_config` analytics event. `search_no_results` was dead for the same
+  reason — it was watching MkDocs' search DOM — and now listens for an event the
+  search client fires.
+- `npm run check:nav` fails the build when the nav and the content tree
+  disagree, in either direction. It reports 4 pages that are reachable by no
+  route at all; see `UNREACHABLE` in `scripts/check-nav.mjs`. That predates this
+  work — whether to link, merge, or drop them is an editorial call.
+
 ### Migration follow-ups
 
 The move from MkDocs Material to Astro + Starlight landed in August 2026. What
@@ -310,7 +370,7 @@ it achieved, and what is left:
 - [ ] **Then delete the shims**: `tools/mkdocs-compat/`, `requirements.txt`, and
       the `&& node scripts/mirror-output.mjs` from the `build` script in
       `package.json`. Confirm a deploy still succeeds afterwards.
-- [ ] **Check "last updated" dates on the deployed site.** Starlight reads git
+- [ ] **Check "last updated" dates on the deployed site.** The footer reads git
       history for them, and Cloudflare's clone may be shallow. If every page shows
       the same recent date, that is the cause.
 - [ ] Move the buy-link block into the page layout so its position cannot drift.
@@ -362,6 +422,6 @@ MIT — see [LICENSE](LICENSE).
 
 - [Voron Design](https://vorondesign.com/) for the original printer designs
 - [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) for tuning reference
-- [Astro](https://astro.build/) and [Starlight](https://starlight.astro.build/) for the framework
+- [Astro](https://astro.build/) for the framework, and [Pagefind](https://pagefind.app/) for search
 - [MkDocs Material](https://squidfunk.github.io/mkdocs-material/), which served this wiki for years
 - Everyone who has contributed content, corrections, and test data

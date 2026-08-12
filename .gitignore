@@ -177,3 +177,6 @@ site/
 # Build artifacts from the temporary mkdocs-compat shim
 tools/mkdocs-compat/build/
 tools/mkdocs-compat/*.egg-info/
+
+# Local dev-server config for the Claude Code preview tool.
+.claude/

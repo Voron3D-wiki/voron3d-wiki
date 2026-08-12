@@ -105,7 +105,7 @@ const { images, columns = 3 } = Astro.props;
 
   .gallery__item {
     padding: 0;
-    border: 1px solid var(--sl-color-gray-5);
+    border: 1px solid var(--rule-strong);
     border-radius: 0.5rem;
     overflow: hidden;
     background: none;
@@ -116,7 +116,7 @@ const { images, columns = 3 } = Astro.props;
 
   .gallery__item:hover,
   .gallery__item:focus-visible {
-    border-color: var(--sl-color-accent);
+    border-color: var(--accent);
     scale: 1.015;
   }
 
@@ -133,8 +133,8 @@ const { images, columns = 3 } = Astro.props;
     padding: 0;
     border: none;
     border-radius: 0.6rem;
-    background: var(--sl-color-black);
-    color: var(--sl-color-white);
+    background: var(--bg-raised);
+    color: var(--fg);
     overflow: visible;
   }
 
@@ -152,8 +152,8 @@ const { images, columns = 3 } = Astro.props;
   .gallery__caption {
     margin: 0;
     padding: 0.6rem 0.9rem;
-    font-size: var(--sl-text-sm);
-    color: var(--sl-color-gray-2);
+    font-size: var(--text-sm);
+    color: var(--fg-muted);
     text-align: center;
   }
 
@@ -165,10 +165,10 @@ const { images, columns = 3 } = Astro.props;
     place-items: center;
     width: 2.4rem;
     height: 2.4rem;
-    border: 1px solid var(--sl-color-gray-5);
+    border: 1px solid var(--rule-strong);
     border-radius: 50%;
-    background: var(--sl-color-black);
-    color: var(--sl-color-white);
+    background: var(--bg-raised);
+    color: var(--fg);
     font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
@@ -176,8 +176,8 @@ const { images, columns = 3 } = Astro.props;
 
   .gallery__close:hover,
   .gallery__nav:hover {
-    border-color: var(--sl-color-accent);
-    color: var(--sl-color-accent-high);
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .gallery__close {

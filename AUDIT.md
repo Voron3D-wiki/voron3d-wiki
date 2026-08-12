@@ -21,7 +21,7 @@ build, or reopens a security hole. Each has a check you can actually run.
 |:--|:----------|:---------------|:-------------|
 | 1 | `npm run build` exits 0, and `npx astro check` is clean | Broken internal links, bad frontmatter, and bad component props are build failures. The tree is warning-clean; keep it there. | `npx astro check && npm run build` |
 | 2 | Every content page is `<name>/index.mdx` | Images live beside the page they belong to. Flat `<page>.mdx` files break that and scatter assets. | `find src/content/docs -name '*.mdx' ! -name 'index.mdx'` should return nothing |
-| 3 | **Every page pins an explicit `slug:`** | Starlight slugifies by default — lowercasing and dropping dots. Without a pinned slug `/printers/2.4/` silently becomes `/printers/24/` and `/MMUs/` becomes `/mmus/`. That is 21 live URLs and every inbound link to them. | The `Verify every page pins a slug` step in `build-checks.yml`; fails the build |
+| 3 | **No live URL changes without a recorded decision** | A page's URL is its content directory path. Renaming a directory moves a live URL; 21 of them carry inbound links and search rankings. `urls.txt` is the committed manifest of every URL the site serves. | The `Verify no URL changed` step in `build-checks.yml`, via `scripts/check-urls.mjs`; fails the build |
 | 4 | Every content page is in the `sidebar` in `astro.config.mjs` | Pages absent from it are reachable only by URL or search. This is how the April 2026 pages stayed invisible for months. | See the sidebar check in [Regenerating](#regenerating-this-document) |
 | 5 | Cloudflare Pages deploys from git — **do not add a deploy step** | Pages is connected to this repo directly. A workflow deploy step is a redundant second path and needs a secret URL in the repo. A hardcoded deploy hook lived here until 2026-08 and was publicly readable the whole time. | `grep -rn 'deploy_hook\|api.cloudflare.com' .github/` returns nothing |
 | 6 | `affiliate-link-check.yml` must never execute anything from `./pr` | It runs on `pull_request_target`, so it has the App private key and a write token, and any fork can trigger it. Executing PR-supplied code there hands an attacker the key. Scripts come from the trusted `./base` checkout only. | Read the SECURITY NOTE at the top of the workflow before editing it |
@@ -110,7 +110,7 @@ stay — see the affiliate disclosure partial and `affiliate-link-check.yml`.
 `build-checks.yml` and `docs-validation.yml` both run `npm run build`. That
 duplication is known and harmless.
 
-Both checkouts use `fetch-depth: 0`, because Starlight's `lastUpdated` reads full
+Both checkouts use `fetch-depth: 0`, because `src/lib/git-dates.mjs` reads full
 git history to produce each page's date. A shallow clone silently dates every
 page to today.
 
@@ -182,7 +182,9 @@ under Python-Markdown are errors here:
 
 ## Current state — 2026-08-02
 
-75 content pages, all migrated from MkDocs to Astro + Starlight.
+75 content pages, migrated from MkDocs to Astro. The Starlight theme was later
+removed in favour of a layout of the site's own; the content was untouched by
+that change.
 `astro check` and `npm run build` both pass clean, and the built URL set is
 identical to the MkDocs site it replaced (75/75, verified by diffing both
 outputs).
@@ -258,7 +260,7 @@ printers/DoomCube/duelingZero/  software/shakeAndtune/
 | Delete the old Cloudflare deploy hook | Nothing calls it since 2026-08, but it is still live and publicly readable in git history. Delete rather than rotate. |
 | Register GA4 custom dimensions | The events fire, but `vendor`, `product`, `placement`, `page_section` and `destination` stay invisible in reports until registered under Admin → Custom definitions as event-scoped. Silent failure. |
 | Retire the affiliate `preventDefault()` guard | `public/js/analytics.js` still intercepts affiliate clicks and opens them manually. That was a workaround for GA decorating URLs; `url_passthrough: false` is the real fix. Confirm clicks land clean in the vendor dashboards first. |
-| Verify "last updated" dates on the live site | Cloudflare builds the site, and Starlight's `lastUpdated` needs a full clone. If the live footer dates are all the same recent day, Cloudflare's clone is shallow and every date on the wiki is wrong. Fix would be to build in Actions and upload the artifact. |
+| Verify "last updated" dates on the live site | Cloudflare builds the site, and `src/lib/git-dates.mjs` needs a full clone. If the live footer dates are all the same recent day, Cloudflare's clone is shallow and every date on the wiki is wrong. Fix would be to build in Actions and upload the artifact. |
 | 4 Dependabot alerts (moderate) | On `main`, pre-existing. The ad-hoc ESLint/Prettier install that raised them is gone with the old build job; re-check whether these still apply. |
 | No `LICENSE` file | `README.md` states MIT and links to a `LICENSE` that does not exist. |
 | 19 `coming soon` markers | Inside otherwise-complete pages. `grep -rn "coming soon" src/content/docs/` |

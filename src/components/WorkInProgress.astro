@@ -1,26 +1,23 @@
 ---
 // Work-in-progress notice, replacing the {% include "tools/work-in-progress.md" %}
-// partial used by 11 pages.
+// partial used by 11 pages. Styled as a callout so it matches every other
+// `:::caution` on the site rather than being a one-off box.
 ---
 
-<aside class="wip" aria-label="Work in progress">
-  <p>
-    <strong>This page is a work in progress.</strong> It may be incomplete or out of
-    date. If you know this topic,
-    <a href="https://github.com/Voron3D-wiki/voron3d-wiki">contributions are welcome</a>.
-  </p>
+<aside class="aside aside--caution" aria-label="Work in progress">
+  <p class="aside__title">Work in progress</p>
+  <div class="aside__body">
+    <p>
+      This page may be incomplete or out of date. If you know this topic,
+      <a href="https://github.com/Voron3D-wiki/voron3d-wiki">contributions are welcome</a>.
+    </p>
+  </div>
 </aside>
 
 <style>
-  .wip {
-    border-inline-start: 3px solid var(--sl-color-orange);
-    background: var(--sl-color-orange-low);
-    border-radius: 0.25rem;
-    padding: 0.75rem 1rem;
-    margin-block: 1.5rem;
-    font-size: var(--sl-text-sm);
-  }
-  .wip p {
-    margin: 0;
+  /* .aside styling is global (src/styles/content.css) so markdown-authored
+     callouts and this one cannot drift apart. */
+  .aside {
+    margin-block: var(--space-5);
   }
 </style>

@@ -121,34 +121,29 @@
   // Which Klipper configs people actually take with them.
   function trackCodeCopy() {
     document.addEventListener('click', function (e) {
-      var button = e.target.closest('.md-clipboard');
+      var button = e.target.closest('.copy-code');
       if (!button) return;
       send('copy_config', { page: productOf() });
     });
   }
 
   // Searches that return nothing — a direct list of content readers want and
-  // we haven't written yet. Debounced so we log intent, not every keystroke.
+  // we haven't written yet.
+  //
+  // This used to poll MkDocs Material's result list with a MutationObserver,
+  // watching `.md-search__input` and `.md-search-result__list`. Neither element
+  // has existed since the migration off MkDocs, so this event has been silently
+  // recording nothing. The search client now says so directly instead of being
+  // observed from outside.
   function trackEmptySearches() {
-    var input = document.querySelector('.md-search__input');
-    var list = document.querySelector('.md-search-result__list');
-    if (!input || !list || typeof MutationObserver === 'undefined') return;
-
-    var timer = null;
     var lastLogged = '';
 
-    var observer = new MutationObserver(function () {
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        var query = input.value.trim();
-        if (query.length < 3 || query === lastLogged) return;
-        if (list.children.length > 0) return;
+    document.addEventListener('wiki:search-empty', function (e) {
+      var query = (e.detail && e.detail.query ? e.detail.query : '').trim();
+      if (query.length < 3 || query === lastLogged) return;
 
-        lastLogged = query;
-        send('search_no_results', { search_term: query.slice(0, 100) });
-      }, 1200);
+      lastLogged = query;
+      send('search_no_results', { search_term: query.slice(0, 100) });
     });
-
-    observer.observe(list, { childList: true });
   }
 })();
