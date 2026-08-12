@@ -1,0 +1,90 @@
+---
+/**
+ * Light / dark / system, as one cycling button.
+ *
+ * A three-option <select> is what Starlight shipped and it costs a labelled
+ * form control in the header for a setting people touch once. This is a single
+ * icon button that cycles, with the current state announced.
+ *
+ * The theme itself is applied by the blocking script in BaseLayout's <head>;
+ * this only writes the preference and re-applies it.
+ */
+---
+
+<button class="theme-toggle" type="button" data-theme-toggle aria-live="polite">
+  <svg class="icon icon--light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+  </svg>
+  <svg class="icon icon--dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+  </svg>
+  <svg class="icon icon--auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"></path>
+  </svg>
+  <span class="sr-only" data-theme-label>Theme</span>
+</button>
+
+<style>
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius);
+    color: var(--fg-muted);
+    transition: color var(--ease), background-color var(--ease);
+  }
+
+  .theme-toggle:hover {
+    color: var(--fg);
+    background: var(--bg-hover);
+  }
+
+  .icon {
+    grid-area: 1 / 1;
+    width: 1.15rem;
+    height: 1.15rem;
+    display: none;
+  }
+
+  /* Which glyph shows is driven by the stored preference, stamped on <html> by
+     the head script as data-theme-pref. */
+  :global(html[data-theme-pref='light']) .icon--light,
+  :global(html[data-theme-pref='dark']) .icon--dark,
+  :global(html[data-theme-pref='auto']) .icon--auto,
+  :global(html:not([data-theme-pref])) .icon--auto {
+    display: block;
+  }
+</style>
+
+<script>
+  type Pref = 'light' | 'dark' | 'auto';
+  const ORDER: Pref[] = ['auto', 'light', 'dark'];
+
+  function apply(pref: Pref) {
+    const root = document.documentElement;
+    root.dataset.themePref = pref;
+    if (pref === 'auto') {
+      delete root.dataset.theme;
+    } else {
+      root.dataset.theme = pref;
+    }
+    try {
+      localStorage.setItem('theme', pref);
+    } catch {
+      // Private mode or blocked storage — the choice just will not persist.
+    }
+    for (const label of document.querySelectorAll('[data-theme-label]')) {
+      label.textContent = `Theme: ${pref}. Click to change.`;
+    }
+  }
+
+  for (const button of document.querySelectorAll('[data-theme-toggle]')) {
+    button.addEventListener('click', () => {
+      const current = (document.documentElement.dataset.themePref as Pref) ?? 'auto';
+      apply(ORDER[(ORDER.indexOf(current) + 1) % ORDER.length]);
+    });
+  }
+</script>

@@ -1,0 +1,217 @@
+---
+/**
+ * The site's only persistent navigation surface.
+ *
+ * It carries both levels that used to be split across a header bar and a
+ * sidebar: the four sections at the top, then the current section's pages
+ * underneath. Merging them removed a whole row of chrome from every desktop
+ * page and, on mobile, the duplicate section list that rendered inside the menu
+ * panel as well as in the header.
+ *
+ * Off any section — home, policies, 404 — there is no page tree to show, so it
+ * shows the sections with their blurbs instead. The old behaviour there was to
+ * fall back to the entire tree, which put ~100 links on the home page.
+ */
+import { sections, sidebarFor } from '~/lib/nav.mjs';
+import SidebarTree from './SidebarTree.astro';
+
+const pathname = Astro.url.pathname;
+const sectionList = sections(pathname);
+const current = sidebarFor(pathname);
+---
+
+<div class="scrim" data-menu-scrim hidden></div>
+
+<aside class="sidebar" id="sidebar" data-sidebar>
+  <nav class="sections" aria-label="Sections">
+    <p class="rail-label">Sections</p>
+    <ul>
+      {
+        sectionList.map((section) => (
+          <li>
+            <a href={section.href} aria-current={section.isCurrent ? 'true' : undefined}>
+              {section.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  {
+    current ? (
+      <nav class="pages" aria-label={current.label}>
+        <p class="rail-label">{current.label}</p>
+        <SidebarTree items={current.items} />
+      </nav>
+    ) : (
+      /* Landing pages get the sections as a described list rather than a bare
+         repeat of the switcher directly above. */
+      <nav class="overview" aria-label="Browse the wiki">
+        <p class="rail-label">Start here</p>
+        <ul>
+          {sectionList.map((section) => (
+            <li>
+              <a href={section.href}>
+                <span class="overview__label">{section.label}</span>
+                {section.blurb && <span class="overview__blurb">{section.blurb}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+</aside>
+
+<style>
+  .sidebar {
+    position: fixed;
+    inset-block: var(--header-height) 0;
+    inset-inline-start: 0;
+    z-index: 30;
+    width: var(--sidebar-width);
+    padding: var(--space-5) var(--space-3) var(--space-7) var(--gutter);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-inline-end: 1px solid var(--rule);
+  }
+
+  .rail-label {
+    margin-block-end: var(--space-2);
+    padding-inline-start: var(--space-3);
+    color: var(--fg-faint);
+    font-size: var(--text-xs);
+    font-weight: 650;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .sections ul,
+  .overview ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sections a {
+    display: block;
+    padding: 0.3rem var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--ease), background-color var(--ease);
+  }
+
+  .sections a:hover {
+    color: var(--fg);
+    background: var(--bg-hover);
+  }
+
+  .sections a[aria-current='true'] {
+    color: var(--fg);
+    background: var(--bg-hover);
+  }
+
+  .pages,
+  .overview {
+    margin-block-start: var(--space-5);
+    padding-block-start: var(--space-5);
+    border-block-start: 1px solid var(--rule);
+  }
+
+  .overview a {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+  }
+
+  .overview a:hover {
+    background: var(--bg-hover);
+  }
+
+  .overview__label {
+    display: block;
+    color: var(--fg);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .overview__blurb {
+    display: block;
+    color: var(--fg-faint);
+    font-size: var(--text-xs);
+    line-height: 1.45;
+  }
+
+  /* --- Mobile -------------------------------------------------------------
+     Below the desktop breakpoint the rail becomes a slide-in panel driven by
+     the header's menu button. */
+
+  .scrim {
+    display: none;
+  }
+
+  @media (max-width: 64rem) {
+    .sidebar {
+      width: min(19rem, 82vw);
+      background: var(--bg);
+      translate: -100% 0;
+      transition: translate var(--ease);
+    }
+
+    :global(body[data-menu-open]) .sidebar {
+      translate: 0 0;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .scrim {
+      display: block;
+      position: fixed;
+      inset-block-start: var(--header-height);
+      inset-inline: 0;
+      inset-block-end: 0;
+      z-index: 20;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .scrim[hidden] {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const body = document.body;
+  const scrim = document.querySelector<HTMLElement>('[data-menu-scrim]');
+  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-menu-toggle]');
+
+  function setOpen(open: boolean) {
+    body.toggleAttribute('data-menu-open', open);
+    if (scrim) scrim.hidden = !open;
+    for (const toggle of toggles) toggle.setAttribute('aria-expanded', String(open));
+    // Stop the page behind the panel from scrolling with it.
+    body.style.overflow = open ? 'hidden' : '';
+  }
+
+  for (const toggle of toggles) {
+    toggle.addEventListener('click', () =>
+      setOpen(!body.hasAttribute('data-menu-open'))
+    );
+  }
+
+  scrim?.addEventListener('click', () => setOpen(false));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && body.hasAttribute('data-menu-open')) setOpen(false);
+  });
+
+  // Widening past the breakpoint leaves the panel state stale — the rail is
+  // visible again but the scrim and scroll lock would still be applied.
+  matchMedia('(min-width: 64.0625rem)').addEventListener('change', (event) => {
+    if (event.matches) setOpen(false);
+  });
+</script>

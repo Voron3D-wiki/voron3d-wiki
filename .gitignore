@@ -172,7 +172,13 @@ dist/
 # site/ is the mirrored copy of dist/ (see scripts/mirror-output.mjs).
 # The long list of individual site/... paths above is legacy MkDocs output;
 # this blanket rule is what actually covers it now.
-site/
+#
+# Anchored with a leading slash, and it must stay that way. Unanchored, `site/`
+# matches a directory named `site` at ANY depth — which silently swallowed
+# src/components/site/ (the layout components) on commit. The build passed
+# locally, where the files exist on disk, and failed in CI on a fresh clone
+# where they had never arrived.
+/site/
 
 # Build artifacts from the temporary mkdocs-compat shim
 tools/mkdocs-compat/build/
