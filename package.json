@@ -16,6 +16,7 @@
     "@astrojs/mdx": "^7.0.5",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.1.6",
+    "node": "^26.8.1",
     "remark-directive": "^4.0.0",
     "sharp": "^0.35.3",
     "unist-util-visit": "^5.1.0"
@@ -26,6 +27,6 @@
     "typescript": "^6.0.3"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12.0"
   }
 }
