@@ -211,6 +211,13 @@ svg,
 video {
   display: block;
   max-width: 100%;
+  /* Without this, an <img> with explicit width/height attributes (which Astro's
+     Image component and the markdown pipeline both emit, to reserve layout
+     space and avoid CLS) keeps its attribute height in pixels while max-width
+     shrinks the rendered width — stretching or squeezing every image whose
+     column is narrower than its native size. height: auto lets the browser's
+     built-in aspect-ratio-from-attributes behavior scale both together. */
+  height: auto;
 }
 
 input,

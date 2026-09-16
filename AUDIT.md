@@ -22,12 +22,12 @@ build, or reopens a security hole. Each has a check you can actually run.
 | 1 | `npm run build` exits 0, and `npx astro check` is clean | Broken internal links, bad frontmatter, and bad component props are build failures. The tree is warning-clean; keep it there. | `npx astro check && npm run build` |
 | 2 | Every content page is `<name>/index.mdx` | Images live beside the page they belong to. Flat `<page>.mdx` files break that and scatter assets. | `find src/content/docs -name '*.mdx' ! -name 'index.mdx'` should return nothing |
 | 3 | **No live URL changes without a recorded decision** | A page's URL is its content directory path. Renaming a directory moves a live URL; 21 of them carry inbound links and search rankings. `urls.txt` is the committed manifest of every URL the site serves. | The `Verify no URL changed` step in `build-checks.yml`, via `scripts/check-urls.mjs`; fails the build |
-| 4 | Every content page is in the `sidebar` in `astro.config.mjs` | Pages absent from it are reachable only by URL or search. This is how the April 2026 pages stayed invisible for months. | See the sidebar check in [Regenerating](#regenerating-this-document) |
+| 4 | Every content page is in the nav tree in `src/lib/nav.mjs` | Pages absent from it are reachable only by URL or search. This is how the April 2026 pages stayed invisible for months. | `npm run check:nav` (runs first in `npm run build`) |
 | 5 | Cloudflare Pages deploys from git — **do not add a deploy step** | Pages is connected to this repo directly. A workflow deploy step is a redundant second path and needs a secret URL in the repo. A hardcoded deploy hook lived here until 2026-08 and was publicly readable the whole time. | `grep -rn 'deploy_hook\|api.cloudflare.com' .github/` returns nothing |
 | 6 | `affiliate-link-check.yml` must never execute anything from `./pr` | It runs on `pull_request_target`, so it has the App private key and a write token, and any fork can trigger it. Executing PR-supplied code there hands an attacker the key. Scripts come from the trusted `./base` checkout only. | Read the SECURITY NOTE at the top of the workflow before editing it |
 | 7 | Both checkouts in that workflow are pinned to a **SHA**, not a branch | A branch ref lets an attacker push new code between the permission check and the use of it. | `grep -n 'ref:' .github/workflows/affiliate-link-check.yml` — both should be `.sha` |
-| 8 | Google Analytics is configured in **one** place — `astro.config.mjs` `head` | A second `gtag('config', ...)` for the same property double-counts every page view. That bug was live until 2026-08. `public/js/analytics.js` sends events only and must never call `config`. | `grep -rn "gtag('config'" src public astro.config.mjs` — exactly one hit |
-| 9 | GA's `url_passthrough` and `linker` stay **off** | They decorate outbound URLs with `_gl=` params, which breaks affiliate attribution. This was diagnosed in `c53bee2` and is the reason the GA config is hand-rolled rather than using an integration. | `grep -n 'url_passthrough' astro.config.mjs` — must be `false` |
+| 8 | Google Analytics is configured in **one** place — `src/layouts/BaseLayout.astro` | A second `gtag('config', ...)` for the same property double-counts every page view. That bug was live until 2026-08. `public/js/analytics.js` sends events only and must never call `config`. | `grep -rn "gtag('config'" src public` — one call, in `BaseLayout.astro` (the other hit is a comment) |
+| 9 | GA's `url_passthrough` and `linker` stay **off** | They decorate outbound URLs with `_gl=` params, which breaks affiliate attribution. This was diagnosed in `c53bee2` and is the reason the GA config is hand-rolled rather than using an integration. | `grep -n 'url_passthrough' src/layouts/BaseLayout.astro` — must be `false` |
 | 10 | `package.json` + `package-lock.json` are the production dependency list | Cloudflare runs `npm ci && npm run build`. `npm ci` fails outright if the lockfile is out of sync with `package.json`. | `npm ci` succeeds from a clean checkout |
 | 11 | The affiliate pipeline matches `.mdx` | Content pages are `.mdx`. `affiliate_links.py` and the workflow globs filter by extension; missing `.mdx` means affiliate tags stop being autofixed and link changes stop being gated — silently. | `grep -n 'mdx' .github/scripts/affiliate_links.py .github/workflows/affiliate-link-check.yml` |
 
@@ -60,7 +60,7 @@ tablesort.js        click-to-sort table headers
 
 Two pages sit outside the usual rules:
 
-- `src/content/docs/index.mdx` — the site root, and the only page with no `slug:`
+- `src/content/docs/index.mdx` — the site root
 - `src/content/docs/policies/index.mdx` — a real page, kept out of the sidebar on
   purpose and reached from the footer link
 
@@ -85,7 +85,7 @@ build. Both are temporary; remove them once the dashboard is updated.
 | Previews | automatic per-branch |
 
 Cloudflare builds the site itself. GitHub Actions only *validates* — nothing in
-`.github/` deploys. CI additionally runs `astro check` and the slug guard, so it
+`.github/` deploys. CI additionally runs `astro check` and the URL guard, so it
 is the stricter gate of the two.
 
 **There are no ads.** AdSense was removed entirely in 2026-08 — it earned about
@@ -103,7 +103,7 @@ stay — see the affiliate disclosure partial and `affiliate-link-check.yml`.
 
 | Workflow | Trigger | Does |
 |:---------|:--------|:-----|
-| `build-checks.yml` | push to `main`, all PRs | `astro check`, `npm run build`, and the slug guard |
+| `build-checks.yml` | push to `main`, all PRs | `astro check`, `npm run build`, and the URL guard (`check:urls`) |
 | `docs-validation.yml` | push to `main`, PRs to `main` | Trivy scan, `npm run build`, large-file warning |
 | `affiliate-link-check.yml` | `pull_request_target` on `main` | Autofixes West3D/OneTwo3D affiliate tags, gates external-link and workflow changes behind CODEOWNERS |
 
@@ -121,11 +121,12 @@ page to today.
 Adding a page:
 
 1. `mkdir src/content/docs/<section>/<page-name>/`
-2. Create `index.mdx` with frontmatter — `title`, `description`, and a `slug:`
-   pinned to the URL path
+2. Create `index.mdx` with frontmatter — `title` and `description`. The URL is
+   the directory path; there is no `slug:` to set
 3. Put its images in that same folder, reference them by bare filename
-4. Add it to the `sidebar` in `astro.config.mjs`
-5. `npx astro check && npm run build`
+4. Add it to the nav tree in `src/lib/nav.mjs`
+5. `npx astro check && npm run build && npm run check:urls`, then
+   `npm run urls:update` and commit `urls.txt` — a new URL is a recorded decision
 
 Frontmatter for a new page at `/electronics/fans/`:
 
@@ -133,11 +134,11 @@ Frontmatter for a new page at `/electronics/fans/`:
 ---
 title: 'Part Cooling'
 description: 'Guide to part cooling options for Voron printers'
-slug: 'electronics/fans'
 ---
 ```
 
-The `slug` is not optional. See invariant 3 — CI fails without it.
+Some older pages still carry a `slug:` field. It is a leftover from the
+Starlight era and inert — do not rely on it.
 
 Pages carrying affiliate links end with the disclosure component, **after** the
 content it is disclosing:
@@ -260,7 +261,7 @@ printers/DoomCube/duelingZero/  software/shakeAndtune/
 | Delete the old Cloudflare deploy hook | Nothing calls it since 2026-08, but it is still live and publicly readable in git history. Delete rather than rotate. |
 | Register GA4 custom dimensions | The events fire, but `vendor`, `product`, `placement`, `page_section` and `destination` stay invisible in reports until registered under Admin → Custom definitions as event-scoped. Silent failure. |
 | Retire the affiliate `preventDefault()` guard | `public/js/analytics.js` still intercepts affiliate clicks and opens them manually. That was a workaround for GA decorating URLs; `url_passthrough: false` is the real fix. Confirm clicks land clean in the vendor dashboards first. |
-| Verify "last updated" dates on the live site | Cloudflare builds the site, and `src/lib/git-dates.mjs` needs a full clone. If the live footer dates are all the same recent day, Cloudflare's clone is shallow and every date on the wiki is wrong. Fix would be to build in Actions and upload the artifact. |
+| Verify "last updated" dates on the live site | Cloudflare's clone is shallow — confirmed on the branch preview, where every page read the build date. `src/lib/git-dates.mjs` now runs `git fetch --unshallow` in that case, and omits dates rather than show wrong ones if it cannot; look for a `git-dates:` warning in the Cloudflare build log. Pages converted in the migration date from that commit, not their last MkDocs edit. |
 | 4 Dependabot alerts (moderate) | On `main`, pre-existing. The ad-hoc ESLint/Prettier install that raised them is gone with the old build job; re-check whether these still apply. |
 | No `LICENSE` file | `README.md` states MIT and links to a `LICENSE` that does not exist. |
 | 19 `coming soon` markers | Inside otherwise-complete pages. `grep -rn "coming soon" src/content/docs/` |
@@ -274,8 +275,8 @@ printers/DoomCube/duelingZero/  software/shakeAndtune/
 
 - [ ] `npx astro check` is clean
 - [ ] `npm run build` passes
-- [ ] New pages have a `slug:` pinned to their URL path
-- [ ] New pages are in the `sidebar` in `astro.config.mjs`
+- [ ] `npm run check:urls` passes, or `urls.txt` was deliberately re-recorded
+- [ ] New pages are in the nav tree in `src/lib/nav.mjs`
 - [ ] Images sit beside the page that uses them
 - [ ] Affiliate pages carry `<AffiliateDisclosure />`, at the bottom
 - [ ] Buy links are page footers, not heroes — see the editorial stance in README
@@ -289,21 +290,14 @@ printers/DoomCube/duelingZero/  software/shakeAndtune/
 # Invariant 2 - pages outside the <name>/index.mdx convention
 find src/content/docs -name '*.mdx' ! -name 'index.mdx'
 
-# Invariant 3 - pages missing a pinned slug
-for f in $(find src/content/docs -name '*.mdx'); do
-  [ "$f" = "src/content/docs/index.mdx" ] && continue
-  grep -q '^slug:' "$f" || echo "no slug: $f"
-done
+# Invariant 3 - no URL added, moved, or removed (needs a build first)
+npm run check:urls
 
-# Invariant 4 - content pages missing from the sidebar
-pages=$(find src/content/docs -name 'index.mdx' \
-  | sed 's|^src/content/docs/||; s|/index.mdx$||; s|^index.mdx$||' | sort -u)
-nav=$(grep -oE "link: '/[^']*'" astro.config.mjs \
-  | sed "s|link: '/||; s|/'||" | sort -u)
-comm -23 <(echo "$pages") <(echo "$nav")
+# Invariant 4 - nav tree and content tree agree, both directions
+npm run check:nav
 
 # Invariant 8 - GA configured exactly once
-grep -rn "gtag('config'" src public astro.config.mjs
+grep -rn "gtag('config'" src public
 
 # Staleness - last substantive edit per page, following renames
 find src/content/docs -name 'index.mdx' -print0 | while IFS= read -r -d '' f; do

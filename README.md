@@ -90,7 +90,8 @@ voron3d-wiki/
 │   └── styles/            # custom.css
 ├── public/                # Served as-is: favicon, js/ (analytics, sorting, links)
 ├── .github/               # CI: build checks, affiliate link gating
-├── astro.config.mjs       # Site config, sidebar, GA4
+├── src/lib/nav.mjs        # The sidebar / navigation tree
+├── astro.config.mjs       # Site config, markdown plugins
 ├── AUDIT.md               # Invariants + current state. Read before merging.
 └── package.json
 ```
@@ -152,23 +153,12 @@ src/content/docs/printhead/toolhead-boards/mks-thr/
 To add a page:
 
 1. `mkdir src/content/docs/<section>/<page-name>/`
-2. Create `index.mdx` with `title`, `description`, and a **`slug`**
+2. Create `index.mdx` with `title` and `description`
 3. Put images in the same folder, reference them by bare filename
-4. Add it to the `sidebar` in `astro.config.mjs`
+4. Add it to the nav tree in `src/lib/nav.mjs` — the build fails if you forget
 5. `npx astro check && npm run build`
 
-### The slug rule
-
-**Every page must pin an explicit `slug` matching its URL path.** CI fails
-without one.
-
-```yaml
----
-title: 'Part Cooling'
-description: 'Guide to part cooling options for Voron printers'
-slug: 'electronics/fans'
----
-```
+### URLs
 
 **A page's URL is its directory path, verbatim.** `src/content/docs/printers/2.4/`
 serves `/printers/2.4/`. Case and dots are significant: `/MMUs/` is not
@@ -407,9 +397,8 @@ review from a listed CODEOWNER.
 - Explain before you recommend
 - Include relevant images and diagrams; put them beside the page
 - Test all links and code examples
-- Give every new page a `slug` pinned to its URL path — CI fails without one
-- Add every new page to the `sidebar` in `astro.config.mjs` — pages missing from
-  it are reachable only by URL or search, which is how a batch of pages stayed
+- Add every new page to the nav tree in `src/lib/nav.mjs` — `npm run build`
+  fails if a page is missing from it, which is how a batch of pages once stayed
   invisible for months
 
 ---

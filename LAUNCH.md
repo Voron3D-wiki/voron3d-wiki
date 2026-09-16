@@ -25,8 +25,28 @@ against assumptions. Reproduce any of them with the commands in
 | Content loss per page | none — see [note](#content-comparison) |
 | Analytics coverage | GA4 + event script on **75 / 75** pages |
 | `astro check` | 0 errors, 0 warnings |
-| 404 page | present |
+| 404 page | present — **regressed** when Starlight was removed; restored 2026-09-16 (see below) |
 | robots.txt / noindex | correct in both environments |
+
+### Re-verification — 2026-09-16
+
+The table above predates the Starlight removal, the mid-april merge, and a
+dependency update. Re-run on the branch after those:
+
+| Check | Result |
+|:--|:--|
+| `npm ci` from a clean checkout | passes |
+| `npm audit` | 0 vulnerabilities (was 1 critical, 4 high; Astro 7.1.6 → 7.3.2, sharp → 0.35.4) |
+| `astro check` | 0 errors, 0 warnings |
+| URL set vs `urls.txt` | 75 / 75 unchanged |
+| Rendered HTML before vs after the dependency update | identical on all 75 pages (asset hashes and dates ignored) |
+| Untagged West3D / OneTwo3D links | 0, in source and in built HTML |
+| 404 | was missing: the branch preview served the home page with **200** for any unknown URL. `src/pages/404.astro` restores it; `astro preview` returns 404 |
+| Preview `robots.txt` | `Disallow: /`, plus Cloudflare's `x-robots-tag: noindex` |
+| Last-updated dates | every page on the preview showed the build date (shallow clone); fixed in `src/lib/git-dates.mjs` |
+
+**Not** re-run: parity against a fresh MkDocs build, and the broken-link and
+image scripts.
 
 ### Content comparison
 

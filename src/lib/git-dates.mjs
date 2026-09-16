@@ -12,8 +12,34 @@ import { execFileSync } from 'node:child_process';
 
 let cache = null;
 
+function git(args, options = {}) {
+  return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], ...options });
+}
+
+// Cloudflare Pages builds from a shallow clone. There, every file's "last
+// commit" is the single commit that was fetched, so every page would claim it
+// was updated on the day of the build. Try to fetch the rest of the history
+// first; if that is not possible, report no dates at all — no date is better
+// than a wrong one. Full local clones and CI (fetch-depth: 0) skip this.
+function hasFullHistory() {
+  try {
+    if (git(['rev-parse', '--is-shallow-repository']).trim() !== 'true') return true;
+  } catch {
+    return false;
+  }
+  try {
+    git(['fetch', '--unshallow', '--no-tags', '--quiet'], { timeout: 60_000 });
+    return git(['rev-parse', '--is-shallow-repository']).trim() !== 'true';
+  } catch {
+    console.warn('git-dates: shallow clone and --unshallow failed; omitting "last updated" dates.');
+    return false;
+  }
+}
+
 function build() {
   const map = new Map();
+
+  if (!hasFullHistory()) return map;
 
   let out;
   try {

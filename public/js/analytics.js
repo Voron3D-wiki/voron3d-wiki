@@ -1,6 +1,6 @@
 // Custom GA4 events for voron3d.wiki.
 //
-// The gtag.js library and the base `config` call live in overrides/main.html.
+// The gtag.js library and the base `config` call live in src/layouts/BaseLayout.astro.
 // This file only sends events — it must never call gtag('config', ...) or page
 // views get counted twice.
 //
@@ -15,8 +15,17 @@
   // leading "www." stripped, either exactly or as a domain suffix.
   var AFFILIATE_VENDORS = {
     'aliexpress.com': 'aliexpress',
+    'aliexpress.us': 'aliexpress',
+    // 'aliexpress.us': 'aliexpress',
     'west3d.com': 'west3d',
-    'onetwo3d.co.uk': 'onetwo3d'
+    'onetwo3d.co.uk': 'onetwo3d',
+    'amazon.com': 'amazon',
+    'amazon.co.uk': 'amazon',
+    'amazon.de': 'amazon',
+    'amazon.fr': 'amazon',
+    'amazon.ca': 'amazon',
+    'amazon.it': 'amazon',
+    'amazon.es': 'amazon'
   };
 
   function send(name, params) {
