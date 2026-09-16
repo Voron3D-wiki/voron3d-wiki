@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs-compat"
+version = "1.0.0"
+description = "Temporary shim: makes `mkdocs build` run the Astro build instead."
+requires-python = ">=3.8"
+
+# This is what makes the shim work. Installing this package puts a `mkdocs`
+# executable on PATH — the same mechanism that put the real one there when this
+# site ran on MkDocs. A Cloudflare Pages build command still set to
+# `pip install -r requirements.txt && mkdocs build` therefore builds the Astro
+# site instead of failing on a repo that no longer has mkdocs.yml.
+[project.scripts]
+mkdocs = "mkdocs_compat:main"
+
+[tool.setuptools]
+packages = ["mkdocs_compat"]

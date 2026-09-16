@@ -1,0 +1,34 @@
+---
+/**
+ * Auto-fitting grid for <WikiCard>. Drop-in for Starlight's <CardGrid>.
+ *
+ * `stagger` is not carried over — it offset every second card vertically, which
+ * on the home page produced a ragged edge that read as a layout bug rather than
+ * as a flourish.
+ */
+interface Props {
+  /** Minimum column width before the grid drops to fewer columns. */
+  min?: string;
+}
+
+const { min = '15rem' } = Astro.props;
+---
+
+<div class="card-grid" style={`--min:${min}`}>
+  <slot />
+</div>
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+    gap: var(--space-4);
+    /* Grids are structure, not prose — they get the full column rather than
+       the reading measure. */
+    max-width: none;
+  }
+
+  .card-grid > :global(*) {
+    margin-block-start: 0;
+  }
+</style>

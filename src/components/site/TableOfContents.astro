@@ -1,0 +1,212 @@
+---
+/**
+ * On-page contents.
+ *
+ * Only h2 and h3 — the wiki's product pages go four levels deep in places, and
+ * a contents list that mirrors every level is a second sidebar rather than an
+ * orientation aid.
+ *
+ * Appears as a right-hand rail only when there is genuinely room for a third
+ * column (>=80rem). Below that it becomes a collapsed <details> above the
+ * article, so it costs one line instead of a column.
+ */
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  /** `rail` is the sticky right column; `inline` is the collapsed row that
+   *  replaces it below 80rem. Rendering both from one call would put two copies
+   *  of every link in the DOM and make the scroll-spy track whichever happened
+   *  to render last — so the caller places each variant itself. */
+  variant: 'rail' | 'inline';
+}
+
+const { headings, variant } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  items.length > 1 &&
+    (variant === 'rail' ? (
+      <nav class="toc toc--rail" aria-labelledby="toc-heading" data-pagefind-ignore>
+        <p class="rail-label" id="toc-heading">
+          On this page
+        </p>
+        <ul>
+          {items.map((heading) => (
+            <li class:list={[`toc__item--${heading.depth}`]}>
+              <a href={`#${heading.slug}`} data-toc-link={heading.slug}>
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    ) : (
+      <details class="toc toc--inline" data-pagefind-ignore>
+        <summary>On this page</summary>
+        <ul>
+          {items.map((heading) => (
+            <li class:list={[`toc__item--${heading.depth}`]}>
+              <a href={`#${heading.slug}`}>{heading.text}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))
+}
+
+<style>
+  .toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .toc a {
+    display: block;
+    padding-block: 0.28rem;
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color var(--ease);
+  }
+
+  .toc a:hover {
+    color: var(--fg);
+  }
+
+  .toc__item--3 a {
+    padding-inline-start: var(--space-3);
+    font-size: var(--text-xs);
+  }
+
+  /* --- Rail ---------------------------------------------------------------- */
+
+  .toc--rail {
+    display: none;
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--space-6));
+    max-height: calc(100dvh - var(--header-height) - var(--space-8));
+    overflow-y: auto;
+    padding-inline-start: var(--space-4);
+    /* A single hairline down the left, and the active marker rides it. No box,
+       no heading rule, no background. */
+    border-inline-start: 1px solid var(--rule);
+  }
+
+  .rail-label {
+    margin-block-end: var(--space-2);
+    color: var(--fg-faint);
+    font-size: var(--text-xs);
+    font-weight: 650;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .toc--rail li {
+    position: relative;
+  }
+
+  .toc--rail a[aria-current='true'] {
+    color: var(--fg);
+  }
+
+  .toc--rail a[aria-current='true']::before {
+    content: '';
+    position: absolute;
+    inset-block: 0.3rem;
+    /* Sits exactly on the rail's own hairline. */
+    inset-inline-start: calc(-1 * var(--space-4) - 1px);
+    width: 2px;
+    border-radius: 1px;
+    background: var(--accent);
+  }
+
+  @media (min-width: 80rem) {
+    .toc--rail {
+      display: block;
+    }
+  }
+
+  /* --- Inline fallback ------------------------------------------------------ */
+
+  .toc--inline {
+    margin-block-end: var(--space-6);
+    padding-block: var(--space-2);
+    border-block: 1px solid var(--rule);
+  }
+
+  .toc--inline summary {
+    cursor: pointer;
+    list-style: none;
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .toc--inline summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .toc--inline summary::after {
+    content: ' ▾';
+    color: var(--fg-faint);
+  }
+
+  .toc--inline[open] summary {
+    margin-block-end: var(--space-2);
+  }
+
+  @media (min-width: 80rem) {
+    .toc--inline {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Highlight the section you are reading. IntersectionObserver rather than a
+  // scroll handler so it costs nothing while the page is still.
+  const links = new Map<string, HTMLAnchorElement>();
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')) {
+    links.set(link.dataset.tocLink!, link);
+  }
+
+  if (links.size > 0) {
+    const visible = new Set<string>();
+    const order = [...links.keys()];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        }
+
+        // The topmost heading currently on screen wins. When none is (you are
+        // mid-section, between headings) the previous mark is left alone rather
+        // than blinking off.
+        const active = order.find((id) => visible.has(id));
+        if (!active) return;
+        for (const [id, link] of links) {
+          if (id === active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        }
+      },
+      // Only counts a heading as current once it is inside the upper band of
+      // the viewport, under the sticky header.
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+
+    for (const id of links.keys()) {
+      const heading = document.getElementById(id);
+      if (heading) observer.observe(heading);
+    }
+  }
+</script>

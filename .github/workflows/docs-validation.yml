@@ -10,7 +10,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   security-scan:
@@ -27,8 +26,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-trivy-
 
+      # Pinned to a release tag rather than @master, so an upstream change
+      # cannot alter what runs here without a commit to this repo.
       - name: Run Trivy security scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: 'fs'
           ignore-unfixed: true
@@ -40,27 +41,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
         with:
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          path: ~/.cache/pip
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          node-version: '22'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: npm ci
 
-      - name: Build docs
-        run: mkdocs build
+      - name: Build site
+        run: npm run build
 
+      # Astro emits optimised WebP for anything referenced from content, so a
+      # large file in dist/ is usually an asset in public/ bypassing the
+      # pipeline, or a source image referenced by URL instead of import.
       - name: Check for large files
         run: |
-          find site -type f -size +1M | while read file; do
-            echo "⚠️  Warning: $file is larger than 1MB"
+          find dist -type f -size +1M | while read -r file; do
+            echo "::warning file=$file::larger than 1MB — is it going through Astro's image pipeline?"
           done
