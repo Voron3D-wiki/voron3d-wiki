@@ -131,7 +131,7 @@ jobs:
         working-directory: pr
         run: |
           set -euo pipefail
-          git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- '*.md' '*.markdown' \
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- '*.md' '*.mdx' '*.markdown' \
             > "$RUNNER_TEMP/changed_md.txt" || true
           echo "Changed markdown files:"
           cat "$RUNNER_TEMP/changed_md.txt" || true
@@ -190,7 +190,7 @@ jobs:
       - name: Generate diff for markdown files
         working-directory: pr
         run: |
-          git diff "$BASE_SHA" "$HEAD_SHA" -- '*.md' '*.markdown' > "$RUNNER_TEMP/diff.txt" || true
+          git diff "$BASE_SHA" "$HEAD_SHA" -- '*.md' '*.mdx' '*.markdown' > "$RUNNER_TEMP/diff.txt" || true
 
       - name: Detect non-affiliate external link changes
         id: links

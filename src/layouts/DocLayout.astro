@@ -1,0 +1,175 @@
+---
+/**
+ * An article page: breadcrumbs, title, prose column, contents rail, footer.
+ *
+ * The column widths are the density fix. The article is a fixed readable
+ * measure with real margins rather than "whatever is left after the two
+ * sidebars", which is what made pages feel packed at 1280px and emptier than
+ * they should at 1920px.
+ */
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '~/components/site/TableOfContents.astro';
+import PageFooter from '~/components/site/PageFooter.astro';
+import { breadcrumbsFor } from '~/lib/nav.mjs';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  headings?: Heading[];
+  showToc?: boolean;
+  template?: 'doc' | 'landing';
+  filePath?: string;
+  lastUpdated?: Date | null;
+}
+
+const {
+  title,
+  description,
+  headings = [],
+  showToc = true,
+  template = 'doc',
+  filePath,
+  lastUpdated,
+} = Astro.props;
+
+const crumbs = breadcrumbsFor(Astro.url.pathname);
+// Landing pages open with their own hero copy; a breadcrumb trail and an H1
+// above it would be two titles.
+const isLanding = template === 'landing';
+const withToc = showToc && !isLanding && headings.length > 0;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class:list={['layout', withToc && 'layout--toc']}>
+    {/* Scopes the Pagefind index to the article. Without it Pagefind falls back
+        to indexing every <body>, so the sidebar's 60-odd link labels are part of
+        every page's text and searching "Octopus" matches all 75 pages. */}
+    <main class="main" id="main" data-pagefind-body>
+      {
+        crumbs.length > 1 && (
+          <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore>
+            <ol>
+              {crumbs.slice(0, -1).map((crumb) => (
+                <li>{crumb.href ? <a href={crumb.href}>{crumb.label}</a> : crumb.label}</li>
+              ))}
+            </ol>
+          </nav>
+        )
+      }
+
+      <header class="page-head">
+        <h1 data-pagefind-meta="title">{title}</h1>
+        {description && !isLanding && <p class="page-head__lede">{description}</p>}
+      </header>
+
+      {withToc && <TableOfContents headings={headings} variant="inline" />}
+
+      <div class="prose">
+        <slot />
+      </div>
+
+      <PageFooter filePath={filePath} lastUpdated={lastUpdated} />
+    </main>
+
+    {
+      withToc && (
+        <div class="rail">
+          <TableOfContents headings={headings} variant="rail" />
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+    /* Caps how far the article can drift from the sidebar on a wide monitor
+       while still centring the whole reading area. */
+    max-width: 78rem;
+    margin-inline: auto;
+    padding: var(--space-7) var(--space-6) var(--space-8);
+  }
+
+  @media (min-width: 80rem) {
+    .layout--toc {
+      grid-template-columns: minmax(0, 1fr) var(--toc-width);
+    }
+  }
+
+  .main {
+    min-width: 0;
+  }
+
+  /* --- Breadcrumbs --------------------------------------------------------- */
+
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    list-style: none;
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-inline-end: 0.35rem;
+    color: var(--rule-strong);
+  }
+
+  .crumbs a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .crumbs a:hover {
+    color: var(--fg);
+  }
+
+  /* --- Title --------------------------------------------------------------- */
+
+  .page-head {
+    margin-block-end: var(--space-6);
+  }
+
+  .page-head h1 {
+    max-width: var(--measure);
+    font-size: var(--text-3xl);
+    font-weight: 680;
+    line-height: 1.15;
+    letter-spacing: -0.021em;
+  }
+
+  .page-head__lede {
+    max-width: var(--measure);
+    margin-block-start: var(--space-3);
+    color: var(--fg-muted);
+    font-size: var(--text-lg);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 40rem) {
+    .layout {
+      padding: var(--space-5) var(--gutter) var(--space-7);
+    }
+
+    .page-head h1 {
+      font-size: var(--text-2xl);
+    }
+
+    .page-head__lede {
+      font-size: var(--text-base);
+    }
+  }
+</style>

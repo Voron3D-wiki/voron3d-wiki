@@ -1,0 +1,126 @@
+---
+/**
+ * End-of-page furniture: prev/next, edit link, last updated.
+ *
+ * All three used to be separate stacked blocks with their own borders. They are
+ * one region now, separated from the article by a single rule.
+ */
+import { siblingsFor } from '~/lib/nav.mjs';
+
+interface Props {
+  /** Repo-relative path of the source file, for the edit link. */
+  filePath?: string;
+  lastUpdated?: Date | null;
+}
+
+const { filePath, lastUpdated } = Astro.props;
+const { prev, next } = siblingsFor(Astro.url.pathname);
+
+const EDIT_BASE = 'https://github.com/Voron3D-wiki/voron3d-wiki/edit/main/';
+const editUrl = filePath ? EDIT_BASE + filePath : null;
+
+const updated = lastUpdated
+  ? new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeZone: 'UTC' }).format(lastUpdated)
+  : null;
+---
+
+<footer class="page-footer" data-pagefind-ignore>
+  {
+    (prev || next) && (
+      <nav class="siblings" aria-label="Previous and next page">
+        {prev ? (
+          <a class="sibling sibling--prev" href={prev.href} rel="prev">
+            <span class="sibling__dir">← Previous</span>
+            <span class="sibling__label">{prev.label}</span>
+          </a>
+        ) : (
+          <span />
+        )}
+        {next && (
+          <a class="sibling sibling--next" href={next.href} rel="next">
+            <span class="sibling__dir">Next →</span>
+            <span class="sibling__label">{next.label}</span>
+          </a>
+        )}
+      </nav>
+    )
+  }
+
+  <div class="meta">
+    {editUrl && <a href={editUrl} target="_blank" rel="noopener noreferrer">Edit this page</a>}
+    {updated && <span>Last updated {updated}</span>}
+    <a href="/policies/">Editorial policy</a>
+  </div>
+</footer>
+
+<style>
+  .page-footer {
+    margin-block-start: var(--space-8);
+    padding-block-start: var(--space-5);
+    border-block-start: 1px solid var(--rule);
+  }
+
+  .siblings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .sibling {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color var(--ease);
+  }
+
+  .sibling:hover {
+    border-color: var(--rule-strong);
+  }
+
+  .sibling--next {
+    text-align: end;
+  }
+
+  .sibling__dir {
+    color: var(--fg-faint);
+    font-size: var(--text-xs);
+  }
+
+  .sibling__label {
+    color: var(--fg);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    margin-block-start: var(--space-5);
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
+  }
+
+  .meta a {
+    color: var(--fg-faint);
+    text-decoration: none;
+  }
+
+  .meta a:hover {
+    color: var(--fg);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 40rem) {
+    .siblings {
+      grid-template-columns: 1fr;
+    }
+    .sibling--next {
+      text-align: start;
+    }
+  }
+</style>

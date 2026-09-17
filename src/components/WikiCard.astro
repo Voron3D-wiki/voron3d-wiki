@@ -1,0 +1,129 @@
+---
+/**
+ * A card with an icon and a call-to-action.
+ *
+ * The MkDocs grid cards had an icon and an `{ .md-button }` "Learn more", so
+ * this restores that shape rather than approximating it with a generic card.
+ *
+ * The surface is a hairline and nothing else — no fill, no shadow, no tint on
+ * hover beyond the border and the arrow. A grid of filled cards is the single
+ * heaviest element on the home page and it was competing with the prose above
+ * it.
+ *
+ * Usage inside a <CardGrid>:
+ *   <WikiCard title="Voron V0" icon="printer-small" href="/printers/v0/">
+ *     Learn about the compact and customizable Voron V0.
+ *   </WikiCard>
+ */
+import WikiIcon from './WikiIcon.astro';
+
+interface Props {
+  title: string;
+  icon?: string;
+  href?: string;
+  cta?: string;
+}
+
+const { title, icon, href, cta = 'Learn more' } = Astro.props;
+---
+
+<article class="card">
+  <div class="card__head">
+    {icon && <WikiIcon name={icon} size={22} />}
+    <h3 class="card__title">
+      {href ? <a href={href}>{title}</a> : title}
+    </h3>
+  </div>
+
+  <div class="card__body"><slot /></div>
+
+  {href && <span class="card__cta" aria-hidden="true">{cta}</span>}
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    height: 100%;
+    padding: var(--space-4);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    transition: border-color var(--ease);
+  }
+
+  .card:hover {
+    border-color: var(--rule-strong);
+  }
+
+  .card__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .card__title {
+    margin: 0;
+    font-size: var(--text-base);
+    font-weight: 650;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+
+  .card__title a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  /* Stretches the title link over the whole card so the entire surface is
+     clickable, while keeping exactly one real link for assistive tech — which
+     is also why the CTA below is aria-hidden rather than a second <a>. */
+  .card__title a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+  }
+
+  .card:hover .card__title a {
+    color: var(--accent);
+  }
+
+  .card__body {
+    flex: 1;
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+
+  .card__body :global(p) {
+    margin: 0;
+    max-width: none;
+  }
+
+  .card__body :global(p + p) {
+    margin-block-start: var(--space-2);
+  }
+
+  .card__cta {
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .card__cta::after {
+    content: '→';
+    display: inline-block;
+    margin-inline-start: 0.35em;
+    transition: translate var(--ease);
+  }
+
+  .card:hover .card__cta {
+    color: var(--accent);
+  }
+
+  .card:hover .card__cta::after {
+    translate: 0.2em 0;
+  }
+</style>
