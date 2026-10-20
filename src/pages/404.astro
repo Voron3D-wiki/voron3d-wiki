@@ -1,0 +1,50 @@
+---
+/**
+ * Not-found page, emitted as dist/404.html.
+ *
+ * This file is load-bearing, not decoration. Cloudflare Pages treats a build
+ * with no top-level 404.html as a single-page app and answers every unknown
+ * URL with the home page and a 200 — so a dead inbound link looks like a real
+ * page to search engines. With this file present, unknown URLs get this page
+ * and a real 404 status, which is what the MkDocs site did.
+ *
+ * Starlight generated one of these for free; removing Starlight silently took
+ * it away.
+ */
+import DocLayout from '~/layouts/DocLayout.astro';
+import { NAV, flatten } from '~/lib/nav.mjs';
+
+// First real page in each section, so the links go somewhere useful rather than
+// to a section label.
+const sections = NAV.map((section) => ({
+  label: section.label,
+  blurb: section.blurb,
+  href: flatten(section.items)[0]?.href,
+})).filter((section) => section.href);
+---
+
+<DocLayout
+  title="Page not found"
+  description="That page does not exist, or it has moved."
+  showToc={false}
+>
+  <p>
+    Try the search at the top of the page, start from the <a href="/">home page</a>, or pick a
+    section:
+  </p>
+  <ul>
+    {
+      sections.map((section) => (
+        <li>
+          <a href={section.href}>{section.label}</a>
+          {section.blurb && <> — {section.blurb}</>}
+        </li>
+      ))
+    }
+  </ul>
+  <p>
+    If you followed a link on this wiki to get here, please
+    <a href="https://github.com/Voron3D-wiki/voron3d-wiki/issues" target="_blank" rel="noopener noreferrer">open an issue</a>
+    so it can be fixed.
+  </p>
+</DocLayout>

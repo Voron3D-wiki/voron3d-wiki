@@ -1,0 +1,56 @@
+---
+/**
+ * An outbound link with its destination badge.
+ *
+ * The rehype plugin marks links written in markdown. Links passed to components
+ * as props never go through that pipeline, so they need this. Both share the
+ * classifier in src/lib/link-kind.mjs, so a vendor added in one place is
+ * recognised in both.
+ */
+import { classify, hostOf, relFor, LABELS, ICONS } from '~/lib/link-kind.mjs';
+
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+
+const host = hostOf(href);
+const isExternal = host !== null && host !== 'voron3d.wiki' && !host.endsWith('.voron3d.wiki');
+const kind = isExternal ? classify(host) : null;
+const label = kind ? LABELS[kind] : null;
+---
+
+{
+  isExternal && kind && label ? (
+    <a
+      href={href}
+      class:list={[className, 'ext-link', `ext-link--${kind}`]}
+      target="_blank"
+      rel={relFor(kind)}
+    >
+      <slot />
+      <span class:list={['link-badge', `link-badge--${kind}`]}>
+        <svg
+          class="link-badge__icon"
+          viewBox="0 0 24 24"
+          width="12"
+          height="12"
+          aria-hidden="true"
+          focusable="false"
+          fill={kind === 'social' ? 'none' : 'currentColor'}
+          stroke={kind === 'social' ? 'currentColor' : undefined}
+          stroke-width={kind === 'social' ? 2 : undefined}
+          stroke-linecap={kind === 'social' ? 'round' : undefined}
+        >
+          <path d={ICONS[kind]} />
+        </svg>
+        {label.text && <span class="link-badge__text">{label.text}</span>}
+        <span class="sr-only"> ({label.sr})</span>
+      </span>
+    </a>
+  ) : (
+    <a href={href} class={className}><slot /></a>
+  )
+}

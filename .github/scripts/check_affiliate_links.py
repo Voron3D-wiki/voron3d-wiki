@@ -4,7 +4,8 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
 
-DOCS_DIR = "docs"
+# The MkDocs `docs/` tree is gone; content lives in the Astro collection.
+DOCS_DIR = "src/content/docs"
 
 ONETWO3D_DOMAIN = "onetwo3d.co.uk"
 ONETWO3D_PARAM_KEY = "wpam_id"
@@ -106,7 +107,7 @@ def load_files_from_list(file_list_path: Path) -> list[Path]:
         if not line:
             continue
         p = Path(line)
-        if p.suffix.lower() not in (".md", ".markdown"):
+        if p.suffix.lower() not in (".md", ".mdx", ".markdown"):
             continue
         files.append(p)
     return files
@@ -117,7 +118,7 @@ def main() -> None:
     ap.add_argument(
         "--files",
         help="Path to a newline-separated file list (relative to repo root). "
-             "If omitted, scans docs/ for *.md and *.markdown.",
+             "If omitted, scans src/content/docs/ for *.md, *.mdx and *.markdown.",
     )
     ap.add_argument(
         "--check",
@@ -131,7 +132,11 @@ def main() -> None:
         files = load_files_from_list(file_list) if file_list.exists() else []
     else:
         root = Path(DOCS_DIR)
-        files = list(root.rglob("*.md")) + list(root.rglob("*.markdown"))
+        files = (
+            list(root.rglob("*.md"))
+            + list(root.rglob("*.mdx"))
+            + list(root.rglob("*.markdown"))
+        )
 
     would_change: list[str] = []
     changed = 0

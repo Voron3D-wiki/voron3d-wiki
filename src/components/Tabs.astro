@@ -1,0 +1,136 @@
+---
+/**
+ * Tabbed panels. Drop-in for Starlight's <Tabs>, same authoring syntax.
+ *
+ * Panels render visible and labelled, and a script then collapses them into a
+ * tab group. That order matters for this site specifically: the tabs on
+ * /printers/ and /printhead/nozzle/ hold most of those pages' content, and
+ * Pagefind indexes the built HTML — panels that started hidden behind JS would
+ * make that content unfindable by search.
+ *
+ * Astro slots are opaque to the parent, so the tab strip cannot be built during
+ * the render; it is assembled on the client from the panels' own labels.
+ */
+---
+
+<div class="tabs" data-tabs>
+  <slot />
+</div>
+
+<style>
+  .tabs {
+    margin-block: var(--space-5);
+  }
+
+  /* Applied by the script once the group is interactive, so the styles below
+     never apply to the un-upgraded fallback. */
+  .tabs[data-ready] :global(.tab-panel__label) {
+    display: none;
+  }
+
+  .tabs[data-ready] :global(.tab-panel[hidden]) {
+    display: none;
+  }
+
+  .tabs :global(.tablist) {
+    display: flex;
+    gap: var(--space-1);
+    overflow-x: auto;
+    margin-block-end: var(--space-4);
+    /* One rule under the whole strip, with the active tab sitting on it. No
+       boxed tabs, no filled active state. */
+    border-block-end: 1px solid var(--rule);
+    scrollbar-width: none;
+  }
+
+  .tabs :global(.tablist)::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs :global(.tablist button) {
+    flex: none;
+    padding: var(--space-2) var(--space-3);
+    border-block-end: 2px solid transparent;
+    margin-block-end: -1px;
+    color: var(--fg-faint);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color var(--ease), border-color var(--ease);
+  }
+
+  .tabs :global(.tablist button:hover) {
+    color: var(--fg);
+  }
+
+  .tabs :global(.tablist button[aria-selected='true']) {
+    color: var(--accent);
+    border-block-end-color: var(--accent);
+  }
+</style>
+
+<script>
+  let group = 0;
+
+  for (const tabs of document.querySelectorAll<HTMLElement>('[data-tabs]')) {
+    const panels = [...tabs.querySelectorAll<HTMLElement>('[data-tab-panel]')];
+    if (panels.length < 2) continue;
+
+    const id = `tabs-${++group}`;
+    const tablist = document.createElement('div');
+    tablist.className = 'tablist';
+    tablist.setAttribute('role', 'tablist');
+
+    const buttons = panels.map((panel, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = panel.dataset.tabLabel ?? `Tab ${index + 1}`;
+      button.id = `${id}-tab-${index}`;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-controls', `${id}-panel-${index}`);
+
+      panel.id = `${id}-panel-${index}`;
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', button.id);
+      // Panels are focusable so a keyboard user can reach content that scrolls
+      // inside them (the nozzle tables, mainly).
+      panel.tabIndex = 0;
+
+      tablist.append(button);
+      return button;
+    });
+
+    function select(index: number, moveFocus = false) {
+      panels.forEach((panel, i) => {
+        panel.hidden = i !== index;
+      });
+      buttons.forEach((button, i) => {
+        const selected = i === index;
+        button.setAttribute('aria-selected', String(selected));
+        // Roving tabindex: one stop for the whole strip, arrows move within it.
+        button.tabIndex = selected ? 0 : -1;
+        if (selected && moveFocus) button.focus();
+      });
+    }
+
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => select(index));
+      button.addEventListener('keydown', (event) => {
+        const keys: Record<string, number> = {
+          ArrowRight: index + 1,
+          ArrowLeft: index - 1,
+          Home: 0,
+          End: buttons.length - 1,
+        };
+        const next = keys[event.key];
+        if (next === undefined) return;
+        event.preventDefault();
+        select((next + buttons.length) % buttons.length, true);
+      });
+    });
+
+    tabs.prepend(tablist);
+    tabs.dataset.ready = '';
+    select(0);
+  }
+</script>

@@ -1,0 +1,130 @@
+---
+/**
+ * The link tree inside one section. Recurses via Astro.self.
+ *
+ * Groups are <details>, opened by markTree() only along the path to the current
+ * page. That is what keeps this to roughly a screenful: the old sidebar
+ * rendered every group of every section expanded at once.
+ *
+ * Depth drives indentation through a custom property rather than a class per
+ * level, so a fourth level would nest correctly without new CSS.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+interface Item {
+  label: string;
+  href?: string;
+  items?: Item[];
+  isCurrent?: boolean;
+  isOpen?: boolean;
+}
+
+interface Props extends HTMLAttributes<'ul'> {
+  items: Item[];
+  depth?: number;
+}
+
+const { items, depth = 0, ...rest } = Astro.props;
+---
+
+<ul class="tree" style={`--depth:${depth}`} {...rest}>
+  {
+    items.map((item) =>
+      item.href ? (
+        <li>
+          <a href={item.href} aria-current={item.isCurrent ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ) : (
+        <li>
+          <details open={item.isOpen}>
+            <summary>
+              <span>{item.label}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </summary>
+            <Astro.self items={item.items ?? []} depth={depth + 1} />
+          </details>
+        </li>
+      )
+    )
+  }
+</ul>
+
+<style>
+  .tree {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tree :is(a, summary) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    /* Each level steps in by one indent, and the whole row stays clickable out
+       to the rail's edge. */
+    padding-block: 0.3rem;
+    padding-inline: calc(var(--space-3) + var(--depth) * 0.85rem) var(--space-2);
+    border-radius: var(--radius-sm);
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+    line-height: 1.45;
+    text-decoration: none;
+    transition: color var(--ease), background-color var(--ease);
+  }
+
+  .tree a:hover,
+  .tree summary:hover {
+    color: var(--fg);
+    background: var(--bg-hover);
+  }
+
+  /* The one place other than a link where the accent is allowed: where you are.
+     A left rule rather than a filled pill — a filled block in a list of plain
+     text is a loud way to say something quiet. */
+  .tree a[aria-current='page'] {
+    position: relative;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .tree a[aria-current='page']::before {
+    content: '';
+    position: absolute;
+    inset-block: 0.15rem;
+    inset-inline-start: 0;
+    width: 2px;
+    border-radius: 1px;
+    background: var(--accent);
+  }
+
+  .tree summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .tree summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .tree summary span {
+    flex: 1;
+  }
+
+  .tree summary svg {
+    flex: none;
+    width: 0.85rem;
+    height: 0.85rem;
+    color: var(--fg-faint);
+    transition: rotate var(--ease);
+  }
+
+  .tree details[open] > summary svg {
+    rotate: 90deg;
+  }
+</style>

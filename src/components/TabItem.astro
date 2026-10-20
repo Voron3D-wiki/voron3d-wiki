@@ -1,0 +1,35 @@
+---
+/**
+ * One panel inside <Tabs>. Drop-in for Starlight's TabItem, so the 4 pages
+ * already using this syntax did not have to be rewritten.
+ *
+ * It renders as a labelled section. <Tabs> upgrades it to a real tab panel on
+ * the client — see the note there about why the panels start visible.
+ */
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<section class="tab-panel" data-tab-panel data-tab-label={label}>
+  <p class="tab-panel__label" data-tab-fallback-label>{label}</p>
+  <slot />
+</section>
+
+<style>
+  .tab-panel > :global(* + *) {
+    margin-block-start: var(--space-4);
+  }
+
+  /* Only shown before the script upgrades the group, and to no-JS readers —
+     without it the panels would run together with no indication of which
+     variant each one describes. */
+  .tab-panel__label {
+    margin-block-end: var(--space-3);
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+    font-weight: 650;
+  }
+</style>

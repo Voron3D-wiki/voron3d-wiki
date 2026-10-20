@@ -6,8 +6,6 @@ from pathlib import Path
 from typing import Iterable
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
-DOCS_DIR = "docs"
-
 ONETWO3D_DOMAIN = "onetwo3d.co.uk"
 ONETWO3D_PARAM_KEY = "wpam_id"
 ONETWO3D_PARAM_VALUE = "9"
@@ -140,7 +138,7 @@ def load_files_from_list(file_list_path: Path) -> list[Path]:
         if not line:
             continue
         p = Path(line)
-        if p.suffix.lower() not in (".md", ".markdown"):
+        if p.suffix.lower() not in (".md", ".mdx", ".markdown"):
             continue
         files.append(p)
     return files
