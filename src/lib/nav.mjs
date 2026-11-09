@@ -122,6 +122,13 @@ export const NAV = [
           { label: 'Extruders', href: '/printhead/extruders/' },
           { label: 'Nozzles', href: '/printhead/nozzle/' },
           { label: 'Stealthburner', href: '/printhead/stealthburner/' },
+          { label: 'DownDraft', href: '/printhead/downdraft/' },
+          {
+            // The "how to choose" for carriages lives in the X Carriages section
+            // of /printhead/ — nav hrefs cannot carry anchors (check-nav).
+            label: 'X Carriages',
+            items: [{ label: 'Chariot', href: '/printhead/chariot/' }],
+          },
         ],
       },
       {

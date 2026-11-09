@@ -1,41 +1,75 @@
 ---
 title: 'Stealthburner'
-description: 'Guide to the Stealthburner toolhead for Voron printers'
+description: 'Guide to the Stealthburner toolhead and Clockwork2 extruder for Voron printers'
 slug: 'printhead/stealthburner'
 ---
 
-import WorkInProgress from '~/components/WorkInProgress.astro';
-
 ## Overview
-The Stealthburner is the latest toolhead design for Voron printers, offering improved cooling, modularity, and ease of assembly.
 
-<WorkInProgress />
+Stealthburner (SB) is VORON Design's toolhead for full-size VORON printers such as the
+V2.4 and Trident.
+It is paired with the **Clockwork2** (CW2) extruder, and the two are released
+together from the same repository. Stealthburner replaced the
+[Afterburner](/printhead/afterburner/) and is still the default toolhead in the
+official build manuals.
 
-{/* ## Features
-- Improved part cooling
-- LED integration
-- Modular design
-- Easy assembly
-- Better cable management */}
-{/* 
-## Components
-1. [Main Body](/printhead/stealthburner/body/)
-2. [Part Cooling](/printhead/stealthburner/cooling/)
-3. [LED System](/printhead/stealthburner/leds/)
-4. [Cable Management](/printhead/stealthburner/cables/)
+It is no longer the only official option: [DownDraft](/printhead/downdraft/) is a newer,
+modular VORON toolhead aimed at builders who want more choice of hotend, extruder and
+part-cooling fan. Both mount to the same carriage pattern, so either works on the
+stock X carriage or on [Chariot](/printhead/chariot/).
 
-## Assembly
-1. [Main Assembly](/printhead/stealthburner/assembly/)
-2. [LED Installation](/printhead/stealthburner/led-install/)
-3. [Cable Routing](/printhead/stealthburner/cable-routing/)
-4. [Final Setup](/printhead/stealthburner/setup/)
+## Why choose Stealthburner
 
-## Configuration
-1. [Firmware Settings](/printhead/stealthburner/firmware/)
-2. [LED Control](/printhead/stealthburner/led-control/)
-3. [Tuning Guide](/printhead/stealthburner/tuning/)
+- **It is the reference toolhead.** The official manuals, the default Klipper configs and
+  most toolhead boards are designed around it, so it is the path with the fewest surprises
+  on a first build.
+- **Large community support.** Almost every common problem has already been solved and
+  documented by someone else.
+- **Built-in LEDs.** Neopixel logo and nozzle lighting are part of the stock design.
 
-## References
-1. [Voron Design](https://vorondesign.com)
-2. [GitHub Repository](https://github.com/VoronDesign/Voron-Stealthburner)
-3. [Community Support](https://discord.gg/voron)  */}
+If you want to run a hotend Stealthburner does not support, or you want a 4010 or
+dual-5015 part-cooling layout, look at [DownDraft](/printhead/downdraft/) instead.
+
+## Latest revision (SB and CW2 update)
+
+VORON Design released an update to Stealthburner and Clockwork2 alongside Chariot and
+DownDraft. The changes:
+
+| Change | What it means for you |
+|--------|-----------------------|
+| **Choice of PTFE inlet** | Use either a bowden collet or an ECAS04 fitting at the top of the extruder. |
+| **Vented PCB cover** | A new cover with hexagonal ("bestagon") vents keeps toolhead boards cooler. |
+| **Optional hall-effect filament sensor** | A filament sensor can now be built into the main body, without a separate add-on. |
+| **Inspection window** | The old anti-squish part has been dropped. An inspection window gives better access to the BMG gears. |
+| **Stronger screw seats** | Extra material ("anti-cracking beef") around the 50mm screw seats on the Stealthburner body. |
+| **Two-tone multibody option** | The CAD now includes a multibody version for printing in two colours. |
+
+There is still no built-in filament cutter.
+
+:::tip[Upgrading an existing Stealthburner]
+These are printed-part revisions, so an existing build can be upgraded by reprinting the
+changed parts. Check the current BOM before you start: the inlet choice and the filament
+sensor need different hardware.
+:::
+
+## Clockwork2 extruder
+
+Clockwork2 is the extruder half of the Stealthburner assembly. It uses BMG-style dual
+drive gears driven by a pancake stepper. The [Extruders](/printhead/extruders/) page
+compares it with other extruder options.
+
+## Official resources
+
+- [Stealthburner on VORON Design](https://vorondesign.com/voron_stealthburner) — BOM and overview
+- [GitHub repository](https://github.com/VoronDesign/Voron-Stealthburner)
+- [Assembly manual (PDF)](https://github.com/VoronDesign/Voron-Stealthburner/raw/main/Manual/Assembly_Manual_SB.pdf)
+- [STL files](https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs)
+- [CAD files](https://github.com/VoronDesign/Voron-Stealthburner/tree/main/CAD)
+
+## Related
+
+- [DownDraft](/printhead/downdraft/) — the modular VORON toolhead
+- [Chariot](/printhead/chariot/) — the newer VORON X carriage for Stealthburner
+- [Toolhead boards](/printhead/toolhead-boards/)
+- [Hotends](/printhead/hotends/)
+- [Printhead overview](/printhead/)

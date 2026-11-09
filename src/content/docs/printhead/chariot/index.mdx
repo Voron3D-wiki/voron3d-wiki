@@ -1,0 +1,79 @@
+---
+title: 'Chariot'
+description: 'Chariot, the VORON Design X carriage for Trident and V2 printers, with native eddy current probe support'
+slug: 'printhead/chariot'
+---
+
+## Overview
+
+Chariot is an X carriage from VORON Design for the **Voron Trident** and **Voron V2**
+printers. The X carriage rides on the X-axis rail and carries the toolhead, the probe and
+the ends of the X/Y belts. Chariot replaces the stock carriage and is designed around
+modern probes, especially eddy current ones.
+
+For a comparison with the other kinds of carriage (stock, Tap, toolchanger shuttles, CNC)
+and help choosing between them, see [X Carriages](/printhead/#x-carriages) on the
+Printhead page.
+
+## Why the X carriage matters
+
+The carriage decides three things that are hard to change later:
+
+- **Which probes you can mount.** Eddy current probes need to sit close to the nozzle and
+  a fixed distance above it. On the stock carriage they need a printed adapter.
+- **How the belts are held and tensioned.** The belt clamps take the full belt tension,
+  and they set how easy it is to adjust that tension.
+- **Which toolheads fit.** Toolheads attach through a mounting pattern, so the carriage
+  limits your choice of toolhead.
+
+## What Chariot offers
+
+### Probe support
+
+Chariot has a native mount for eddy current probes in the **Beacon / Cartographer size
+format**. It also supports:
+
+- [BTT Eddy](/bedleveling/eddy/)
+- Klicky
+- Prusa PINDA
+
+The BTT Eddy and PINDA mounts need two extra brass heat inserts (16 rather than 14) and two
+M3×20mm BHCS. The [Bed Leveling](/bedleveling/) page explains how to choose a probe.
+
+### Belt clips
+
+Chariot has new belt clips designed to be compact, easy to assemble and install, and easy
+to adjust.
+
+### Toolhead compatibility
+
+Chariot supports any toolhead that uses the **Clockwork2 mounting pattern**, including:
+
+- [Stealthburner](/printhead/stealthburner/)
+- [DownDraft](/printhead/downdraft/)
+- XOL
+- A4T
+
+## Hardware
+
+The hardware list is short. It needs brass heat inserts, M3 screws (BHCS and SHCS from 6mm
+to 30mm), two Makerbeam XL T-slot nuts, two M3 washers, one self-tapping M2×10mm screw and a
+zip tie. The full list, with the probe-specific changes, is in the
+[official BOM](https://github.com/VoronDesign/voron-chariot/blob/main/BOM.md).
+
+## Official resources
+
+- [Chariot on VORON Design](https://vorondesign.com/voron_chariot)
+- [GitHub repository](https://github.com/VoronDesign/voron-chariot)
+- [Assembly manual (PDF)](https://github.com/VoronDesign/voron-chariot/raw/main/Manual/Assembly_Manual_Chariot.pdf)
+- [STL files](https://github.com/VoronDesign/voron-chariot/tree/main/STLs)
+- [CAD files](https://github.com/VoronDesign/voron-chariot/tree/main/CAD)
+
+## Related
+
+- [X Carriages: types and how to choose](/printhead/#x-carriages)
+- [Voron V2.4](/printers/2.4/)
+- [Voron Trident](/printers/trident/)
+- [Bed leveling and probes](/bedleveling/)
+- [Stealthburner](/printhead/stealthburner/)
+- [DownDraft](/printhead/downdraft/)
