@@ -48,7 +48,9 @@
 /printers/v0/bom/
 /printhead/
 /printhead/afterburner/
+/printhead/chariot/
 /printhead/cooling/
+/printhead/downdraft/
 /printhead/extruders/
 /printhead/hotends/
 /printhead/hotends/chcXL/

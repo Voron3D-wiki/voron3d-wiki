@@ -1,0 +1,85 @@
+---
+title: 'DownDraft'
+description: 'DownDraft, the modular VORON Design toolhead with wide hotend, extruder and fan support'
+slug: 'printhead/downdraft'
+---
+
+## Overview
+
+DownDraft is a modular toolhead from VORON Design. Its designer also created the
+Dragonburner and YAVOTH toolheads. DownDraft is made for the **Voron Trident, V2, Legacy and
+Switchwire**. Its aim is to let you pick your hotend, extruder and part cooling without
+changing the core toolhead.
+
+## DownDraft or Stealthburner?
+
+| | [Stealthburner](/printhead/stealthburner/) | DownDraft |
+|--|--|--|
+| Extruder | Clockwork2 (built in) | Bring your own: Orbiter v2 pattern, others with a spacer |
+| Hotends | Common hotends through official mounts (e.g. Dragon, Rapido, Revo Voron) | 15+ hotends, from Revo Voron to Goliath |
+| Part cooling | Single 5015 | Two 4010 or two 5015 blowers |
+| Toolhead boards | SB-style boards | 36mm boards, SB-style 2-part boards, PUG |
+| Best for | First builds following the official manual | Builders who already know what hardware they want |
+
+Both use the Clockwork2 carriage mounting pattern, so both fit the stock X carriage and
+[Chariot](/printhead/chariot/).
+
+## Features
+
+- **Modular design.** Swap mounts to suit your hotend, extruder and cooling, without
+  redesigning the toolhead.
+- **Bring your own extruder.** Orbiter v2 mount pattern natively. LGX Lite and Sherpa Mini
+  patterns fit with the alternative extruder spacer.
+- **2510 hotend fan in three positions.** High, middle and low front mounts line up the
+  airflow with heatsinks of different heights.
+- **4010 or 5015 part cooling.** Two variants, each using two blower fans.
+- **LEDs.** Neopixels or "Rainbow barf" at the logo. Nozzle lighting by Neopixel or a
+  piece of 144 LED/m strip.
+- **Universal mounts** for cable chains and toolhead boards, including two-part
+  Stealthburner-style boards. Works with umbilical or cable-chain wiring, and supports PUG
+  out of the box.
+- **Easier servicing.** Better access to common maintenance areas, so less disassembly
+  is needed for inspection and repairs.
+
+## Supported hotends
+
+The hotend sets which front mount (and so which hotend fan height) you use.
+
+| Fan position | Hotends |
+|---|---|
+| **High** | Goliath / CHC XL, Dragon UHF, Rapido UHF, Rapido X, Tricorn Air Long, Dragon Ace + MZE |
+| **Middle** | Dragon Ace, Dragon Volcano, Rapido HF, Tricorn Air Short, Revo Voron Volcano |
+| **Low** | Dragon SF/HF, Chube Compact, TZ-V6 v2 (with V6 nozzle), Revo Voron |
+
+For help choosing a hotend, see the [Hotends](/printhead/hotends/) page.
+
+## Fans
+
+DownDraft's hardware compatibility list gives these tested fans. Choose the highest
+RPM version available, especially for GDStime fans, which come in several speeds.
+
+| Role | Size | Tested fans | Notes |
+|---|---|---|---|
+| Hotend | 2510 axial | GDStime, Vindr, Delta | |
+| Part cooling | 5015 blower | GDStime (8500 rpm), Delta BFB0524HH, R3:men, Vindr Berserker, Mechatronics | 6K+ rpm recommended. The Vindr Berserker skips the spring mount and needs its front cable tabs removed. The Mechatronics fan fits very tightly. |
+| Part cooling | 4010 blower | GDStime, Vindr, Honeybadger, Delta | 12K rpm recommended |
+
+The [Fans](/electronics/fans/) page covers fan sizes and buying options.
+
+## Official resources
+
+- [DownDraft on VORON Design](https://vorondesign.com/voron_downdraft)
+- [GitHub repository](https://github.com/VoronDesign/voron-downdraft)
+- [Assembly manual (PDF)](https://github.com/VoronDesign/voron-downdraft/raw/main/Manual/DownDraft_Assembly_Manual.pdf)
+- [BOM](https://github.com/VoronDesign/voron-downdraft/blob/main/BOM.md)
+- [Hardware compatibility list](https://github.com/VoronDesign/voron-downdraft/blob/main/HARDWARE_COMPATIBILITY_LIST.md)
+- [STL files](https://github.com/VoronDesign/voron-downdraft/tree/main/STLs)
+- [CAD files](https://github.com/VoronDesign/voron-downdraft/tree/main/CAD)
+
+## Related
+
+- [Stealthburner](/printhead/stealthburner/)
+- [Chariot](/printhead/chariot/)
+- [Extruders](/printhead/extruders/)
+- [Hotends](/printhead/hotends/)
+- [Toolhead boards](/printhead/toolhead-boards/)

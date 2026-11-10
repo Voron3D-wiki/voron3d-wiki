@@ -34,14 +34,79 @@ A toolhead board greatly simplifies your wiring and can add some interesting fea
 
 | Toolhead | Pros | Cons | offical github repo (if applicable) |
 |----------|----------|----------|---------------|
-| Stealthburner | Latest design, LED support, modular | New builds | [More Info](https://github.com/VoronDesign/Voron-Stealthburner) |
+| [Stealthburner](/printhead/stealthburner/) | Official toolhead used in the build manuals, LED support, Clockwork2 extruder, recently updated (filament sensor option, vented PCB cover) | Fewer hotend and fan options than DownDraft | [More Info](https://github.com/VoronDesign/Voron-Stealthburner) |
+| [DownDraft](/printhead/downdraft/) | Official modular toolhead: 15+ hotends, bring-your-own extruder (Orbiter v2 pattern), 4010 or 5015 part cooling, PUG support | Newer, so less community experience than Stealthburner | [More Info](https://github.com/VoronDesign/voron-downdraft) |
 | Mini Stealthburner | Latest Offical voron design for the Voron V0 printer, designed specifically to fit inside the v0 and its small frame, <br /> This toolhead is also used on many other salad fork printers, LED support, modular | printed parts available | **coming soon** |
 | Afterburner | Classic design, proven reliability | Legacy builds | [More Info](https://github.com/VoronDesign/Voron-afterburner) |
 | Mini Afterburner | Compact design, reduced weight | Small printers |  **coming soon**  |
 | XOL | Lightweight, high-speed design <br /> Speed-focused builds | Has had multiple revision and changes such as the Mantis XOL, XOL2 etc, |  [More Info](https://github.com/Armchair-Heavy-Industries/Xol-Toolhead/tree/main) |
 | AT4 | Advanced cooling, modular design | Limited hotend support as it has tight clearance in between the fans and the hotend |  [More Info](https://github.com/Armchair-Heavy-Industries/A4T/tree/main) |
-| Dragon Burner | | |  [More Info](https://github.com/chirpy2605/voron/tree/main/V0/Dragon_Burner) |
+| Dragon Burner | From the designer of [DownDraft](/printhead/downdraft/) | |   [More Info](https://github.com/chirpy2605/voron/tree/main/V0/Dragon_Burner) |
 | CrownCooler | CPAP | CPAP |  [More Info](https://github.com/sneakytreesnake/CrownCooler/tree/main) |
+
+## X Carriages
+
+The X carriage is the part between the toolhead and the X-axis rail. It rides on the
+rail's carriage block, holds the ends of the X/Y belts, and gives the toolhead (and often
+the probe) something to bolt to. It's easy to overlook, but the carriage decides which
+toolheads and probes you can run, and it affects print quality at speed.
+
+:::note[Which printers this applies to]
+This section is about CoreXY Vorons with a separate X carriage: the **V2.4**, **Trident**
+and **Legacy** printers. The V0 and Switchwire use different motion systems, and their
+toolheads mount differently.
+:::
+
+### Why the carriage matters
+
+**Toolhead compatibility.** Toolheads attach through a mounting pattern. Most current
+toolheads, including [Stealthburner](/printhead/stealthburner/),
+[DownDraft](/printhead/downdraft/), XOL and A4T, use the **Clockwork2 mounting pattern**.
+A carriage that keeps this pattern lets you swap toolheads later without rebuilding the X
+axis. A carriage that is built into one toolhead (or uses its own pattern) ties you to that
+toolhead.
+
+**Probe options.** Where the probe mounts depends on the carriage. Eddy current probes
+(Beacon, Cartographer, BTT Eddy) need to sit close to the nozzle at a fixed height. A
+carriage with a native mount avoids printed adapters, which add flex and can shift the
+probe offset. Nozzle probes such as Tap *replace* the carriage. See
+[Bed Leveling](/bedleveling/) for choosing a probe.
+
+**Rigidity.** The carriage is the link between the belts and the nozzle. If it flexes,
+that shows up as ringing, softer corners and lower input-shaper frequencies. Stiff
+mounting to the rail block and the belt clamps matters more than the material alone.
+
+**Moving mass.** Everything on the X carriage is moved by the A/B motors on every move.
+A lighter carriage allows higher acceleration for the same input-shaper result. This is
+also why some speed builds pair a light carriage with a lighter X extrusion and an MGN9
+rail.
+
+**Belt clamping and tensioning.** The carriage takes the full belt tension. Clamps that
+slip or are hard to reach make it hard to set and match belt tension, which affects
+dimensional accuracy and skew.
+
+**Rail size.** The carriage is made for a rail size and block type (usually MGN12H on the
+V2.4 and Trident). If you change the rail, you have to change the carriage too.
+
+### Types of X carriages
+
+| Type | Examples | Toolhead fit | Probe | Trade-offs |
+|------|----------|--------------|-------|------------|
+| **Stock printed carriage** | The X carriage that ships with the Stealthburner/CW2 release | Clockwork2 pattern | Built for the stock inductive probe. Other probes need a mount | Well documented and easy to print, but an eddy probe needs an adapter |
+| **Official modern carriage** | [Chariot](/printhead/chariot/) | Clockwork2 pattern (SB, DownDraft, XOL, A4T) | Native Beacon/Cartographer-size eddy mount, plus BTT Eddy, Klicky and PINDA | Newer, so less tested by the community than the stock carriage. Trident and V2 only |
+| **Nozzle probe carriage** | [Voron Tap](https://github.com/VoronDesign/Voron-Tap) | Front-mounted extruders such as Clockwork2, LGX and Galileo | The nozzle *is* the probe (optical switch). No Z endstop needed | Built around an MGN12H rail. The toolhead moves on its own small rail, which adds parts and some mass |
+| **Toolchanger shuttle** | [StealthChanger](https://github.com/DraftShift/StealthChanger) | Many toolheads through per-tool backplates (SB, Dragon Burner, XOL, A4T and others) | Usually nozzle probing (StealthChanger grew out of Tapchanger) | A different class of build: multiple tools, docks and more Klipper setup |
+| **CNC metal carriage** | Aftermarket aluminium or ultra-light CNC carriages (see the [V2.4](/printers/2.4/) and [Trident](/printers/trident/) hardware lists) | Usually the Clockwork2 pattern, but check each one | Varies | Stiff and often light, but check the belt clamp design and probe mounting before you buy |
+
+### How to choose
+
+1. **Start from the toolhead.** If you want to keep the option of changing toolheads,
+   choose a carriage that uses the Clockwork2 mounting pattern.
+2. **Decide on the probe.** Eddy current probe: a carriage with a native mount, such as
+   [Chariot](/printhead/chariot/). Nozzle probing: Tap. Multiple tools: StealthChanger.
+3. **Match your rail.** Check the rail size and block type the carriage needs.
+4. **Weigh mass against stiffness** only once the first three are settled. For most
+   builds, a well-printed carriage in ABS or ASA is not the limiting factor.
 
 ## References
 1. [Voron Design](https://vorondesign.com)

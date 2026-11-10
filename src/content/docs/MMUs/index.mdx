@@ -23,16 +23,6 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
 
 ### [MadMax](https://github.com/zruncho3d/madmax/tree/main)
 
-## Commercial Toolchanger Options
-
-### e3d
-
-### Prusa XL
-
-### Prusa Core One (+ / L) INDEX
-
-### Snap Maker u1
-
 ## Filament Feeders / filament Multiplexers
 
 ### [ERCF (Enraged Rabbit Carrot Feeder)](/MMUs/ERCF/)
@@ -88,30 +78,6 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
     - Compatible with various slicers
     - Designed for high-speed filament swapping
 
-## Commercial Options
-
-### BTT ViViD
-- **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
-- **Key Features**: 
-    - Seems like a AMS style system with space for 4 spoos
-
-### Anycubic MMU
-- **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
-- **Key Features**:
-    - Supports up to 4 colors/materials
-
-### Prusa MMU
-- **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
-- **Key Features**:
-    - Automatic filament loading/unloading
-    - Integrated with PrusaSlicer for seamless operation
-
-### BambuLabs AMS
-
-### BambuLabs AMS Lite
-
-### BambuLabs AMS 2
-
 ## Other Relevant Modifications
 
 ### [Blobifier](https://github.com/Dendrowen/Blobifier)
@@ -138,10 +104,165 @@ Multi-Material Upgrade (MMU) systems allow 3D printers to print with multiple fi
       - Mid-range: PICO-MMU, BTT MMU
       - High-end: ERCF, Box Turtle
 
-4. **Maintenance Requirements**
+4. **Waste and Change Speed**
+      - Filament changers (ERCF, BoxTurtle, AMS-style) purge on every colour change, which
+        adds time and plastic on prints with many changes
+      - Toolchangers and hotend changers (StealthChanger, Tap Changer, IDEX, or commercial
+        machines such as the Bambu H3C, Prusa INDX and Snapmaker U1) waste almost nothing,
+        but cost more per colour
+      - See [the approaches](#the-approaches) in the commercial section below
+
+5. **Maintenance Requirements**
       - Low: Commercial solutions
       - Medium: PICO-MMU
       - High: ERCF, Box Turtle
+
+## Commercial Multi-Material Options
+
+Commercial printers and add-on filament changers now use every approach covered on this
+page. Comparing them helps you decide what to build on a Voron, because each approach makes
+the same trade-offs whether it is a kit or a closed machine. The table below compares the
+approaches. It is followed by printers with multiple hotends or tools, and then by
+commercial single-nozzle filament changers.
+
+### The approaches
+
+| Approach | How it works | Waste per change | Speed per change | Material mixing |
+|----------|--------------|------------------|------------------|-----------------|
+| **Single nozzle + filament changer** (AMS, CFS, ERCF, BoxTurtle) | One hotend; filament is cut or retracted and the next one loaded | High: the nozzle has to be purged | Slow: tens of seconds to minutes | Limited: materials share one nozzle and one temperature |
+| **Dual nozzle** (Bambu H2D) | Two fixed nozzles on one toolhead, each of which can be fed by a filament changer | Low between the two nozzles, high within each one | Fast between nozzles | Good for two materials (e.g. PLA plus support) |
+| **Hotend changer: IDEX** (independent dual extruders) | Two complete printheads on separate X carriages; the idle one parks at the side | Near zero between the two heads | Fast | Good for two materials. Many IDEX printers can also print two copies at once (duplicate/mirror modes) |
+| **Hotend changer: hotend swapping** (Bambu H2C, Bambu H3C) | The printer swaps hotends from a rack or dock instead of whole toolheads | Very low | Fast | Good: each hotend keeps its own material and nozzle |
+| **Full toolchanger** (Prusa XL, Core One INDX, Snapmaker U1, StealthChanger) | Each tool is a complete toolhead; the printer picks one up from a dock | Near zero | Fast | Best: each tool can run its own material and temperature |
+
+:::note[Specs change quickly]
+These are summaries of launch specs and early reviews. Sources sometimes disagree,
+especially on build volume and tool counts. Check the manufacturer's current spec sheet
+before you buy.
+:::
+
+### Printers with multiple hotends or tools
+
+#### Bambu Lab H3C
+- **Type**: Hotend changer (Bambu "SwapTek"), the successor to the H2C's Vortek system
+- **Released**: November 3, 2026, from $2,499 (Combo)
+- **Key Features**:
+    - Nine swappable hotends, each with its own filament path and heater. Hotends preheat in
+      the dock.
+    - Bambu quotes about 3.4 s for a mechanical swap and about 6 s for a full material change
+    - Hardened nozzles for abrasive filaments, 350 °C hotends, 65 °C actively heated chamber
+    - About 330 × 320 × 325 mm build volume
+    - Ships with a new nine-spool AMS unit with RFID, auto-loading and filament drying
+- **Notes**: Early reviews say real prints run only slightly faster than on the H2C/H2D. The
+  gains come from fast, low-waste hotend swaps, not from top speed.
+
+#### Bambu Lab H2C
+- **Type**: Hotend changer (Bambu "Vortek")
+- **Key Features**:
+    - One fixed nozzle, plus a rack of up to six Vortek hotends that swap in on the other
+      side of the toolhead: up to seven nozzles in total
+    - Expands to 24 filaments with AMS units
+    - 350 °C nozzles, 120 °C bed, 65 °C actively heated chamber
+- **Notes**: Out of the box, the hotend rack holds nozzles of mixed sizes, so it is not a
+  seven-colour printer until you buy more hotends.
+
+#### IDEX printers
+- **Type**: Hotend changer (independent dual extruders)
+- **Description**: Two complete printheads, each on its own X carriage. While one prints,
+  the other parks at the side of the bed.
+- **Key Features**:
+    - Two materials with almost no purge, for example a model plus soluble support
+    - Duplicate and mirror modes print two copies of a part at once
+- **Notes**: Limited to two heads. The second carriage adds width and moving parts.
+  Several commercial printers use IDEX, but few Voron mods do.
+
+#### Bambu Lab H2D
+- **Type**: Dual nozzle
+- **Key Features**:
+    - Two nozzles on one toolhead, each of which can be fed by an AMS
+    - Good for printing two materials, such as a model plus soluble or breakaway support
+- **Notes**: Colour changes within one nozzle still purge like any AMS printer.
+
+#### Snapmaker U1
+- **Type**: Full toolchanger
+- **Key Features**:
+    - Four independent toolheads
+    - Snapmaker quotes about 5 s per tool change
+    - 270 × 270 × 270 mm build volume
+- **Notes**: One of the cheapest true toolchangers. It is smaller and louder than the Bambu
+  H-series.
+
+#### Prusa Core One INDX
+- **Type**: Full toolchanger (Prusa with Bondtech's INDX passive-tool system)
+- **Key Features**:
+    - Up to eight tools on a Core One
+    - Passive tools: the motor and extruder stay on the carriage, which keeps the tools
+      simple and cheap
+- **Notes**: The full eight-tool setup is one of the more expensive options.
+
+#### Prusa XL
+- **Type**: Full toolchanger
+- **Key Features**:
+    - Up to five independent toolheads
+    - Large 360 × 360 mm bed
+- **Notes**: The longest-running consumer toolchanger, with a mature PrusaSlicer workflow.
+
+#### E3D ToolChanger
+- **Type**: Full toolchanger (motion system and tools)
+- **Notes**: One of the first hobby toolchangers. It made the dock-and-pick-up approach
+  popular, and open-source projects such as Tap Changer and StealthChanger use the same
+  approach.
+
+### Filament changers
+
+These are single-nozzle filament changers (the "AMS style"). Most are tied to their maker's
+printers, but they show where open-source units like BoxTurtle are heading: sealed boxes,
+filament drying, RFID spool detection and chaining several units together.
+
+#### BTT ViViD
+- **Description**: A BigTreeTech MMU system that offers integration with their control boards and firmware. At this time, there is not much known.
+- **Key Features**: 
+    - Seems like a AMS style system with space for 4 spoos
+
+#### Anycubic MMU
+- **Description**: Anycubic's solution for multi-material printing, originally released with the Kobra 3 3D printer. It will soon be supported by the upcoming Anycubic S1 as well.
+- **Key Features**:
+    - Supports up to 4 colors/materials
+
+#### Prusa MMU
+- **Description**: An innovative add-on for Prusa 3D printers, supporting up to five filaments for multi-color and multi-material prints.
+- **Key Features**:
+    - Automatic filament loading/unloading
+    - Integrated with PrusaSlicer for seamless operation
+
+#### Bambu Lab AMS family
+- **AMS**: The original four-spool enclosed unit. Several can be chained.
+- **AMS Lite**: An open, four-spool version for the A1 series
+- **AMS 2 Pro**: A sealed four-spool unit that also dries filament (up to about 65 °C)
+- **AMS HT**: A single-spool unit for high-temperature drying and engineering filaments.
+  It can be mixed with AMS 2 Pro units, for up to 24 slots on the H2-series printers.
+- **H3C AMS**: The H3C ships with a new nine-spool unit with RFID, auto-loading and drying
+
+#### Creality CFS
+- **Description**: Creality's filament system for the K-series printers
+- **Key Features**:
+    - Four spools per sealed, desiccant-equipped box. Stacks to 16 colours.
+    - Reviews report reliability still improving through firmware updates. Check TPU support
+      before you rely on it.
+
+#### Elegoo CANVAS
+- **Description**: Elegoo's low-cost multi-colour system
+- **Key Features**:
+    - Four colours, each driven by its own motor
+    - Handles 95A TPU
+    - No filament drying and no documented way to add more units
+
+#### Anycubic ACE Pro / ACE 2 Pro
+- **Description**: Anycubic's filament changer for the Kobra series. See also the
+  [Anycubic MMU](/MMUs/Anycubic-MMU/) page.
+- **Key Features**:
+    - Four spools per unit, with drying while printing (ACE 2 Pro)
+    - Reports differ on how many units can be chained. Check your printer model.
 
 ## Technical Considerations
 
