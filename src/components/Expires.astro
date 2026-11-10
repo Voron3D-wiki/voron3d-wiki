@@ -1,0 +1,53 @@
+---
+/**
+ * Show time-limited content (an announcement, a "just released" banner) only
+ * until a date, then drop it without anyone having to remember to.
+ *
+ * The site is static and is only rebuilt on push, so there are two layers:
+ *   1. Build time: if the date has already passed, the content is not rendered
+ *      at all.
+ *   2. View time: a tiny inline script hides the content once the viewer's
+ *      clock passes the date, so a build from before the deadline does not keep
+ *      showing it.
+ *
+ * `until` is exclusive and read as UTC midnight: until="2027-01-01" means the
+ * content shows through 31 December 2026.
+ *
+ * Usage:
+ *   <Expires until="2027-01-01">
+ *     ...markdown or components...
+ *   </Expires>
+ */
+interface Props {
+  until: string;
+}
+
+const { until } = Astro.props;
+const deadline = Date.parse(`${until}T00:00:00Z`);
+if (Number.isNaN(deadline)) {
+  throw new Error(`<Expires until="${until}">: expected a YYYY-MM-DD date`);
+}
+const expired = Date.now() >= deadline;
+---
+
+{!expired && (
+  <>
+    <div class="expires" data-expires={deadline}>
+      <slot />
+    </div>
+    <script is:inline define:vars={{ deadline }}>
+      if (Date.now() >= deadline) {
+        document.querySelectorAll(`[data-expires="${deadline}"]`).forEach((el) => {
+          // Drop the "On this page" entries for headings inside, too, so the
+          // table of contents does not point at a section that is gone.
+          el.querySelectorAll('[id]').forEach((h) => {
+            document
+              .querySelectorAll(`a[href="#${CSS.escape(h.id)}"]`)
+              .forEach((a) => (a.closest('li') || a).remove());
+          });
+          el.remove();
+        });
+      }
+    </script>
+  </>
+)}

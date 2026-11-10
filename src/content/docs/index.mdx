@@ -5,6 +5,7 @@ description: 'Welcome to the Voron3D Wiki - Your comprehensive resource for Voro
 
 import CardGrid from '~/components/CardGrid.astro';
 import WikiCard from '~/components/WikiCard.astro';
+import Expires from '~/components/Expires.astro';
 import { Image } from 'astro:assets';
 import logo from '~/assets/logo.svg';
 
@@ -13,6 +14,11 @@ import logo from '~/assets/logo.svg';
 Our goal is to provide a comprehensive resource for anyone interested in learning more about Voron 3D printers and other 3D printing-related topics. We aim to make a useful resource for finding interesting modifications and share knowledge about the latest developments in the industry.
 
 This wiki is not affiliated with the offical voron design team, we are simply a community of enthusiasts who are passionate about 3D printing and Voron printers.
+
+{/* Announcement for the Chariot / DownDraft / SB+CW2 releases (Nov 2026).
+    Shows through 31 Dec 2026, then disappears on its own. Delete this block
+    whenever convenient after that. */}
+<Expires until="2027-01-01">
 
 ## 🚀 Just Released
 
@@ -43,6 +49,8 @@ gears.
 **Also new: multi-material.** Toolchangers and hotend changers have gone mainstream, with
 the Bambu H3C, Snapmaker U1 and Prusa INDX. [See how they compare with StealthChanger,
 ERCF and BoxTurtle →](/MMUs/#commercial-multi-material-options)
+
+</Expires>
 
 ## What is Voron?
 The Voron project revolves around open-source 3D printers that are known for their modularity, precision, and high print quality. These machines are highly customizable and can be tailored to individual needs, whether for personal, professional, or industrial use. The key feature of Voron printers is the community's commitment to improving every aspect of the design, including mechanics, electronics, and firmware.
